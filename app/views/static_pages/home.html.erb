@@ -4,7 +4,6 @@
     <p> <b>Desc:</b>  <%= post.description %></p>
     <p> <b>User:</b>  <%= post.user.email %></p>
     <% end %>
-  <p>You are logged in with:  <%= current_user.email %> </p>
   <%= link_to "ask a question", new_post_path %>
   <%= link_to "sign out", sign_out_path, method: :delete %>
 <% else %>

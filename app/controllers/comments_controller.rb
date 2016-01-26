@@ -12,7 +12,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comments_params)
     if @comment.save
-      redirect_to post_comments_path
+      redirect_to root_path
+    else
+      render 'new'
     end
   end
 

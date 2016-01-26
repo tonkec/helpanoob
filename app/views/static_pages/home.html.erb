@@ -1,8 +1,14 @@
 <% if user_signed_in? %>
   <h1>Welcome to simple app</h1> 
   <% @home_posts.each do |post| %>
-    <p> <b>Desc:</b>  <%= post.description %></p>
-    <p> <b>User:</b>  <%= post.user.email %></p>
+    <p> <b>Post:</b>  <%= post.description %></p>
+      <% post.comments.each do |c| %>
+        <p><b>Comment:</b> <%= c.content %></p>
+        <p><b>Commented by: </b><%= c.post.user.email %></p>
+      <% end %>
+     <p> <b>Posted By:</b>  <%= post.user.email %></p>
+      <%= link_to "add a comment", new_post_comment_path(post) %>
+     <hr>
     <% end %>
   <%= link_to "ask a question", new_post_path %>
   <%= link_to "sign out", sign_out_path, method: :delete %>

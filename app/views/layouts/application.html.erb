@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p>You are logged in with:  <%= current_user.email %> </p>
+<% if user_signed_in? %>
 
+<p>You are logged in with:  <%= current_user.email %> </p>
+<% end %>
 <%= yield %>
 
 </body>

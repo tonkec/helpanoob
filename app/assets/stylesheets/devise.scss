@@ -1,0 +1,13 @@
+@import "main";
+/*========================
+SIGNUP PAGE
+=========================*/
+.sign-up-wrapper {
+	height: 100%;
+	background-color: $main-color;  
+}
+
+.inner-wrapper {
+	@include center-vertically;
+	@include center-horizontally;
+}

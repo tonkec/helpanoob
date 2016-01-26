@@ -1,5 +1,16 @@
 <h1>Create comment for <i><%= @post.description %></i></h1>
 <%= form_for [@post, @comment] do |f| %>
+<% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= f.label :content, 'Comment' %><br />
     <%= f.text_area :content, :rows => '12', :cols => 35 %>

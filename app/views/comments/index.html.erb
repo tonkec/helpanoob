@@ -1,0 +1,4 @@
+<h1><%=@post.description %></h1>
+<% @comments.each do |c| %>
+  <%= c.content %>
+<% end %>

@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @group.title %>
-</p>
+
+  <h1>Welcome to group <%= @group.title %></h1>
+  <p>List of posts:</p>
+  <ul>
+    <% @group.posts.each do |post| %>
+      <li><%=link_to post.description, post_path(post) %></li>
+    <% end %>    
+  </ul>  
+
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

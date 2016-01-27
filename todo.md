@@ -6,10 +6,12 @@
 	2. voting system
 		1. belongs to comment
 		2. belongs to post
+		3. Acts As Votable gem
 	3. create groups
 		1. has_many posts, post belongs to group
 		2. has_many comments through posts
 	4. search by keyword group, answers, comments
+	5. Pagination for comments and posts
 
 ####User model
 	1. Devise

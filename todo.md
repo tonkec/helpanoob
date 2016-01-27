@@ -23,19 +23,17 @@
 	5. Can edit only his profile page
 	6. If not logged in can not access any page then login and signup
 
-####Assets
-	1. Bootstrap
-	2. Normalize
-
 ####Layout
 	1. Create partials for creating/editing posts/comments
 	2. Add truncate for questions description
 	3. AFTER VOTING SYSTEM: on root page show latest hottest questions
+	4. Preloader between pages
 
 ####Fixes
 	1. Rename Posts to Questions
 
 ####Tests
+	0. Add Fake data with Faker
 	1. Layout
 		1. Check if comments showed on post's page are associated with that post
 		2. Check if posts showed on user's page are associated with that user

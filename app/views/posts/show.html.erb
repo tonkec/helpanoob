@@ -8,6 +8,12 @@
   <strong>User:</strong>
   <%= @post.user.email %>
 </p>
+<ul>
+  Comments for this post
+  <% @post.comments.each do |c| %>
+    <li><%= c.content %></li>  
+  <% end %>
+</ul>
 
 <%= link_to 'Add a comment',new_post_comment_path(@post) %> |
 <%= link_to 'Edit', edit_post_path(@post) %> |

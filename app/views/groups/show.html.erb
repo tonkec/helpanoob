@@ -6,6 +6,12 @@
   <ul>
     <% @group.posts.each do |post| %>
       <li><%=link_to post.description, post_path(post) %></li>
+      <ul>
+        <p>List of comments</p>
+        <% post.comments.each do |c| %>
+          <li><%= link_to c.content, post_comments_path(post)%></li>
+        <%end %>
+      </ul>
     <% end %>    
   </ul>  
 

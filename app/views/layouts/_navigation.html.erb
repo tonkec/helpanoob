@@ -1,5 +1,9 @@
-<nav>
-  <i class="fa fa-user fa-nav"></i>
-  <i class="fa fa-cog fa-nav"></i>
-  <i class="fa fa-plus fa-nav"></i>
+<nav class="nav">
+  <%= link_to user_path(current_user) do%>
+    <i class="fa fa-nav fa-user"></i>
+  <% end %>
+
+  <%= link_to new_post_path do%>
+    <i class="fa fa-nav fa-plus"></i>
+  <% end %>
 </nav>

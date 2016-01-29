@@ -2,3 +2,11 @@
 @import "components/mixins";
 @import "components/typography";
 @import "components/layout";
+
+textarea {
+	resize: none; 
+}
+
+.btn-full {
+	width: 100%; 
+}

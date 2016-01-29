@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+   <%= f.text_field :title, class: "new-question-form form-control", placeholder: "Title" %>
+    <%= f.text_area :description, class: "new-question-form form-control", placeholder: "Ask a question" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Ask", class: "btn-full" %>
   </div>
 <% end %>
-<p>You are signed_in as <%= current_user.email %></p>

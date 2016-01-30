@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if user_signed_in? %>
 <%= render partial: "layouts/navigation" %>
+<% end %>
 <%= yield %>
-<%= link_to "Home", root_path %>
- <%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

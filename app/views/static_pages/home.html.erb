@@ -1,17 +1,16 @@
 <% if user_signed_in? %>
-  <h1>Welcome to simple app</h1> 
-  <% @home_posts.each do |post| %>
-    <p> <b>Post:</b>  <%= post.description %></p>
-      <% post.comments.each do |c| %>
-        <p><b>Comment:</b> <%= c.content %></p>
-        <p><b>Commented by: </b><%= c.post.user.email %></p>
-      <% end %>
-     <p> <b>Posted By:</b>  <%= post.user.email %></p>
-      <%= link_to "add a comment", new_post_comment_path(post) %>
-     <hr>
-    <% end %>
-  <%= link_to "ask a question", new_post_path %>
-  <%= link_to "sign out", sign_out_path, method: :delete %>
+  <div class="row home-row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h1>Hottest Questions</h1> 
+    </div>
+     <% @home_posts.each do |post| %>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+     <p><%= link_to post.description, post_path(post)%></p>
+     <hr>    
+    </div>
+     <% end %>
+  </div>
+ 
 <% else %>
   <h1>Please <%= link_to "sign_in", sign_in_path %></h1>
   <h1>Here will be landing page for not signed_in users</h1>

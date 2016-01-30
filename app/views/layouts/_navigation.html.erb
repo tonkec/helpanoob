@@ -1,9 +1,40 @@
 <nav class="nav">
-  <%= link_to user_path(current_user) do%>
-    <i class="fa fa-nav fa-user"></i>
-  <% end %>
+  <button class="btn-nav">
+  <div class="bar arrow-top-r"></div>
+  <div class="bar arrow-middle-r"></div>
+  <div class="bar arrow-bottom-r"></div>
+</button>
 
   <%= link_to new_post_path do%>
     <i class="fa fa-nav fa-plus"></i>
   <% end %>
+
+
 </nav>
+
+<div class="nav-container hidden hideNav">
+  <ul class="nav-list">
+    <li class="list-item">
+      <%= link_to root_path do%>
+        <i class="fa fa-home fa-sidenav"></i>
+      <% end %>
+    </li>
+    <li class="list-item">
+       <%= link_to sign_out_path, method: :delete do %>
+        <i class="fa fa-sign-out fa-sidenav"></i>
+       <%end%>
+    </li>
+    <li>
+      <a href="">user profile page</a>
+    </li>
+  </ul>
+</div>
+
+<script>
+   $(window).load(function() {
+   $(".btn-nav").on("click tap", function() {
+     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
+     $(this).toggleClass("animated");
+   });
+ });
+</script>

@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="row main-posts-row">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-12">
+    <h1> <%= @post.title %></h1>
+  </div>
+
+  <p id="notice"><%= notice %></p>
 <p>
   <strong>Description:</strong>
   <%= @post.description %>
@@ -14,7 +19,4 @@
     <li><%= c.content %></li>  
   <% end %>
 </ul>
-
-<%= link_to 'Add a comment',new_post_comment_path(@post) %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</div>

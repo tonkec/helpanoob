@@ -17,8 +17,9 @@ end
  #Fake posts
 users = User.all
 10.times do |n|
-  description = Faker::Lorem.sentence(4)
-  users.each {|u| u.posts.create!(description: description, group_id: rand(1..5))}
+  title = Faker::Lorem.words(5)
+  description = Faker::Lorem.sentence(20)
+  users.each {|u| u.posts.create!(description: description, title:title, group_id: rand(1..5))}
 end
 
  #Fake comments

@@ -1,3 +1,5 @@
+@import "colors";
+
 .bg-wrap > * {
   font-family: 'Sree Krushnadevaraya', serif;
 }
@@ -212,7 +214,7 @@
 }
 
 .bg-image:nth-of-type(1) {
-background-image: url("/images/1.jpg");
+background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url("/images/1.jpg");
   -webkit-animation-delay: 18s;
   -moz-animation-delay: 18s;
   -o-animation-delay: 18s;
@@ -241,4 +243,14 @@ background-image: url("/images/4.jpg");
   -moz-animation-delay: 0s;
   -o-animation-delay: 0s;
   animation-delay: 0s;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(rgba(1,1,1,1), rgba(1,1,1,.6));  
+  opacity: .5;   
 }

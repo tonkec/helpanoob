@@ -5,5 +5,60 @@ SIGNUP PAGE
 .sign-up-wrapper {
 	@include center-vertically;
 	@include center-horizontally;
+		font-family: 'Lato', sans-serif;
+	.field {
+		margin: 0; 
+		z-index: 999; 
+	}
+
+	form {
+		-webkit-border-radius: 5px; 
+		border-radius: 5px; 
+	    border-top: 1px solid $green; 
+	}
+	input {
+		width: 100%;
+		padding: 20px 0;
+		background-color: $white;
+		border: none;
+		border-bottom: 1px solid lighten($green, 30%);
+		color: $green;
+		font-size: 22px;
+		font-weight: 400;
+		text-align: center;  
+		opacity: .7;        
+	}
+
+	.actions {
+		margin-top: 20px;
+		input {
+			background-color: $green;
+			color: $white; 
+			border: 1px solid $green;
+			-webkit-border-radius: 5px; 
+			border-radius: 5px; 
+			-webkit-transition: all .5s ease-in-out; 
+				-moz-transition: all .5s ease-in-out; 
+				-ms-transition: all .5s ease-in-out; 
+				-o-transition: all .5s ease-in-out; 
+				transition: all .5s ease-in-out; 
+			
+			&:hover {
+				background-color: darken($green, 15%); 
+				-webkit-transition: all .5s ease-in-out; 
+				-moz-transition: all .5s ease-in-out; 
+				-ms-transition: all .5s ease-in-out; 
+				-o-transition: all .5s ease-in-out; 
+				transition: all .5s ease-in-out; 
+				 
+			}  
+		}
+	}
 }
 
+.signup-heading {
+	margin-bottom: 50px;
+	color: $green; 
+	font-size: 7em;
+	font-weight: 700;  
+}

@@ -1,0 +1,17 @@
+@mixin double-linethrough-left($top: 45%, $bottom: 45%) {
+   @include line-opt(pseudoafter, $height: $linethrough-height, $transition-height: $linethrough-height);
+  @include line-opt(pseudobefore, $height: $linethrough-height, $transition-height: $linethrough-height);
+
+  &:after {
+    right: 0%; 
+    top: $top;
+    z-index: 9; 
+  } 
+
+  &:before {
+    right: 0%; 
+    bottom: $bottom;
+    z-index: 9;
+    top: 54%;  
+  } 
+}

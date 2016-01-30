@@ -1,0 +1,17 @@
+@mixin overline-opening {
+  @include line-opt(pseudoafter, $transition-height: $default-height);
+  @include line-opt(pseudobefore, $transition-height: $default-height);
+    &:after {
+        top: 0%;
+        left: 0%;
+        right: 0;
+        margin: 0 auto;  
+    }
+
+    &:before {
+        top: 0%;
+        right: 0%; 
+        left: 0;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,15 @@
+@mixin left-bottom {
+  @include line-opt(pseudoafter, $transition-height: $default-height);
+  @include line-opt(pseudobefore, $transition-height: $max-height, $transition-width: $default-width);
+
+  &:before {
+      top: 0%;
+      left: 0;
+  }
+
+  &:after {
+      bottom: 0;
+      right: 0; 
+  }
+
+}

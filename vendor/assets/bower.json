@@ -1,6 +1,7 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "bootstrap-sass": "latest"
+    "bootstrap-sass": "latest",
+    "text-hover-effects": "latest"
   }
 }

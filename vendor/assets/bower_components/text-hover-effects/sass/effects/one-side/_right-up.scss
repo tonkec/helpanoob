@@ -1,0 +1,8 @@
+@mixin right-up {
+    @include line-opt(pseudoafter, $transition-width: $default-width);
+
+    &:after {
+        bottom: 0%;
+        right: 0%;
+    }
+}

@@ -1,26 +1,39 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="bg-wrap">
+  <div class="bg-image-container">
+    <div class="bg-image">
+      <div class="layer"></div>
     </div>
-  <% end -%>
+    <div class="bg-image">
+      <div class="layer"></div>
+    </div>
+    <div class="bg-image">
+      <div class="layer"></div>
+    </div>
+    <div class="bg-image">
+      <div class="layer"></div>
+    </div>
+  </div><!--bg-img-con-->
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  <div class="bg-wrapper">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <h1 class="signup-heading">Get in!</h1> 
+        
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+        </div>
 
-<%= render "devise/shared/links" %>
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Log In" %>
+        </div>
+        <% end %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "bottom-text" %>
+      </div><!-- col -->
+    </div><!-- row -->
+  </div><!-- signup-wrapper -->
+</div><!--bg-wrap-->

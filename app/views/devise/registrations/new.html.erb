@@ -13,30 +13,32 @@
       <div class="layer"></div>
     </div>
   </div><!--bg-img-con-->
-  <div class="sign-up-wrapper">
+
+  <div class="bg-wrapper">
     <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-      <h1 class="signup-heading">Join Us!</h1> 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <h1 class="signup-heading">Join Us!</h1> 
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
-    </div>
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+        </div>
 
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-    </div>
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+        </div>
 
-    <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat Password" %>
-    </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat Password" %>
+        </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-    <% end %>
-    </div>
-  </div>
-  </div>
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+        <% end %>
+        <%= link_to "Sign In", new_user_session_path, class: "bottom-text" %>
+      </div><!-- col -->
+    </div><!-- row -->
+  </div><!-- signup-wrapper -->
 </div><!--bg-wrap-->

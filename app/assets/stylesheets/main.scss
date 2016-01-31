@@ -14,3 +14,36 @@ textarea {
 .row {
 	margin: 0; 
 }
+
+.p-l-0 {
+	padding-left: 0 !important; 
+}
+
+.p-r-0 {
+	padding-right: 0 !important; 
+}
+
+/*===============
+HOME PAGE
+================*/
+.home-row {
+	margin-top: 80px; 
+}
+.question-col {
+	border-bottom: 1px solid $dark-green;
+	padding: 30px 15px; 
+	background-color: $white; 
+}
+
+.home-question-wrapper {
+	border: 1px solid $green; 
+}
+
+.home-question a{
+	color: #000;
+}
+
+.main-home-heading {
+	text-align: center;
+	margin-bottom: 20px; 
+}

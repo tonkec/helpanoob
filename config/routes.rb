@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  root "static_pages#home"
   resources :groups
   resources :posts do
     resources :comments
   end
-  root "static_pages#home"
   devise_for :users
-  resources :users, only: [:index, :show]
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new"
     get "sign_up", to: "devise/registrations#new"

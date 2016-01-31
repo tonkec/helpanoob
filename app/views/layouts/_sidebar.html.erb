@@ -1,0 +1,33 @@
+<div class="sidebar-wrapper col-sm-6">
+  <div class="sidebar-content">
+    <div class="sidebar-logo-con">
+      logo
+    </div>
+    <div class="sidebar-user-con">
+      <img src="http://www.clker.com/cliparts/b/1/f/a/1195445301811339265dagobert83_female_user_icon.svg.med.png" alt="" class="sidebar-photo">
+     <p class="sidebar-user-link">
+        <a href="">Your profile</a>
+        <a href="">Još neki link</a>
+     </p>
+    </div>
+    
+    <ul class="sidebar-list">
+      <% Group.all.each do |group| %>
+        <li>
+          <%= link_to group.title, group_path(group) %>
+        </li>
+      <% end %> 
+    </ul>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-b-inner">
+        <a href="" class="sidebar-bottom-links sign-out">Sign Out</a>
+      </div>
+      <a href="" class="sidebar-bottom-links">About</a>
+      <a href="" class="sidebar-bottom-links">Support</a>
+      <a href="" class="sidebar-bottom-links">Share This App</a>
+    </div>
+  </div>
+</div>
+
+<%= debug(params) %>

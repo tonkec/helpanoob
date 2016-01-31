@@ -8,7 +8,10 @@
 </head>
 <body>
 <% if user_signed_in? %>
-<%= render partial: "layouts/navigation" %>
+  <%= render partial: "layouts/sidebar" %>
+  <% else %>
+  <h1>Please <%= link_to "sign_in", sign_in_path %></h1>
+  <h1>Here will be landing page for not signed_in users</h1>
 <% end %>
 <%= yield %>
 

@@ -1,3 +1,5 @@
+@import "components/colors";
+
 .nav {
 	position: relative; 
 	width: 100%;
@@ -5,9 +7,8 @@
 }
 
 .fa.fa-nav {
-	font-size: 2em; 
+	font-size: 1.2em; 
 	color: #00A896;
-	position: absolute;
 	top: 35px;
 }
 .fa.fa-sidenav {
@@ -18,6 +19,21 @@
 
 .fa-plus {
 	right: 50px; 
+  border: 2px solid $green; 
+  padding: 10px 12px;
+  -webkit-border-radius: 50%; 
+   border-radius: 50%; 
+  position: fixed;  
+  
+  &:hover {
+    background-color: $green;
+    color: $white;
+    -webkit-transition: all .5s ease-in-out; 
+     -moz-transition: all .5s ease-in-out; 
+     -ms-transition: all .5s ease-in-out; 
+     -o-transition: all .5s ease-in-out; 
+     transition: all .5s ease-in-out;  
+  }
 }
 
  html,

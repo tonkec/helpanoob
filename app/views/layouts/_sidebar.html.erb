@@ -21,7 +21,7 @@
 
     <div class="sidebar-bottom">
       <div class="sidebar-b-inner">
-        <a href="" class="sidebar-bottom-links sign-out">Sign Out</a>
+      <%= link_to "Sign Out", sign_out_path, method: :delete, class: "sidebar-bottom-links sign-out" %>
       </div>
       <a href="" class="sidebar-bottom-links">About</a>
       <a href="" class="sidebar-bottom-links">Support</a>
@@ -29,5 +29,7 @@
     </div>
   </div>
 </div>
-
 <%= debug(params) %>
+<h1>dodaj gornju navigaciju
+
+</h1>

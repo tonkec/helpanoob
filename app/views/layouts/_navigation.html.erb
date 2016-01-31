@@ -1,40 +1,16 @@
-<nav class="nav">
-  <button class="btn-nav">
-    <div class="bar arrow-top-r"></div>
-    <div class="bar arrow-middle-r"></div>
-    <div class="bar arrow-bottom-r"></div>
-  </button>
-
-  <%= link_to new_post_path do%>
-    <i class="fa fa-nav fa-plus"></i>
-  <% end %>
-
-
-</nav>
-
-<div class="nav-container hidden hideNav">
+<nav>
+  <div class="logo-con">
+    logo
+  </div>
   <ul class="nav-list">
-    <li class="list-item">
-      <%= link_to root_path do%>
-        <i class="fa fa-home fa-sidenav"></i>
-      <% end %>
-    </li>
-    <li class="list-item">
-       <%= link_to sign_out_path, method: :delete do %>
-        <i class="fa fa-sign-out fa-sidenav"></i>
-       <%end%>
+    <li>
+      <%= link_to "Home", root_path, class: "home-link" %>
     </li>
     <li>
-      <a href="">user profile page</a>
+      <%= link_to new_post_path do%>
+        <div class="i fa fa-plus"></div>
+      <% end %>
     </li>
+    <li></li>
   </ul>
-</div>
-
-<script>
-   $(window).load(function() {
-   $(".btn-nav").on("click tap", function() {
-     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
-     $(this).toggleClass("animated");
-   });
- });
-</script>
+</nav>

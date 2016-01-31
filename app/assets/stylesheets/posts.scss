@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/mixins";
+@import "components/colors";
+
 
 .question-wrapper {
 	@include center-vertically;
@@ -9,4 +11,25 @@
 
 .new-question-form {
 	margin-bottom: 20px; 
+}
+
+.main-post-col {
+	margin-top: 50px; 
+	border: 1px solid lighten(#000, 70%); 	
+}
+
+.post-description {
+	margin-top: 20px; 
+}
+
+.post-title {
+	border-bottom: 1px solid lighten(#000, 70%);
+	padding-top: 30px; 
+	padding-bottom: 30px;  
+}
+
+.main-comment-col {
+	margin-top: 30px;
+	padding: 20px 15px;  
+	border: 1px solid lighten(#000, 70%); 	
 }

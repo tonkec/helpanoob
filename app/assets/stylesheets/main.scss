@@ -2,7 +2,9 @@
 @import "components/mixins";
 @import "components/typography";
 @import "components/layout";
-
+body {
+	background-color: $white-1; 
+}
 textarea {
 	resize: none; 
 }
@@ -27,23 +29,71 @@ textarea {
 HOME PAGE
 ================*/
 .home-row {
-	margin-top: 80px; 
+	padding-top: 150px; 
+	h1 {
+		color: #000;
+	}
 }
-.question-col {
-	border-bottom: 1px solid $dark-green;
-	padding: 30px 15px; 
+.home-col {
 	background-color: $white; 
+	border-bottom: 1px solid $white-1;
 }
 
-.home-question-wrapper {
-	border: 1px solid $green; 
+.main-icon-con {
+	padding: 30px 15px; 
 }
 
-.home-question a{
-	color: #000;
+.main-home-p {
+	margin: 0;
+	text-align: center;  
+	a {
+		color: #000;
+		display: inline-block;
+		padding: 30px 0;
+		font-size: 22px;
+		font-weight: 300;
+		 
+		
+		&:hover {
+			background: $green;
+			color: $white;
+			text-decoration: none; 
+		} 
+	}
+	
 }
 
 .main-home-heading {
 	text-align: center;
 	margin-bottom: 20px; 
+}
+
+.main-posts-row {
+	padding-bottom: 150px; 
+}
+
+.main-user-icon {
+	display: inline-block;
+	width: 50px; 
+	margin-right: 20px; 
+	margin-left: 20px; 
+}
+
+.group-icon {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;     
+}
+
+.main-search {
+	padding: 30px 20px;
+	width: 80%;
+	position: absolute;
+	bottom: 0px;
+	left: 20%;  
+ 	&:focus {
+ 		border: 1px solid $green; 
+ 	}
 }

@@ -9,6 +9,8 @@
 <body>
 <% if user_signed_in? %>
   <%= render partial: "layouts/sidebar" %>
+  <%= render partial: "layouts/navigation" %>
+
 <% end %>
 <%= yield %>
 

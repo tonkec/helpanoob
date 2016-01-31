@@ -1,0 +1,19 @@
+<div class="row home-row">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-3 text-center">
+
+  </div>
+  <% @home_posts.each do |p| %>
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-3 home-col p-l-0 p-r-0">
+    <img src="http://www.nakulpathak.com/static/img/projects/rails_api.png" alt="icon" class="group-icon">
+    <div class="col-xs-12 col-sm-2 main-icon-con">
+       <img src="http://www.clker.com/cliparts/b/1/f/a/1195445301811339265dagobert83_female_user_icon.svg.med.png" alt="" class="main-user-icon">
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <p class="main-home-p">
+        <%=link_to (truncate (p.description), length: 50), post_path(p)%>
+      </p>
+    </div>
+  </div>
+  <% end %>
+</div>
+  <input type="text" class="form-control main-search" placeholder="Search for...">

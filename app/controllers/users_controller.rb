@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @post = current_user.posts.build if user_signed_in?
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
-
+   
 end

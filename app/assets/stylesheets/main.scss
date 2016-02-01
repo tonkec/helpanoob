@@ -29,7 +29,7 @@ textarea {
 HOME PAGE
 ================*/
 .home-row {
-	padding-top: 150px; 
+	margin-top: 50px; 
 	h1 {
 		color: #000;
 	}
@@ -39,21 +39,23 @@ HOME PAGE
 	border-bottom: 1px solid $white-1;
 }
 
-.main-icon-con {
-	padding: 30px 15px; 
-}
-
 .main-home-p {
 	margin: 0;
-	text-align: center;  
+	text-align: center; 
+	
+	&:hover {
+		.question-user-photo {
+			border: 1px solid $white; 
+		}
+	} 
 	a {
 		color: #000;
 		display: inline-block;
-		padding: 30px 0;
+		padding: 25px 0;
 		font-size: 22px;
 		font-weight: 300;
+		width: 100%; 
 		 
-		
 		&:hover {
 			background: $green;
 			color: $white;
@@ -96,4 +98,43 @@ HOME PAGE
  	&:focus {
  		border: 1px solid $green; 
  	}
+}
+
+.btn-load-more {
+	background-color: $green;
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+	padding: 15px 0;
+	color: $white;
+	font-size: 18px;
+	margin-top: 40px; 
+	-webkit-transition: all .5s ease-in-out; 
+	-moz-transition: all .5s ease-in-out; 
+	-ms-transition: all .5s ease-in-out; 
+	-o-transition: all .5s ease-in-out; 
+	transition: all .5s ease-in-out;   
+
+	&:hover {
+		background-color: darken($green, 5%);
+		color: $white;
+		-webkit-transition: all .5s ease-in-out; 
+		-moz-transition: all .5s ease-in-out; 
+		-ms-transition: all .5s ease-in-out; 
+		-o-transition: all .5s ease-in-out; 
+		transition: all .5s ease-in-out;  	
+	}  
+}
+
+.question-user-photo {
+	border: 1px solid $green;
+	-webkit-border-radius: 50%; 
+	 border-radius: 50%;  
+	width: 50px !important;
+	height: 50px;
+	display: inline-block;
+	text-align: left;
+	position: absolute;
+	left: 60px;
+	top: 20px;
 }

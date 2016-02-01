@@ -4,7 +4,7 @@
     <div class="sidebar-user-con">
       <img src="http://www.clker.com/cliparts/b/1/f/a/1195445301811339265dagobert83_female_user_icon.svg.med.png" alt="" class="sidebar-photo">
      <p class="sidebar-user-link">
-        <a href="">Your profile</a>
+        <%= link_to "Your profile", user_path(current_user) %>
         <a href="">Još neki link</a>
      </p>
     </div>

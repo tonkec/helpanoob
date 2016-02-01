@@ -1,7 +1,9 @@
-Mail: <%= @user.email %>
-<%= form_for(@post) do |f| %>
-  <div class="field">
-    <%= f.text_area :description, placeholder: "Compose new post..." %>
+<div class="row user-profile-row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 home-col p-l-0 p-r-0">
+    <h1 class="user-name">
+      User name
+    </h1>
+
+    <%= image_tag current_user.avatar, class: "user-profile-photo" %>
   </div>
-<%= f.submit "Post", class: "btn btn-primary" %>
-<% end %>
+</div>

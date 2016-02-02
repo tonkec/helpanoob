@@ -14,10 +14,12 @@ nav {
   margin: 0;
   padding: 0;
   right: 20px;
-  top: 0px;    
+  top: 10px;
+  position: absolute;
+  right: 20px;  
   li {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 5px;
    a {
       color: $green;
       font-size: 14px; 
@@ -33,24 +35,14 @@ nav {
   }
 }
 
-.fa-plus {
-  border: 2px solid $green;
-  -webkit-border-radius: 50%; 
-   border-radius: 50%;  
-  padding: 10px 12px;
+.fa.fa-home {
+  font-size: 2.5em; 
+}
+
+.fa.fa-plus {
+  font-size: 2.5em; 
   text-align:center; 
   color: $green; 
-  
-  &:hover {
-    background-color: $green;
-    color: $white;
-    border: 2px solid $green; 
-    -webkit-transition: all .5s ease-in-out; 
-     -moz-transition: all .5s ease-in-out; 
-     -ms-transition: all .5s ease-in-out; 
-     -o-transition: all .5s ease-in-out; 
-     transition: all .5s ease-in-out;  
-  }
 }
 
 .logo-con {

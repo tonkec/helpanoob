@@ -4,11 +4,13 @@
   </div>
   <ul class="nav-list">
     <li>
-      <%= link_to "Home", root_path, class: "home-link" %>
+      <%= link_to root_path, class: "home-link" do %>
+        <i class="fa fa-home"></i>
+      <% end %>
     </li>
     <li>
-      <%= link_to new_post_path do%>
-        <div class="i fa fa-plus"></div>
+      <%= link_to new_post_path, class: "home-link" do%>
+        <i class="i fa fa-plus"></i>
       <% end %>
     </li>
     <li></li>

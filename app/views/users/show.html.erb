@@ -1,9 +1,27 @@
 <div class="row user-profile-row">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 home-col p-l-0 p-r-0">
     <h1 class="user-name">
-      User name
+     <%= current_user.name %>
     </h1>
 
-   wfgdfhgf
+    <%= image_tag(current_user.avatar) %>
+    <%= current_user.email %>
+  </div>
+</div>
+
+
+<div class="row user-posts-row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 home-col p-l-0 p-r-0">
+    <h2>Your posts</h2>
+    <% @posts.each do |post| %>
+    <li id="post-<%= post.id %>">
+
+      <span class="user"><%= link_to post.title, post%></span>
+      <span class="content"><%= post.description %></span>
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(post.created_at) %> ago.
+      </span>
+    </li>
+    <% end %>
   </div>
 </div>

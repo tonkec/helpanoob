@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  resources :users, only: [:show]
+  get "profile", to: "users#show"
   devise_for :users
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new"

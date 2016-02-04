@@ -26,11 +26,15 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat Password" %>
         </div>
 
+        <div class="field">
+          <%= f.file_field :avatar %>
+        </div>
+
         <div class="actions">
           <%= f.submit "Sign up" %>
         </div>
         <% end %>
-        <%= link_to "Sign In", new_user_session_path, class: "bottom-text" %>
+        <%= link_to "Sign In", sign_in_path, class: "bottom-text" %>
       </div><!-- col -->
     </div><!-- row -->
   </div><!-- signup-wrapper -->

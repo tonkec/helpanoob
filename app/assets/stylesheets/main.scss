@@ -51,7 +51,6 @@ HOME PAGE
 	a {
 		color: #000;
 		display: inline-block;
-		padding: 25px 0;
 		font-size: 22px;
 		font-weight: 300;
 		width: 100%; 
@@ -137,4 +136,8 @@ HOME PAGE
 	position: absolute;
 	left: 60px;
 	top: 20px;
+	
+	img {
+		width: 100%; 
+	}
 }

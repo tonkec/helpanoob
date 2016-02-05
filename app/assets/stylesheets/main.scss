@@ -34,26 +34,30 @@ HOME PAGE
 		color: #000;
 	}
 }
-.home-col {
+.main-col {
+	margin-top: 5px; 
 	background-color: $white; 
 	border-bottom: 1px solid $white-1;
 }
 
 .main-home-p {
 	margin: 0;
-	text-align: center; 
+	text-align: justify; 
+	position: relative; 
 	
 	&:hover {
 		.question-user-photo {
 			border: 1px solid $white; 
 		}
 	} 
-	a {
+	.home-question-link {
 		color: #000;
-		display: inline-block;
-		font-size: 22px;
+		display: block;
+		font-size: 18px;
 		font-weight: 300;
 		width: 100%; 
+		padding: 20px 100px; 
+		
 		 
 		&:hover {
 			background: $green;
@@ -62,6 +66,43 @@ HOME PAGE
 		} 
 	}
 	
+}
+
+.fa-question-star {
+	position: absolute;
+	top: 30px;
+	right: 20px;   
+	color: lighten(#000, 10%);
+	cursor: pointer;
+	text-align: center; 
+	
+	&:hover {
+		color: $green; 
+	}
+}
+
+.number-of-votes {
+	font-style: normal;
+	display: block;
+	margin-top: 10px;  
+}
+
+
+.question-user-photo {
+	border: 1px solid $green;
+	-webkit-border-radius: 50%; 
+	 border-radius: 50%;  
+	width: 30px !important;
+	height: 30px;
+	display: inline-block;
+	text-align: left;
+	position: absolute;
+	left: 30px;
+	top: 20px;
+	
+	img {
+		width: 100%; 
+	}
 }
 
 .main-home-heading {
@@ -89,11 +130,13 @@ HOME PAGE
 }
 
 .main-search {
-	padding: 30px 20px;
+	padding: 35px 20px;
 	width: 80%;
 	position: absolute;
 	bottom: 0px;
 	left: 20%;  
+	color: $green;
+	font-size: 20px; 
  	&:focus {
  		border: 1px solid $green; 
  	}
@@ -125,19 +168,3 @@ HOME PAGE
 	}  
 }
 
-.question-user-photo {
-	border: 1px solid $green;
-	-webkit-border-radius: 50%; 
-	 border-radius: 50%;  
-	width: 50px !important;
-	height: 50px;
-	display: inline-block;
-	text-align: left;
-	position: absolute;
-	left: 60px;
-	top: 20px;
-	
-	img {
-		width: 100%; 
-	}
-}

@@ -84,14 +84,14 @@ HOME PAGE
 	&:hover {
 		color: $green; 
 	}
-}
 
-.number-of-votes {
-	font-style: normal;
-	display: block;
-	margin-top: 10px;  
-}
+	.number-of-votes {
+		font-style: normal;
+		display: block;
+		margin-top: 10px;  
+	}
 
+}
 
 .question-user-photo {
 	border: 1px solid $green;
@@ -147,15 +147,15 @@ HOME PAGE
  	}
 }
 
-.btn-load-more {
+.btn-green {
 	background-color: $green;
+	border: none; 
 	display: inline-block;
 	width: 100%;
 	margin: 0 auto;
 	padding: 15px 0;
 	color: $white;
 	font-size: 18px;
-	margin-top: 40px; 
 	-webkit-transition: all .5s ease-in-out; 
 	-moz-transition: all .5s ease-in-out; 
 	-ms-transition: all .5s ease-in-out; 
@@ -171,6 +171,10 @@ HOME PAGE
 		-o-transition: all .5s ease-in-out; 
 		transition: all .5s ease-in-out;  	
 	}  
+}
+
+.btn-load {
+	margin-top: 40px; 
 }
 
 .green-text {

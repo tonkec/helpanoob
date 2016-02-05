@@ -10,7 +10,7 @@
       <p class="main-home-p">
         <%= link_to image_tag(current_user.avatar), profile_path, class: "question-user-photo" %>
         <%=link_to (truncate (p.description), length: 100), post_path(p), class: "home-question-link" %>
-          <i class="fa fa-star-o fa-question-star">
+          <i class="fa fa-heart-o fa-question-star">
             <i class="number-of-votes">112</i>
           </i>
 
@@ -19,7 +19,7 @@
   </div>
   <% end %>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 col-lg-6 col-lg-offset-3 p-l-0 p-r-0">
-    <a href="" class="btn btn-load-more">Load more</a>
+    <a href="" class="btn btn-green btn-load">Load more</a>
   </div>
 </div><!--home-row  -->
 

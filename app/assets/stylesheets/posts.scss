@@ -21,8 +21,8 @@
 	margin-top: 20px; 
 	padding-bottom: 30px; 
 	line-height: 1.6em;
-	font-size: 14px;  
-	font-weight: 400; 
+	font-size: 18px;  
+	font-weight: 300; 
 }
 
 .post-title {
@@ -33,21 +33,21 @@
 
 
 .comments-col {
-	padding: 20px 60px; 
+	padding: 20px 35px; 
 }
 
 .posts-col {
-	padding: 40px 60px; 
+	padding: 40px 30px; 
 	margin-bottom: 20px;
 	margin-top: 40px;  
 }
 
-.fa.main-question-star {
+.fa.main-question-icon {
 	font-size: 40px;
 	margin-top: 40px; 
-	margin-left: 40px; 
 	color: #0c955b;
-	cursor: pointer; 
+	cursor: pointer;
+	display: inline-block; 
 	
 	&:hover {
 		color: $green; 
@@ -55,7 +55,9 @@
 	}
 	
 	.number-of-votes {
-		font-size: 30px; 
+		font-size: 25px; 
+		display: block;
+		margin-top: 15px; 
 	}
 }
 
@@ -70,4 +72,48 @@
 .post-date {
 	font-size: 10px; 
 	margin-top: 3px; 
+}
+
+.comment-content {
+	font-size: 16px; 
+	margin-bottom: 30px; 
+}
+
+.comment-email {
+	font-size: 10px; 
+}
+
+.comment-date {
+	font-size: 10px;
+	display: block; 
+}
+
+.fa.comment-heart {
+	font-size: 18px; 
+}
+
+.c-number-of-votes {
+	font-size: 12px; 
+	padding-left: 5px; 
+}
+
+.add-comment-col {
+	margin-top: 10px; 
+	margin-bottom: 10px;
+}
+
+.posts-add-comment {
+	margin-bottom: 10px; 
+	color: $green;
+	font-size: 14px; 
+	&:focus {
+		border: 1px solid $green;
+		@include transition;
+	} 
+}
+
+.btn-comment {
+	width: 150px;
+	padding: 0;
+	height: 50px;   
 }

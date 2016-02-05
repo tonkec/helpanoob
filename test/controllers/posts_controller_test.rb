@@ -1,6 +1,14 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers                          
+  include Warden::Test::Helpers                        
+  Warden.test_mode!   
+
+  def teardown                                         
+    Warden.test_reset!                                 
+  end     
+
   setup do
     @post = posts(:one)
   end

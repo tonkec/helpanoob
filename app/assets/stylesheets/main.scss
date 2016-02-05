@@ -5,6 +5,11 @@
 body {
 	background-color: $white-1; 
 }
+
+p {
+	margin: 0; 
+}
+
 textarea {
 	resize: none; 
 }
@@ -168,3 +173,6 @@ HOME PAGE
 	}  
 }
 
+.green-text {
+	color: $green;
+}

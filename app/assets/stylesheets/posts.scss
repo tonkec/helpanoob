@@ -5,6 +5,10 @@
 @import "components/colors";
 
 
+.main-posts-row {
+	font-family: "Open Sans"; 
+}
+
 .question-wrapper {
 	@include center-vertically;
 }
@@ -13,13 +17,12 @@
 	margin-bottom: 20px; 
 }
 
-.main-post-col {
-	margin-top: 50px; 
-	border: 1px solid lighten(#000, 70%); 	
-}
-
 .post-description {
 	margin-top: 20px; 
+	padding-bottom: 30px; 
+	line-height: 1.6em;
+	font-size: 14px;  
+	font-weight: 400; 
 }
 
 .post-title {
@@ -28,8 +31,43 @@
 	padding-bottom: 30px;  
 }
 
-.main-comment-col {
-	margin-top: 30px;
-	padding: 20px 15px;  
-	border: 1px solid lighten(#000, 70%); 	
+
+.comments-col {
+	padding: 20px 60px; 
+}
+
+.posts-col {
+	padding: 40px 60px; 
+	margin-bottom: 20px;
+	margin-top: 40px;  
+}
+
+.fa.main-question-star {
+	font-size: 40px;
+	margin-top: 40px; 
+	margin-left: 40px; 
+	color: #0c955b;
+	cursor: pointer; 
+	
+	&:hover {
+		color: $green; 
+		@include transition;
+	}
+	
+	.number-of-votes {
+		font-size: 30px; 
+	}
+}
+
+.asked-by {
+	font-size: 10px; 
+}
+
+.post-subinfo {
+	margin-top: 40px; 
+}
+
+.post-date {
+	font-size: 10px; 
+	margin-top: 3px; 
 }

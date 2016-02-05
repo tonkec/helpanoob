@@ -1,13 +1,35 @@
 <div class="row main-posts-row">
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-post-col">
-    <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
-    <p class="post-description"><%= @post.description %>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique magni quos voluptatem laboriosam commodi? Dolores reiciendis aliquid blanditiis architecto sed enim cupiditate, aut sit adipisci accusamus. Molestias vero, esse recusandae. Sapiente distinctio asperiores voluptatem debitis, ea, vitae tenetur vel, obcaecati veniam ipsum unde incidunt soluta officiis voluptas impedit iusto sit!
-    </p>
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-col posts-col">
+    <div class="col-xs-12 col-sm-10">
+      <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
+      <p class="post-description"><%= @post.description %>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique magni quos voluptatem laboriosam commodi? Dolores reiciendis aliquid blanditiis architecto sed enim cupiditate, aut sit adipisci accusamus. Molestias vero, esse recusandae. Sapiente distinctio asperiores voluptatem debitis, ea, vitae tenetur vel, obcaecati veniam ipsum unde incidunt soluta officiis voluptas impedit iusto sit!
+      </p>
+    </div>
+
+    <div class="col-xs-12 col-sm-2 text-center">
+       <i class="fa fa-star main-question-star">
+         <span class="number-of-votes">
+           1234
+         </span>
+       </i>
+
+       <%= image_tag(@post.user.avatar) %>
+     
+    </div>
+
+    <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
+       <p class="asked-by">
+         <a class="green-text" href="#">Link to user name</a>
+        <p class="post-date">
+           <%= @post.created_at %>
+        </p>
+      </p>
+    </div>
   </div>
 
    <% @post.comments.each do |c| %>
-   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-comment-col">
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-col comments-col">
     <p class="comment">
       <%= c.content %>
     </p> 

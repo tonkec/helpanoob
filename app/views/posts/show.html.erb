@@ -7,7 +7,6 @@
       <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
       <p class="post-description">
         <%= best_in_place @post, :description %>
-       <b>click to edit</b>
       </p>
     </div>
 
@@ -17,7 +16,6 @@
            1234
          </span>
        </i>
-
     </div>
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
@@ -27,6 +25,8 @@
            <%= @post.created_at %>
         </p>
       </p>
+            <i class="fa fa-pencil-square-o fa-edit"></i>
+
     </div>
   </div><!-- posts-col -->
 
@@ -38,8 +38,7 @@
   <!-- COMMENTS -->
   <%= render @post.comments %>
 
-   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 new-comment-col">
-    <h2>Share your wisdom</h2>
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 new-comment-col p-l-0 p-r-0">
     <%= render "comments/form" %>
    </div>
 </div><!-- row -->

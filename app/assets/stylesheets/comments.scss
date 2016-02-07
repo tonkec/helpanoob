@@ -1,3 +1,33 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "components/colors";
+.new-comment-col {
+	textarea {
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		color: $green;
+		padding: 20px; 
+		
+		&:focus {
+			border: 1px solid $green; 
+			outline: none; 
+		}  
+	}
+}
+
+.fa.fa-edit {
+	color: $green;
+	font-size: 14px;
+	margin-left: 10px;
+	position: absolute;
+	right: 50px;
+	bottom: 0px;    
+}
+
+.comment-content {
+	.best_in_place {
+		border: 5px solid red; 
+	}
+}

@@ -151,7 +151,6 @@ HOME PAGE
 	background-color: $green;
 	border: none; 
 	display: inline-block;
-	width: 100%;
 	margin: 0 auto;
 	padding: 15px 0;
 	color: $white;
@@ -175,6 +174,12 @@ HOME PAGE
 
 .btn-load {
 	margin-top: 40px; 
+	width: 100%; 
+}
+
+.btn-submit {
+	font-size: 14px;
+	padding: 10px 20px;  
 }
 
 .green-text {

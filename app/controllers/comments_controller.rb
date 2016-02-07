@@ -1,8 +1,4 @@
 class CommentsController < ApplicationController
-  def show
-    @posts = current_user.posts
-  end
-
   def new 
      @post = Post.find(params[:post_id])
      @comment = Comment.new
@@ -23,6 +19,13 @@ class CommentsController < ApplicationController
     @comments = Comment.all
     @post = Post.find(params[:post_id])
     @comments = @post.comments.all
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+    redirect_to post_path(@post)
   end
 
   private

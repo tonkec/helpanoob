@@ -35,45 +35,11 @@
 
 
   <!-- COMMENTS -->
-
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 add-comment-col p-l-0 p-r-0">
-    <%= debug(params) %>
-  </div>
-
-   <% @post.comments.each do |c| %>
-   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-col comments-col">
-   <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
-      <p class="comment-content">
-        <%= c.content %>
-        <%= c.id %>
-      </p>
-    </div>   
-
-    <div class="col-xs-12 col-sm-2">
-      <i class="fa fa-heart comment-heart"></i>
-      <span class="c-number-of-votes text-center">
-        110
-      </span> 
-    </div>
-
-    <div class="col-xs-12 col-sm-12 p-l-0 p-r-0">
-       <span class="comment-email green-text">
-        <%= c.user.email %> link
-      </span>
-      <span class="comment-date">
-        <%= c.created_at %>
-      </span>
-    </div>
-   </div>
-   <% end %>
-
+  <%= render @post.comments %>
 
    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-col comments-col">
     <h2>Share your wisdom</h2>
-    <%= form_for([@post, @post.comments.build]) do |f| %>
-      <%= f.text_area :content %>
-      <%= f.submit %>
-    <% end %>
+    <%= render "comments/form" %>
    </div>
 </div><!-- row -->
 

@@ -6,8 +6,8 @@
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
       <p class="post-description">
-        <%= @post.description %>
-        <%= link_to "Edit", edit_post_path(@post) %>
+        <%= best_in_place @post, :description %>
+       <b>click to edit</b>
       </p>
     </div>
 

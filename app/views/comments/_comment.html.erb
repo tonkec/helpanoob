@@ -20,9 +20,11 @@
       <%= comment.created_at %>
     </span>
 
-    
+
 <p>Delete this comment:   <%= link_to 'Destroy Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %> </p>
+
+<p>Edit this comment: <%= link_to 'edit', edit_post_comment_path(@post, comment)  %> </p>
   </div>
 </div>

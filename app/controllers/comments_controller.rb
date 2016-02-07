@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+  class CommentsController < ApplicationController
   def new 
      @post = Post.find(params[:post_id])
      @comment = Comment.new
@@ -26,6 +26,26 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     @comment.destroy
     redirect_to post_path(@post)
+  end
+
+
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def update 
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    respond_to do |format|
+      if @comment.update(comments_params)
+        format.html { redirect_to post_path(@post), notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: post_path(@post) }
+      else
+        format.html { render :edit }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

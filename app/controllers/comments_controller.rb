@@ -1,4 +1,5 @@
-  class CommentsController < ApplicationController
+class CommentsController < ApplicationController
+  before_action :correct_user, only: [:edit]
   def new 
      @post = Post.find(params[:post_id])
      @comment = Comment.new
@@ -51,5 +52,11 @@
   private
     def comments_params
       params.require(:comment).permit(:content)
+    end
+
+    def correct_user
+     @right_comment = Comment.find(params[:id])
+     @user_id = @right_comment.user_id
+     redirect_to root_path unless current_user.id == @right_comment.user_id
     end
 end

@@ -10,7 +10,10 @@ class PostsControllerTest < ActionController::TestCase
   end     
 
   setup do
+    @user = users(:antonija)
+    @other_user = users(:pero)
     @post = posts(:one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -29,16 +32,12 @@ class PostsControllerTest < ActionController::TestCase
       post :create, post: { description: @post.description, user_id: @post.user_id }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to root_path
   end
 
   test "should show post" do
+    @post.user_id = @user.id
     get :show, id: @post
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @post
     assert_response :success
   end
 
@@ -53,5 +52,11 @@ class PostsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to posts_path
+  end
+
+  test "should redirect edit when logged_in as wrong user" do
+    sign_in @other_user
+    get :edit, id: @post
+    assert_redirected_to root_url
   end
 end

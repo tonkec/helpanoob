@@ -1,7 +1,12 @@
  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-col comments-col">
    <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
     <p class="comment-content">
-    <%= best_in_place comment, :content, :url => post_comment_path(@post, comment) %> 
+      <% if comment.user_id == current_user.id %>
+        <%= best_in_place comment, :content, :url => post_comment_path(@post, comment) %>
+        <i class="fa fa-pencil"></i>
+      <% else %>
+        <%= comment.content %> 
+      <% end %>
     </p>
   </div>   
 
@@ -20,11 +25,10 @@
       <%= comment.created_at %>
     </span>
 
-
-<p>Delete this comment:   <%= link_to 'Destroy Comment', [comment.post, comment],
+<% if comment.user_id == current_user.id %>
+  <p>Delete this comment:   <%= link_to 'Destroy Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %> </p>
-
-<p>Edit this comment: <%= link_to 'edit', edit_post_comment_path(@post, comment)  %> </p>
+<% end %>
   </div>
 </div>

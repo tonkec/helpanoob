@@ -6,8 +6,12 @@
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
       <p class="post-description">
-        <%= best_in_place @post, :description %>
-       <b>click to edit</b>
+      <% if @post.user_id == current_user.id %>
+        <%= best_in_place @post, :description %>        
+        <i class="fa fa-pencil"></i>
+      <% else %>
+        <%= @post.description %> 
+      <% end %>
       </p>
     </div>
 

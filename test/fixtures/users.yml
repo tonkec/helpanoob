@@ -6,7 +6,7 @@
 #
 antonija:
   name: Antonija Example
-  email: antonijal@example.com
+  email: antonija@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 #
 pero:

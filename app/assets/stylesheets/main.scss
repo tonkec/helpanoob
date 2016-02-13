@@ -45,10 +45,15 @@ HOME PAGE
 	border-bottom: 1px solid $white-1;
 }
 
+.main-col-hidden {
+	display: none; 
+}
+
 .main-home-p {
 	margin: 0;
 	text-align: justify; 
 	position: relative; 
+	display: none; 
 	
 	&:hover {
 		.question-user-photo {
@@ -175,6 +180,7 @@ HOME PAGE
 .btn-load {
 	margin-top: 40px; 
 	width: 100%; 
+	margin-bottom: 100px; 
 }
 
 .btn-submit {

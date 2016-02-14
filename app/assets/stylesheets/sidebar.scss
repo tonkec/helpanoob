@@ -22,7 +22,7 @@
 .sidebar-photo {
 	width: 150px;
 	height: 150px; 
-	margin: 0 auto; 
+	margin: 0 auto 5px; 
 	
 	display: block;
 	img {
@@ -77,7 +77,7 @@
 
 	a {
 		color: $white;
-		margin-right: 20px; 
+		font-size: 16px; 
 		@include transition-opt(
 			$hover-color: $yellow,
 			$transition-color: $yellow
@@ -122,4 +122,9 @@
 	&.sign-out {
 		margin-left: 0;
 	} 
+}
+
+.sidebar-user-name {
+	color: $white;
+	font-size: 12px; 
 }

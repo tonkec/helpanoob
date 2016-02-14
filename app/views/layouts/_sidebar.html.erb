@@ -3,9 +3,9 @@
    
     <div class="sidebar-user-con">
        <%= link_to image_tag(current_user.avatar), profile_path, class: "sidebar-photo" %>
+        <span class="sidebar-user-name"><%= current_user.email %></span>
      <p class="sidebar-user-link">
         <%= link_to "Your profile", profile_path %>
-        <a href="">Još neki link</a>
      </p>
     </div>
     

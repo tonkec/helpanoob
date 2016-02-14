@@ -2,19 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/colors";
-.new-comment-col {
-	textarea {
-		width: 100%;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		color: $green;
-		padding: 20px; 
-		
-		&:focus {
-			border: 1px solid $green; 
-			outline: none; 
-		}  
-	}
+.new-q-wrapper {
+	margin-top: 100px; 
 }
 
 .fa.fa-edit {
@@ -24,4 +13,29 @@
 	position: absolute;
 	right: 50px;
 	bottom: 0px;    
+}
+
+.green-input {
+	color: $green;
+	&:focus {
+		border: 1px solid $green; 
+		outline: none; 
+	}  
+}
+
+.green-textarea {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: $green;
+	padding: 20px; 
+
+	&:focus {
+		border: 1px solid $green; 
+		outline: none; 
+	}  
+}
+
+.new-q-heading {
+	margin-bottom: 30px;
 }

@@ -34,7 +34,8 @@ textarea {
 HOME PAGE
 ================*/
 .home-row {
-	margin-top: 50px; 
+	margin-top: 50px;
+	padding-bottom: 150px; 
 	h1 {
 		color: #000;
 	}
@@ -166,7 +167,7 @@ HOME PAGE
 	-o-transition: all .5s ease-in-out; 
 	transition: all .5s ease-in-out;   
 
-	&:hover {
+	&:hover{
 		background-color: darken($green, 5%);
 		color: $white;
 		-webkit-transition: all .5s ease-in-out; 
@@ -174,7 +175,11 @@ HOME PAGE
 		-ms-transition: all .5s ease-in-out; 
 		-o-transition: all .5s ease-in-out; 
 		transition: all .5s ease-in-out;  	
-	}  
+	} 
+
+	&:focus {
+		color: $white; 
+	}
 }
 
 .btn-load {
@@ -190,4 +195,18 @@ HOME PAGE
 
 .green-text {
 	color: $green;
+}
+
+.pagination-col {
+	display: none;
+	
+	&:last-child {
+		margin-bottom: 100px; 
+	}
+}
+
+.btn-loader {
+	width: 30px;
+	height: 30px;
+	display: none;  
 }

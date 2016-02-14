@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     get "sign_in", to: "devise/sessions#new"
     get "sign_up", to: "devise/registrations#new"
     delete "sign_out", to: "devise/sessions#destroy"
+    get '/reset_password' => "passwordusers#new", :as => :reset_password
+    get '/new_password' => "passwordusers#edit", :as => :new_password
   end
 end

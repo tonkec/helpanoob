@@ -15,7 +15,10 @@
   </div>
   <% end %>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 col-lg-6 col-lg-offset-3 p-l-0 p-r-0">
-    <a href="" class="btn btn-green btn-load">Load more</a>
+    <a href="" class="btn btn-green btn-load">
+      <span class="btn-text">Load more</span>
+      <%= image_tag("loading.gif", class: "btn-loader") %>
+    </a>
     
   </div>
 </div><!--home-row  -->
@@ -28,12 +31,22 @@
 
 <script>
   $(function(){
-    $(".pagination-col p").slice(0, 2).show(); // select the first ten
+    var p = $(".pagination-col p").slice(0, 2).show(); // select the first ten
+    $(p).parent().show();
     $(".btn-load").click(function(e){ // click event for load more
+        $(".btn-loader").show();
+        $(".btn-text").hide();
         e.preventDefault();
-        $(".pagination-col p:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
-        if($(".pagination-col p:hidden").length == 0){ // check if any hidden divs still exist
-            alert("No more divs"); // alert if there are none left
+
+        setTimeout(function(){
+          var moreP = $(".pagination-col p:hidden").slice(0, 2).show(); 
+          $(moreP).parent().show();
+          $(".btn-loader").hide();
+          $(".btn-text").show();
+        }, 400)
+        
+        if($(".pagination-col p:hidden").length == 2){ 
+            $(".btn-load").hide();
         }
     });
 });

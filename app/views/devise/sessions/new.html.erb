@@ -25,6 +25,7 @@
         <div class="actions">
           <%= f.submit "Log In" %>
         </div>
+        <%= link_to "Forgot Password?", reset_password_url(resource_name) %>
         <% end %>
         <%= link_to "Sign Up", sign_up_path, class: "bottom-text" %>
       </div><!-- col -->

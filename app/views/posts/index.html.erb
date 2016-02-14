@@ -1,16 +1,2 @@
 <p id="notice"><%= notice %></p>
-
-<h1>All Questions</h1>
- <% @posts.each do |post| %>
-      
-        <p><%= post.description %></p>
-        
-        <%= link_to 'Show', post %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      
-    <% end %>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+<%= render template: "static_pages/home" %>

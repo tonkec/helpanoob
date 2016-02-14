@@ -5,6 +5,7 @@
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-0 main-col posts-col">
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
+      <h2><%= @post.group_id %></h2>
       <p class="post-description">
       <% if @post.user_id == current_user.id %>
         <%= best_in_place @post, :description %>        

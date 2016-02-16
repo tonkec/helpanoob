@@ -18,7 +18,7 @@ SIGNUP PAGE
 		border-radius: 5px; 
 	    border-top: 1px solid $green; 
 	}
-	input {
+	input:not(.input-file) {
 		width: 100%;
 		padding: 20px 0;
 		background-color: $white;
@@ -81,5 +81,15 @@ SIGNUP PAGE
 	
 	&:hover {
 		text-decoration: none; 
+	}
+}
+
+.fa.fa-avatar-upload {
+	font-size: 3em; 
+}
+
+.main-registration-col {
+	@media (min-width: 1600px) {
+		padding: 0 120px;
 	}
 }

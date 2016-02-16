@@ -20,16 +20,13 @@
 }
 
 .sidebar-photo {
-	width: 150px;
-	height: 150px; 
 	margin: 0 auto 5px; 
-	
 	display: block;
 	img {
 		-webkit-border-radius: 50%; 
-	 border-radius: 50%;
-	border: 2px solid $white; 
-		width: 100%; 
+		border-radius: 50%;
+		border: 2px solid $white; 
+		width: auto; 
 	}  
 }
 

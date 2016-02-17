@@ -14,6 +14,7 @@
   <div class="field">
    <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
    <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
+    <%= f.select(:group_id, Group.all.collect {|g| [g.title, g.id]}, :prompt => 'Select') %>
   </div>
   <div class="actions">
     <%= f.submit "Ask", class: "btn-full btn-green" %>

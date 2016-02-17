@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  mount_uploader :image, AvatarUploader
   belongs_to :user
   belongs_to :group
   has_many :comments, dependent: :destroy

@@ -7,10 +7,13 @@
       <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
       <p class="post-description">
       <% if @post.user_id == current_user.id %>
-        <%= best_in_place @post, :description %>        
-        <i class="fa fa-pencil"></i>
+        <%= best_in_place @post, :description %> 
+        <i class="fa fa-pencil"></i> 
+        <%= social_share_button_tag(@post.description) %>      
+      
       <% else %>
         <%= @post.description %> 
+        <%= social_share_button_tag(@post.description, :popup => "true") %>
       <% end %>
       </p>
     </div>

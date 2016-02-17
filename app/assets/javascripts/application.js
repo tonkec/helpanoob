@@ -15,4 +15,5 @@
 //= require best_in_place
 //= require turbolinks
 //= require bootstrap-sass
+//= require social-share-button
 //= require_tree .

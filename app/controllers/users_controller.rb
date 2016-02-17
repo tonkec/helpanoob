@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
 
     successfully_updated = if needs_password?(@user, params)
-      @user.update_with_password(devise_parameter_sanitizer.for(:account_update))
+      @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
       # Rails 3:  @user.update_with_password(params[:user])
     else
       # remove the virtual current_password attribute update_without_password

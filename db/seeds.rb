@@ -25,6 +25,10 @@ users = User.all
   content = Faker::Lorem.sentence(20)
   users.each {|u| u.posts.create!(description: description, title:title, group_id: rand(1..5))}
   users.each {|u| u.comments.create!(content: content)}
+  users.each do |u| 
+    u.update_attribute("introduction", introduction)
+    u.save
+  end
 end
 
  #Fake comments

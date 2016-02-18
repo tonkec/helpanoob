@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217173448) do
+ActiveRecord::Schema.define(version: 20160218230254) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160217173448) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+  end
 
   add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
   add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160217173448) do
     t.string   "name"
     t.string   "avatar"
     t.string   "reset_digest"
+    t.text     "introduction"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

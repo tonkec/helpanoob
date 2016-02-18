@@ -3,4 +3,6 @@ class StaticPagesController < ApplicationController
     @home_posts = Post.all
     @groups = Group.all
   end
+
+
 end

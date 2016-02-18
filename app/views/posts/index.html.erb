@@ -10,6 +10,10 @@
         <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       
     <% end %>
+<%= search_form_for @q do |f| %>
+  <%= f.text_field :description_cont %>
+   <%= f.submit %>
+<% end %>
 
 <br>
 

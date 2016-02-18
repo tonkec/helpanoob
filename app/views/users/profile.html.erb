@@ -9,12 +9,27 @@
       <p class="user-email">
         <%= current_user.email %>
       </p>
+
+      <p>
+        Links code: <b>Github Codepen Bitbucket</b>
+      </p>
+
+      <p>
+        Links Learning: <b>Codecademy Codeschool FreeCodeCamp</b>
+      </p>
+
+      <p>
+         Skiils: <b> HTML, CSS, JS, Bootstrap</b> 
+      </p>
+
+      <p>
+        Started coding: <b>2 yrs ago</b>
+      </p>
     </div>
 
     <div class="col-lg-8">
       <div class="profile-description">
-       <p> Hello!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ipsam sint quo perspiciatis voluptate corporis cumque porro inventore ex expedita dicta at quos, velit, ducimus nesciunt eligendi. Fugit delectus harum, officia, consequuntur et reprehenderit accusantium. Nesciunt corporis aperiam tenetur iusto modi autem libero ratione, dolorem earum quaerat eligendi nihil eum?</p>
+       <p><%= current_user.introduction %></p>
       </div>
     </div>
   </div><!-- float -->

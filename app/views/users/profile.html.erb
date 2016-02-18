@@ -1,35 +1,62 @@
-<div class="row user-profile-row">
+<div class="profile-wrapper clearfix">
+  
+  <div class="float p-l-0 p-r-0">
+    <div class="col-lg-4">
+      <%= image_tag(current_user.avatar) %>
+      <h1 class="user-name">
+        <%= current_user.name %>
+      </h1>
+      <p class="user-email">
+        <%= current_user.email %>
+      </p>
+    </div>
 
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 home-col p-l-0 p-r-0">
-    <%= debug(params) %>
-    <h1 class="user-name">
-     <%= current_user.name %>
-    </h1>
-
-    <h2>
-      <%= current_user.id %>
-    </h2>
-
-    <%= image_tag(current_user.avatar) %>
-    <%= current_user.email %>
-  </div>
-</div>
+    <div class="col-lg-8">
+      <div class="profile-description">
+       <p> Hello!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ipsam sint quo perspiciatis voluptate corporis cumque porro inventore ex expedita dicta at quos, velit, ducimus nesciunt eligendi. Fugit delectus harum, officia, consequuntur et reprehenderit accusantium. Nesciunt corporis aperiam tenetur iusto modi autem libero ratione, dolorem earum quaerat eligendi nihil eum?</p>
+      </div>
+    </div>
+  </div><!-- float -->
 
 
-<div class="row user-posts-row">
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 home-col p-l-0 p-r-0">
-    <h2>Your posts</h2>
-    <h4>Number of posts: <%= @user_posts.all.count %></h4> 
-    <% @user_posts.each do |post| %>
-    <li id="post-<%= post.id %>">
+  <div class="float p-l-0 p-r-0">
+    <h4 class="user-model-heading">Your posts (<%= @user_posts.all.count %>)</h4>
 
-      <span class="user"><%= link_to post.title, post%></span>
-      <span class="content"><%= post.description %></span>
-      <span class="timestamp">
-        Posted <%= time_ago_in_words(post.created_at) %> ago.
-      </span>
-    </li>
+   <div class="col-lg-12 p-l-0 p-r-0">
+      <% if @user_posts.any? %>
+      <% @user_posts.each do |post| %>
+      <div class="user-model-col" id="post-<%= post.id %>">
+        <span class="user"><%= link_to truncate(post.title, length: 100), post, class: "user-profile-post"%></span>
+        <span class="content"><%=  %></span>
+        <p class="user-profile-timestamp">
+          Posted <%= time_ago_in_words(post.created_at) %> ago.
+        </p>
+      </div><!-- user-post-col -->
+      <% end %>
+      <% else %>
+        <h3 class="dontbeshy">
+          Don't be shy.
+        </h3>
+
+        <%= link_to "Ask a question", new_post_path, class: "btn-green btn-small" %>
+      <% end %>
+    </div><!-- col -->
+    
+  </div><!-- float -->
+
+  <div class="float">
+    <% if @user_comments.any? %>
+    <h4 class="user-model-heading">Your comments (<%= @user_posts.all.count %>)</h4>
+
+    <div class="col-lg-12 profile-comments-col p-l-0 p-r-0">
+    <% @user_comments.each do |c| %>
+      <div class="user-model-col">
+        <p class="user-profile-comment"><%= c.content %></p>
+      </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
-</div>
 
+</div><!-- profile-wrapper -->

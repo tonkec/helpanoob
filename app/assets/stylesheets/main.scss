@@ -6,6 +6,11 @@ body {
 	background-color: $white-1; 
 }
 
+.float {
+	float: left;
+	width: 100%; 
+}
+
 p {
 	margin: 0; 
 }
@@ -33,9 +38,8 @@ textarea {
 /*===============
 HOME PAGE
 ================*/
-.home-row {
+.home-wrapper {
 	margin-top: 50px;
-	padding-bottom: 150px; 
 	h1 {
 		color: #000;
 	}
@@ -152,45 +156,7 @@ HOME PAGE
  	}
 }
 
-.btn-green {
-	background-color: $green;
-	border: none; 
-	display: inline-block;
-	margin: 0 auto;
-	padding: 15px 0;
-	color: $white;
-	font-size: 18px;
-	-webkit-transition: all .5s ease-in-out; 
-	-moz-transition: all .5s ease-in-out; 
-	-ms-transition: all .5s ease-in-out; 
-	-o-transition: all .5s ease-in-out; 
-	transition: all .5s ease-in-out;   
 
-	&:hover{
-		background-color: darken($green, 5%);
-		color: $white;
-		-webkit-transition: all .5s ease-in-out; 
-		-moz-transition: all .5s ease-in-out; 
-		-ms-transition: all .5s ease-in-out; 
-		-o-transition: all .5s ease-in-out; 
-		transition: all .5s ease-in-out;  	
-	} 
-
-	&:focus {
-		color: $white; 
-	}
-}
-
-.btn-load {
-	margin-top: 40px; 
-	width: 100%; 
-	margin-bottom: 100px; 
-}
-
-.btn-submit {
-	font-size: 14px;
-	padding: 10px 20px;  
-}
 
 .green-text {
 	color: $green;
@@ -208,4 +174,8 @@ HOME PAGE
 	width: 30px;
 	height: 30px;
 	display: none;  
+}
+
+.home-orders {
+	margin-bottom: 20px; 
 }

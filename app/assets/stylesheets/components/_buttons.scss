@@ -1,0 +1,45 @@
+@import "colors";
+.btn-green {
+  background-color: $green;
+  border: none; 
+  display: inline-block;
+  margin: 0 auto;
+  padding: 15px 0;
+  color: $white;
+  font-size: 18px;
+  -webkit-transition: all .5s ease-in-out; 
+  -moz-transition: all .5s ease-in-out; 
+  -ms-transition: all .5s ease-in-out; 
+  -o-transition: all .5s ease-in-out; 
+  transition: all .5s ease-in-out;   
+  text-align: center;
+
+  &:hover{
+    background-color: darken($green, 5%);
+    color: $white;
+    -webkit-transition: all .5s ease-in-out; 
+    -moz-transition: all .5s ease-in-out; 
+    -ms-transition: all .5s ease-in-out; 
+    -o-transition: all .5s ease-in-out; 
+    transition: all .5s ease-in-out;    
+  } 
+
+  &:focus {
+    color: $white; 
+  }
+}
+
+.btn-load {
+  margin-top: 40px; 
+  width: 100%; 
+  margin-bottom: 100px; 
+}
+
+.btn-submit {
+  font-size: 14px;
+  padding: 10px 20px;  
+}
+
+.btn-small {
+  padding: 10px 30px; 
+}

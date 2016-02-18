@@ -1,4 +1,4 @@
- <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 main-col comments-col">
+ <div class="main-col comments-col">
    <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
     <p class="comment-content">
       <% if comment.user_id == current_user.id %>
@@ -22,13 +22,13 @@
       <%= link_to comment.user.email, user_path(comment.user), class: "green-text" %>
     </span>
     <span class="comment-date">
-      <%= comment.created_at %>
+      <%= comment.created_at.to_formatted_s(:short) %>
     </span>
 
-<% if comment.user_id == current_user.id %>
-  <p>Delete this comment:   <%= link_to 'Destroy Comment', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %> </p>
-<% end %>
+    <% if comment.user_id == current_user.id %>
+      <%= link_to 'Delete Comment', [comment.post, comment],
+      method: :delete,
+      data: { confirm: 'Are you sure?' }, class: "green-text delete-comment" %>
+    <% end %>
   </div>
 </div>

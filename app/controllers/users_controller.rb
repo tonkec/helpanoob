@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def profile
     @user_posts = current_user.posts.paginate(page: params[:page])
+    @user_comments = current_user.comments.limit(5)
   end
 
    def create

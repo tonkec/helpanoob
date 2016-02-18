@@ -1,37 +1,38 @@
 <% if user_signed_in? %>
-  
-  <div class="row home-row">
-   <% @home_posts.each do |p| %>
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 col-lg-6 col-lg-offset-3 main-col p-l-0 p-r-0 pagination-col">
+  <div class="home-wrapper">
+  <div class="questions-orders">
+    |Rating| |Answered | Unanswered | Newest | Oldest |
+  </div>
+  <% @posts.each do |p| %>
+    <div class="main-col p-l-0 p-r-0 pagination-col">
 
       <p class="main-home-p">
-        <%= link_to image_tag(current_user.avatar), profile_path, class: "question-user-photo" %>
+        <%= link_to image_tag(p.user.avatar), profile_path, class: "question-user-photo" %>
         <%=link_to (truncate (p.description), length: 100), post_path(p), class: "home-question-link" %>
+        <%= link_to like_post_path(p), class: "like", method: :put do %>
           <i class="fa fa-heart-o fa-question-star">
-            <i class="number-of-votes">112</i>
-          </i>
+           <%= p.votes_for.size %>
+        </i>
+        <% end %>
+        
       </p>
 
-  </div>
+    </div><!-- pagination-col -->
   <% end %>
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-3 col-lg-6 col-lg-offset-3 p-l-0 p-r-0">
-    <a href="" class="btn btn-green btn-load">
-      <span class="btn-text">Load more</span>
-      <%= image_tag("loading.gif", class: "btn-loader") %>
-    </a>
-    
-  </div>
-</div><!--home-row  -->
-
+  </div><!-- home-wrapper -->
+  <a href="" class="btn btn-green btn-load">
+    <span class="btn-text">Load more</span>
+    <%= image_tag("loading.gif", class: "btn-loader") %>
+  </a>
 
 <input type="text" class="form-control main-search" placeholder="Search for...">
 <% else %>
-  <%= link_to "Sign in", sign_in_path %>
+<%= link_to "Sign in", sign_in_path %>
 <% end %>
 
 <script>
   $(function(){
-    var p = $(".pagination-col p").slice(0, 2).show(); // select the first ten
+    var p = $(".pagination-col p").slice(0, 7).show(); // select the first ten
     $(p).parent().show();
     $(".btn-load").click(function(e){ // click event for load more
         $(".btn-loader").show();
@@ -39,7 +40,7 @@
         e.preventDefault();
 
         setTimeout(function(){
-          var moreP = $(".pagination-col p:hidden").slice(0, 2).show(); 
+          var moreP = $(".pagination-col p:hidden").slice(0, 7).show(); 
           $(moreP).parent().show();
           $(".btn-loader").hide();
           $(".btn-text").show();

@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :groups
   resources :posts do
     resources :comments
+
+    member do 
+      put "like" => "posts#upvote"
+      put "dislike" => "posts#downvote"
+    end
   end
   resources :users, only: [:show, :edit, :update]
   get "profile", to: "users#profile"

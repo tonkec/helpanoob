@@ -10,9 +10,13 @@
 <% if user_signed_in? %>
   <%= render partial: "layouts/sidebar" %>
   <%= render partial: "layouts/navigation" %>
-
 <% end %>
-<%= yield %>
+<div class="row main-row">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-7 col-lg-offset-3">
+    <%= yield %>
+  </div>
+</div>
+
 
 </body>
 </html>

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  acts_as_voter
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
@@ -12,5 +13,6 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }
   validates :name, presence: true
   validates :password, presence: true
+  validates :avatar, presence: true
   mount_uploader :avatar, AvatarUploader
 end

@@ -9,8 +9,7 @@
   </div>
 
   <div class="bg-wrapper">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <div class="float">
         <h1 class="signup-heading">Get in!</h1> 
         
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -29,6 +28,5 @@
         <% end %>
         <%= link_to "Sign Up", sign_up_path, class: "bottom-text" %>
       </div><!-- col -->
-    </div><!-- row -->
   </div><!-- signup-wrapper -->
 </div><!--bg-wrap-->

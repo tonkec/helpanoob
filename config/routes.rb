@@ -3,9 +3,18 @@ Rails.application.routes.draw do
   resources :groups
   resources :posts do
     resources :comments
+
+    member do 
+      put "like" => "posts#upvote"
+      put "dislike" => "posts#downvote"
+    end
   end
+  resources :users, only: [:show, :edit, :update]
   get "profile", to: "users#profile"
-  resources :users, only: [:show]
+  get '/user/:id', to: 'users#show', as: "user_path"
+  get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
+
+
   devise_for :users
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new"

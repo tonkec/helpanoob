@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     arel (6.0.3)
     bcrypt (3.1.10)
     best_in_place (3.0.3)
@@ -90,6 +91,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
+    mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -157,6 +159,9 @@ GEM
       rdoc (~> 4.0)
     sendgrid (1.2.4)
       json
+    social-share-button (0.1.10)
+      coffee-rails
+      sass-rails
     spring (1.6.2)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -189,6 +194,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable (~> 0.10.0)
   bcrypt (~> 3.1.7)
   best_in_place (~> 3.0.1)
   bower-rails (~> 0.10.0)
@@ -200,11 +206,13 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sendgrid
+  social-share-button
   spring
   sqlite3
   turbolinks

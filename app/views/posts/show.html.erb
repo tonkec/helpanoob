@@ -1,27 +1,23 @@
 <div class="row main-posts-row">
-  <div class="col-md-3">
-    
-  </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-0 main-col posts-col">
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title"> <%= truncate @post.description, length: 50%></h1>
       <h2><%= @post.group_id %></h2>
       <p class="post-description">
       <% if @post.user_id == current_user.id %>
-        <%= best_in_place @post, :description %>        
-        <i class="fa fa-pencil"></i>
+        <%= best_in_place @post, :description %> 
+        <i class="fa fa-pencil"></i> 
+        <%= social_share_button_tag(@post.description) %>      
+      
       <% else %>
         <%= @post.description %> 
+        <%= social_share_button_tag(@post.description, :popup => "true") %>
       <% end %>
       </p>
     </div>
 
     <div class="col-xs-12 col-sm-3 text-center">
-       <i class="fa fa-heart main-question-icon">
-         <span class="number-of-votes">
-           1234
-         </span>
-       </i>
+      <%= render "like" %>
     </div>
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
@@ -33,6 +29,29 @@
       </p>
     </div>
   </div><!-- posts-col -->
+
+  <div class="col-lg-6 col-lg-offset-3">
+    
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  View full size of image
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+         <%= image_tag(@post.image.full) %>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
 
   <!-- COMMENTS -->
   <%= render @post.comments %>

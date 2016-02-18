@@ -27,6 +27,9 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'best_in_place', '~> 3.0.1'
 gem 'sendgrid'
+gem "mini_magick"
+gem 'social-share-button'
+gem 'acts_as_votable', '~> 0.10.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

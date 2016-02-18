@@ -29,7 +29,7 @@ end
 
  #Fake comments
 posts = Post.all
-3.times do |n|
+10.times do |n|
   content = Faker::Lorem.sentence(20)
-  posts.each {|p| p.comments.create!(content: content, user_id: 18)}
+  posts.each {|p| p.comments.create!(content: content, user_id: rand(24..28))}
 end

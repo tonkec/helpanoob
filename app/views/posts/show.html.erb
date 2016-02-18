@@ -16,11 +16,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-3 text-center">
-       <i class="fa fa-heart main-question-icon">
-         <span class="number-of-votes">
-           1234
-         </span>
-       </i>
+      <%= render "like" %>
     </div>
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
@@ -34,10 +30,6 @@
 
     </div>
   </div><!-- posts-col -->
-
-  <div class="col-md-3">
-    <%= link_to post_path(@prev_post) %>
-  </div>
 
 
   <!-- COMMENTS -->

@@ -1,19 +1,17 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order(:cached_votes_up => :desc)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    prev_post_id = @post.id - 1
-    @prev_post = Post.find_by_id(prev_post_id)
   end
 
   # GET /posts/new
@@ -59,6 +57,16 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @post.upvote_from current_user
+    redirect_to post_path(@post)
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to post_path(@post)
   end
 
   private

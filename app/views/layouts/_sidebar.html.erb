@@ -1,29 +1,9 @@
 <div class="sidebar-wrapper col-sm-6 p-l-0 p-r-0">
   <div class="sidebar-content">
+      <div class="right-inner-addon ">
+    <i class="fa fa-search fa-nav-search"></i>    
+    <input type="search" class="form-control nav-search" />
+  </div>
    
-    <div class="sidebar-user-con">
-       <%= link_to image_tag(current_user.avatar), profile_path, class: "sidebar-photo" %>
-        <span class="sidebar-user-name"><%= current_user.email %></span>
-     <p class="sidebar-user-link">
-        <%= link_to "Your profile", profile_path %>
-     </p>
-    </div>
-    
-    <ul class="sidebar-list">
-      <% Group.all.each do |group| %>
-        <li>
-          <%= link_to group.title, group_path(group) %>
-        </li>
-      <% end %> 
-    </ul>
-
-    <div class="sidebar-bottom text-center">
-      <div class="sidebar-b-inner">
-      <%= link_to "Sign Out", sign_out_path, method: :delete, class: "sidebar-bottom-links sign-out" %>
-      </div>
-      <a href="" class="sidebar-bottom-links">About</a>
-      <a href="" class="sidebar-bottom-links">Support</a>
-      <a href="" class="sidebar-bottom-links">Share This App</a>
-    </div>
   </div>
 </div>

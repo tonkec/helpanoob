@@ -1,13 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-    @q = Post.ransack(params[:q])
-    @posts_s = @q.result.includes(:description).page(params[:page])
+    @posts = Post.all.order(:cached_votes_up => :desc)
   end
 
   # GET /posts/1
@@ -19,6 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @groups = Group.all
   end
 
   # GET /posts/1/edit
@@ -61,6 +60,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def upvote
+    @post.upvote_from current_user
+    redirect_to post_path(@post)
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to post_path(@post)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -69,7 +78,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :user_id)
+      params.require(:post).permit(:description, :user_id, :group_id, :image)
     end
 
     def correct_user

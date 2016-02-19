@@ -5,51 +5,70 @@ nav {
   height: 60px;
   background-color: $white;
   width: 100%;
-  border-bottom: 1px solid $green;
-  position: relative;
-  top: 0;   
+  position: fixed;
+  top: 0;  
+  z-index: 1;
+  right: 0; 
+  width: 80%;   
 }
 
-.nav-list {
-  margin: 0;
-  padding: 0;
-  right: 20px;
-  top: 10px;
-  position: absolute;
-  right: 20px;  
-  li {
-    display: inline-block;
-    margin-left: 5px;
-   a {
-      color: $green;
-      font-size: 14px; 
-      
-      &.home-link {
-        @include transition-opt(
-          $hover-color: $green,
-          $transition-color: $green
-          );
-        @include underline-opening();      
-      }
-    }
+.form-control {
+  &.nav-search {
+    width: 40px;
+    -webkit-transition: width 1s ease-in-out; 
+    -moz-transition: width 1s ease-in-out; 
+    -ms-transition: width 1s ease-in-out; 
+    -o-transition: width 1s ease-in-out; 
+    transition: width 1s ease-in-out;
+
+    &:focus {
+      width: 100%;
+      border-color:$green;  
+      -webkit-transition: width 1s ease-in-out; 
+      -moz-transition: width 1s ease-in-out; 
+      -ms-transition: width 1s ease-in-out; 
+      -o-transition: width 1s ease-in-out; 
+      transition: width 1s ease-in-out; 
+    } 
   }
+
+  
 }
 
-.fa.fa-home {
-  font-size: 2.5em; 
+.right-inner-addon {
+    position: relative;
+    
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    left: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
 }
 
-.fa.fa-plus {
-  font-size: 2.5em; 
-  text-align:center; 
-  color: $green; 
+.fa.fa-nav-search {
+  color: $green;
 }
 
-.logo-con {
+.right-nav {
   position: absolute;
-  left: 20px;
-  top: 20px;
-  text-align: center;
-  border-right: 1px solid $white;
-  width: 18%; 
+  right: 0px;
+  top: 0;  
+}
+
+.fa.fa-nav-plus {
+  font-size: 1.2em;
+  color: $white;
+  line-height: 60px;   
+}
+
+.fa-plus-con {
+  padding: 0 30px;
+  background-color: #FF6F59;
+  height: 60px; 
+  -webkit-border-bottom-right-radius: 10px; 
+   border-bottom-right-radius: 10px;
 }

@@ -15,8 +15,9 @@
 
 <div class="main-post-col">
     <div class="col-xs-12 col-sm-9">
-        <h1><%= post.title %></h1>
-        <p><%= post.description %></p>
+       <h1 class="post-title">
+            <%=link_to (truncate (post.title), length: 100), post_path(post), class: "home-question-link" %>
+       </h1>
     </div>
 
     <div class="col-xs-12 col-sm-3 text-center">

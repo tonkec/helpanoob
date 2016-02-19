@@ -30,7 +30,9 @@
         <span class="post-date">
           <%= @post.created_at.to_formatted_s(:short) %>
         </span>
-        <%= social_share_button_tag(@post.description) %>   
+        <div class="post-sherable-buttons">
+          <%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
+        </div>
       </p>
     </div>
   </div><!-- main-post-col -->

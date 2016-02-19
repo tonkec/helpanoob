@@ -2,7 +2,7 @@
 @import "text-hover-effects/sass/effects";
 
 .sidebar-wrapper {
-	background-color: $green;
+	background-color: #202729;
 	height: 100%;
 	width: 20%;
 	position: fixed;
@@ -16,7 +16,6 @@
 	border-bottom: 1px solid $white;
 	padding-bottom: 20px;
 	padding-top: 20px; 
-	background-color: darken($green, 5%); 
 }
 
 .sidebar-photo {

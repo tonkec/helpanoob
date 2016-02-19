@@ -67,12 +67,12 @@
 .fa.main-question-icon {
 	font-size: 40px;
 	margin-top: 40px; 
-	color: #0c955b;
+	color: #FF6F59;
 	cursor: pointer;
 	display: inline-block; 
 	
 	&:hover {
-		color: $green; 
+		color: #FF6F59; 
 		@include transition;
 		
 	}
@@ -82,7 +82,7 @@
 	font-size: 25px; 
 	display: block;
 	margin-top: 15px; 
-	color: $green;
+	color: #FF6F59;
 }
 
 .post-subinfo {

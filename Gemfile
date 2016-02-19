@@ -28,18 +28,10 @@ gem 'devise'
 gem 'best_in_place', '~> 3.0.1'
 gem 'sendgrid'
 gem "mini_magick"
-<<<<<<< HEAD
-<<<<<<< HEAD
 gem 'ransack'
-=======
-gem 'social-share-button'
-gem 'acts_as_votable', '~> 0.10.0'
->>>>>>> master
-=======
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'shareable'
 
->>>>>>> modeling-posts
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

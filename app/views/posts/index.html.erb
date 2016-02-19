@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 <h1>All Questions</h1>
 <div class="questions-orders">
-    <%= link_to "Newest", :sort_by => "description" %>
+    <%= sort_link(@q, :title) %>
+    <%= sort_link(@q, :created_at, "Created") %>
+    <%= sort_link(@q, :cached_votes_score, "Hearts") %>
 </div>
 
-<%= form_tag posts_path, :method => "get" do %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "S" %>
+<%= search_form_for @q do |f| %>
+
+  <%= f.search_field :description_or_title_or_comments_content_cont%>
+
+  <%= f.submit %>
 <% end %>
- <% @posts.each do |post| %>
+
+ <% @posts_s.each do |post| %>
         
         <p><%= post.description %></p>
         <h1><%= time_ago_in_words(post.created_at) %></h1>

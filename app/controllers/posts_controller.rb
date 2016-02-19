@@ -14,8 +14,6 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    prev_post_id = @post.id - 1
-    @prev_post = Post.find_by_id(prev_post_id)
   end
 
   # GET /posts/new

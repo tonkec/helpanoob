@@ -1,5 +1,13 @@
 <div class="posts-wrapper">
   <div class="main-post-col">
+    <% if @post.prev %>
+    <%= link_to "prev", @post.prev %>
+    <% end %>
+
+    <% if @post.next %>
+    <%= link_to "next", @post.next %>
+
+    <% end %>
     <h5 class="post-group-info"><%= @post.group.title %></h5>
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title">

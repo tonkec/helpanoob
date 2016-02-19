@@ -7,4 +7,12 @@ class Post < ActiveRecord::Base
   validates :description, presence: true
   validates :group_id, presence: true
   default_scope -> { order(cached_votes_up: :desc) }
+
+  def next
+    user.posts.where("id > ?", id).first
+  end
+
+  def prev
+    user.posts.where("id < ?", id).last
+  end
 end

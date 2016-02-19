@@ -14,22 +14,19 @@
 
 .form-control {
   &.nav-search {
-    width: 40px;
+    width: 100%;
+    padding: 30px 0; 
+    background-color: #00C6FF;
+    border: none;  
     -webkit-transition: width 1s ease-in-out; 
     -moz-transition: width 1s ease-in-out; 
     -ms-transition: width 1s ease-in-out; 
     -o-transition: width 1s ease-in-out; 
     transition: width 1s ease-in-out;
-
-    &:focus {
-      width: 100%;
-      border-color:$green;  
-      -webkit-transition: width 1s ease-in-out; 
-      -moz-transition: width 1s ease-in-out; 
-      -ms-transition: width 1s ease-in-out; 
-      -o-transition: width 1s ease-in-out; 
-      transition: width 1s ease-in-out; 
-    } 
+    color: $white;
+    font-size: 20px;
+    padding-left: 50px; 
+      
   }
 
   
@@ -37,6 +34,7 @@
 
 .right-inner-addon {
     position: relative;
+    text-align: center;
     
 }
 .right-inner-addon input {
@@ -44,13 +42,13 @@
 }
 .right-inner-addon i {
     position: absolute;
-    left: 0px;
-    padding: 10px 12px;
+    left: 20px;
     pointer-events: none;
 }
 
 .fa.fa-nav-search {
-  color: $green;
+  color: $white;
+  line-height: 60px;
 }
 
 .right-nav {
@@ -66,8 +64,8 @@
 }
 
 .fa-plus-con {
-  padding: 0 30px;
-  background-color: #FF6F59;
+  padding: 0 35px;
+  background-color: $light-blue;
   height: 60px; 
   -webkit-border-bottom-right-radius: 10px; 
    border-bottom-right-radius: 10px;

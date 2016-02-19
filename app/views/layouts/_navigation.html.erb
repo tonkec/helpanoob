@@ -1,9 +1,10 @@
 <nav class="nav">
   <div class="right-nav">
     <div class="fa-plus-con">
-      <i class="fa fa-plus fa-nav-plus">
-        <%= link_to "NeW", new_post_path %>
-      </i>
+      <%= link_to new_post_path do %>
+        <i class="fa fa-plus fa-nav-plus">
+        </i>
+      <% end %>
     </div>
   </div>
 

@@ -6,6 +6,14 @@ body {
 	background-color: $white-1; 
 }
 
+.row {
+	margin: 0; 
+}
+
+.main-row {
+	margin-top: 100px; 
+}
+
 .float {
 	float: left;
 	width: 100%; 
@@ -23,9 +31,6 @@ textarea {
 	width: 100%; 
 }
 
-.row {
-	margin: 0; 
-}
 
 .p-l-0 {
 	padding-left: 0 !important; 

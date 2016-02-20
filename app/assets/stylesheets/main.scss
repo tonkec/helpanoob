@@ -6,7 +6,8 @@ body {
 	background-color: $white-1; 
 }
 
-a:hover {
+a:hover,
+a:focus {
 	-webkit-box-shadow: none; 
 	box-shadow: none; 
 }

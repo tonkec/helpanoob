@@ -24,7 +24,7 @@
     transition: width 1s ease-in-out;
     color: $white;
     font-size: 20px;
-    padding-left: 60px; 
+    padding-left: 70px; 
     &:hover {
       -webkit-box-shadow: none; 
       box-shadow: none; 
@@ -40,7 +40,7 @@
     
 }
 .right-inner-addon input {
-    padding-right: 30px;    
+    padding-right: 50px;    
 }
 .right-inner-addon i {
     position: absolute;
@@ -51,7 +51,7 @@
 .nav-search {
   color: $white;
   line-height: 60px;
-  font-size: 3em;
+  font-size: 2.5em;
   top: 0px;  
 }
 

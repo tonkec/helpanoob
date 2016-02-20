@@ -52,7 +52,7 @@
   color: $white;
   line-height: 60px;
   font-size: 3em;
-  top: 16px;  
+  top: 0px;  
 }
 
 .right-nav {
@@ -64,8 +64,11 @@
 .icon-plus {
   font-size: 1.7em;
   color: $white;
-  padding: 25px 19px 20px; 
+  padding: 18px 20px; 
   background-color: $light-blue;
+  position: absolute;
+  right: 0;
+  top: 0;   
   
   &:hover {
     text-decoration: none; 
@@ -80,7 +83,6 @@
 
 .icon-nav {
   font-size: 2.2em; 
-  margin-top: 20px;
   position: relative;
   display: inline-block; 
   color: $dark-blue;  
@@ -97,5 +99,6 @@
 
 .nav-list {
   display: inline-block;
-  margin-right: 20px; 
+  margin-right: 60px; 
+  margin-top: 20px; 
 }

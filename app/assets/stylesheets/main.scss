@@ -184,3 +184,18 @@ HOME PAGE
 .questions-orders {
 	margin-bottom: 20px; 
 }
+
+.no-border {
+	border-left: 0 !important;
+	border-right: 0 !important;
+	border-top: 0 !important;
+	border-bottom: 0 !important;
+}
+
+.no-padding {
+	padding: 0 !important; 
+}
+
+.light-orange-text {
+	color: $light-orange;
+}

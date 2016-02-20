@@ -1,12 +1,23 @@
 <nav class="nav">
+  <span class="icon-elegant-font-242-10003"></span>
+  <%= link_to root_path do %>
+   <span class="icon-elegant-font-167-8811 icon-nav"></span>
+  <% end %>
+
+  <%= link_to posts_path do %>
+<span class="icon-elegant-font-249-10019 icon-nav"></span>
+ <% end %>
   <div class="right-nav">
+
     <div class="fa-plus-con">
       <%= link_to new_post_path do %>
         <i class="fa fa-plus fa-nav-plus">
         </i>
       <% end %>
+
     </div>
   </div>
 
-  <%= link_to "All", posts_path %>
+
+
 </nav>

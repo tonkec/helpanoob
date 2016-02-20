@@ -1,29 +1,22 @@
 <p id="notice"><%= notice %></p>
 <h1>All Questions</h1>
-<div class="questions-orders">
-    <%= sort_link(@q, :title) %>
-    <%= sort_link(@q, :created_at, "Created") %>
-    <%= sort_link(@q, :cached_votes_score, "Hearts") %>
+<div class="posts-orders">
+    <%= sort_link(@q, :title, hide_indicator: true) %>
+    <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
+    <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div>
 
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :description_or_title_or_comments_content_cont%>
-  <%= f.submit %>
-<% end %>
-
 <% @posts_s.each do |post| %>
-
 <div class="main-post-col">
-    <div class="col-xs-12 col-sm-9">
-       <h1 class="post-title">
-            <%=link_to (truncate (post.title), length: 100), post_path(post), class: "home-question-link" %>
+    <div class="col-xs-12 col-sm-10 p-l-o p-r-0">
+       <h1 class="post-title-no-desc">
+            <%=link_to (truncate (post.title), length: 100), post_path(post), class: "post-question-link" %>
        </h1>
     </div>
 
-    <div class="col-xs-12 col-sm-3 text-center">
+    <div class="col-xs-12 col-sm-2 text-center p-l-0 p-r-0">
      <%= link_to like_post_path(post), class: "like", method: :put do %>
-         <i class="fa fa-heart main-question-icon">
-         </i>
+        <span class="icon-elegant-font-266-10162 main-question-icon"></span>
      <% end %>
      <span class="number-of-votes">
          <%= post.votes_for.size %>
@@ -31,19 +24,29 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
-        <%=link_to post.user.email, user_path(post.user), class: "green-text" %></a>
-        <%= time_ago_in_words(post.created_at) %>
-        <%= link_to 'Show', post %>
+        <%=link_to post.user.email, user_path(post.user), class: "light-orange-text" %></a>
+        <p class="post-date">
+            <%= time_ago_in_words(post.created_at) %> ago
+        </p>
 
         <% if current_user.id == post.user_id %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
         <% end %>
 
     </div>
 
 
 </div>  <!-- main-post-col -->
+<% end %>
 
 
-    <% end %>
+<script>
+    $(".posts-orders a").prepend('<span class="icon-elegant-font-155-8793 order-icon"></span> <span class="icon-elegant-font-99-8706 order-icon"></span>');
+
+    $(".posts-orders a").click(function(){
+        $(this).toggleClass("active-order");
+    });
+</script>

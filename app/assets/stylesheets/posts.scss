@@ -37,7 +37,7 @@
 	border-bottom: 1px solid lighten(#000, 70%);
 	padding-top: 30px; 
 	padding-bottom: 30px;  
-	font-size: 34px; 
+	font-size: 26px;
 }
 
 .post-btn {
@@ -64,10 +64,9 @@
 	width: 100%;    
 }
 
-.fa.main-question-icon {
+.main-question-icon {
 	font-size: 40px;
-	margin-top: 40px; 
-	color: #FF6F59;
+	color: $light-orange;
 	cursor: pointer;
 	display: inline-block; 
 	
@@ -86,7 +85,15 @@
 }
 
 .post-subinfo {
-	font-size: 10px; 
+	font-size: 12px; 
+	
+	a {
+		color: $light-orange;
+		
+		&:hover {
+			text-decoration: none; 
+		} 
+	}
 }
 
 .post-subinfo {
@@ -156,4 +163,48 @@
 	iframe {
 		display: inline-block;
 	}
+}
+
+.post-title-no-desc {
+	font-size: 28px;
+	line-height: 1.4em;
+	padding: 0;   
+}
+
+.post-question-link {
+	color: $black-1;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 1em;  
+	&:hover {
+		text-decoration: none; 
+		color: $light-orange;
+	} 
+}
+
+.posts-editable-links {
+	margin-top: 5px;
+	a {
+		color: $light-orange;
+	}
+}
+
+.posts-orders {
+	margin-top: 10px; 
+	a {
+		color: $light-orange;
+		font-size: 18px;
+		margin:  0 5px;  
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.order-icon {
+	display: none;
+	
+	&.active-order {
+		display: inline !important; 
+	} 
 }

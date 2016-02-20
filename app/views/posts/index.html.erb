@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
-<h1>All Questions</h1>
+<% if @posts_s.any? %>
+<h1 class="post-title">
+    All questions
+</h1>
+
 <div class="posts-orders">
+    <span class="icon-elegant-font-177-8826 sort-icon"></span>
     <%= sort_link(@q, :title, hide_indicator: true) %>
     <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div>
-
 <% @posts_s.each do |post| %>
 <div class="main-post-col">
     <div class="col-xs-12 col-sm-10 p-l-o p-r-0">
@@ -40,6 +44,13 @@
 
 
 </div>  <!-- main-post-col -->
+<% end %>
+
+<% else %>
+    <div class="no-results-container">
+        <h2 class="no-results-heading">Woopsie! No results</h2>
+        <span class="icon-sad-face-in-rounded-square icon-no-results"></span>
+    </div>
 <% end %>
 
 

@@ -1,21 +1,25 @@
 <nav class="nav">
-  <span class="icon-elegant-font-242-10003"></span>
-  <%= link_to root_path do %>
-   <span class="icon-elegant-font-167-8811 icon-nav"></span>
-  <% end %>
-
-  <%= link_to posts_path do %>
-<span class="icon-elegant-font-249-10019 icon-nav"></span>
- <% end %>
+ 
   <div class="right-nav">
+    <div class="nav-list">
 
-    <div class="fa-plus-con">
-      <%= link_to new_post_path do %>
-        <i class="fa fa-plus fa-nav-plus">
-        </i>
+      <%= link_to root_path, class: "nav-anchor" do %>
+      <span class="icon-elegant-font-111-8721 icon-nav"></span>
       <% end %>
 
+      <%= link_to posts_path, class: "nav-anchor" do %>
+      <span class="icon-elegant-font-249-10019 icon-nav"></span>
+      <% end %>
+      
+      <%= link_to profile_path, class: "nav-anchor" do %>
+      <span class="icon-elegant-font-242-10003 icon-nav"></span>
+      <% end %>
+    
     </div>
+
+    <%= link_to new_post_path, class: "plus-anchor" do %>
+    <span class="icon-elegant-font-172-8820 icon-plus"></span>
+    <% end %>
   </div>
 
 

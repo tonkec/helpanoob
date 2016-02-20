@@ -4,12 +4,11 @@
 .nav {
   height: 60px;
   background-color: $white;
-  width: 100%;
   position: fixed;
   top: 0;  
   z-index: 1;
   right: 0; 
-  width: 80%;   
+  width: 100%;   
 }
 
 .form-control {
@@ -25,8 +24,11 @@
     transition: width 1s ease-in-out;
     color: $white;
     font-size: 20px;
-    padding-left: 50px; 
-      
+    padding-left: 60px; 
+    &:hover {
+      -webkit-box-shadow: none; 
+      box-shadow: none; 
+    }
   }
 
   
@@ -46,9 +48,11 @@
     pointer-events: none;
 }
 
-.fa.fa-nav-search {
+.nav-search {
   color: $white;
   line-height: 60px;
+  font-size: 3em;
+  top: 16px;  
 }
 
 .right-nav {
@@ -57,24 +61,41 @@
   top: 0;  
 }
 
-.fa.fa-nav-plus {
-  font-size: 1.2em;
+.icon-plus {
+  font-size: 1.7em;
   color: $white;
-  line-height: 60px;   
+  padding: 25px 19px 20px; 
+  background-color: $light-blue;
+  
+  &:hover {
+    text-decoration: none; 
+  }  
 }
 
-.fa-plus-con {
-  padding: 0 35px;
-  background-color: $light-blue;
-  height: 60px; 
-  -webkit-border-bottom-right-radius: 10px; 
-   border-bottom-right-radius: 10px;
+.plus-anchor {
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .icon-nav {
-  color: $black-1;
-  font-size: 2em;
+  font-size: 2.2em; 
   margin-top: 20px;
   position: relative;
-  display: inline-block;   
+  display: inline-block; 
+  color: $dark-blue;  
+  margin-right: 20px; 
+}
+
+.nav-anchor {
+  &:hover {
+    text-decoration: none;
+    -webkit-box-shadow: none; 
+     box-shadow: none;  
+  }
+}
+
+.nav-list {
+  display: inline-block;
+  margin-right: 20px; 
 }

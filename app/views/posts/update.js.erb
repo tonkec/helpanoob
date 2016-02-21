@@ -4,9 +4,13 @@ $("#post-<%= @post.id %>").fadeOut(500, function(){
 	$(this).remove();
 	$(".edited-posts").prepend("<h1> Post updated! </h1> <%= j render @post %>")
 });*/
-
+<% if @post.errors.any? %>
+$("#editpost-<%= @post.id %>").modal("show");
+$("#editpost-<%= @post.id %> .modal-content").append("<h1>Errors: </h1> <%= @post.errors.full_messages %>");
+<% else %>
 $("#editpost-<%=@post.id%>").modal("hide");
 $("#post-col-<%= @post.id %>").fadeOut(500, function(){
 	$(this).remove();
 	$(".posts-container").prepend("<%= j render @post %>")
-})
+});
+<% end %>

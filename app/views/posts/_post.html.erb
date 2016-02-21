@@ -39,7 +39,7 @@
             </div><!-- modal header -->
         
             <div class="modal-body">
-            <%= form_for(@post, :method => :put, remote: true) do |f| %>
+            <%= form_for(post, :method => :put, remote: true) do |f| %>
               <div class="field">
                <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
                <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>

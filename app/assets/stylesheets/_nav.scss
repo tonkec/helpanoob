@@ -3,33 +3,32 @@
 
 .nav {
   height: 60px;
-  background-color: $white;
-  width: 100%;
+  background-color: $dark-blue-2;
   position: fixed;
   top: 0;  
   z-index: 1;
   right: 0; 
-  width: 80%;   
+  width: 100%;   
 }
 
 .form-control {
   &.nav-search {
-    width: 40px;
+    width: 100%;
+    padding: 30px 0; 
+    background-color: #00C6FF;
+    border: none;  
     -webkit-transition: width 1s ease-in-out; 
     -moz-transition: width 1s ease-in-out; 
     -ms-transition: width 1s ease-in-out; 
     -o-transition: width 1s ease-in-out; 
     transition: width 1s ease-in-out;
-
-    &:focus {
-      width: 100%;
-      border-color:$green;  
-      -webkit-transition: width 1s ease-in-out; 
-      -moz-transition: width 1s ease-in-out; 
-      -ms-transition: width 1s ease-in-out; 
-      -o-transition: width 1s ease-in-out; 
-      transition: width 1s ease-in-out; 
-    } 
+    color: $white;
+    font-size: 20px;
+    padding-left: 70px; 
+    &:hover {
+      -webkit-box-shadow: none; 
+      box-shadow: none; 
+    }
   }
 
   
@@ -37,20 +36,23 @@
 
 .right-inner-addon {
     position: relative;
+    text-align: center;
     
 }
 .right-inner-addon input {
-    padding-right: 30px;    
+    padding-right: 50px;    
 }
 .right-inner-addon i {
     position: absolute;
-    left: 0px;
-    padding: 10px 12px;
+    left: 20px;
     pointer-events: none;
 }
 
-.fa.fa-nav-search {
-  color: $green;
+.nav-search {
+  color: $white;
+  line-height: 60px;
+  font-size: 2.5em;
+  top: 0px;  
 }
 
 .right-nav {
@@ -59,16 +61,44 @@
   top: 0;  
 }
 
-.fa.fa-nav-plus {
-  font-size: 1.2em;
+.icon-plus {
+  font-size: 1.7em;
   color: $white;
-  line-height: 60px;   
+  padding: 18px 20px; 
+  background-color: $light-blue;
+  position: absolute;
+  right: 0;
+  top: 0;   
+  
+  &:hover {
+    text-decoration: none; 
+  }  
 }
 
-.fa-plus-con {
-  padding: 0 30px;
-  background-color: #FF6F59;
-  height: 60px; 
-  -webkit-border-bottom-right-radius: 10px; 
-   border-bottom-right-radius: 10px;
+.plus-anchor {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.icon-nav {
+  font-size: 2.2em; 
+  position: relative;
+  display: inline-block; 
+  color: $dark-blue;  
+  margin-right: 20px; 
+}
+
+.nav-anchor {
+  &:hover {
+    text-decoration: none;
+    -webkit-box-shadow: none; 
+     box-shadow: none;  
+  }
+}
+
+.nav-list {
+  display: inline-block;
+  margin-right: 60px; 
+  margin-top: 20px; 
 }

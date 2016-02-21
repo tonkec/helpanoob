@@ -34,11 +34,12 @@
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
       <p class="post-subinfo">
-        <%=link_to @post.user.email, user_path(@post.user), class: "green-text" %></a>
+        <%=link_to @post.user.email, user_path(@post.user), class: "green-text" %></a>o
         <span class="post-date">
           <%= @post.created_at.to_formatted_s(:short) %>
         </span>
         <div class="post-sherable-buttons">
+          <span class="icon-elegant-font-40-7588"></span>
           <%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
         </div>
       </p>

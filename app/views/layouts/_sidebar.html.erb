@@ -1,9 +1,41 @@
 <div class="sidebar-wrapper col-sm-6 p-l-0 p-r-0">
   <div class="sidebar-content">
-      <div class="right-inner-addon ">
-    <i class="fa fa-search fa-nav-search"></i>    
-    <input type="search" class="form-control nav-search" />
-  </div>
-   
-  </div>
+    <div class="right-inner-addon ">
+      <i class="icon-elegant-font-180-8914 nav-search"></i>  
+      <%= search_form_for @q do |f| %>
+      <%= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search"%>
+      <% end %>
+    </div><!-- addon -->
+  </div><!-- content -->
+
+  <div class="sidebar-photo">
+    <img src="" alt="">
+  </div>  
+
+  <ul class="sidebar-list">
+    <li>
+       <%= link_to "Profile", profile_path %>
+    </li>
+    <li>
+      <a href="">Messages</a>
+    </li>
+    <li>
+       <%= link_to "Questions", posts_path %>
+    </li>
+    <li>
+      <%= link_to "Groups", groups_path %>
+    </li>
+  </ul>
+
+  <ul class="sidebar-static-list">
+    <li>
+      <a href="">About</a>
+    </li>
+    <li>
+      <a href="">Support</a>
+    </li>
+    <li>
+      <a href="">Share this app</a>
+    </li>
+  </ul>
 </div>

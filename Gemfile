@@ -28,6 +28,7 @@ gem 'devise'
 gem 'best_in_place', '~> 3.0.1'
 gem 'sendgrid'
 gem "mini_magick"
+gem 'ransack'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'shareable'
 

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_filter :proba
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   
@@ -10,6 +11,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource_or_scope)
     root_path
+  end
+
+  def proba
+    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts_s = @q.result(distinct: true)
   end
 
   protected 

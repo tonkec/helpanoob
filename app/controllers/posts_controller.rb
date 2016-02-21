@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(:cached_votes_up => :desc)
+    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts_s = @q.result(distinct: true)
   end
 
   # GET /posts/1

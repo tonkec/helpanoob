@@ -1,0 +1,12 @@
+/*$("#newpost").modal("hide");
+$("#editpost-<%= @post.id%>").modal("hide");
+$("#post-<%= @post.id %>").fadeOut(500, function(){
+	$(this).remove();
+	$(".edited-posts").prepend("<h1> Post updated! </h1> <%= j render @post %>")
+});*/
+
+$("#editpost-<%=@post.id%>").modal("hide");
+$("#post-col-<%= @post.id %>").fadeOut(500, function(){
+	$(this).remove();
+	$(".posts-container").prepend("<%= j render @post %>")
+})

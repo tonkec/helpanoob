@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
     @users = User.all
   end
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user_posts = current_user.posts.paginate(page: params[:page])
+    @user_posts = current_user.posts.page(params[:page]).per(5)
     @user_comments = current_user.comments.limit(5)
   end
 

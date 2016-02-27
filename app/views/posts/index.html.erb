@@ -11,9 +11,15 @@
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->
 
-<div class="posts-container">
-    <%= render @posts %>
+<div id="content" class="clearfix posts-wrapper">
+  <%= render(partial: 'post', collection: @posts, object: @posts) %>
 </div>
+
+<% unless @posts.current_page == @posts.total_pages %>
+  <p id="view-more" class="clearfix">
+    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
+  </p>
+<% end %>
 
 <% else %>
     <div class="no-results-container">

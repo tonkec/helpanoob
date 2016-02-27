@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+  root "posts#index"
+  get "home", to: "static_pages#home"
   resources :groups
   resources :posts do
     resources :comments

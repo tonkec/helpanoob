@@ -62,14 +62,13 @@ HOME PAGE
 }
 
 .main-col-hidden {
-	display: none; 
 }
 
 .main-home-p {
 	margin: 0;
 	text-align: justify; 
 	position: relative; 
-	display: none; 
+	 
 	
 	&:hover {
 		.question-user-photo {
@@ -174,7 +173,7 @@ HOME PAGE
 }
 
 .pagination-col {
-	display: none;
+	
 	
 	&:last-child {
 		margin-bottom: 100px; 

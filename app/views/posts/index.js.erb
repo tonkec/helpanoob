@@ -1,3 +1,4 @@
+
 $('#content').append("<%=j render(partial: 'post', collection: @posts, format: 'html') %>");
 
 <% if @posts.current_page == @posts.total_pages %>

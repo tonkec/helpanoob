@@ -1,13 +1,6 @@
 <div class="posts-wrapper">
   <div class="main-post-col">
-    <% if @post.prev %>
-    <%= link_to "prev", @post.prev %>
-    <% end %>
-
-    <% if @post.next %>
-    <%= link_to "next", @post.next %>
-
-    <% end %>
+    
     <h5 class="post-group-info"></h5>
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title">
@@ -34,7 +27,7 @@
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
       <p class="post-subinfo">
-        <%=link_to @post.user.email, user_path(@post.user), class: "green-text" %></a>o
+        <%=link_to @post.user.email, user_path(@post.user), class: "green-text" %></a>
         <span class="post-date">
           <%= @post.created_at.to_formatted_s(:short) %>
         </span>

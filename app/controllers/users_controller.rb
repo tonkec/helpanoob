@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user_posts_count = current_user.posts.count
+    @user_comments_count = current_user.comments.count
     @user_posts = current_user.posts.page(params[:page]).per(5)
-    @user_comments = current_user.comments.limit(5)
+    @user_comments = current_user.comments.limit(5).reorder('created_at desc')
   end
 
    def create

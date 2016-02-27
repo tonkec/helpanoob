@@ -8,6 +8,12 @@ class PostsController < ApplicationController
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     @post = Post.new
+
+
+
+    Post.all.each do |x| 
+        
+    end
   end
 
   # GET /posts/1
@@ -78,12 +84,6 @@ class PostsController < ApplicationController
   def downvote
     @post.downvote_from current_user
     redirect_to post_path(@post)
-  end
-
-  def proba
-    @posts = Post.all
-    @q = Post.ransack(params[:q])
-    @posts_s = @q.result(distinct: true)
   end
 
   private

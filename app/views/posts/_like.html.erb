@@ -2,6 +2,12 @@
 <i class="fa fa-heart main-question-icon">
 </i>
 <% end %>
+  <%= link_to "dislike", dislike_post_path(@post), class: "like", method: :put %>
+
 <span class="number-of-votes">
- <%= @post.votes_for.size %>
+ <%= @post.cached_weighted_score %><br />
+ <%= @post.cached_weighted_total %><br />
+ <%= @post.cached_votes_score %><br />
+ <%= @post.cached_weighted_average %><br />
+ <%= @post.cached_votes_total %>
 </span>

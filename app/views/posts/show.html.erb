@@ -1,6 +1,7 @@
 <div class="posts-wrapper">
   <div class="main-post-col">
-    <h5 class="post-group-info"><%= @post.group.title %></h5>
+    
+    <h5 class="post-group-info"></h5>
     <div class="col-xs-12 col-sm-9">
       <h1 class="post-title">
         <% if @post.user_id == current_user.id %>
@@ -30,7 +31,10 @@
         <span class="post-date">
           <%= @post.created_at.to_formatted_s(:short) %>
         </span>
-        <%= social_share_button_tag(@post.description) %>   
+        <div class="post-sherable-buttons">
+          <span class="icon-elegant-font-40-7588"></span>
+          <%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
+        </div>
       </p>
     </div>
   </div><!-- main-post-col -->

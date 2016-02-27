@@ -1,55 +1,104 @@
 @import "components/colors";
 @import "text-hover-effects/sass/effects";
 
-nav {
+.nav {
   height: 60px;
-  background-color: $white;
-  width: 100%;
-  border-bottom: 1px solid $green;
-  position: relative;
-  top: 0;   
+  background-color: $dark-blue-2;
+  position: fixed;
+  top: 0;  
+  z-index: 1;
+  right: 0; 
+  width: 100%;   
 }
 
-.nav-list {
-  margin: 0;
-  padding: 0;
-  right: 20px;
-  top: 10px;
-  position: absolute;
-  right: 20px;  
-  li {
-    display: inline-block;
-    margin-left: 5px;
-   a {
-      color: $green;
-      font-size: 14px; 
-      
-      &.home-link {
-        @include transition-opt(
-          $hover-color: $green,
-          $transition-color: $green
-          );
-        @include underline-opening();      
-      }
+.form-control {
+  &.nav-search {
+    width: 100%;
+    padding: 30px 0; 
+    background-color: #00C6FF;
+    border: none;  
+    -webkit-transition: width 1s ease-in-out; 
+    -moz-transition: width 1s ease-in-out; 
+    -ms-transition: width 1s ease-in-out; 
+    -o-transition: width 1s ease-in-out; 
+    transition: width 1s ease-in-out;
+    color: $white;
+    font-size: 20px;
+    padding-left: 70px; 
+    &:hover {
+      -webkit-box-shadow: none; 
+      box-shadow: none; 
     }
+  }
+
+  
+}
+
+.right-inner-addon {
+    position: relative;
+    text-align: center;
+    
+}
+.right-inner-addon input {
+    padding-right: 50px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    left: 20px;
+    pointer-events: none;
+}
+
+.nav-search {
+  color: $white;
+  line-height: 60px;
+  font-size: 2.5em;
+  top: 0px;  
+}
+
+.right-nav {
+  position: absolute;
+  right: 0px;
+  top: 0;  
+}
+
+.icon-plus {
+  font-size: 1.7em;
+  color: $white;
+  padding: 18px 20px; 
+  background-color: $light-blue;
+  position: absolute;
+  right: 0;
+  top: 0;   
+  
+  &:hover {
+    text-decoration: none; 
+  }  
+}
+
+.plus-anchor {
+  &:hover {
+    text-decoration: none;
   }
 }
 
-.fa.fa-home {
-  font-size: 2.5em; 
+.icon-nav {
+  font-size: 2.2em; 
+  position: relative;
+  display: inline-block; 
+  color: $dark-blue;  
+  margin-right: 20px; 
 }
 
-.fa.fa-plus {
-  font-size: 2.5em; 
-  text-align:center; 
-  color: $green; 
+.nav-anchor {
+  &:hover {
+    text-decoration: none;
+    -webkit-box-shadow: none; 
+     box-shadow: none;  
+  }
 }
 
-.logo-con {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  text-align: center;
-  border-right: 1px solid $white;
-  width: 18%; 
+.nav-list {
+  display: inline-block;
+  margin-right: 60px; 
+  margin-top: 20px; 
 }

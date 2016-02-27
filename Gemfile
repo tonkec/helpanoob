@@ -15,8 +15,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem "bower-rails", "~> 0.10.0"
 gem "faker"
-gem 'carrierwave'
-gem 'will_paginate'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+#gem 'will_paginate'
+gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -28,8 +29,10 @@ gem 'devise'
 gem 'best_in_place', '~> 3.0.1'
 gem 'sendgrid'
 gem "mini_magick"
-gem 'social-share-button'
+gem 'ransack'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'shareable'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

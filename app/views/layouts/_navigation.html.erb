@@ -1,21 +1,27 @@
-<nav>
-  <div class="logo-con">
-    logo
+<nav class="nav">
+ 
+  <div class="right-nav">
+    <div class="nav-list">
+
+      <%= link_to root_path, class: "nav-anchor" do %>
+      <span class="icon-elegant-font-111-8721 icon-nav"></span>
+      <% end %>
+
+      <%= link_to posts_path, class: "nav-anchor" do %>
+      <span class="icon-elegant-font-249-10019 icon-nav"></span>
+      <% end %>
+      
+      <%= link_to profile_path, class: "nav-anchor" do %>
+      <span class="icon-elegant-font-242-10003 icon-nav"></span>
+      <% end %>
+    
+    </div><!-- nav-list -->
+
+    <%= link_to new_post_path, class: "plus-anchor" do %>
+    <span class="icon-elegant-font-172-8820 icon-plus"></span>
+    <% end %>
   </div>
-  <ul class="nav-list">
-    <li>
-      <%= link_to "Questions", posts_path, class: "home-link" %> 
-    </li>
-    <li>
-      <%= link_to root_path, class: "home-link" do %>
-        <i class="fa fa-home"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to new_post_path, class: "home-link" do%>
-        <i class="i fa fa-plus"></i>
-      <% end %>
-    </li>
-    <li></li>
-  </ul>
+
+
+
 </nav>

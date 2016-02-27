@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
-<h1>All Questions</h1>
-<div class="questions-orders">
-    |Rating| |Answered | Unanswered | Newest | Oldest |
+<% if @posts.any? %>
+<h1 class="post-title">
+    All questions
+</h1>
+
+<div class="posts-orders">
+    <span class="icon-elegant-font-177-8826 sort-icon"></span>
+    <%= sort_link(@q, :title, hide_indicator: true) %>
+    <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
+    <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
+</div><!-- post-orders -->
+
+<div id="content" class="clearfix posts-wrapper">
+  <%= render(partial: 'post', collection: @posts, object: @posts) %>
 </div>
- <% @posts.each do |post| %>
-      
-        <p><%= post.description %></p>
-        <%= link_to like_post_path(post), class: "like", method: :put do %>
-        <i class="fa fa-heart main-question-icon">
-        </i>
-        <% end %>
-        <span class="number-of-votes">
- <%= post.votes_for.size %>
-</span>
-        <%= link_to 'Show', post %>
-        <% if current_user.id == post.user_id %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      
-    <% end %>
 
+<% unless @posts.current_page == @posts.total_pages %>
+  <p id="view-more" class="clearfix">
+    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
+  </p>
+<% end %>
 
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
-
+<% else %>
+    <div class="no-results-container">
+        <h2 class="no-results-heading">Woopsie! No results</h2>
+        <span class="icon-sad-face-in-rounded-square icon-no-results"></span>
+    </div>
+<% end %>

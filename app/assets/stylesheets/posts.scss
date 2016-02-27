@@ -37,7 +37,7 @@
 	border-bottom: 1px solid lighten(#000, 70%);
 	padding-top: 30px; 
 	padding-bottom: 30px;  
-	font-size: 34px; 
+	font-size: 34px;
 }
 
 .post-btn {
@@ -64,17 +64,15 @@
 	width: 100%;    
 }
 
-.fa.main-question-icon {
+.main-question-icon {
 	font-size: 40px;
-	margin-top: 40px; 
-	color: #0c955b;
+	color: $light-orange;
 	cursor: pointer;
 	display: inline-block; 
 	
 	&:hover {
-		color: $green; 
-		@include transition;
-		
+		color: #FF6F59; 
+		text-decoration: none; 		
 	}
 }
 
@@ -82,11 +80,19 @@
 	font-size: 25px; 
 	display: block;
 	margin-top: 15px; 
-	color: $green;
+	color: #FF6F59;
 }
 
 .post-subinfo {
-	font-size: 10px; 
+	font-size: 12px; 
+	
+	a {
+		color: $light-orange;
+		
+		&:hover {
+			text-decoration: none; 
+		} 
+	}
 }
 
 .post-subinfo {
@@ -150,4 +156,67 @@
 .post-modal-image {
 	width: 100%;
 	height: auto;  
+}
+
+.share {
+	iframe {
+		display: inline-block;
+	}
+}
+
+.post-title-no-desc {
+	font-size: 28px;
+	line-height: 1.4em;
+	padding: 0;   
+}
+
+.post-question-link {
+	color: $black-1;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 1em;  
+	&:hover {
+		text-decoration: none; 
+		color: $light-orange;
+	} 
+}
+
+.posts-editable-links {
+	margin-top: 5px;
+	a {
+		color: $light-orange;
+	}
+}
+
+.posts-orders {
+	margin-top: 30px; 
+	a {
+		color: $light-orange;
+		font-size: 18px;
+		margin-right: 10px; 
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.order-icon {
+	display: none;
+	
+	&.active-order {
+		display: inline !important; 
+	} 
+}
+
+.sort-icon {
+	font-size: 2em;
+	color: $light-orange;  
+}
+
+.like {
+	&:hover {
+		text-decoration: none;
+		-webkit-box-shadow: none; 
+		 box-shadow: none;  
+	}
 }

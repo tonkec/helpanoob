@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
   validates :name, presence: true
-  validates :password, presence: true
   validates :avatar, presence: true
   mount_uploader :avatar, AvatarUploader
 end

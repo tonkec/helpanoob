@@ -4,8 +4,14 @@
       <% @user.errors.full_messages.each do |message| %>
         <h1><%= message %></h1>
       <% end %>
-    <%= f.label :name %> 
-    <%= f.text_field :name %> 
+    <%= f.label :first_name %> 
+    <%= f.text_field :first_name %> <br />
+
+    <%= f.label :last_name %> 
+    <%= f.text_field :last_name %> <br />
+
+     <%= f.label :nickname %> 
+    <%= f.text_field :nickname %> <br />
     <%= f.submit %>
     <% end %>
   </div>

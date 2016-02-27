@@ -4,7 +4,9 @@
     <div class="col-lg-4">
       <%= image_tag(current_user.avatar) %>
       <h1 class="user-name">
-        <%= current_user.name %>
+        <%= current_user.first_name %>
+        <%= current_user.last_name %>
+        <%= current_user.nickname %>
       </h1>
       <p class="user-email">
         <%= current_user.email %>

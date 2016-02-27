@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  before_filter :proba
+  before_filter :search
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   
@@ -13,10 +13,9 @@ class ApplicationController < ActionController::Base
     home_path
   end
 
-  def proba
-    @posts = Post.all
+  def search
     @q = Post.ransack(params[:q])
-    @posts_s = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
   end
 
   protected 

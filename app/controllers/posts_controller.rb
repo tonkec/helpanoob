@@ -5,9 +5,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     @post = Post.new
+    @q = Post.ransack(params[:q])
+    @posts_s = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
+  end
+
+  def search 
+    index
   end
 
   # GET /posts/1
@@ -53,7 +57,7 @@ class PostsController < ApplicationController
         format.js
       else
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :uncessable_entity }
         format.js
       end
     end

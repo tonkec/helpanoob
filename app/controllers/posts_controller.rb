@@ -5,13 +5,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @post = Post.new
     @q = Post.ransack(params[:q])
-    @posts_s = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
-  end
-
-  def search 
-    index
+    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
+    @post = Post.new
   end
 
   # GET /posts/1
@@ -57,7 +53,7 @@ class PostsController < ApplicationController
         format.js
       else
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :uncessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -83,11 +79,7 @@ class PostsController < ApplicationController
     @post.downvote_from current_user
     redirect_to post_path(@post)
   end
-
-  def search
-    index
-  end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

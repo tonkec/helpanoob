@@ -5,10 +5,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order('created_at desc').page(params[:page]).per(5)
-    @post = Post.new
     @q = Post.ransack(params[:q])
-    @posts_s = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
+    @post = Post.new
+   
   end
 
   # GET /posts/1
@@ -79,6 +79,12 @@ class PostsController < ApplicationController
   def downvote
     @post.downvote_from current_user
     redirect_to post_path(@post)
+  end
+
+  def proba
+    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts_s = @q.result(distinct: true)
   end
 
   private

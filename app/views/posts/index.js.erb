@@ -1,4 +1,4 @@
-$('#content').append("<%=j render(partial: 'post', collection: @posts_s, format: 'html') %>");
+$('#content').append("<%=j render(partial: 'post', collection: @posts, format: 'html') %>");
 
 <% if @posts_s.current_page == @posts_s.total_pages %>
   $('#view-more').remove();

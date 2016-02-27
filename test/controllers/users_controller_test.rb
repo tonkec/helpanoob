@@ -9,10 +9,4 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:antonija)
   end
   
-  test "should get show" do
-    sign_in users(:antonija)
-    get :show
-    assert_response :success
-  end
-
 end

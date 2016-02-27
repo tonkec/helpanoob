@@ -21,19 +21,11 @@
 
 
   <div class="float p-l-0 p-r-0">
-    <h4 class="user-model-heading">Your posts (<%= @user_posts.all.count %>)</h4>
+    <h4 class="user-model-heading">Your posts (<%= @user_posts_count %>)</h4>
 
-   <div class="col-lg-12 p-l-0 p-r-0">
+   <div class="col-lg-12 p-l-0 p-r-0" id="user_posts">
       <% if @user_posts.any? %>
-      <% @user_posts.each do |post| %>
-      <div class="user-model-col" id="post-<%= post.id %>">
-        <span class="user"><%= link_to truncate(post.title, length: 100), post, class: "user-profile-post"%></span>
-        <span class="content"><%=  %></span>
-        <p class="user-profile-timestamp">
-          Posted <%= time_ago_in_words(post.created_at) %> ago.
-        </p>
-      </div><!-- user-post-col -->
-      <% end %>
+        <%= render @posts %>
       <% else %>
         <h3 class="dontbeshy">
           Don't be shy.
@@ -41,21 +33,28 @@
 
         <%= link_to "Ask a question", new_post_path, class: "btn-green btn-small" %>
       <% end %>
+
+    
+      <%= paginate @user_posts%>
+
     </div><!-- col -->
     
   </div><!-- float -->
 
   <div class="float">
     <% if @user_comments.any? %>
-    <h4 class="user-model-heading">Your comments (<%= @user_posts.all.count %>)</h4>
+    <h4 class="user-model-heading">Here is some of your latest comments:</h4>
 
     <div class="col-lg-12 profile-comments-col p-l-0 p-r-0">
     <% @user_comments.each do |c| %>
       <div class="user-model-col">
         <p class="user-profile-comment"><%= c.content %></p>
+        <%= c.id %>
       </div>
       <% end %>
     </div>
+
+   
     <% end %>
   </div>
 

@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     @post = Post.new
-   
   end
 
   # GET /posts/1
@@ -81,10 +80,8 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  def proba
-    @posts = Post.all
-    @q = Post.ransack(params[:q])
-    @posts_s = @q.result(distinct: true)
+  def search
+    index
   end
 
   private

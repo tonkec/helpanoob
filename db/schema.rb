@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217173448) do
+ActiveRecord::Schema.define(version: 20160218151658) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160217173448) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+  end
 
   add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
   add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
@@ -53,13 +54,6 @@ ActiveRecord::Schema.define(version: 20160217173448) do
   add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
   add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
-
-  create_table "search_suggestions", force: :cascade do |t|
-    t.string   "term"
-    t.integer  "popularity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -76,7 +70,6 @@ ActiveRecord::Schema.define(version: 20160217173448) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "avatar"
-    t.string   "reset_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

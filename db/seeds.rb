@@ -2,9 +2,10 @@
 10.times do |n|
   email = "example#{n+1}@email.com"
   password = "password"
-  avatar = Faker::Avatar.image
+  avatar = Faker::Avatar.image("my-own-slug")
   name = Faker::Name.name
-  User.create(
+  User.create!(
+            name: name,
             avatar:avatar,
             email: email,
             password: password,
@@ -14,7 +15,7 @@ end
  #Fake groups
 5.times do |n|
   title = "Group#{n+1}"
-  Group.create(title: title)
+  Group.create!(title: title)
 end
 
  #Fake posts
@@ -24,7 +25,7 @@ users = User.all
   description = Faker::Lorem.sentence(80)
   content = Faker::Lorem.sentence(20)
   users.each {|u| u.posts.create!(description: description, title:title, group_id: rand(1..5))}
-  users.each {|u| u.comments.create!(content: content)}
+  #users.each {|u| u.comments.create!(content: content)}
 end
 
  #Fake comments

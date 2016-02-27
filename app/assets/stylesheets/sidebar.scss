@@ -19,13 +19,15 @@
 }
 
 .sidebar-photo {
-	margin: 0 auto 5px; 
+	margin: 50px auto; 
 	display: block;
+	text-align: center;
 	img {
 		-webkit-border-radius: 50%; 
 		border-radius: 50%;
 		border: 2px solid $white; 
 		width: auto; 
+		margin: 0 auto; 
 	}  
 }
 

@@ -8,12 +8,6 @@ class PostsController < ApplicationController
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     @post = Post.new
-
-
-
-    Post.all.each do |x| 
-        
-    end
   end
 
   # GET /posts/1

@@ -25,7 +25,6 @@ users = User.all
   description = Faker::Lorem.sentence(80)
   content = Faker::Lorem.sentence(20)
   users.each {|u| u.posts.create!(description: description, title:title, group_id: rand(1..5))}
-  #users.each {|u| u.comments.create!(content: content)}
 end
 
  #Fake comments

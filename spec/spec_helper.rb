@@ -15,6 +15,7 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 require File.expand_path("../../config/environment", __FILE__)
+require 'rails_helper'
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'

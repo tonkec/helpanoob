@@ -6,11 +6,15 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   
   def after_sign_in_path_for(resource)
-    root_path
+    posts_path
   end
 
   def after_sign_out_path_for(resource_or_scope)
     home_path
+  end
+
+  def after_sign_up_path_for(resource)
+    posts_path
   end
 
   def search
@@ -21,8 +25,8 @@ class ApplicationController < ActionController::Base
   protected 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:avatar, :name, :email, :password, :password_confirmation, :remember_me) }
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:avatar, :nickname, :email, :password, :password_confirmation, :remember_me) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :nickname, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nickname, :last_name, :first_name, :email, :avatar) }
   end
 end

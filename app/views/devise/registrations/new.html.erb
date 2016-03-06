@@ -1,17 +1,4 @@
-<div class="bg-wrap">
-  <div class="cb-slideshow">
-    <div><span>Image 01</span></div>
-    <div><span>Image 02</span></div>
-    <div><span>Image 03</span></div>
-    <div><span>Image 04</span></div>
-    <div><span>Image 05</span></div>
-    <div><span>Image 06</span></div>
-  </div>
-  <div class="bg-wrapper">
-    <div class="row">
-      <div class="float main-registration-col">
-        <h1 class="signup-heading">Join Us!</h1> 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
          <div class="field">
@@ -40,7 +27,3 @@
         </div>
         <% end %>
         <%= link_to "Sign In", sign_in_path, class: "bottom-text" %>
-      </div><!-- col -->
-    </div><!-- row -->
-  </div><!-- signup-wrapper -->
-</div><!--bg-wrap-->

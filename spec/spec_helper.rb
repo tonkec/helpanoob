@@ -94,4 +94,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
  config.include Rails.application.routes.url_helpers
+ config.fixture_path = "#{::Rails.root}/spec/fixtures"
 end

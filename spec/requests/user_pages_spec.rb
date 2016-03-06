@@ -20,13 +20,14 @@ describe "User pages" do
       before do
         fill_in "Nickname", with: "Jura"
         fill_in "Email",        with: "user@example.com"
-        fill_in "Password",     with: "foobar"
-        fill_in "Repeat Password", with: "foobar"
-        attach_file('user_avatar', "#{Rails.root}/spec/acceptance/test_uploads/sweal.jpg", visible: false)
+        fill_in "Password",     with: "password"
+        fill_in "Repeat Password", with: "password"
+        @file = fixture_file_upload('spec/fixtures/files/sweal.jpg', 'jpg')
       end
 
       it "should create a user" do
         expect { click_link submit }.to change(User, :count).by(1)
+        expect { response.should redirect_to(posts_path) }
       end
     end #valid info
 

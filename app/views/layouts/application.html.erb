@@ -17,6 +17,18 @@
   </div>
 </div>
 
+<% flash.each do |name, msg| %>
+
+  <% if msg.class == Array %>
+    <% msg.each do |message| %>
+      <%= content_tag :div, message, :id => "flash_#{name}" %>
+    <% end %>
+
+
+  <% end %> 
+<% end %>
+
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

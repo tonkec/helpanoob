@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'spec_helper'
+require 'byebug'
 
 describe "User pages" do
 
@@ -7,26 +8,29 @@ describe "User pages" do
 
   describe "signup page" do
     before { visit sign_up_path }
-    it { should have_selector('a',    text: 'Sign In') }
-    let(:submit) { "Sign In" }
+    let(:submit) { "Sign up" }
 
     describe "with invalid information" do
       it "should not create a user" do
-        expect { click_link submit }.not_to change(User, :count)
+        expect { click_button submit }.not_to change(User, :count)
       end #it
     end #invalid info
 
     describe "with valid information" do
+      let(:user) { FactoryGirl.create(:user) }
       before do
-        fill_in "Nickname", with: "Jura"
-        fill_in "Email",        with: "user@example.com"
-        fill_in "Password",     with: "password"
-        fill_in "Repeat Password", with: "password"
-        @file = fixture_file_upload('spec/fixtures/files/sweal.jpg', 'jpg')
+        fill_in "Nickname", with: user.nickname
+        fill_in "Email",        with: user.email
+        fill_in "Password",     with: user.password
+        fill_in "Repeat Password", with: user.password_confirmation
+        
+        #find('#user_avatar', visible: false).set user.avatar
+        attach_file('user_avatar', user.avatar)
+        #fill_in "user_avatar", with: user.avatar
       end
 
       it "should create a user" do
-        expect { click_link submit }.to change(User, :count).by(1)
+        expect { click_button submit }.to change(User, :count).by(1)
         expect { response.should redirect_to(posts_path) }
       end
     end #valid info

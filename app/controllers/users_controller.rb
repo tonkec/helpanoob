@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
-        UserNotifier.send_signup_email(@user).deliver
+       # UserNotifier.send_signup_email(@user).deliver
         redirect_to(@user, :notice => 'User created')
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)

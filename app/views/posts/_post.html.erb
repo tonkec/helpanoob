@@ -9,8 +9,10 @@
  <%= link_to like_post_path(post), class: "like", method: :put do %>
  <span class="icon-elegant-font-266-10162 main-question-icon"></span>
  <% end %>
+  <%= link_to "dislike", dislike_post_path(post), class: "like", method: :put %>
+
  <span class="number-of-votes">
-   <%= post.votes_for.size %>
+   <%= post.cached_weighted_score %>
  </span>
 </div> <!-- col -->   
 

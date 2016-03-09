@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "posts#index"
-  get "home", to: "static_pages#home"
+  get "landing__page", to: "static_pages#home"
+  get "welcome", to: "static_pages#welcome"
   resources :groups
   resources :posts do
     resources :comments
@@ -10,13 +11,14 @@ Rails.application.routes.draw do
       put "dislike" => "posts#downvote"
     end
   end
+
   resources :users, only: [:show, :edit, :update]
   get "profile", to: "users#profile"
   get '/user/:id', to: 'users#show', as: "user_path"
   get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
 
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new"
     get "sign_up", to: "devise/registrations#new"

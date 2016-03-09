@@ -4,17 +4,9 @@ class ApplicationController < ActionController::Base
   before_filter :search
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  
-  def after_sign_in_path_for(resource)
-    posts_path
-  end
 
-  def after_sign_out_path_for(resource_or_scope)
-    home_path
-  end
-
-  def after_sign_up_path_for(resource)
-    posts_path
+  def after_inactive_sign_up_path_for(resource)
+    welcome_path
   end
 
   def search

@@ -1,5 +1,6 @@
 class PasswordusersController < Devise::PasswordsController 
-  prepend_before_filter :require_no_authentication
+=begin
+   prepend_before_filter :require_no_authentication
   append_before_filter :assert_reset_token_passed, :only => :edit
 
   def new
@@ -47,5 +48,6 @@ class PasswordusersController < Devise::PasswordsController
     def unlockable?(resource)
       super
     end
-
+=end
 end 
+

@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  def after_inactive_sign_up_path_for(resource)
-    welcome_path
-  end
-
   def search
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
@@ -20,5 +16,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:avatar, :nickname, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :nickname, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nickname, :last_name, :first_name, :email, :avatar) }
+  end
+
+  def redirect_wrong_user
+    unless user_signed_in?
+      redirect_to welcome_path
+    end
   end
 end

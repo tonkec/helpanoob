@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-#  before_action :authenticate_user!
-
+  before_action :redirect_wrong_user
+  
   def index
     @users = User.all
   end

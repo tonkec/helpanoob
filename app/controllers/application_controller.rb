@@ -10,8 +10,14 @@ class ApplicationController < ActionController::Base
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
   end
 
-  def after_inactive_sign_up_path_for(resource)
-    landing_page_path # Or :prefix_to_your_route
+
+
+  #def after_inactive_sign_up_path_for(resource)
+   # landing_page_path # Or :prefix_to_your_route
+  #end
+
+  def after_sign_out_path_for(resource)
+    new_user_session_path
   end
 
   protected 

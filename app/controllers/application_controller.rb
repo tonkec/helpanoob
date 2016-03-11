@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nickname, :last_name, :first_name, :email, :avatar) }
   end
 
-  def redirect_wrong_user
-    unless user_signed_in?
-      redirect_to welcome_path
-    end
-  end
+  #def redirect_wrong_user
+   # unless user_signed_in?
+    #  redirect_to welcome_path
+   # end
+  #end
 end

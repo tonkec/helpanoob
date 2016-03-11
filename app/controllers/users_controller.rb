@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :redirect_wrong_user
+  #before_action :redirect_wrong_user
   
   def index
     @users = User.all
@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
   end
 
-  def show
-    @user = User.find(params[:id]) 
-  end
+ # def show
+  #  @user = User.find(params[:id]) 
+  #end
 
   def edit
     @user = User.find(params[:id]) 

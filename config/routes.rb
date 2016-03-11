@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   #get '/user/:id', to: 'users#show', as: "user_path"
   #get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
 
-
   devise_for :users, controllers: { registrations: "registrations" }
 
   devise_scope :user do

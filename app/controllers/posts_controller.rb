@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:update]
   before_action :correct_user, only: [:edit, :update]
 
 
@@ -9,13 +10,13 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
-    @post = Post.new
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @comment = @post.comments
   end
 
   # GET /posts/new
@@ -74,12 +75,20 @@ class PostsController < ApplicationController
 
   def upvote
     @post.liked_by current_user
-    redirect_to post_path(@post)
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.json { head :no_content }
+      format.js { render :layout => false }
+    end
   end
 
   def downvote
     @post.unliked_by current_user
-    redirect_to post_path(@post)
+     respond_to do |format|
+      format.html { redirect_to @post }
+      format.json { head :no_content }
+      format.js { render :layout => false }
+    end
   end
 
   private

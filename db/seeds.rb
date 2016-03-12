@@ -2,11 +2,11 @@
 10.times do |n|
   email = "example#{n+1}@email.com"
   password = "password"
-  avatar = Faker::Avatar.image("my-own-slug")
+  avatar = Faker::Avatar.image("http://images.all-free-download.com/images/graphiclarge/daisy_pollen_flower_220533.jpg")
   name = Faker::Name.name
   User.create!(
-            name: name,
-            avatar:avatar,
+            nickname: name,
+            avatar: avatar,
             email: email,
             password: password,
             password_confirmation: password)
@@ -31,5 +31,5 @@ end
 posts = Post.all
 10.times do |n|
   content = Faker::Lorem.sentence(20)
-  posts.each {|p| p.comments.create!(content: content, user_id: rand(24..28))}
+  posts.each {|p| p.comments.create!(content: content, user_id: 2)}
 end

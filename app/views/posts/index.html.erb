@@ -13,7 +13,7 @@
 </div><!-- post-orders -->
 
 <div id="content" class="clearfix posts-wrapper">
-  <%= render(partial: 'post', collection: @posts, object: @posts) %>
+  <%= render(partial: 'post', collection: @posts, object: @post) %>
 </div>
 
 <% unless @posts.current_page == @posts.total_pages %>

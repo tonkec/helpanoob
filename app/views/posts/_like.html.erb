@@ -1,15 +1,14 @@
-<%= link_to like_post_path(@post), class: "like", method: :put do %>
-<i class="fa fa-heart main-question-icon">
+<%= link_to like_post_path(@post), :remote => true, class: "like", id: "like", method: :put do %>
+<i class="fa fa-heart main-question-icon" id="heart">
 </i>
 <% end %>
-<%= link_to "dislike", dislike_post_path(@post), class: "dislike", method: :put %>
+
+<%= link_to dislike_post_path(@post), :remote => true, class: "like hidden", id: "dislike", method: :put do %>
+<i class="fa fa-heart main-question-icon" id="heart">
+</i>
+<% end %>
+
 
 <span class="number-of-votes">
  <%= @post.cached_weighted_score %><br />
 </span>
-
-<script>
-  $(".like").click(function(){
-    $(this).toggleClass("show");
-  })
-</script>

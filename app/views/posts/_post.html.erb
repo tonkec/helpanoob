@@ -21,10 +21,10 @@
   <p class="post-date">
     <%= time_ago_in_words(post.created_at) %> ago
   </p>
+  <%= post.user.email %>Link
 
 
   <div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
-
     <%= link_to 'Edit', edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" %>
     <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "delete_post" %>
   </div>

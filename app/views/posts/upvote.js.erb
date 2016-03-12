@@ -1,0 +1,5 @@
+$('.like').bind('ajax:success', function() {
+ $("#like").addClass("hidden");
+ $("#dislike").removeClass("hidden");	
+ $('.number-of-votes').html('<%=escape_javascript @post.cached_weighted_score.to_s %>');
+});

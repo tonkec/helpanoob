@@ -31,5 +31,5 @@ end
 posts = Post.all
 10.times do |n|
   content = Faker::Lorem.sentence(20)
-  posts.each {|p| p.comments.create!(content: content, user_id: 2)}
+  posts.each {|p| p.comments.create!(content: content, user_id: 4)}
 end

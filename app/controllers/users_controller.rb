@@ -12,9 +12,11 @@ class UsersController < ApplicationController
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
   end
 
- # def show
-  #  @user = User.find(params[:id]) 
-  #end
+  def show
+    @user = User.find(params[:id])
+    @user_posts = @user.posts
+    @user_comments = @user.comments
+  end
 
   def edit
     @user = User.find(params[:id]) 

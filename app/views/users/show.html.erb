@@ -1,1 +1,12 @@
 <h1>Users#show</h1>
+<h4><%= @user.nickname %></h4>
+<h4><%= @user.email %></h4>
+<h4><%=image_tag(@user.avatar)%></h4>
+<p>Posts:<%= @user.posts.count %></p>
+<p>Comments:<%= @user.comments.count %></p>
+
+<h1>Posts</h1>
+<%= render(partial: 'posts/post', collection: @user_posts, object: @post) %>
+
+<h1>Comments</h1>
+<%= @user_comments %>

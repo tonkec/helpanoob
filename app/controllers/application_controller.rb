@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
 
 
 
-  #def after_inactive_sign_up_path_for(resource)
-   # landing_page_path # Or :prefix_to_your_route
-  #end
+  def after_inactive_sign_up_path_for(resource)
+   landing_page_path # Or :prefix_to_your_route
+  end
 
   def after_sign_out_path_for(resource)
     new_user_session_path
@@ -27,10 +27,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :nickname, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nickname, :last_name, :first_name, :email, :avatar) }
   end
-
-  #def redirect_wrong_user
-   # unless user_signed_in?
-    #  redirect_to welcome_path
-   # end
-  #end
 end

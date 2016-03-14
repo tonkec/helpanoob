@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
- # resources :users, only: [:show, :edit, :update]
   get "profile", to: "users#profile"
   #get '/user/:id', to: 'users#show', as: "user_path"
   #get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
@@ -26,4 +25,6 @@ Rails.application.routes.draw do
     get '/reset_password' => "passwordusers#new", :as => :reset_password
     get '/new_password' => "passwordusers#edit", :as => :new_password
   end
+
+  resources :users, only: [:show, :edit, :update]
 end

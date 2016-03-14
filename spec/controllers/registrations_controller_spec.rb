@@ -48,10 +48,17 @@ describe "User Registration" do
         expect(page).to have_content("You need to sign in or sign up before continuing.")
       end
 
+      it "should not be able to access user page" do
+        firstUser = User.first
+        visit user_path(firstUser)
+        expect(page).to have_content("Log in")
+        expect(page).to have_content("You need to sign in or sign up before continuing.")
+      end
+
       
       it "sends an email for account activation" do
         click_button submit
-        expect (subject.confirmation_sent_at).not_to be_nil
+        #expect (subject.confirmation_sent_at).not_to be_nil
       end
       
     end #valid info

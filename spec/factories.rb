@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryGirl.define do 
   factory :user do
     nickname "user"
     email "factory_1@example.com"

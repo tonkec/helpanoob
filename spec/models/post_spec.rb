@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   let(:post) {FactoryGirl.build(:post)}
 
-  describe "valid post" do
+  describe "invalid post" do
     
     it "is invalid without description" do
       post.description = ""
@@ -25,11 +25,10 @@ RSpec.describe Post, type: :model do
       expect(post).not_to be_valid
     end
 
-    it "is valid" do
-      expect(post).to be_valid
-    end
+    #when user deleted his posts are deleted too
+  end
 
-    #when user id deleted his posts are deleted too
-
+  describe "valid post" do
+    expect(post).to be_valid
   end
 end

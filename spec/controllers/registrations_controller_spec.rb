@@ -35,6 +35,10 @@ describe "User Registration" do
         expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
       end
 
+      it "is not activated" do
+        user.confirmed?.should eq(false)
+      end
+
       it "should not be able to access root page" do
         visit root_path
         expect(page).to have_content("Log in")

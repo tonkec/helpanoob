@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem "bower-rails", "~> 0.10.0"
-gem "faker"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #gem 'will_paginate'
 gem 'kaminari'
@@ -32,6 +31,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'shareable'
 gem "figaro"
 
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -48,7 +48,9 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  #gem 'capybara-email'
   gem "factory_girl_rails", "~> 4.0"
+  gem "faker"
 end
 
 group :development do

@@ -6,6 +6,10 @@ RSpec.describe UserMailer do
     let(:user) { FactoryGirl.create(:user) }
     let(:mail) { user.send_confirmation_instructions }
 
+    it "creates new email" do
+      mail.to change { Devise.mailer.deliveries.count }.by(1)
+    end
+
     it 'renders the subject' do
       expect(mail.subject).to eql('Confirmation instructions')
     end
@@ -24,7 +28,7 @@ RSpec.describe UserMailer do
 
     it 'assigns @confirmation_url' do
       expect(mail.body.encoded)
-        .to match("http://localhost:3000/users/confirmation?confirmation_token=#{user.confirmation_token}")
+        .to match("http://localhost:3000/users/confirmation?confirmation_token=#{user.confirmation_token} ")
     end
   end
 end

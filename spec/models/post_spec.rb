@@ -28,7 +28,5 @@ RSpec.describe Post, type: :model do
     #when user deleted his posts are deleted too
   end
 
-  describe "valid post" do
-    expect(post).to be_valid
-  end
+  
 end

@@ -12,9 +12,13 @@
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->
 
+
+<% if @posts.any? %>
 <div id="content" class="clearfix posts-wrapper">
   <%= render(partial: 'post', collection: @posts, object: @post) %>
 </div>
+
+<% end %>
 
 <% unless @posts.current_page == @posts.total_pages %>
   <p id="view-more" class="clearfix">

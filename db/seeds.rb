@@ -20,7 +20,7 @@ end
 
  #Fake posts
 users = User.all
-10.times do |n|
+4.times do |n|
   title = Faker::Lorem.sentence(20)
   description = Faker::Lorem.sentence(80)
   content = Faker::Lorem.sentence(20)

@@ -1,59 +1,61 @@
 <div class="main-post-col" id="post-col-<%= post.id %>">
   <div class="col-xs-12 col-sm-10 p-l-o p-r-0">
-   <h1 class="post-title-no-desc">
-    <%=link_to (truncate (post.title), length: 100), post_path(post), class: "post-question-link" %>
+   <h1 class="post-title">
+    <%= post.title%>
   </h1>
+
+  <p>
+    <%= post.description %>
+  </p>
 </div><!-- col -->
 
-  
+
 
 <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
-   <%=link_to post.user.email, user_path(post.user), class: "light-orange-text" %>
-  <p class="post-date">
-    <%= time_ago_in_words(post.created_at) %> ago
-  </p>
-  <%= post.user.email %>Link
+ <%=link_to post.user.email, user_path(post.user), class: "light-orange-text" %>
+ <p class="post-date">
+  <%= time_ago_in_words(post.created_at) %> ago
+</p>
 
-
-  <div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
-    <% if post.user.id == current_user.id %>
-      <%= link_to 'Edit', edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "delete_post" %>
-    <% end %>
-  </div>
+<div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
+  <% if post.user.id == current_user.id %>
+  <%= link_to 'Edit', edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" %>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete_post" %>
+  <% end %>
+</div>
 
 
 </div><!--post-subinfo  -->
 
- <!-- Modal -->
-    <div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div><!-- modal header -->
-        
-            <div class="modal-body">
-            <%= form_for(post, :method => :put, remote: true) do |f| %>
-              <div class="field">
-               <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
-               <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
-               <%= f.select(:group_id, Group.all.collect {|g| [g.title, g.id]}, :prompt => 'Select') %>
-             </div>
-             <div class="field">
-              <%= f.file_field :image %>
-            </div>
-            <div class="actions">
-              <%= f.submit "Update", class: "btn-full btn-green" %>
-            </div>
-            <% end %>
-          </div><!-- modal body -->
-            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div><!-- modal footer -->
-        </div>  <!-- modal content -->
+<!-- Modal -->
+<div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div><!-- modal header -->
+      
+      <div class="modal-body">
+        <%= form_for(post, :method => :put, remote: true) do |f| %>
+        <div class="field">
+         <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
+         <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
+         <%= f.select(:group_id, Group.all.collect {|g| [g.title, g.id]}, :prompt => 'Select') %>
+       </div>
+       <div class="field">
+        <%= f.file_field :image %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Update", class: "btn-full btn-green" %>
+      </div>
+      <% end %>
+    </div><!-- modal body -->
+    
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div><!-- modal footer -->
+  </div>  <!-- modal content -->
 </div> <!-- modal dialog -->
 </div> <!-- modal-fade -->
 

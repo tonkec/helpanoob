@@ -15,7 +15,7 @@
 
 <% if @posts.any? %>
 <div id="content" class="clearfix posts-wrapper">
-  <%= render(partial: 'post', collection: @posts, object: @post) %>
+  <%= render partial: "index_post" %>
 </div>
 
 <% end %>

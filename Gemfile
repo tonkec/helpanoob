@@ -31,6 +31,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'shareable'
 gem "figaro"
 gem 'rails-html-sanitizer','~> 1.0.3'
+gem "launchy"
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,7 +1,11 @@
 FactoryGirl.define do 
+  sequence :email do |n|
+    "person#{n}@example.com"
+  end
+
   factory :user do
     nickname "user"
-    email "factory_1@example.com"
+    email
     password "password"
     password_confirmation "password"
     avatar  { File.open("#{Rails.root}/spec/fixtures/files/sweal.jpg") } 
@@ -14,7 +18,7 @@ FactoryGirl.define do
   factory :post do
     description Faker::Lorem.sentence(3)
     title Faker::Lorem.words(3)
-    association :user
-    association :group
+    user
+    group
   end
 end

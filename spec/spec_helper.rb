@@ -96,4 +96,5 @@ RSpec.configure do |config|
 =end
  config.include Rails.application.routes.url_helpers
  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+ config.include Devise::TestHelpers, type: :controller
 end

@@ -46,7 +46,7 @@
 
    <div class="col-lg-12 p-l-0 p-r-0" id="user_posts">
       <% if @user_posts.any? %>
-        <%= render @posts %>
+        <%= render partial: "user_post", collection: @user_posts %>
       <% else %>
         <h3 class="dontbeshy">
           Don't be shy.

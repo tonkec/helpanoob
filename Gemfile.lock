@@ -46,6 +46,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     acts_as_votable (0.10.0)
+    addressable (2.4.0)
     arel (6.0.3)
     bcrypt (3.1.10)
     best_in_place (3.0.3)
@@ -118,6 +119,8 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -263,6 +266,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  launchy
   mini_magick
   rails (= 4.2.5)
   rails-html-sanitizer (~> 1.0.3)

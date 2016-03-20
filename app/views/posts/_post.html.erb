@@ -1,4 +1,5 @@
-<div class="main-post-col" id="post-col-<%= post.id %>">
+<div id="content">
+  <div class="main-post-col" id="post-col-<%= post.id %>">
   <div class="col-xs-12 col-sm-10 p-l-o p-r-0">
    <h1 class="post-title">
     <%= post.title%>
@@ -7,6 +8,8 @@
   <p>
     <%= post.description %>
   </p>
+   <%= render "like" %>
+
 </div><!-- col -->
 
 
@@ -20,7 +23,7 @@
 <div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
   <% if post.user.id == current_user.id %>
   <%= link_to 'Edit', edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" %>
-  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete_post" %>
+  <%= link_to 'Destroy', post, method: :delete, class: "delete_post" %>
   <% end %>
 </div>
 
@@ -61,3 +64,4 @@
 
 
     </div>  <!-- main-post-col -->
+</div>

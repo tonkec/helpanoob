@@ -52,6 +52,7 @@ group :development, :test do
   #gem 'capybara-email'
   gem "factory_girl_rails", "~> 4.0"
   gem "faker"
+  gem "capybara-webkit"
 end
 
 group :development do

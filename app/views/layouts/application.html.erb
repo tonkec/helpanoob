@@ -14,12 +14,10 @@
 <div class="row main-row">
   <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
     <%= yield %>
-    
-<%= debug(params) if Rails.env.development? %>
-  </div>
-</div>
+      
+    <%= debug(params) if Rails.env.development? %>
 
-<% flash.each do |name, msg| %>
+    <% flash.each do |name, msg| %>
 
   <% if msg.class == Array %>
     <% msg.each do |message| %>
@@ -32,6 +30,10 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+  </div>
+</div>
+
+
 
 
 </body>

@@ -2,7 +2,7 @@
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   # GET /posts
@@ -67,6 +67,7 @@
   def destroy
     @post.destroy
     redirect_to posts_path
+    flash.now[:success] = "Post was successfully destroyed"
   end
 
   def upvote

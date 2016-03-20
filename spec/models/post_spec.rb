@@ -12,8 +12,8 @@ RSpec.describe Post, type: :model do
 
   let(:user) {FactoryGirl.create(:user)}
   let(:other_user) {FactoryGirl.create(:user)}
-  let(:post) {FactoryGirl.create(:post)}
-  #KAK ZNA KOJI JE ČIJI POST????????????????????
+  let(:post) {user.posts.create(description: "Lorem Content", title: "Title", group_id: 1)}
+  let(:comment) {FactoryGirl.create(:comment)}
 
   subject {post}
 
@@ -46,7 +46,7 @@ RSpec.describe Post, type: :model do
 
     before { user.save }
     
-    it "destroys assosicated posts" do
+    it "when user is destroyed assosicated posts are destroyed too" do
       posts = user.posts
       user_posts = -posts.count
       user.destroy
@@ -56,6 +56,17 @@ RSpec.describe Post, type: :model do
 
       expect { user.destroy }.to change { Post.count }.by(user_posts)
     end   
+
+    it "destroys asssociated comments" do
+      posts_comments = -post.comments.count
+      post.destroy
+      post.comments.each do |c| 
+        Comment.find_by(c.id).should be_nil
+      end
+
+      expect { post.destroy }.to change { Comment.count }.by(posts_comments)
+
+    end
   end
 
   describe "Authorization" do
@@ -71,25 +82,31 @@ RSpec.describe Post, type: :model do
       sign_in user
       visit post_path(subject)
       expect(page).to have_link("Edit")
-      expect(page).to have_css("post-editable-links")
       click_link "Edit"
+      expect(page).to have_css("btn-full")
+
+      fill_in "Title", with: subject.title
+      fill_in "post_description", with: subject.description
+      click_button
     end
 
      it "allows correct user to delete post" do
       sign_in user
       visit post_path(subject)
-      save_and_open_page
-      expect(page).to have_css("delete_post")
-      expect(page).to have_css("main-question-icon")
-      expect(page).to have_css("post-editable-links")
-      expect(page).to have_link(subject.user.email)
+      #save_and_open_page
+      expect(page).to have_content(subject.user.email)
       expect(page).to have_content(subject.description)
       expect(page).to have_content(subject.title)
       expect(page).to have_content("Destroy")
      
-      click_link "Destroy"
-      page.accept_confirm { click_button "OK" }
-      expect(Post.count).to change_by(-1)
+      #click_link "Destroy"
+      #page.accept_confirm { click_button "OK" }
+      users_post_id = post.id
+      post.delete
+      expect(users_post_id).to be_nil
+
+      current_path.should == root_path
+      expect(page).to have_content("Post was successfully destroyed")
     end
   end  
 

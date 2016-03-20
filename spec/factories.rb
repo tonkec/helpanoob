@@ -21,4 +21,9 @@ FactoryGirl.define do
     user
     group
   end
+
+  factory :comment do
+    content Faker::Lorem.sentence(3)
+    post
+  end
 end

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root "posts#index"
   get "landing_page", to: "static_pages#home"
-  get "welcome", to: "static_pages#welcome"
+  get "about", to: "static_pages#about"
+
   resources :groups
   resources :posts do
     resources :comments

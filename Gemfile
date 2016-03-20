@@ -32,6 +32,7 @@ gem 'shareable'
 gem "figaro"
 gem 'rails-html-sanitizer','~> 1.0.3'
 gem "launchy"
+gem 'annotate'
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

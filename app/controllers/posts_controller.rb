@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id                      :integer          not null, primary key
+#  description             :text
+#  user_id                 :integer
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  group_id                :integer
+#  title                   :string
+#  image                   :string
+#  cached_votes_total      :integer          default(0)
+#  cached_votes_score      :integer          default(0)
+#  cached_votes_up         :integer          default(0)
+#  cached_votes_down       :integer          default(0)
+#  cached_weighted_score   :integer          default(0)
+#  cached_weighted_total   :integer          default(0)
+#  cached_weighted_average :float            default(0.0)
+#  comments_count          :integer          default(0)
+#
+
   class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
@@ -9,7 +31,11 @@
   # GET /posts.json
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
+    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+  end
+
+  def unanswered
+    @unanswered_posts = Post.uncommented
   end
 
   # GET /posts/1

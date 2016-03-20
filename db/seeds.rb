@@ -19,17 +19,17 @@ end
 end
 
  #Fake posts
-users = User.all
-4.times do |n|
+user = User.last
+10.times do |n|
   title = Faker::Lorem.sentence(20)
   description = Faker::Lorem.sentence(80)
   content = Faker::Lorem.sentence(20)
-  users.each {|u| u.posts.create!(description: description, title:title, group_id: rand(1..5))}
+  user.posts.create!(description: description, title:title, group_id: rand(1..5))
 end
 
  #Fake comments
 posts = Post.all
-10.times do |n|
+2.times do |n|
   content = Faker::Lorem.sentence(20)
-  posts.each {|p| p.comments.create!(content: content, user_id: 4)}
+  posts.each {|p| p.comments.create!(content: content, user_id: 3)}
 end

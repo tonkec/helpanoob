@@ -1,13 +1,17 @@
-<p id="notice"><%= notice %></p>
 <% if @posts.any? %>
 <h1 class="post-title">
     All questions
 </h1>
 
+<%# @unanswered.each do |u| %>
+
+  <%#= u.comments_count %>
+<%# end %>
+
 <div class="posts-orders">
-    <h1>Unanswered</h1>
+  <h1><%= Post.all.count %></h1>
     <span class="icon-elegant-font-177-8826 sort-icon"></span>
-    <%= sort_link(@q, :title, hide_indicator: true) %>
+    <%= link_to "Unanswered", unanswered_path %>
     <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->
@@ -18,13 +22,14 @@
   <%= render partial: "index_post" %>
 </div>
 
+
 <% end %>
 
-<% unless @posts.current_page == @posts.total_pages %>
-  <p id="view-more" class="clearfix">
-    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
+<%# unless @posts.current_page == @posts.total_pages %>
+  <!--  <p id="view-more" class="clearfix">
+    <%#= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
   </p>
-<% end %>
+<%# end %>-->
 
 <% else %>
     <div class="no-results-container">

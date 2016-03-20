@@ -1,0 +1,10 @@
+<%= link_to "All", posts_path %>
+
+<% @unanswered_posts.each do |p| %>
+  <p>
+    <b>answers:<%= p.comments.size %></b>
+
+    <b>hearts:<%= p.cached_weighted_score %></b>
+    <%= link_to p.description, post_path(p) %>
+  </p>
+<% end %> 

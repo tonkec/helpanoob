@@ -7,7 +7,6 @@
 #  user_id                 :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
-#  group_id                :integer
 #  title                   :string
 #  image                   :string
 #  cached_votes_total      :integer          default(0)
@@ -34,7 +33,7 @@ RSpec.describe Post, type: :model do
 
   let(:user) {FactoryGirl.create(:user)}
   let(:other_user) {FactoryGirl.create(:user)}
-  let(:post) {user.posts.create(description: "Lorem Content", title: "Title", group_id: 1)}
+  let(:post) {user.posts.create(description: "Lorem Content", title: "Title")}
   let(:comment) {FactoryGirl.create(:comment)}
 
   subject {post}
@@ -54,11 +53,6 @@ RSpec.describe Post, type: :model do
 
     it "is invalid without user" do
       subject.user_id = ""
-      expect(subject).not_to be_valid
-    end
-
-    it "is invalid without group" do
-      subject.group_id = ""
       expect(subject).not_to be_valid
     end
 

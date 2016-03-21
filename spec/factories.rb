@@ -11,15 +11,10 @@ FactoryGirl.define do
     avatar  { File.open("#{Rails.root}/spec/fixtures/files/sweal.jpg") } 
   end
 
-  factory :group do
-    title "First Group"
-  end
-
   factory :post do
     description Faker::Lorem.sentence(3)
     title Faker::Lorem.words(3)
     user
-    group
   end
 
   factory :comment do

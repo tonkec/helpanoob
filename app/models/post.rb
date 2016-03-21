@@ -7,7 +7,6 @@
 #  user_id                 :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
-#  group_id                :integer
 #  title                   :string
 #  image                   :string
 #  cached_votes_total      :integer          default(0)
@@ -30,7 +29,6 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :title, presence: true, presence: true, length: {minimum: 20}
   validates :description, presence: true, length: {minimum: 100}
-  validates :group_id, presence: true
   validates :user_id, presence: true
   default_scope -> { order(cached_votes_up: :desc) }
 

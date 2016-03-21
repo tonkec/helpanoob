@@ -7,7 +7,6 @@
 #  user_id                 :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
-#  group_id                :integer
 #  title                   :string
 #  image                   :string
 #  cached_votes_total      :integer          default(0)
@@ -131,7 +130,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :title, :group_id, :image, :tag_list)
+      params.require(:post).permit(:description, :title, :image, :tag_list)
     end
 
     def correct_user

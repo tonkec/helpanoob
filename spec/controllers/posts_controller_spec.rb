@@ -7,7 +7,6 @@
 #  user_id                 :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
-#  group_id                :integer
 #  title                   :string
 #  image                   :string
 #  cached_votes_total      :integer          default(0)

@@ -1,20 +1,27 @@
-<%= link_to "All", posts_path %>
+<h1>Unanswered</h1>
 <%= params.inspect %>
-
 <div id="tag_cloud">
-Tags:
-  <% tag_cloud @unanswered_posts.tag_counts, %w[s m l] do |tag, css_class| %>
+All Tags: NE RADI!!
+  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
+<div class="posts-orders">
+    <span class="icon-elegant-font-177-8826 sort-icon"></span>
+    <%= link_to "All", posts_path %>
+    <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
+    <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
+</div><!-- post-orders -->
 
-
-
-<% @unanswered_posts.each do |p| %>
+<% @posts.each do |p| %>
   <p>
     <b>answers:<%= p.comments.size %></b>
 
     <b>hearts:<%= p.cached_weighted_score %></b>
     <%= link_to p.description, post_path(p) %>
+  </p>
+
+  <p>
+    <%= time_ago_in_words(p.created_at) %>
   </p>
 <% end %> 

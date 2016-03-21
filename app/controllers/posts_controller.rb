@@ -41,7 +41,7 @@
 
   def unanswered
     #if params[:tag]
-      @unanswered_posts = Post.tagged_with(params[:tag]).uncommented
+      @unanswered_posts = Post.uncommented
     #end
 
   end

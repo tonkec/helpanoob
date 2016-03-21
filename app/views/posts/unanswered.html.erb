@@ -1,6 +1,15 @@
 <%= link_to "All", posts_path %>
 <%= params.inspect %>
 
+<div id="tag_cloud">
+Tags:
+  <% tag_cloud @unanswered_posts.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+
+
 <% @unanswered_posts.each do |p| %>
   <p>
     <b>answers:<%= p.comments.size %></b>

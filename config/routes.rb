@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "landing_page", to: "static_pages#home"
   get "about", to: "static_pages#about"
 
-  resources :groups
   resources :posts do
     resources :comments
 

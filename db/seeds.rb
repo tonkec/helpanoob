@@ -12,24 +12,22 @@
             password_confirmation: password)
 end
 
- #Fake groups
-5.times do |n|
-  title = "Group#{n+1}"
-  Group.create!(title: title)
-end
 
- #Fake posts
+#Fake posts
 user = User.last
 10.times do |n|
   title = Faker::Lorem.sentence(20)
   description = Faker::Lorem.sentence(80)
   content = Faker::Lorem.sentence(20)
-  user.posts.create!(description: description, title:title, group_id: rand(1..5))
+  user.posts.create!(description: description, title:title)
 end
 
  #Fake comments
 posts = Post.all
 2.times do |n|
-  content = Faker::Lorem.sentence(20)
-  posts.each {|p| p.comments.create!(content: content, user_id: 3)}
+  #content = Faker::Lorem.sentence(20)
+  posts.each  do |p| 
+    p.tag_list.add("rails", "jquery", "javascript", "php", "ruby") 
+    p.save
+  end
 end

@@ -40,10 +40,18 @@
   end
 
   def unanswered
-    #if params[:tag]
+    if params[:tag]
+      @unanswered_posts = Post.uncommented.tagged_with(params[:tag])
+      @q = @unanswered_posts.ransack(params[:q])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+    else
       @unanswered_posts = Post.uncommented
-    #end
+      @q = @unanswered_posts.ransack(params[:q])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+    end
+  end
 
+  def tags
   end
 
   # GET /posts/1
@@ -56,7 +64,6 @@
   # GET /posts/new
   def new
     @post = Post.new
-    @groups = Group.all
   end
 
   # GET /posts/1/edit

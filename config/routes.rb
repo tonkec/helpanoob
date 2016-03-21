@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
 
   resources :posts do
-    resources :comments
+    resources :comments do
+       member do 
+        put "like" => "comments#upvote"
+        put "dislike" => "comments#downvote"
+      end
+    end
 
     member do 
       put "like" => "posts#upvote"
@@ -12,8 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
+
   get "unanswered" => "posts#unanswered"
   get "profile", to: "users#profile"
+  get 'tags', to: 'posts#tags'
 
   get 'tags/:tag', to: 'posts#index', as: :tag
   #get '/user/:id', to: 'users#show', as: "user_path"

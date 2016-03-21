@@ -20,19 +20,20 @@
 #
 
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe PostsController, type: :controller do
  #create #edit #update #delete već imaš u post_spec
 
  def sign_in(user)
   visit new_user_session_path
-  fill_in "Email",    with: user.email
-  fill_in "Password", with: user.password
   user.confirm!
+  fill_in "Email",    with: user.email
+  fill_in "Password", with: user.password 
   click_button "Log in"
  end
 
- describe "Posts creaton for signed in users" do
+ describe "Posts creation for signed in users" do
   let(:user) {FactoryGirl.create(:user)}
 
   before do
@@ -40,8 +41,10 @@ RSpec.describe PostsController, type: :controller do
     visit new_post_path
   end
 
-  describe "Posts creation with invalid info" do
+  describe "with invalid info" do
     it "does not create a post" do
+      visit new_post_path
+      puts page.body
       expect(page).to find("new-q-heading", text: "Feel free to ask anything!")
       too_short_title = "a" * 49
       too_short_description = "a" * 99
@@ -52,7 +55,7 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  describe "Posts creation with valid info" do
+  describe "with invalid info" do
     it "creates post" do
      correct_title = "a" * 50
      correct_description = "a" * 100
@@ -66,7 +69,6 @@ RSpec.describe PostsController, type: :controller do
   end
 
 end
-
 
   describe "Posts creation for non signed in users" do
     it "redirects to login page" do

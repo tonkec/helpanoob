@@ -12,6 +12,7 @@
 
 class CommentsController < ApplicationController
   before_action :correct_user, only: [:edit]
+
   def new 
      @post = Post.find(params[:post_id])
      @comment = Comment.new
@@ -58,6 +59,28 @@ class CommentsController < ApplicationController
         format.html { render :action => "edit" }
         format.json { respond_with_bip(@comment) }
       end
+    end
+  end
+
+  def upvote
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.json { head :no_content }
+      format.js { render :layout => false }
+    end
+  end
+
+  def downvote
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.unliked_by current_user
+     respond_to do |format|
+      format.html { redirect_to @post }
+      format.json { head :no_content }
+      format.js { render :layout => false }
     end
   end
 

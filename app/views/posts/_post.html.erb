@@ -19,6 +19,10 @@
  <p class="post-date">
   <%= time_ago_in_words(post.created_at) %> ago
 </p>
+<p>
+    Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+
+</p>
 
 <div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
   <% if post.user.id == current_user.id %>

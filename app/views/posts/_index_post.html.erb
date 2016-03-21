@@ -13,7 +13,11 @@
     </p>
 
     <p>
+      Tags: <%= raw p.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </p>
 
+    <p>
+      Time: <%= time_ago_in_words(p.created_at) %>
     </p>
 
   </div>

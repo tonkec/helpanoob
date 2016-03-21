@@ -30,12 +30,21 @@
   # GET /posts
   # GET /posts.json
   def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+    if params[:tag]
+      @tagged_posts = Post.tagged_with(params[:tag])
+      @q = @tagged_posts.ransack(params[:q])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+    else
+      @q = Post.ransack(params[:q])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+    end
   end
 
   def unanswered
-    @unanswered_posts = Post.uncommented
+    #if params[:tag]
+      @unanswered_posts = Post.tagged_with(params[:tag]).uncommented
+    #end
+
   end
 
   # GET /posts/1
@@ -122,7 +131,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :title, :group_id, :image)
+      params.require(:post).permit(:description, :title, :group_id, :image, :tag_list)
     end
 
     def correct_user

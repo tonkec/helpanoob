@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   end
 
   get "unanswered" => "posts#unanswered"
-
   get "profile", to: "users#profile"
+
+  get 'tags/:tag', to: 'posts#index', as: :tag
   #get '/user/:id', to: 'users#show', as: "user_path"
   #get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
 

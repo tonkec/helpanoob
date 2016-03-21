@@ -2,14 +2,15 @@
 <h1 class="post-title">
     All questions
 </h1>
+<div id="tag_cloud">
+Tags:
+  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
 
-<%# @unanswered.each do |u| %>
-
-  <%#= u.comments_count %>
-<%# end %>
-
+<%= params.inspect %>
 <div class="posts-orders">
-  <h1><%= Post.all.count %></h1>
     <span class="icon-elegant-font-177-8826 sort-icon"></span>
     <%= link_to "Unanswered", unanswered_path %>
     <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>

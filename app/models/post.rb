@@ -23,12 +23,14 @@
 class Post < ActiveRecord::Base
   mount_uploader :image, AvatarUploader
   acts_as_votable
+  acts_as_taggable
+
   belongs_to :user
   belongs_to :group
   has_many :comments, dependent: :destroy
-  validates :title, presence: true
-  validates :description, presence: true, length: {minimum: 50}
-  validates :group_id, presence: true, length: {minimum: 100}
+  validates :title, presence: true, presence: true, length: {minimum: 20}
+  validates :description, presence: true, length: {minimum: 100}
+  validates :group_id, presence: true
   validates :user_id, presence: true
   default_scope -> { order(cached_votes_up: :desc) }
 

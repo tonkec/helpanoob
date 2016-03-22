@@ -32,12 +32,21 @@
         Badges:
       </p>
     </div>
+  
 
     <div class="col-lg-8">
       <div class="profile-description">
-       <p><%= current_user.introduction %></p>
+        <h3>About me:</h3>
+       <% if current_user.introduction.nil? %>
+
+        <%= link_to "Edit", edit_user_path(current_user) %>
+       <% else %>
+         <p><%= current_user.introduction %></p>
+       <% end %>
       </div>
     </div>
+
+    
   </div><!-- float -->
 
 

@@ -1,6 +1,5 @@
-$('.like').bind('ajax:success', function() {
-	alert(8)
- $("#like").addClass("hidden");
- $("#dislike").removeClass("hidden");	
- $('.number-of-votes').html('<%=escape_javascript @post.cached_weighted_score.to_s %>');
+$('#post_like').bind('ajax:success', function() {
+ $("#post_like").addClass("hidden");
+ $("#post_dislike").removeClass("hidden");	
+ $('#post_number_of_votes').html('<%=escape_javascript @post.cached_weighted_score.to_s %>');
 });

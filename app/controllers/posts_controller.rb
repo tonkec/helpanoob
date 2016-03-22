@@ -44,11 +44,11 @@ class PostsController < ApplicationController
     if params[:tag]
       @unanswered_posts = Post.uncommented.tagged_with(params[:tag])
       @q = @unanswered_posts.ransack(params[:q])
-      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     else
       @unanswered_posts = Post.uncommented
       @q = @unanswered_posts.ransack(params[:q])
-      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     end
   end
 

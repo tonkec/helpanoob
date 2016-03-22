@@ -20,4 +20,18 @@
 $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
+
+  function toggleNav () {
+    $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
+    $(".btn-nav").toggleClass("animated");
+  }
+  $(".btn-nav").on("click tap", function() {
+    toggleNav();
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+     toggleNav();
+   } 
+ });
 });

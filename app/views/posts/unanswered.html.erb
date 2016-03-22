@@ -1,4 +1,5 @@
 <h1>Unanswered</h1>
+<%= params.inspect %>
 <div id="tag_cloud">
 Select by tags:  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, unanswered_tag_path(tag.name), class: css_class %>
@@ -11,4 +12,12 @@ Select by tags:  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, cs
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->
 
-<%= render "index_post" %>
+<div id="content">
+  <%= render "index_post" %>
+</div>
+
+<% unless @posts.current_page == @posts.total_pages %>
+   <p id="view-more" class="clearfix">
+    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
+  </p>
+<% end %>

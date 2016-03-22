@@ -35,8 +35,7 @@ class Post < ActiveRecord::Base
     where(:comments_count => 0)
   }
 
-  validates :tag_list, presence: true, :format => { :with => /^([A-Z][0-9],?\s?)*$/,
-      :message => "Just too awesomezz", :multiline => true }
+  validates :tag_list, presence: true
 
   def next
     user.posts.where("id > ?", id).first

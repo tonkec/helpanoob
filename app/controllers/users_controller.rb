@@ -22,7 +22,7 @@
 #  introduction           :text
 #  first_name             :string
 #  last_name              :string
-#  nickname               :string
+#  username               :string
 #
 
 class UsersController < ApplicationController
@@ -60,6 +60,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:nickname, :email, :last_name, :first_name, :avatar, :introduction)
+      params.require(:user).permit(:username, :email, :last_name, :first_name, :avatar, :introduction)
     end  
 end

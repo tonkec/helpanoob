@@ -22,7 +22,7 @@
 #  introduction           :text
 #  first_name             :string
 #  last_name              :string
-#  nickname               :string
+#  username               :string
 #
 
 module UsersHelper

@@ -28,7 +28,7 @@ describe "User Registration" do
 
     describe "with valid information" do
       before do
-        fill_in "Nickname", with: subject.nickname
+        fill_in "username", with: subject.username
         fill_in "Email",        with: subject.email
         fill_in "Password",     with: subject.password
         fill_in "Password confirmation", with: subject.password_confirmation

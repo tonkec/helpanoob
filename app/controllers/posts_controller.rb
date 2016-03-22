@@ -32,10 +32,10 @@
     if params[:tag]
       @tagged_posts = Post.tagged_with(params[:tag])
       @q = @tagged_posts.ransack(params[:q])
-      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     else
       @q = Post.ransack(params[:q])
-      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page])
+      @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)
     end
   end
 

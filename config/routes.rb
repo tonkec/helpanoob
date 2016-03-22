@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'tags', to: 'posts#tags'
 
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
   #get '/user/:id', to: 'users#show', as: "user_path"
   #get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
 

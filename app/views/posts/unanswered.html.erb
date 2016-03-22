@@ -1,9 +1,7 @@
 <h1>Unanswered</h1>
-<%= params.inspect %>
 <div id="tag_cloud">
-All Tags: NE RADI!!
-  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+Select by tags:  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, unanswered_tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
 <div class="posts-orders">
@@ -13,15 +11,4 @@ All Tags: NE RADI!!
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->
 
-<% @posts.each do |p| %>
-  <p>
-    <b>answers:<%= p.comments.size %></b>
-
-    <b>hearts:<%= p.cached_weighted_score %></b>
-    <%= link_to p.description, post_path(p) %>
-  </p>
-
-  <p>
-    <%= time_ago_in_words(p.created_at) %>
-  </p>
-<% end %> 
+<%= render "index_post" %>

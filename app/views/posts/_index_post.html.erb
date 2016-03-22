@@ -1,6 +1,6 @@
 <% @posts.each do |p| %>
 
-  <div class="col-xs-12 col-sm-12" style="border: 1px solid orange;">
+  <div class="col-xs-12 col-sm-12 main-post-col" style="border: 1px solid orange;">
     <p>
       Post: <%= link_to truncate(p.title, length: 300), post_path(p) %>
     </p>
@@ -18,6 +18,10 @@
 
     <p>
       Time: <%= time_ago_in_words(p.created_at) %>
+    </p>
+
+    <p>
+      <b>Answers</b> <%= p.comments.count %>
     </p>
 
   </div>

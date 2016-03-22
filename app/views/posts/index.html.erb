@@ -3,7 +3,7 @@
     All questions
 </h1>
 <div id="tag_cloud">
-All Tags:
+Select by tags:
   <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
@@ -26,11 +26,11 @@ All Tags:
 
 <% end %>
 
-<%# unless @posts.current_page == @posts.total_pages %>
-  <!--  <p id="view-more" class="clearfix">
-    <%#= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
+<% unless @posts.current_page == @posts.total_pages %>
+   <p id="view-more" class="clearfix">
+    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
   </p>
-<%# end %>-->
+<% end %>
 
 <% else %>
     <div class="no-results-container">

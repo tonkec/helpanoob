@@ -1,0 +1,1 @@
+include Devise::TestHelpers, type: :controller

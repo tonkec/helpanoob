@@ -45,6 +45,8 @@ RSpec.describe PostsController, type: :controller do
     it "does not create a post" do
       visit new_post_path
       puts page.body
+      puts current_url
+      save_and_open_page
       expect(page).to find("new-q-heading", text: "Feel free to ask anything!")
       too_short_title = "a" * 49
       too_short_description = "a" * 99

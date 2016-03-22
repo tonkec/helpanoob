@@ -1,11 +1,11 @@
 FactoryGirl.define do 
-  sequence :email do |n|
-    "person#{n}@example.com"
-  end
+#  sequence :email do |n|
+ #   "person#{n}@example.com"
+ # end
 
   factory :user do
     nickname "user"
-    email
+    sequence(:email) { |n| "test#{n}@example.com" }    
     password "password"
     password_confirmation "password"
     avatar  { File.open("#{Rails.root}/spec/fixtures/files/sweal.jpg") } 

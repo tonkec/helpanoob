@@ -19,17 +19,16 @@
 #  comments_count          :integer          default(0)
 #
 
-  class PostsController < ApplicationController
+class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:update]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' # <- New
+
 
   # GET /posts
   # GET /posts.json
-
-  
-
   def index
     if params[:tag]
       @tagged_posts = Post.tagged_with(params[:tag])
@@ -79,7 +78,7 @@
   def create
     @post = current_user.posts.build(post_params)
 
-    if @post.tag_list.include? "ruby"
+    if @post.tag_list.include? "ruby, html"
       respond_to do |format|
         if @post.update(post_params)
           format.html { redirect_to @post, notice: 'Post was successfully created.' }

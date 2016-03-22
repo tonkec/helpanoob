@@ -34,6 +34,8 @@ gem 'rails-html-sanitizer','~> 1.0.3'
 gem "launchy"
 gem 'annotate'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

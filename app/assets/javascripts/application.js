@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require best_in_place
 //= require bootstrap-sass
+//= require jquery-ui
+//= require autocomplete-rails
 //= require_tree .
 $(document).ready(function() {
   /* Activating Best In Place */

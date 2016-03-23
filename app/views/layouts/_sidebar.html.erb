@@ -7,14 +7,7 @@
 </button>
 
 <div class="nav-container hidden hideNav">
-<div class="sidebar-content">
-    <div class="right-inner-addon ">
-      <i class="icon-elegant-font-180-8914 nav-search"></i>  
-      <%= search_form_for @q do |f| %>
-      <%= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search"%>
-      <% end %>
-    </div><!-- addon -->
-  </div><!-- content -->
+
  <div class="sidebar-photo">
     <%= image_tag(current_user.avatar) %>
   </div>  

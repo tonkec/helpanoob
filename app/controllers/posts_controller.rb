@@ -77,22 +77,19 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    permited = ["ruby", "javascript"]
+    @post.tag_list = @post.tag_list & permited
 
-    if @post.tag_list.include? "ruby, html"
-      respond_to do |format|
-        if @post.update(post_params)
-          format.html { redirect_to @post, notice: 'Post was successfully created.' }
-          format.json { render :show, status: :ok, location: @post }
-          format.js
-        else
-          format.html { render :new }
-          format.json { render json: @post.errors, status: :unprocessable_entity }
-          format.js
-        end
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :ok, location: @post }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js
       end
-    else
-      flash.now[:danger] = "Please select tag from list"
-      render "new"
     end
   end
 

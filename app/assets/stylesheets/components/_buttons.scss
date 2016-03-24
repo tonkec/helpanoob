@@ -34,6 +34,11 @@
   margin-bottom: 100px; 
 }
 
+.btn-full {
+  width: 100%; 
+  display: block; 
+}
+
 .btn-submit {
   font-size: 14px;
   padding: 10px 20px;  
@@ -41,4 +46,16 @@
 
 .btn-small {
   padding: 10px 30px; 
+}
+
+.btn-dark-blue {
+  color: $white;
+  background-color: $dark-blue-2;
+  padding: 20px 30px;
+  -webkit-border-radius: 20px; 
+  border-radius: 20px; 
+  
+  &:hover {
+    
+  }
 }

@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def profile
     @user_posts_count = current_user.posts.count
     @user_comments_count = current_user.comments.count
-    @user_posts = current_user.posts.page(params[:page]).per(5)
+    @user_post = current_user.posts.last
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
   end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]) 
+    @user = current_user 
   end
 
   def update 

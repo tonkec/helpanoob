@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
   #get '/user/:id', to: 'users#show', as: "user_path"
-  #get '/user/:id/edit', to: 'users#edit', as: "edit_user_path"
+  get '/profile/edit', to: 'users#edit', as: "edit_profile"
 
   devise_for :users, controllers: { registrations: "registrations" }
 
@@ -38,5 +38,5 @@ Rails.application.routes.draw do
     get '/new_password' => "passwordusers#edit", :as => :new_password
   end
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :update]
 end

@@ -1,6 +1,13 @@
-<p>
-  <%= link_to user_post.title, post_path(user_post) %>
-</p>
-<p>
-  <%= user_post.description %>
-</p>
+<div class="col-xs-12 col-sm-12 main-post-col">
+  <h3 class="dark-link-blue profile-post-title">
+    <%= link_to user_post.title, post_path(user_post) %>
+  </h3>
+
+  <p class="text-black profile-post-description">
+    <%= user_post.description %>
+  </p>
+  <p>
+    
+  </p>
+</div>
+

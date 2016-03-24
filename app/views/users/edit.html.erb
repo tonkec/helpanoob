@@ -1,8 +1,7 @@
 <div class="row">
-  <div class="col-lg-6 col-lg-offset-6">
-    <h1><%= @user.email %></h1>
-    <%= form_for(@user) do |f| %> 
-      <% @user.errors.full_messages.each do |message| %>
+    <h1><%= current_user.email %></h1>
+    <%= form_for(current_user) do |f| %> 
+      <% current_user.errors.full_messages.each do |message| %>
         <h1><%= message %></h1>
       <% end %>
     <%= f.label :first_name %> 
@@ -19,5 +18,4 @@
     <%= f.file_field :avatar %> <br />
     <%= f.submit %>
     <% end %>
-  </div>
 </div>

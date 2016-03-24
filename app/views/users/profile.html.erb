@@ -1,91 +1,81 @@
 <div class="profile-wrapper clearfix">
-  <%= link_to "Edit", edit_user_path(current_user) %>
-  <div class="float p-l-0 p-r-0">
+  <div class="user-edit-icon">
+   
+  </div><!-- user-edit-icon -->
+
+  <div class="float profile-upper-container p-l-0 p-r-0">
     <div class="col-lg-4">
-      <%= image_tag(current_user.avatar) %>
-      <h1 class="user-name">
+      <%= image_tag(current_user.avatar, class: "profile-image" ) %>
+      <!--  <i class="fa fa-github-alt user-link"></i>
+      <i class="fa fa-twitter user-link"></i>
+      <i class="fa fa-link user-link"></i>-->
+      <h1 class="profile-names">
         <%= current_user.first_name %>
         <%= current_user.last_name %>
-        <%= current_user.username %>
       </h1>
-      <p class="user-email">
-        <%= current_user.email %>
-      </p>
-
-      <p>
-        Links code: <b>Github Codepen Bitbucket</b>
-      </p>
-
-      <p>
-        Links Learning: <b>Codecademy Codeschool FreeCodeCamp</b>
-      </p>
-
-      <p>
-         Skiils: <b> HTML, CSS, JS, Bootstrap</b> 
-      </p>
-
-      <p>
-        Started coding: <b>2 yrs ago</b>
-      </p>
-
-      <p>
-        Badges:
-      </p>
-    </div>
-  
-
-    <div class="col-lg-8">
-      <div class="profile-description">
-        <h3>About me:</h3>
-       <% if current_user.introduction.nil? %>
-
-        <%= link_to "Edit", edit_user_path(current_user) %>
-       <% else %>
-         <p><%= current_user.introduction %></p>
-       <% end %>
-      </div>
-    </div>
-
-    
-  </div><!-- float -->
-
-
-  <div class="float p-l-0 p-r-0">
-    <h4 class="user-model-heading">Your posts (<%= @user_posts_count %>)</h4>
-
-   <div class="col-lg-12 p-l-0 p-r-0" id="user_posts">
-      <% if @user_posts.any? %>
-        <%= render partial: "user_post", collection: @user_posts %>
-      <% else %>
-        <h3 class="dontbeshy">
-          Don't be shy.
-        </h3>
-
-        <%= link_to "Ask a question", new_post_path, class: "btn-green btn-small" %>
-      <% end %>
-
-    
-      <%= paginate @user_posts%>
+      <h5 class="profile-username">
+        @<%= current_user.username %>
+      </h5>
 
     </div><!-- col -->
-    
-  </div><!-- float -->
 
-  <div class="float">
-    <% if @user_comments.any? %>
-    <h4 class="user-model-heading">Here is some of your latest comments:</h4>
-
-    <div class="col-lg-12 profile-comments-col p-l-0 p-r-0">
-    <% @user_comments.each do |c| %>
-      <div class="user-model-col">
-        <p class="user-profile-comment"><%= c.content %></p>
-        <%= c.id %>
+    <div class="col-lg-8">
+      <div class="profile-introduction dark-dark-link">
+        <h4 class="about-you-profile text-dark-blue">About you: </h4>
+        <% if current_user.introduction.empty? %>
+        <%= link_to "Nothing yet? Tell us something about yourself!", edit_profile_path %>
+        <% else %>
+        <p class="profile-introduction-text">
+          <%= current_user.introduction %>
+        </p>
+        <% end %>
       </div>
-      <% end %>
     </div>
 
-   
-    <% end %>
-  </div>
+  </div><!-- float -->
+
+
+
+  <div class="float">
+    
+    <div class="col-lg-12"> 
+      <h2>Your last post</h2>
+
+      <div class="user-post-container">
+        <h4 class="profile-post-title dark-dark-link">
+         <%= link_to @user_post.title, post_path(@user_post) %>
+        </h4>
+
+        <p class="profile-post-description text-dark-blue">
+          <%= @user_post.description %>
+        </p>
+
+        <p class="text-dark-blue user-post-info">
+          <i class="fa fa-heart main-question-icon" id="heart"></i>
+          <%= @user_post.cached_weighted_score %>
+        </p>
+
+        <p class="text-dark-blue user-post-info">
+          <span class="icon-elegant-font-208-9915 icon-comments"></span>
+          <%= @user_post.comments.count %>
+        </p>
+
+        <p class="text-dark-blue user-post-info">
+          <i class="fa fa-clock-o"></i>  
+          <%= time_ago_in_words(@user_post.created_at) %> ago
+        </p>
+      </div><!-- user-post-container -->
+       
+
+      <span class="dark-dark-link">
+        <%= link_to posts_path, class: "btn-profile" do %>
+        <span>
+          See all of your post here
+        </span>
+        <i class="fa fa-long-arrow-right profile-long-arrow"></i>
+      <% end %>
+      </span>
+    </div><!-- col -->
+  </div><!-- float -->
 
 </div><!-- profile-wrapper -->

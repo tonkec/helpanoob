@@ -1,6 +1,7 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "components/colors";
 .profile-wrapper {
 	margin-top: 40px; 
 	padding-bottom: 100px; 
@@ -31,8 +32,131 @@
 	margin-bottom: 20px; 
 }
 
-.profile-description {
-	background-color: #FFF;
+.profile-introduction {
+	margin-top: 20px;
+	margin-bottom: 20px;  
+	background-color: #fff;
 	width: 100%;
-	padding: 40px 20px;   
+	padding: 20px 30px 40px;   
+}
+
+
+.about-you-profile {
+	border-bottom: 1px solid $dark-blue-2;
+	padding-bottom: 15px;
+	font-size: 32px;   	
+}
+
+.empty-introduction {
+	margin-top: 15px;
+	font-size: 18px;  
+}
+
+.user-edit-icon {
+	position: absolute;
+	left: 0;
+	margin-top: 15px;  
+
+	a {
+		cursor: pointer;
+		&:hover,
+		&:focus {
+			text-decoration: none; 
+		}
+	}  
+}
+
+.edit-icon {
+	padding: 7px;
+	font-weight: 700;
+	font-size: 1em;  
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;  
+	color: #FFF;
+	background-color: $light-blue;
+	cursor: pointer;
+	-webkit-transition: background-color .5s ease-in-out; 
+	-moz-transition: background-color .5s ease-in-out; 
+	-ms-transition: background-color .5s ease-in-out; 
+	-o-transition: background-color .5s ease-in-out; 
+	transition: background-color .5s ease-in-out; 
+
+	
+	&:hover {
+		background-color: darken($light-blue, 10%); 
+		-webkit-transition: background-color .5s ease-in-out; 
+		-moz-transition: background-color .5s ease-in-out; 
+		-ms-transition: background-color .5s ease-in-out; 
+		-o-transition: background-color .5s ease-in-out; 
+		transition: background-color .5s ease-in-out; 
+	} 	
+}
+
+.profile-image {
+	-webkit-border-radius: 50%; 
+	border-radius: 50%;
+	margin-bottom: 30px; 
+	border: 4px solid $light-blue; 
+}
+
+
+.profile-post-description,
+.profile-post-title {
+	-ms-word-break: break-all; 
+	word-break: break-all; 
+}
+
+.user-post-container {
+	background-color: #fff;
+	padding: 20px 30px 40px;
+	margin-top: 20px; 
+	margin-bottom: 20px;  
+}
+
+
+.profile-post-title {
+	color: $white-1;
+	font-size: 22px; 
+	padding-bottom: 15px;
+	border-bottom: 1px solid $dark-blue-2;  
+	text-transform: capitalize;
+	line-height: 1.6;  
+}
+
+.profile-post-description {
+	margin-top: 30px;
+	font-size: 16px;  
+	margin-bottom: 20px; 
+	line-height: 1.6;
+}
+
+.user-post-info {
+	margin-bottom: 5px; 
+
+	i,span {
+		margin-right: 5px; 
+	}
+}
+
+.btn-profile {
+	margin-top: 20px; 
+}
+
+.fa.profile-long-arrow {
+	    font-size: 40px;
+    font-weight: 300;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.fa.user-link {
+	font-size: 30px; 
+	margin-left: 12px;
+	margin-top: 10px;
+	margin-bottom: 20px;   
+}
+
+.profile-upper-container {
+	border-bottom: 1px solid $dark-blue-2; 
+	padding-bottom: 50px; 
 }

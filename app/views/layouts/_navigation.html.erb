@@ -1,10 +1,10 @@
 <nav class="nav">
   <div class="search-content">
     <div class="right-inner-addon ">
-      <!-- <i class="icon-elegant-font-180-8914 nav-search"></i>  -->
-      <%#= search_form_for @q do |f| %>
-      <%#= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search"%>
-      <%# end %>
+      <i class="icon-elegant-font-180-8914 nav-search"></i> 
+      <%= search_form_for @q do |f| %>
+      <%= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search"%>
+      <% end %>
     </div><!-- addon -->
   </div><!-- content -->
   <div class="right-nav">
@@ -16,7 +16,7 @@
       <% end %>
 
       <%= link_to posts_path, class: "nav-anchor" do %>
-      <span class="icon-elegant-font-111-8721 icon-nav"></span>
+      <span class="icon-elegant-font-249-10019 icon-nav"></span>
       <% end %>
 
       

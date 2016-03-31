@@ -35,8 +35,8 @@ gem "launchy"
 gem 'annotate'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jquery-ui-rails'
-gem 'rails4-autocomplete'
-
+gem 'rails3-jquery-autocomplete'
+gem "jquery-fileupload-rails"
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

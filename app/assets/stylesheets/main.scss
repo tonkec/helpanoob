@@ -314,3 +314,27 @@ TAGS COLORS
 .sql {
 	background-color: $sql; 
 }
+
+/* ========================
+INDICATORS
+==========================*/
+.blue-indicator {
+	background-color: $dark-blue-2;
+	height: 10px;
+	width: 0;
+	margin-bottom: 5px; 
+	-webkit-transition: width 2s ease-in-out; 
+	    -moz-transition: width 2s ease-in-out; 
+	    -ms-transition: width 2s ease-in-out; 
+	    -o-transition: width 2s ease-in-out; 
+	    transition: width 2s ease-in-out;     
+}
+
+.active {
+	width: 100%; 
+	-webkit-transition: width 2s 2.1s ease-in-out; 
+	  -moz-transition: width 2s 2.1s ease-in-out; 
+	  -ms-transition: width 2s 2.1s ease-in-out; 
+	  -o-transition: width 2s 2.1s ease-in-out; 
+	  transition: width 2s 2.1s ease-in-out;   
+}

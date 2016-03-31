@@ -52,9 +52,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def tags
-  end
-
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -147,7 +144,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :title, :image, :tag_list, {images: []})
+      params.require(:post).permit(:description, :title, :tag_list, {images: []})
     end
 
     def correct_user

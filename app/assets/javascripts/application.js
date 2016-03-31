@@ -16,6 +16,7 @@
 //= require bootstrap-sass
 //= require jquery-ui
 //= require autocomplete-rails
+//= require jquery-fileupload/basic
 //= require_tree .
 $(document).ready(function() {
   /* Activating Best In Place */

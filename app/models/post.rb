@@ -20,8 +20,9 @@
 #
 
 class Post < ActiveRecord::Base
-  mount_uploader :image, AvatarUploader
-  #mount_uploaders :images, AvatarUploader
+  #mount_uploader :image, AvatarUploader
+  serialize :images, Array
+  mount_uploaders :images, AvatarUploader
   acts_as_votable
   acts_as_taggable
 

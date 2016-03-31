@@ -275,3 +275,42 @@ text colors
 .text-dark-blue {
 	color: $dark-blue-2
 }
+
+/* ========================
+TAGS COLORS
+==========================*/
+.tags-list {
+	margin-bottom: 20px; 
+}
+
+.tag {
+	padding: 5px 15px;
+	color: #fff;
+	-webkit-border-radius: 10px; 
+	 border-radius: 10px;  
+	margin-right: 10px; 
+	font-size: 12px;
+	line-height: 12px;  
+}
+
+.javascript {
+	background-color: $javascript; 
+}
+
+.ruby,
+.rails,
+.ruby-on-rails {
+	background-color: $ruby; 
+}
+
+.jquery {
+	background-color: $jquery; 
+}
+
+.php {
+	background-color: $php; 
+}
+
+.sql {
+	background-color: $sql; 
+}

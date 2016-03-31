@@ -13,6 +13,7 @@
   -o-transition: all .5s ease-in-out; 
   transition: all .5s ease-in-out;   
   text-align: center;
+  clear: both;
 
   &:hover{
     background-color: darken($green, 5%);

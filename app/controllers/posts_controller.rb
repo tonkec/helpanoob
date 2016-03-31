@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:update]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' # <- New
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
 
   # GET /posts
@@ -65,7 +65,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    
   end
 
   # GET /posts/1/edit
@@ -76,19 +75,24 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @existing_tag_list_array = ["ruby", "rails", "ruby on rails", "jquery", "javascript", "php", "sql"]
     @post = current_user.posts.build(post_params)
-    permited = ["ruby", "javascript"]
-    @post.tag_list = @post.tag_list & permited
+    @post.tag_list = @existing_tag_list_array & @post.tag_list
 
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :ok, location: @post }
-        format.js
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-        format.js
+    if @post.tag_list.empty?
+      flash.now[:danger] = "Please select tag from list"
+      render "new"
+    else 
+      respond_to do |format|
+        if @post.update(post_params)
+          format.html { redirect_to @post, notice: 'Post was successfully created.' }
+          format.json { render :show, status: :ok, location: @post }
+          format.js
+        else
+          format.html { render :new }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+          format.js
+        end
       end
     end
   end

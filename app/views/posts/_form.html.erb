@@ -1,12 +1,20 @@
 <%= form_for(@post) do |f| %>
+  <%# if @post.tag_list.empty? %>
+    <p class="tags-list">
+       Allowed tags: <%# @existing_tag_list_array.each  do |tag|%>
+      <span class="tag <%#= tag %>">
+        <%#= tag %>
+      </span>
+      <%# end %>
+    </p>
+  <%# end %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -17,10 +25,12 @@
   </div>
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ' %> 
+    <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ' %>
+    <%= @post.tag_list %>  
   </div>
   <div class="field">
-    <%= f.file_field :image %>
+    <label>My Avatar</label>
+    <%= f.file_field :images, multiple: true %>
   </div>
   <div class="actions">
     <%= f.submit "Ask", class: "btn-full btn-green" %>

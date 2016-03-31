@@ -35,7 +35,7 @@ gem "launchy"
 gem 'annotate'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jquery-ui-rails'
-gem 'rails3-jquery-autocomplete'
+gem 'rails4-autocomplete'
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

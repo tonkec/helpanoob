@@ -1,4 +1,3 @@
-console.log($(".comments-col#<%= @comment.id %>"));
 
 <% if @comment.errors.any? %>
 	$("#editcomment-<%= @comment.id %>").modal("show");

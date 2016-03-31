@@ -12,15 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require best_in_place
 //= require bootstrap-sass
 //= require jquery-ui
 //= require autocomplete-rails
 //= require jquery-fileupload/basic
 //= require_tree .
 $(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
 
   function toggleNav () {
     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");

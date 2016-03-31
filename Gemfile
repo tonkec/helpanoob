@@ -23,7 +23,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "font-awesome-rails"
 gem 'devise'
-gem 'best_in_place', '~> 3.0.1'
 gem 'sendgrid'
 gem "mini_magick"
 gem 'ransack'

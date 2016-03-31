@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
 
   resources :posts do
-    get :autocomplete_tag_name, :on => :collection  
-    resources :comments do
+    get :autocomplete_tag_name, :on => :collection 
+
+    resources :comments, only: [:edit, :create, :update, :destroy] do
        member do 
         put "like" => "comments#upvote"
         put "dislike" => "comments#downvote"

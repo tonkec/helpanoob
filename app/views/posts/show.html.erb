@@ -1,5 +1,9 @@
 <%= render  @post %>
-<%= render  @comment %>
+
+
+<div id="comment-wrapper" class="clearfix">
+  <%= render  @comment %>
+</div>
 
 <h2>Share your wisdom</h2>
 <%= render "comments/form" %>

@@ -45,17 +45,19 @@
           
           <div class="modal-body">
             <%= form_for(post, :method => :put, remote: true) do |f| %>
-            <div class="field">
-             <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
-             <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
-           </div>
-           <div class="field">
-            <%= f.file_field :image %>
-          </div>
-          <div class="actions">
-            <%= f.submit "Update", class: "btn-full btn-green" %>
-          </div>
-          <% end %>
+              <div class="field">
+                <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
+                <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
+              </div>
+
+              <div class="field">
+                <%= f.file_field :image %>
+              </div>
+              
+              <div class="actions">
+                <%= f.submit "Update", class: "btn-full btn-green" %>
+              </div>
+            <% end %>
         </div><!-- modal body -->
         
         <div class="modal-footer">

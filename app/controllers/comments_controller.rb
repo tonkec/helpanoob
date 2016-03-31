@@ -11,12 +11,7 @@
 #
 
 class CommentsController < ApplicationController
-  before_action :correct_user, only: [:edit]
-
-  def new 
-     @post = Post.find(params[:post_id])
-     @comment = Comment.new
-  end
+  before_action :correct_user, only: [:edit, :update]
 
   def create
     @post = Post.find(params[:post_id])
@@ -29,17 +24,16 @@ class CommentsController < ApplicationController
     end
   end
 
-  def index
-    @comments = Comment.all
-    @post = Post.find(params[:post_id])
-    @comments = @post.comments.all
-  end
-
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
 
@@ -53,11 +47,13 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     respond_to do |format|
       if @comment.update_attributes(comments_params)
-        format.html { redirect_to(@comment, :notice => 'comment was successfully updated.') }
-        format.json { respond_with_bip(@comment) }
+        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :ok, location: @comment }
+        format.js
       else
-        format.html { render :action => "edit" }
-        format.json { respond_with_bip(@comment) }
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -90,8 +86,8 @@ class CommentsController < ApplicationController
     end
 
     def correct_user
-     @right_comment = Comment.find(params[:id])
-     @user_id = @right_comment.user_id
-     redirect_to root_path unless current_user.id == @right_comment.user_id
+      @right_comment = Comment.find(params[:id])
+      @user_id = @right_comment.user_id
+      redirect_to root_path unless current_user.id == @right_comment.user_id
     end
 end

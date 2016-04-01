@@ -80,7 +80,7 @@ class PostsController < ApplicationController
       render "new"
     else 
       respond_to do |format|
-        if @post.update(post_params)
+        if @post.save(post_params)
           format.html { redirect_to @post, notice: 'Post was successfully created.' }
           format.json { render :show, status: :ok, location: @post }
           format.js

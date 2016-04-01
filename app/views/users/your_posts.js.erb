@@ -1,1 +1,7 @@
-console.log(8)
+$("#user-post-content").append("<%=j render(partial: 'user_post', collection: @your_posts, format: 'html') %>");
+
+<% if @your_posts.current_page == @your_posts.total_pages %>
+  $('#view-more').remove();
+<% else %>
+  $('#view-more a').attr('href', '<%= url_for(page: @your_posts.current_page + 1) %>');
+<% end %>

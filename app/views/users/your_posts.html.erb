@@ -1,10 +1,13 @@
-<p id="view-more" class="clearfix">
-<%= link_to('View More', url_for(page: @your_posts.current_page + 1), remote: true, class: "") %>
-</p>
-<%= render partial: "user_post", collection: @your_posts %>
-
+<h2>
+  <%= current_user.posts.count %>
+</h2>
 
 <div id="user-post-content" class="clearfix">
+  <%= render partial: "user_post", collection: @your_posts %>
 </div>
 
-
+<% unless @your_posts.current_page == @your_posts.total_pages %>
+  <p id="view-more" class="clearfix">
+  <%= link_to('View More', url_for(page: @your_posts.current_page + 1), class: "btn btn-full btn-green") %>
+  </p>
+<% end %>

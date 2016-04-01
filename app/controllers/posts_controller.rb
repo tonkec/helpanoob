@@ -26,7 +26,6 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
-
   # GET /posts
   # GET /posts.json
   def index

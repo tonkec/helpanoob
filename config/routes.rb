@@ -39,5 +39,6 @@ Rails.application.routes.draw do
     get '/new_password' => "passwordusers#edit", :as => :new_password
   end
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :user_posts]
+  get 'your_posts', to: 'users#your_posts', as: :your_posts
 end

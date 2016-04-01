@@ -1,0 +1,10 @@
+<p id="view-more" class="clearfix">
+<%= link_to('View More', url_for(page: @your_posts.current_page + 1), remote: true, class: "") %>
+</p>
+<%= render partial: "user_post", collection: @your_posts %>
+
+
+<div id="user-post-content" class="clearfix">
+</div>
+
+

@@ -35,6 +35,10 @@ class UsersController < ApplicationController
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
   end
 
+  def your_posts
+    @your_posts = current_user.posts.page(params[:page]).per(5)
+  end
+
   def show
     @user = User.find(params[:id])
     @user_posts = @user.posts

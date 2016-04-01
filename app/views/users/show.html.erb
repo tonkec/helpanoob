@@ -6,7 +6,12 @@
 <p>Comments:<%= @user.comments.count %></p>
 
 <h1>Posts</h1>
-<%= render(partial: 'posts/post', collection: @user_posts, object: @post) %>
+<% if @user_posts.any? %>
+<%= @user_posts.count %>
+<%= render(partial: 'user_post', collection: @user_posts, object: @post) %>
+<% else %>
+<p>This user has no posts</p>
+<% end %>
 
 <h1>Comments</h1>
 <%= @user_comments %>

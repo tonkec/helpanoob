@@ -22,7 +22,7 @@
     <div class="col-lg-8">
       <div class="profile-introduction dark-dark-link">
         <h4 class="about-you-profile text-dark-blue">About you: </h4>
-        <% if current_user.introduction.empty? %>
+        <% if current_user.introduction.nil? %>
         <%= link_to "Nothing yet? Tell us something about yourself!", edit_profile_path %>
         <% else %>
         <p class="profile-introduction-text">
@@ -70,7 +70,7 @@
       <span class="dark-dark-link">
         <%= link_to posts_path, class: "btn-profile" do %>
         <span>
-          See all of your post here
+          See all of your post here KRIVI LINK
         </span>
         <i class="fa fa-long-arrow-right profile-long-arrow"></i>
       <% end %>

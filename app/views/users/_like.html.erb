@@ -1,0 +1,14 @@
+<%= link_to like_post_path(@post), :remote => true, class: "like", id: "post_like", method: :put do %>
+<i class="fa fa-heart main-question-icon" id="heart">
+</i>
+<% end %>
+
+<%= link_to dislike_post_path(@post), :remote => true, class: "like hidden", id: "post_dislike", method: :put do %>
+<i class="fa fa-heart main-question-icon" id="heart">
+</i>
+<% end %>
+
+
+<span class="number-of-votes" id="post_number_of_votes">
+ <%= @post.cached_weighted_score %><br />
+</span>

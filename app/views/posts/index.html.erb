@@ -13,6 +13,7 @@ Select by tags:
 <div class="posts-orders">
     <span class="icon-elegant-font-177-8826 sort-icon"></span>
     <%= link_to "Unanswered", unanswered_path %>
+    <%= sort_link(@q, :comments_count, "Number of answers", hide_indicator: true)%>
     <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->

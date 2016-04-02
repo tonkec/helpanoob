@@ -1,23 +1,27 @@
 <div class="profile-wrapper clearfix">
   <div class="user-edit-icon">
-   
+    <%= link_to edit_profile_path  do%>
+      <span class="icon-elegant-font-250-10020"></span>
+    <% end %>
   </div><!-- user-edit-icon -->
 
   <div class="float profile-upper-container p-l-0 p-r-0">
     <div class="col-lg-4">
       <%= image_tag(current_user.avatar, class: "profile-image" ) %>
-      <!--  <i class="fa fa-github-alt user-link"></i>
-      <i class="fa fa-twitter user-link"></i>
-      <i class="fa fa-link user-link"></i>-->
-      <h1 class="profile-names">
-        <%= current_user.first_name %>
-        <%= current_user.last_name %>
-      </h1>
+      <p class="profile-names">
+        <% if current_user.first_name.nil? %>
+           <%= link_to "Add more info", edit_profile_path %>
+        <% else %>
+          <%= current_user.first_name %>
+          <%= current_user.last_name %>
+        <% end %>
+      </p>
+      
       <h5 class="profile-username">
-        @<%= current_user.username %>
+        Name: <b><%= current_user.username %></b>
       </h5>
-
     </div><!-- col -->
+
 
     <div class="col-lg-8">
       <div class="profile-introduction dark-dark-link">
@@ -29,11 +33,16 @@
           <%= current_user.introduction %>
         </p>
         <% end %>
-      </div>
+      </div><!-- profile-intro -->
+    </div> <!-- col -->
+
+    <div class="col-lg-12">
+        <i class="fa fa-github-alt user-link"></i>
+      <i class="fa fa-twitter user-link"></i>
+      <i class="fa fa-link user-link"></i>
     </div>
 
   </div><!-- float -->
-
 
 
   <div class="float">

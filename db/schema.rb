@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402145344) do
+ActiveRecord::Schema.define(version: 20160402151313) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 20160402145344) do
   add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
   add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "strength"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "skills", ["user_id"], name: "index_skills_on_user_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

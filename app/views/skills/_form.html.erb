@@ -1,0 +1,6 @@
+<%= form_for([current_user, current_user.skills.build]) do |f| %>
+  
+  <%= f.text_field :name, class: "green-textarea green-input", placeholder: "Add skill" %>
+  <%= f.number_field :strength, class: "green-textarea green-input", placeholder: "Add number" %>
+  <%= f.submit class: "btn-green btn-submit" %>
+<% end %>

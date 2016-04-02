@@ -16,9 +16,6 @@
           <%= current_user.last_name %>
         <% end %>
       </p>
-      <p>
-       
-      </p>
       <h5 class="profile-username">
         Name: <b><%= current_user.username %></b>
       </h5>
@@ -47,7 +44,12 @@
       <%= current_user.social_link(current_user.first_learning_platform) %>
       <%= current_user.social_link(current_user.second_learning_platform) %>
       <%= current_user.social_link(current_user.third_learning_platform) %>
-
+      <p>Your skills</p>
+      <% @user_skills.each do |skill| %>
+        <%= skill.name %>
+        <%= skill.strength %>
+      <% end %>
+      <%= link_to "add more skills", new_user_skill_path(current_user, @skill) %>
     </div>
 
   </div><!-- float -->

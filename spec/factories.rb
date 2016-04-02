@@ -1,4 +1,9 @@
-FactoryGirl.define do 
+FactoryGirl.define do  factory :skill do
+    name "MyString"
+strength 1
+user nil
+  end
+ 
   factory :user do
     username "user"
     sequence(:email) { |n| "test#{n}@example.com" }    

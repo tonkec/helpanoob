@@ -33,6 +33,8 @@ class UsersController < ApplicationController
     @user_comments_count = current_user.comments.count
     @user_post = current_user.posts.last
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
+    @user_skills = current_user.skills
+    @skill = Skill.new
   end
 
   def your_posts

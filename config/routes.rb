@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get :autocomplete_tag_name, :on => :collection
      
     resources :comments, only: [:edit, :create, :update, :destroy] do
-       member do 
+      member do 
         put "like" => "comments#upvote"
         put "dislike" => "comments#downvote"
       end
@@ -39,6 +39,9 @@ Rails.application.routes.draw do
     get '/new_password' => "passwordusers#edit", :as => :new_password
   end
 
-  resources :users, only: [:show, :update, :user_posts]
+  resources :users, only: [:show, :update, :user_posts] do
+    resources :skills, only: [:create, :new, :update, :destroy]
+  end
+  
   get 'your_posts', to: 'users#your_posts', as: :your_posts
 end

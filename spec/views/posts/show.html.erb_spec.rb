@@ -58,14 +58,29 @@ describe 'posts/show.html.erb' do
 
   describe "allows only right user to edit comment" do
     
+    it "has link to edit" do
+      expect(page).to have_link("Edit", edit_post_comment_path(post, comment))
+    end
+  
   end
 
   describe "allows only right user to delete comment" do
+    let(:delete) { page.find(:link, "Delete", [comment.post, comment])}
 
+    it "has link to delete" do
+      expect(page).to have_link("Delete", [comment.post, comment])
+    end
+
+    it "deletes the comment" do
+      expect { click_link delete }.to change(Comment, :count).by(-1)
+    end
+  
   end
 
   describe "does not allow any user to edit comment" do
-
+    it "does not have link to edit" do
+      expect(page).to_not have_link("Edit", edit_post_comment_path(post, other_comment))
+    end
   end
 
   describe "does not allow any user to delete comment" do

@@ -1,9 +1,4 @@
-FactoryGirl.define do  factory :skill do
-    name "MyString"
-strength 1
-user nil
-  end
- 
+FactoryGirl.define do 
   factory :user do
     username "user"
     sequence(:email) { |n| "test#{n}@example.com" }    
@@ -16,6 +11,12 @@ user nil
     description Faker::Lorem.characters(101)
     title Faker::Lorem.words(3)
     tag_list Faker::Lorem.words(3)
+    user
+  end
+
+  factory :skill do
+    name Faker::Lorem.words(1)
+    strength Faker::Number.between(0, 100)
     user
   end
 

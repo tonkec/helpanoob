@@ -1,8 +1,4 @@
 FactoryGirl.define do 
-#  sequence :email do |n|
- #   "person#{n}@example.com"
- # end
-
   factory :user do
     username "user"
     sequence(:email) { |n| "test#{n}@example.com" }    
@@ -12,8 +8,9 @@ FactoryGirl.define do
   end
 
   factory :post do
-    description Faker::Lorem.sentence(3)
+    description Faker::Lorem.characters(101)
     title Faker::Lorem.words(3)
+    tag_list Faker::Lorem.words(3)
     user
   end
 

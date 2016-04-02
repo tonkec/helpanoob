@@ -26,8 +26,8 @@ RSpec.describe Skill, type: :model do
       end
 
       it "allows only floats" do
-        skill.strength = 1.2
-        expect(skill).to_not be_valid
+        skill.strength = 0.5
+        expect(skill.strength).to eq(0)
       end 
     end
 
@@ -40,7 +40,7 @@ RSpec.describe Skill, type: :model do
 
       it "downcases name" do
         skill.name = "jAVascRIPT"
-        #TREBAš ponovo stvorit skill
+        skill.save
         expect(skill.name).to eq("javascript")
       end
       

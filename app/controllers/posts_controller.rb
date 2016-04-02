@@ -75,8 +75,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @existing_tag_list_array = ["ruby", "rails", "ruby on rails", "jquery", "javascript", "php", "sql"]
     @post = current_user.posts.build(post_params)
+    @existing_tag_list_array = ["ruby", "rails", "ruby on rails", "jquery", "javascript", "php", "sql"]
     @post.tag_list = @existing_tag_list_array & @post.tag_list
 
     if @post.tag_list.empty?

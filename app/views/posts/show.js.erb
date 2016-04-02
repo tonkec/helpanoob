@@ -1,0 +1,7 @@
+$("#comment-wrapper").append("<%=j render @comments, format: 'html' %>");
+
+<% if @comments.current_page == @comments.total_pages %>
+  $('#view-more').remove();
+<% else %>
+  $('#view-more a').attr('href', '<%= url_for(page: @comments.current_page + 1) %>');
+<% end %>

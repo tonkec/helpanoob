@@ -33,8 +33,8 @@ class UsersController < ApplicationController
     @user_comments_count = current_user.comments.count
     @user_post = current_user.posts.last
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
-    @user_skills = current_user.skills
-    @skill = Skill.new
+    @skills = current_user.skills
+    @new_skill = Skill.new
   end
 
   def your_posts
@@ -64,6 +64,8 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :last_name, :first_name, :avatar, :introduction,
                                     :first_social_link, :second_social_link, :third_social_link,
-                                    :first_learning_platform, :second_learning_platform, :third_learning_platform)
+                                    :first_learning_platform, :second_learning_platform, :third_learning_platform,
+                                    :experience
+                                  )
     end  
 end

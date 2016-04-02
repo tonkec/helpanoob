@@ -17,8 +17,13 @@
         <% end %>
       </p>
       <h5 class="profile-username">
-        Name: <b><%= current_user.username %></b>
+        User: <b><%= current_user.username %></b>
       </h5>
+      <h5 class="profile-username">
+        You have been coding for: <b><%= pluralize(current_user.experience, "year") %></b>
+      </h5>
+
+      
     </div><!-- col -->
 
 
@@ -44,12 +49,11 @@
       <%= current_user.social_link(current_user.first_learning_platform) %>
       <%= current_user.social_link(current_user.second_learning_platform) %>
       <%= current_user.social_link(current_user.third_learning_platform) %>
-      <p>Your skills</p>
-      <% @user_skills.each do |skill| %>
-        <%= skill.name %>
-        <%= skill.strength %>
-      <% end %>
-      <%= link_to "add more skills", new_user_skill_path(current_user, @skill) %>
+    </div><!-- col -->
+
+    <div class="col-lg-12">
+      <%= render @skills %>
+      <%= link_to "add more skills", new_user_skill_path(current_user, @new_skill), remote: true %>
     </div>
 
   </div><!-- float -->
@@ -96,5 +100,8 @@
       </span>
     </div><!-- col -->
   </div><!-- float -->
+
+
+  
 
 </div><!-- profile-wrapper -->

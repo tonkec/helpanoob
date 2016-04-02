@@ -41,4 +41,22 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :avatar, presence: true
   mount_uploader :avatar, AvatarUploader
+
+
+  def social_link(link)
+
+    unless link.nil?
+      if link.match("codepen")
+        "<a href='#{link}' target='_blank'><i class='fa fa-codepen user-link'></i></a>".html_safe 
+      elsif link.match("github")
+        "<a href='#{link}' target='_blank'><i class='fa fa-github user-link'></i></a>".html_safe
+      elsif link.match("twitter")
+        "<a href='#{link}' target='_blank'><i class='fa fa-twitter user-link'></i></a>".html_safe
+      elsif link.match("linkedin")
+        "<a href='#{link}' target='_blank'><i class='fa fa-linkedin user-link'></i></a>".html_safe 
+      else
+        "<a href='#{link}' target='_blank'><i class='fa fa-link user-link'></i></a>".html_safe 
+      end
+    end
+  end
 end

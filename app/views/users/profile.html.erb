@@ -16,7 +16,9 @@
           <%= current_user.last_name %>
         <% end %>
       </p>
-      
+      <p>
+       
+      </p>
       <h5 class="profile-username">
         Name: <b><%= current_user.username %></b>
       </h5>
@@ -26,8 +28,8 @@
     <div class="col-lg-8">
       <div class="profile-introduction dark-dark-link">
         <h4 class="about-you-profile text-dark-blue">About you: </h4>
-        <% if current_user.introduction.nil? %>
-        <%= link_to "Nothing yet? Tell us something about yourself!", edit_profile_path %>
+        <% if current_user.introduction.empty? %>
+          <%= link_to "Nothing yet? Tell us something about yourself!", edit_profile_path %>
         <% else %>
         <p class="profile-introduction-text">
           <%= current_user.introduction %>
@@ -37,9 +39,9 @@
     </div> <!-- col -->
 
     <div class="col-lg-12">
-        <i class="fa fa-github-alt user-link"></i>
-      <i class="fa fa-twitter user-link"></i>
-      <i class="fa fa-link user-link"></i>
+      <%= current_user.social_link(current_user.first_social_link) %>
+      <%= current_user.social_link(current_user.second_social_link) %>
+      <%= current_user.social_link(current_user.third_social_link) %>
     </div>
 
   </div><!-- float -->

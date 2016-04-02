@@ -20,3 +20,6 @@
 /config/application.yml
 /config/secrets.yml
 /config/initializers/devise.rb
+
+# Ignore simplecow coverage
+coverage

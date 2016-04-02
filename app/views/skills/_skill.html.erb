@@ -1,0 +1,37 @@
+<div id="skill-content">
+  
+  <span class="skill skill-<%= skill.name%>">
+    <%= skill.name %>
+    <%= link_to [skill.user, skill], method: :delete  do %>
+    <span class="icon-elegant-font-150-8783 skill-delete"></span>
+    <% end %>
+  </span>
+
+</div><!-- skill-content -->
+<%#= link_to "Edit", edit_user_skill_path(current_user, skill), remote: true, class: "edit-skill-link", 'data-target' => "#editskill-#{skill.id}", 'data-toggle' => "modal" %>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editskill-<%=skill.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">
+          <%= skill.name %>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for([current_user, skill], :method => :put, class: "edit-skill" ) do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit "Update", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

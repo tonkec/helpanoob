@@ -44,19 +44,32 @@ class User < ActiveRecord::Base
 
 
   def social_link(link)
+    edit_profile_path = Rails.application.routes.url_helpers.edit_profile_path
 
-    unless link.nil?
+    if link.blank?
+      "<a href='#{edit_profile_path}'><i class='fa fa-plus user-link'></i></a>".html_safe
+    else link.blank?
       if link.match("codepen")
         "<a href='#{link}' target='_blank'><i class='fa fa-codepen user-link'></i></a>".html_safe 
       elsif link.match("github")
         "<a href='#{link}' target='_blank'><i class='fa fa-github user-link'></i></a>".html_safe
       elsif link.match("twitter")
         "<a href='#{link}' target='_blank'><i class='fa fa-twitter user-link'></i></a>".html_safe
+      elsif link.match("stackoverflow")
+        "<a href='#{link}' target='_blank'><i class='fa fa-stack-overflow user-link'></i></a>".html_safe        
       elsif link.match("linkedin")
         "<a href='#{link}' target='_blank'><i class='fa fa-linkedin user-link'></i></a>".html_safe 
+      elsif link.match("codecademy")
+        "<a href='#{link}' target='_blank'><i class=''>Codecademy</i></a>".html_safe 
+      elsif link.match("codeschool")
+        "<a href='#{link}' target='_blank'><i class=''>Codeschool</i></a>".html_safe 
+      elsif link.match("freecodecamp")
+        "<a href='#{link}' target='_blank'><i class=''>Freecodecamp</i></a>".html_safe 
       else
         "<a href='#{link}' target='_blank'><i class='fa fa-link user-link'></i></a>".html_safe 
       end
     end
+
   end
+
 end

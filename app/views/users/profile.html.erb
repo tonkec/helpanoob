@@ -39,9 +39,15 @@
     </div> <!-- col -->
 
     <div class="col-lg-12">
+      <p>Your social links</p>
       <%= current_user.social_link(current_user.first_social_link) %>
       <%= current_user.social_link(current_user.second_social_link) %>
       <%= current_user.social_link(current_user.third_social_link) %>
+      <p>Links to your learning platforms</p>
+      <%= current_user.social_link(current_user.first_learning_platform) %>
+      <%= current_user.social_link(current_user.second_learning_platform) %>
+      <%= current_user.social_link(current_user.third_learning_platform) %>
+
     </div>
 
   </div><!-- float -->

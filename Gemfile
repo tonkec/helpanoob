@@ -36,6 +36,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 gem "jquery-fileupload-rails"
+gem 'simplecov', :require => false, :group => :test
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

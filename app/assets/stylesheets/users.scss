@@ -38,21 +38,12 @@
 
 .profile-introduction {
 	margin-top: 20px;
-	margin-bottom: 20px;  
 	background-color: #fff;
 	width: 100%;
 	padding-right: 30px; 
+	margin-bottom: 10px;
 }
 
-.profile-introduction-text {
-	color: #000;
-}
-
-
-.about-you-profile {
-	border-bottom: 1px solid $dark-blue-2;
-	padding-bottom: 15px;
-}
 
 .empty-introduction {
 	margin-top: 15px;
@@ -126,19 +117,40 @@
 	margin-top: 20px; 
 }
 
-.fa.profile-long-arrow {
-    vertical-align: middle;
-    margin-left: 10px;
+.profile-right-col {
+	margin-top: 50px; 
+}
+
+.profile-heading-margin {
+	margin-top: 10px;
 }
 
 .fa.user-link {
+	margin-right: 7px; 
+	font-size: 25px;
 }
 
-.profile-upper-container {
-	border-bottom: 1px solid $dark-blue-2; 
-	padding-bottom: 50px; 
+i.user-link {
+	font-size: 15px;
+	margin-right: 7px; 
 }
 
+.user-website {
+	margin-top: 10px; 
+	.fa {
+		font-size: 15px;
+		vertical-align: middle; 
+	}
+}
+
+.user-names {
+	border-bottom: 1px solid $black-1; 
+	padding-bottom: 10px; 
+}
+
+.other-info {
+	margin-top: 10px; 
+}
 /*=========================
 TABS
 ===========================*/
@@ -177,5 +189,5 @@ TABS
 }
 
 .tab-float {
-	padding: 50px 0 100px; 
+	padding: 50px 0px; 
 }

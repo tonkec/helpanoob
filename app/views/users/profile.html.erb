@@ -17,37 +17,38 @@
         <div class="col-lg-4 profile-img-col text-center">
           <%= image_tag(current_user.avatar, class: "profile-image" ) %>
   
-          <h4 class="user-name">
-            <%= current_user.first_name %>
-            <%= current_user.last_name %>
-          </h4>         
-           
-          <h5 class="user-username lightblue-text">
+          <div class="user-names">
+            <h4 class="user-name">
+              <%= current_user.first_name %>
+              <%= current_user.last_name %>
+            </h4>         
+
+            <h5 class="user-username lightblue-text">
               <%= current_user.username %>
-          </h5>
-          
+            </h5>
+          </div><!-- user-names -->
 
-          <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
-            <div class="row">
-              <%= render @skills %>
-            </div>
-          </div><!-- skills-col -->
+          <div class="other-info">
+            <h6 class="black-text">
+              Experience: <b><%= pluralize(current_user.experience, "year") %> </b> 
+            </h6>
 
-          <div class="col-xs-12 p-l-0 p-r-0 text-left dark-dark-link">
-            <%= link_to "Add skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %>        
-          </div>
+            <h6 class="black-text user-website">
+              Website: <b><%= current_user.website_link(current_user.website) %> </b> 
+            </h6>  
+          </div> <!-- other-info -->       
 
 
         </div><!-- col -->
 
-        <div class="col-lg-8">
-          <div class="col-xs-12 p-l-0 p-r-0">
+        <div class="col-lg-8 profile-right-col">
+          <div class="col-xs-12 p-l-0 p-r-0 dark-dark-link">
            <%= current_user.social_link(current_user.first_social_link) %>
            <%= current_user.social_link(current_user.second_social_link) %>
            <%= current_user.social_link(current_user.third_social_link) %>
           </div><!-- colxs12 -->
 
-          <div class="col-xs-12 p-l-0 p-r-0">
+          <div class="col-xs-12 p-l-0 p-r-0 dark-dark-link">
              <%= current_user.social_link(current_user.first_learning_platform) %>
              <%= current_user.social_link(current_user.second_learning_platform) %>
              <%= current_user.social_link(current_user.third_learning_platform) %>
@@ -58,15 +59,27 @@
               <% if current_user.introduction.blank? %>
               <%= link_to "Nothing yet? Tell us something about yourself!", edit_profile_path %>
               <% else %>
-              <p class="profile-introduction-text">
+              <p class="profile-introduction-text black-text">
                 <%= current_user.introduction %>
               </p>
               <% end %>
             </div><!-- profile-intro -->
           </div><!-- col xs12 -->
+          <h4 class="profile-heading-margin clearfix">Skills</h4>
+
+          <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
+            <div class="row dark-dark-link">
+              <%= render @skills %>
+              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
+            </div>
+          </div><!-- skills-col -->
+
+          <div class="col-xs-12 p-l-0 p-r-0 text-left dark-dark-link">
+                   
+          </div>
 
         
-        </div><!-- col -->
+        </div><!-- prof-right-col -->
 
      </div><!-- float -->
 

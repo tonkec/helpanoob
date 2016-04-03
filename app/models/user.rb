@@ -59,11 +59,11 @@ class User < ActiveRecord::Base
       elsif link.match("linkedin")
         "<a href='#{link}' target='_blank'><i class='fa fa-linkedin user-link'></i></a>".html_safe 
       elsif link.match("codecademy")
-        "<a href='#{link}' target='_blank'><i class=''>Codecademy</i></a>".html_safe 
+        "<a href='#{link}' target='_blank'><i class='user-link'>Codecademy</i></a>".html_safe 
       elsif link.match("codeschool")
-        "<a href='#{link}' target='_blank'><i class=''>Codeschool</i></a>".html_safe 
+        "<a href='#{link}' target='_blank'><i class='user-link'>Codeschool</i></a>".html_safe 
       elsif link.match("freecodecamp")
-        "<a href='#{link}' target='_blank'><i class=''>Freecodecamp</i></a>".html_safe 
+        "<a href='#{link}' target='_blank'><i class='user-link'>Freecodecamp</i></a>".html_safe 
       else
         "<a href='#{link}' target='_blank'><i class='fa fa-link user-link'></i></a>".html_safe 
       end

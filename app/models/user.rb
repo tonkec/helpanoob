@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
 
   def website_link(link)
     unless link.blank?
-       "<a href='#{link}' target='_blank'><i class='fa fa-globe user-link'></i></a>".html_safe 
+       "<a href='#{link}' target='_blank' class='user-link'>Website</a>".html_safe 
     end
   end
 

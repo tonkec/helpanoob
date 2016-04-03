@@ -295,3 +295,16 @@ TEXT COLORS
 .black-text {
 	color: $black-1;
 }
+
+.blue-input {
+	width: 100%;
+	color: $light-blue;
+	padding: 20px; 
+	border: none; 
+	border-bottom: 1px solid $light-blue;
+	margin-bottom: 15px; 
+	&:focus {
+		border-bottom: 1px solid darken($light-blue, 20%); 
+		outline: none; 
+	}  
+}

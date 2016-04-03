@@ -33,8 +33,8 @@
               Experience: <b><%= pluralize(current_user.experience, "year") %> </b> 
             </h6>
 
-            <h6 class="black-text user-website">
-              Website: <b><%= current_user.website_link(current_user.website) %> </b> 
+            <h6 class="black-text user-website dark-dark-link">
+              <b><%= current_user.website_link(current_user.website) %> </b> 
             </h6>  
           </div> <!-- other-info -->       
 
@@ -70,12 +70,12 @@
           <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
             <div class="row dark-dark-link">
               <%= render @skills %>
-              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
+              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "hidden-xs skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
             </div>
           </div><!-- skills-col -->
 
-          <div class="col-xs-12 p-l-0 p-r-0 text-left dark-dark-link">
-                   
+          <div class="visible-xs col-xs-12 p-l-0 p-r-0 text-left dark-dark-link">
+          <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "visible-xs skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %>     
           </div>
 
         

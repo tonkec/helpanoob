@@ -87,8 +87,11 @@ sub {
 a, span {
   font-size: 14px; 
 }
-
-
+html input[type="button"], 
+input[type="reset"],
+input[type="submit"] {
+  font-size: 14px; 
+}
 .break-text {
 	-ms-word-break: break-all; 
 	word-break: break-all; 

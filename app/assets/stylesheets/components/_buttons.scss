@@ -1,33 +1,39 @@
+@import "mixins";
 @import "colors";
-.btn-green {
-  background-color: $green;
-  border: none; 
-  display: inline-block;
-  margin: 0 auto;
-  padding: 15px 0;
-  color: $white;
-  font-size: 18px;
-  -webkit-transition: all .5s ease-in-out; 
-  -moz-transition: all .5s ease-in-out; 
-  -ms-transition: all .5s ease-in-out; 
-  -o-transition: all .5s ease-in-out; 
-  transition: all .5s ease-in-out;   
-  text-align: center;
-  clear: both;
-
-  &:hover{
-    background-color: darken($green, 5%);
-    color: $white;
-    -webkit-transition: all .5s ease-in-out; 
-    -moz-transition: all .5s ease-in-out; 
-    -ms-transition: all .5s ease-in-out; 
-    -o-transition: all .5s ease-in-out; 
-    transition: all .5s ease-in-out;    
+.btn-light-blue {
+  padding: 7px 12px;
+  background-color: $light-blue;
+  color: #fff;
+  border: 1px solid $light-blue;
+  -webkit-border-radius: 10px; 
+   border-radius: 10px;  
+  @include transition(.7s);
+  &:hover {
+    color: $light-blue;
+    background-color: #fff; 
   } 
+}
 
-  &:focus {
-    color: $white; 
+.btn-bordered-light {
+  border: 1px solid $light-blue !important;
+  background-color: #FFF;
+  color: $light-blue;
+  padding: 7px 12px !important;
+  @include transition(.7s);
+  &:hover {
+    color: #fff !important;
+    background-color: $light-blue;  
   }
+}
+
+
+.btn-blue-link {
+  color: $light-blue;
+  background: none;
+  @include transition(.7s);
+  &:hover {
+    color: $dark-blue-2;
+  } 
 }
 
 .btn-load {
@@ -55,8 +61,4 @@
   padding: 20px 30px;
   -webkit-border-radius: 20px; 
   border-radius: 20px; 
-  
-  &:hover {
-    
-  }
 }

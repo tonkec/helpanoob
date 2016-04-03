@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
                                                     :username, :last_name, :first_name, :email, :avatar,
                                                     :first_social_link, :second_social_link, :third_social_link, 
                                                     :first_learning_platform, :second_learning_platform, :third_learning_platform,
-                                                    :experience) }
+                                                    :experience, :website) }
   end
 end

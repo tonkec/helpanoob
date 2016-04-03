@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402215709) do
+ActiveRecord::Schema.define(version: 20160402230329) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20160402215709) do
     t.string   "second_learning_platform"
     t.string   "third_learning_platform"
     t.integer  "experience"
+    t.string   "website"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

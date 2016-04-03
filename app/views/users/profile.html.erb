@@ -22,7 +22,9 @@
       <h5 class="profile-username">
         You have been coding for: <b><%= pluralize(current_user.experience, "year") %></b>
       </h5>
-
+      <p>
+          <b>Website</b> <%= current_user.website_link(current_user.website) %>
+        </p>
       
     </div><!-- col -->
 
@@ -46,14 +48,26 @@
       <%= current_user.social_link(current_user.second_social_link) %>
       <%= current_user.social_link(current_user.third_social_link) %>
       <p>Links to your learning platforms</p>
-      <%= current_user.social_link(current_user.first_learning_platform) %>
-      <%= current_user.social_link(current_user.second_learning_platform) %>
-      <%= current_user.social_link(current_user.third_learning_platform) %>
-    </div><!-- col -->
+      <% if @user_social_links.count < 3 %>
+        ma krivo treba provjerit jesu empty 
+      <% else %>
+        <%= current_user.social_link(current_user.first_learning_platform) %>
+        <%= current_user.social_link(current_user.second_learning_platform) %>
+        <%= current_user.social_link(current_user.third_learning_platform) %>
+      <% end %>
 
-    <div class="col-lg-12">
+    </div><!-- col -->
+    <h1>Komentare i pitanja podijeli i info po tabovima</h1>
+   
+
+    <div class="col-lg-12" id="skills-col">
       <%= render @skills %>
-      <%= link_to "add more skills", new_user_skill_path(current_user, @new_skill), remote: true %>
+
+      <div class="skill-col add-more-col dark-link-blue">
+         <%= link_to new_user_skill_path(current_user, @new_skill), remote: true, class: "skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" do %>
+        <span class="icon-elegant-font-172-8820 skill-add-more-icon"></span>
+      <% end %>
+      </div>
     </div>
 
   </div><!-- float -->
@@ -101,7 +115,19 @@
     </div><!-- col -->
   </div><!-- float -->
 
-
-  
-
 </div><!-- profile-wrapper -->
+
+<!-- Modal -->
+<div class="modal fade" id="new_skill" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add new skill</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "skills/form" %>
+      </div><!-- modal-body -->
+    </div>
+  </div>
+</div>

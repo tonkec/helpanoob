@@ -224,61 +224,6 @@ HOME PAGE
 .clearfix {
 	clear: both;
 }
-/* ===================
-text colors
-=======================*/
-@mixin link($color, $hover-color) {
-	a {
-		color: $color;
-		-webkit-transition: color .5s ease-in-out; 
-		-moz-transition: color .5s ease-in-out; 
-		-ms-transition: color .5s ease-in-out; 
-		-o-transition: color .5s ease-in-out; 
-		transition: color .5s ease-in-out; 
-		text-decoration: none;
-		cursor: pointer;
-
-		&:hover {
-			color: $hover-color; 
-			-webkit-transition: color .5s ease-in-out; 
-			-moz-transition: color .5s ease-in-out; 
-			-ms-transition: color .5s ease-in-out; 
-			-o-transition: color .5s ease-in-out; 
-			transition: color .5s ease-in-out; 
-			text-decoration: none;
-			cursor: pointer;
-
-		}  
-	}
-}
-
-.dark-link-blue {
-	@include link(darken($light-blue, 20%), $light-blue);
-}
-
-.dark-dark-link {
-	@include link($dark-blue-2, $light-blue);
-}
-
-.light-blue-link {
-	@include link($light-blue, $light-blue);
-}
-
-.white-link {
-	@include link($white, $light-blue);
-}
-
-.text-blue {
-	color: $light-blue; 
-}
-
-.white-1-text {
-	color: $white-1;
-}
-
-.text-dark-blue {
-	color: $dark-blue-2
-}
 
 /* ========================
 TAGS COLORS

@@ -1,11 +1,15 @@
 <div id="skill-content">
   
-  <span class="skill skill-<%= skill.name%>">
+  <div class="skill-col">
+    <span class="skill skill-<%= skill.name%>">
     <%= skill.name %>
-    <%= link_to [skill.user, skill], method: :delete  do %>
-    <span class="icon-elegant-font-150-8783 skill-delete"></span>
-    <% end %>
+    <span class="skill-delete-overlay">
+      <%= link_to [skill.user, skill], method: :delete  do %>
+      <span class="icon-elegant-font-150-8783 skill-delete"></span>
+      <% end %>
+    </span>
   </span>
+  </div>
 
 </div><!-- skill-content -->
 <%#= link_to "Edit", edit_user_skill_path(current_user, skill), remote: true, class: "edit-skill-link", 'data-target' => "#editskill-#{skill.id}", 'data-toggle' => "modal" %>

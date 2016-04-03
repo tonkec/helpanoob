@@ -1,7 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Skill, type: :model do
+  let(:user) {FactoryGirl.create(:user)}
   let(:skill) {FactoryGirl.create(:skill)}
+
+  def sign_in(user)
+    visit new_user_session_path
+    user.confirm!
+    fill_in "Email",    with: user.email
+    fill_in "Password", with: user.password 
+    click_button "Log in"
+  end
   
   describe "basic validations" do
     it "is valid" do
@@ -45,14 +54,35 @@ RSpec.describe Skill, type: :model do
       end
       
       describe "accepts only some values" do
-        
+
+        before do
+          sign_in user
+          visit new_user_skill_path(user, skill)
+          #save_and_open_page
+          fill_in "Add number", with: skill.strength
+        end
+
         it "doesn't accept any word" do
-          skill.name = "kifla"
-          expect(skill).to_not be_valid
+          fill_in "Add skill", with: "banana"
+          expect do
+            click_button "Create Skill"
+          end.to change(Skill, :count).by(0)
+
+          expect(page).to have_content("Create Skill")
         end
 
         it "accepts skill from list" do
-          #same list as tag list when creataing new post
+          fill_in "Add skill", with: "php"
+          expect do
+            click_button "Create Skill"
+          end.to change(Skill, :count).by(1)
+        end
+
+        it "downcases the skill" do
+          fill_in "Add skill", with: "RUBY ON RAILS"
+          expect do
+            click_button "Create Skill"
+          end.to change(Skill, :count).by(1)
         end
 
       end

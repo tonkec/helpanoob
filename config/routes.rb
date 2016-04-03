@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :update, :user_posts] do
-    resources :skills, only: [:create, :new, :update, :destroy]
+    resources :skills, only: [:create, :new, :update, :destroy, :edit]
   end
   
   get 'your_posts', to: 'users#your_posts', as: :your_posts

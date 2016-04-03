@@ -1,3 +1,107 @@
 // Place all the styles related to the Skills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "components/colors";
+@import "components/mixins";
+@import "components/links";
+
+#skill-content {
+	margin-top: 10px; 
+	display: inline;
+	margin-right: 10px; 
+}
+.skill {
+	width: 100%; 
+	display: block;
+	text-align: center;
+	padding: 10px 0;  
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+	color: #FFF;
+	font-size: 12px; 
+	position: relative; 
+	
+	@media (min-width: 1200px) {
+		width: 100%;
+		margin: 0 auto;  
+	}
+}
+
+.skill-delete {
+	position: absolute;
+	right: 0px;
+	left: 0;  
+	top: 38%;
+	color: #FFF;    
+	text-decoration: none;
+	position: absolute;
+	
+	&:hover {
+		color:darken(#fff, 20%);
+		@include transition; 
+	}
+}
+
+
+.skill-delete-overlay {
+    opacity: 0;
+    position: absolute;
+    background-color: lighten(#000, 50%);
+    top: 0;
+    bottom: l;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-border-radius: 10px; 
+     border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;    
+    @include transition;
+    &:hover {
+    	opacity: .7;
+    	@include transition; 
+    }  
+}
+
+.skill-col {
+	float: left;
+	width: 9%;
+	margin-left: 10px;  
+}
+
+.skill-add-more-link {
+	font-size: 16px;
+	line-height: 40px; 
+}
+
+.create-skill-dismiss,
+.btn-submit-skill {
+	display: inline-block; 
+}
+/* ======================
+COLORS
+========================*/
+.skill-ruby {
+	background-color: $ruby; 
+}
+
+.skill-html {
+	background-color: $html; 
+}
+
+.skill-javascript {
+	background-color: $javascript; 
+}
+
+.skill-php {
+	background-color: $php; 
+}
+.skill-css {
+	background-color: $css; 
+}
+
+.skill-sql {
+	background-color: $sql; 
+}

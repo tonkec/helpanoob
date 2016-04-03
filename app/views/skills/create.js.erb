@@ -4,8 +4,5 @@
 	$("#new_skill .modal-content").append("<%= j render 'shared/error_messages', object: @skill %>");
 <% else %>
 	$("#new_skill").modal("hide");
-	$(".add-more-col").fadeOut(500, function(){
-	  $("#skills-col").prepend("<%= j render @skill %>");	
-	});
-	$(".add-more-col").fadeIn(500);
+	$("#skills-col").prepend("<%= j render @skill %>");
 <% end %>

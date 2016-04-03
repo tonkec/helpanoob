@@ -1,7 +1,99 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);
 
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 27px;
+}
+
 h1 {
-	font-weight: 700; 
-	margin: 0; 
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 89px;
+  line-height: 108px;
+  margin-top: 27px;
+  margin-bottom: 0px;
+}
+h2 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 52px;
+  line-height: 54px;
+  margin-top: 27px;
+  margin-bottom: 27px;
+}
+h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 31px;
+  line-height: 54px;
+  margin-top: 27px;
+  margin-bottom: 0px;
+}
+h4 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 18px;
+  line-height: 27px;
+  margin-top: 27px;
+  margin-bottom: 0px;
+}
+h5 {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  margin-top: 27px;
+  margin-bottom: 0px;
+}
+
+p {
+	font-size: 16px;
+	font-weight: 300;
+	font-family: inherit;
+	line-height: 27px;    	
+}
+
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0px;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+b, strong, em, small, code {
+  line-height: 1;
+}
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+a, span {
+  font-size: 14px; 
+}
+
+
+.break-text {
+	-ms-word-break: break-all; 
+	word-break: break-all; 
+}
+
+.small {
+  font-size: 10px; 
 }

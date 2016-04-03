@@ -142,9 +142,9 @@
 	margin-bottom: 10px; 
 	color: $green;
 	font-size: 14px; 
+	@include transition(1s); 
 	&:focus {
 		border: 1px solid $green;
-		@include transition;
 	} 
 }
 

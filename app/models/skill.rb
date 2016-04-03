@@ -7,7 +7,7 @@ class Skill < ActiveRecord::Base
                    message: "Pick a real skill" },
 
                   presence: {message: "Skill can't be blank"},
-                  uniqueness: {message: "You already have that skill!"}
+                  uniqueness: { scope: :user_id, message: "You already have that skill!"}
 
   validates :strength, presence: {message: "Strength can't be blank!"},
             :numericality => { :greater_than_or_equal_to => 0,

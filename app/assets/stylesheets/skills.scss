@@ -4,7 +4,9 @@
 @import "components/colors";
 @import "components/mixins";
 @import "components/links";
-
+#skills-col {
+	margin-top: 20px; 
+}
 #skill-content {
 	margin-top: 10px; 
 	display: inline;
@@ -14,12 +16,12 @@
 	width: 100%; 
 	display: block;
 	text-align: center;
-	padding: 10px 0;  
+	padding: 2px 0;  
 	-webkit-border-radius: 10px; 
 	border-radius: 10px;
 	color: #FFF;
-	font-size: 12px; 
 	position: relative; 
+	text-transform: uppercase; 
 	
 	@media (min-width: 1200px) {
 		width: 100%;
@@ -35,10 +37,10 @@
 	color: #FFF;    
 	text-decoration: none;
 	position: absolute;
+	@include transition(1s); 
 	
 	&:hover {
 		color:darken(#fff, 20%);
-		@include transition; 
 	}
 }
 
@@ -71,22 +73,16 @@
 
 .skill-delete-overlay {
 	z-index: 2; 
-	@include transition;
+	@include transition(1s);
 	&:hover {
 		opacity: .7;
-		@include transition; 
 	}
 }
 
 .skill-col {
 	float: left;
-	width: 9%;
-	margin-left: 10px;  
-}
-
-.skill-add-more-link {
-	font-size: 16px;
-	line-height: 40px; 
+	width: 20%;
+	margin-right: 10px;  
 }
 
 .create-skill-dismiss,

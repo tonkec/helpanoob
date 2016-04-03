@@ -1,9 +1,19 @@
+
+@import "components/typography";
 @import "components/colors";
 @import "components/mixins";
-@import "components/typography";
 @import "components/layout";
+
+
 body {
-	background-color: $white-1; 
+	background-color: $white-1 !important; 
+}
+
+h1,h2,h3,h4,h5,h6,p {
+	margin-top: 0; 
+	margin-left: 0; 
+	margin-right: 0; 
+	margin-bottom: 0; 
 }
 
 a:hover,
@@ -265,25 +275,19 @@ TAGS COLORS
 }
 
 /* ========================
-INDICATORS
+COLORS of elements
 ==========================*/
-.blue-indicator {
-	background-color: $dark-blue-2;
-	height: 10px;
-	width: 0;
-	margin-bottom: 5px; 
-	-webkit-transition: width 2s ease-in-out; 
-	    -moz-transition: width 2s ease-in-out; 
-	    -ms-transition: width 2s ease-in-out; 
-	    -o-transition: width 2s ease-in-out; 
-	    transition: width 2s ease-in-out;     
+@mixin bgc($color) {
+	background-color: $color;
 }
 
-.active {
-	width: 100%; 
-	-webkit-transition: width 2s 2.1s ease-in-out; 
-	  -moz-transition: width 2s 2.1s ease-in-out; 
-	  -ms-transition: width 2s 2.1s ease-in-out; 
-	  -o-transition: width 2s 2.1s ease-in-out; 
-	  transition: width 2s 2.1s ease-in-out;   
+.white-background {
+	@include bgc($white);
+}
+
+/* ========================
+TEXT COLORS
+==========================*/
+.lightblue-text {
+	color: $light-blue;
 }

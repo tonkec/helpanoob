@@ -170,7 +170,8 @@ TABS
 			display: block;
 			padding: 10px 0;
 			-webkit-border-radius: 0 !important; 
-			border-radius: 0 !important; 
+			border-radius: 0 !important;
+			color: $dark-blue; 
 			@include transition(.7s);
 			
 			&:hover {

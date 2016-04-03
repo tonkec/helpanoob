@@ -29,13 +29,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def profile
-    @user_posts_count = current_user.posts.count
-    @user_comments_count = current_user.comments.count
-    @user_post = current_user.posts.last
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
+    @posts = current_user.posts.limit(2).reorder('created_at desc')
     @skills = current_user.skills
     @new_skill = Skill.new
-
     @user_social_links = [current_user.first_social_link,
                    current_user.second_social_link,
                    current_user.third_social_link]

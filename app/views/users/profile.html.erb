@@ -42,23 +42,26 @@
       </div><!-- profile-intro -->
     </div> <!-- col -->
 
-    <div class="col-lg-12">
+    <div class="col-lg-12 dark-link-blue">
       <p>Your social links</p>
-      <%= current_user.social_link(current_user.first_social_link) %>
-      <%= current_user.social_link(current_user.second_social_link) %>
-      <%= current_user.social_link(current_user.third_social_link) %>
+     
       <p>Links to your learning platforms</p>
-      <% if @user_social_links.count < 3 %>
-        ma krivo treba provjerit jesu empty 
-      <% else %>
-        <%= current_user.social_link(current_user.first_learning_platform) %>
-        <%= current_user.social_link(current_user.second_learning_platform) %>
-        <%= current_user.social_link(current_user.third_learning_platform) %>
+      <% if @user_social_links.include? "" %>
+        <%= current_user.social_link(current_user.first_social_link) %>
+        <%= current_user.social_link(current_user.second_social_link) %>
+        <%= current_user.social_link(current_user.third_social_link) %>
+          <%= link_to edit_profile_path do %>
+            <span class="icon-elegant-font-172-8820 skill-add-more-icon"></span>
+          <% end %>
+        <% else %>
+          <%= current_user.social_link(current_user.first_social_link) %>
+          <%= current_user.social_link(current_user.second_social_link) %>
+          <%= current_user.social_link(current_user.third_social_link) %>
       <% end %>
 
+      JOŠ ZA PLATFORME
+
     </div><!-- col -->
-    <h1>Komentare i pitanja podijeli i info po tabovima</h1>
-   
 
     <div class="col-lg-12" id="skills-col">
       <%= render @skills %>
@@ -71,6 +74,32 @@
     </div>
 
   </div><!-- float -->
+
+    <div class="float">
+    
+    
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist" id="myTabs">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">HOMR</div>
+        <div role="tabpanel" class="tab-pane" id="profile">PROF</div>
+        <div role="tabpanel" class="tab-pane" id="messages">MESS</div>
+        <div role="tabpanel" class="tab-pane" id="settings">SETT</div>
+      </div>
+
+    </div>
+    
+
+  </div><!-- float  -->
 
 
   <div class="float">
@@ -115,6 +144,7 @@
     </div><!-- col -->
   </div><!-- float -->
 
+
 </div><!-- profile-wrapper -->
 
 <!-- Modal -->
@@ -131,3 +161,21 @@
     </div>
   </div>
 </div>
+
+<script>
+
+  $('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+  var skill = $(".skill-strength-overlay");
+
+  for (i = 0; i < skill.length; i++) {
+    var one_skill = skill[i]
+    var width = $(one_skill).data();
+    var width_percentage = width.value + "%"
+    $(one_skill).css("width", width_percentage);
+
+  };
+ 
+</script>

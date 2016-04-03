@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sass
 //= require jquery-ui
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require autocomplete-rails
 //= require jquery-fileupload/basic
 //= require_tree .

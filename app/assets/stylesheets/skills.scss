@@ -43,12 +43,12 @@
 }
 
 
+.skill-strength-overlay,
 .skill-delete-overlay {
     opacity: 0;
     position: absolute;
     background-color: lighten(#000, 50%);
     top: 0;
-    bottom: l;
     bottom: 0;
     left: 0;
     right: 0;
@@ -57,12 +57,25 @@
     margin: 0 auto;
     display: block;
     text-align: center;
-    cursor: pointer;    
-    @include transition;
-    &:hover {
-    	opacity: .7;
-    	@include transition; 
-    }  
+    cursor: pointer;  
+}
+
+.skill-strength-overlay {
+	z-index: 1;
+	background-color:#484848; 
+	right: auto; 
+	
+	opacity: 0.7; 
+}
+
+
+.skill-delete-overlay {
+	z-index: 2; 
+	@include transition;
+	&:hover {
+		opacity: .7;
+		@include transition; 
+	}
 }
 
 .skill-col {
@@ -104,4 +117,11 @@ COLORS
 
 .skill-sql {
 	background-color: $sql; 
+}
+
+/* ======================
+STRENGTH
+========================*/
+@mixin strength($percentage) {
+	width: $percentage;
 }

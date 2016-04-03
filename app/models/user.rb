@@ -47,9 +47,7 @@ class User < ActiveRecord::Base
   def social_link(link)
     edit_profile_path = Rails.application.routes.url_helpers.edit_profile_path
 
-    if link.blank?
-      "<a href='#{edit_profile_path}'><i class='fa fa-plus user-link'></i></a>".html_safe
-    else link.blank?
+    unless link.blank?
       if link.match("codepen")
         "<a href='#{link}' target='_blank'><i class='fa fa-codepen user-link'></i></a>".html_safe 
       elsif link.match("github")

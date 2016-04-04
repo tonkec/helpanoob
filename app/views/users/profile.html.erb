@@ -35,6 +35,10 @@
 
             <h6 class="black-text user-website dark-dark-link">
               Go to <b><%= current_user.website_link(current_user.website) %> </b> 
+            </h6>
+
+            <h6 class="black-text user-website dark-dark-link">
+              <%= link_to "See how others see your profile", user_path(current_user) %>
             </h6>  
           </div> <!-- other-info -->       
 

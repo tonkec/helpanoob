@@ -37,7 +37,6 @@ class UsersController < ApplicationController
     @user_social_links = [current_user.first_social_link,
                    current_user.second_social_link,
                    current_user.third_social_link]
-
     @user = current_user
     respond_to do |format|
       format.js 

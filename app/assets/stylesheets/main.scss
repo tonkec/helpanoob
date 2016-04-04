@@ -320,3 +320,17 @@ TEXT COLORS
 .large-textarea {
 	height: 300px; 
 }
+/* ========================
+MORE GRID
+==========================*/
+.col-xl-8 {
+	@media (min-width: 1400px) {
+		width: 80%; 
+	}
+}
+
+.col-xl-offset-2 {
+	@media(min-width: 1400px) {
+		margin-left: 16.66666667%;		
+	}
+}

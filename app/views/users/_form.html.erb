@@ -1,0 +1,21 @@
+<div class="row">
+    <%= form_for(current_user,  :method => :create, remote: true) do |f| %> 
+    <%= render "shared/error_messages", object: current_user %>
+    <%= f.text_field :first_name, class: "blue-input blue-bg-input", placeholder: "Your First Name" %>
+    <%= f.text_field :last_name, class: "blue-input", placeholder: "Your Last Name" %>
+    <%= f.text_field :username, class: "blue-input", placeholder: "Your Username" %> 
+    <%= f.text_area :introduction, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.number_field :experience, class: "blue-input", placeholder: "Your Last Name"  %> 
+    <%= f.file_field :avatar %> 
+    <%= f.text_field :website, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.text_field :first_social_link, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.text_field :second_social_link, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.text_field :third_social_link, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.text_field :first_learning_platform, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.text_field :second_learning_platform, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.text_field :third_learning_platform, class: "blue-input", placeholder: "Your Last Name" %> 
+    <%= f.submit %>
+    <% end %>
+
+    <h2>DELETE ACCOUNT</h2>
+</div>

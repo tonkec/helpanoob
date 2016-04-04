@@ -1,7 +1,7 @@
-$("#posts-wrapper").append("<%=j render @posts, format: 'html' %>");
+$("#posts-wrapper").append("<%=j render @posts %>");
 
-<% if @posts.current_page == @posts.total_pages %>
+<% if @user_posts.current_page == @user_posts.total_pages %>
   $('#view-more').remove();
 <% else %>
-  $('#view-more a').attr('href', '<%= url_for(page: @posts.current_page + 1) %>');
+  $('#view-more a').attr('href', '<%= url_for(page: @user_posts.current_page + 1) %>');
 <% end %>

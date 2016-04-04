@@ -27,10 +27,10 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :disable_like, only: [:profile]
+  before_action :disable_like, only: [:profile, :update]
 
   def profile
-    @user_comments = current_user.comments.limit(5).reorder('created_at desc')
+    @comments = current_user.comments.page(params[:page]).per(2)
     @posts = current_user.posts.page(params[:page]).per(2)
     @skills = current_user.skills
     @new_skill = Skill.new
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
                    current_user.second_social_link,
                    current_user.third_social_link]
 
+    @user = current_user
     respond_to do |format|
       format.js 
       format.html
@@ -60,10 +61,11 @@ class UsersController < ApplicationController
 
   def update 
     if current_user.update_attributes(user_params)
-      flash[:success] = "Your profile has been successfully updated!"
+      flash.now[:success] = "Your profile has been successfully updated!"
       redirect_to profile_path
     else
-      render 'edit'
+      flash.now[:danger] = "Upps"
+      render "profile"
     end
   end
 

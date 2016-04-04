@@ -1,4 +1,4 @@
- <div class="main-col comments-col" id="<%= comment.id %>">
+<div class="main-col comments-col" id="<%= comment.id %>">
   <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
     <p class="comment-content">
       <% if comment.user_id == current_user.id %>
@@ -40,11 +40,9 @@
 
     <% end %>
 
-
-
     <span class="number-of-votes" id="comment_number_of_votes-<%=comment.id%>">
-     <%= comment.cached_weighted_score %><br />
-   </span>
+      <%= comment.cached_weighted_score %><br />
+    </span>
 
 
 

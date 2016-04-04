@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def disable_like
+    @disable_like = true 
+  end 
+
   protected 
 
   def configure_permitted_parameters

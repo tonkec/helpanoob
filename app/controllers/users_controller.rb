@@ -27,6 +27,7 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :disable_like, only: [:profile]
 
   def profile
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')

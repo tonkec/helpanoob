@@ -38,16 +38,16 @@ RSpec.describe PostsController, type: :controller do
 
   before do
     sign_in user
-    visit new_post_path
+    visit profile_path
   end
 
   describe "with invalid info" do
     it "does not create a post" do
-      visit new_post_path
-      puts page.body
-      puts current_url
-      save_and_open_page
-      expect(page).to find("new-q-heading", text: "Feel free to ask anything!")
+      click_link('new-post')
+      page.visit "/posts/new"
+      puts "Gives a blank page! I hate CAPYBARA!!!!!!!!!!!!!"
+      #save_and_open_page
+      expect(page).to have_css("input#post_tag_list")
       too_short_title = "a" * 49
       too_short_description = "a" * 99
       fill_in "post_title", with: too_short_title

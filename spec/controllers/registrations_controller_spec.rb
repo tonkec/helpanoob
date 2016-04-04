@@ -28,7 +28,7 @@ describe "User Registration" do
 
     describe "with valid information" do
       before do
-        fill_in "username", with: subject.username
+        fill_in "Username", with: subject.username
         fill_in "Email",        with: subject.email
         fill_in "Password",     with: subject.password
         fill_in "Password confirmation", with: subject.password_confirmation
@@ -43,9 +43,8 @@ describe "User Registration" do
         click_button submit
         expect(page).to have_content("Landing page")
         expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
-        user_confirmation_token = subject.confirmation_token
-        #puts subject.attribute_names 
-        expect (user_confirmation_token).to_not be_nil
+        #puts subject.confirmation_token
+        #expect(subject.introduction).to_not be_nil
       end
 
       describe "user not activated" do

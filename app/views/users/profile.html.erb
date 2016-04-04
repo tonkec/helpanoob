@@ -90,14 +90,18 @@
 
     <div class="float">
 
-      <div class="col-lg-12 dark-dark-link p-l-0 p-r-0"> 
-        <% if @posts.any? %>
-          <%= render @posts %>
-        <% else %>
-          <%= link_to "Ask a qustion", new_post_path %>
-        <% end %>
-
-        <a href="" class="btn-light-blue btn-full clearfix">View more</a>
+      <div class="col-lg-12  p-l-0 p-r-0"> 
+        <div class="dark-dark-link clearfix" id="posts-wrapper">
+          <% if @posts.any? %>
+            <%= render @posts %>
+          <% else %>
+            <%= link_to "Ask a qustion", new_post_path %>
+          <% end %>
+        </div>
+      
+      <% unless @posts.current_page == @posts.total_pages %>
+        <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn btn-bordered-light btn-full btn-load clearfix", remote: true) %>
+      <% end %>
     </div><!-- col -->
 
   </div><!-- float -->

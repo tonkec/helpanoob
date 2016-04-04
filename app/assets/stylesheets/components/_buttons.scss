@@ -1,5 +1,17 @@
 @import "mixins";
 @import "colors";
+
+.btn {
+  text-decoration: none !important;
+  cursor: pointer; 
+  &:hover,
+  &:focus {
+    text-decoration: none !important;
+    cursor: pointer !important; 
+    outline: none; 
+  } 
+}
+
 .btn-light-blue {
   padding: 7px 12px;
   background-color: $light-blue;
@@ -38,7 +50,7 @@
 
 .btn-load {
   width: 100%; 
-  margin-bottom: 100px; 
+  margin-top: 50px; 
 }
 
 .btn-full {

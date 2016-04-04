@@ -30,12 +30,17 @@ class UsersController < ApplicationController
 
   def profile
     @user_comments = current_user.comments.limit(5).reorder('created_at desc')
-    @posts = current_user.posts.limit(2).reorder('created_at desc')
+    @posts = current_user.posts.page(params[:page]).per(2)
     @skills = current_user.skills
     @new_skill = Skill.new
     @user_social_links = [current_user.first_social_link,
                    current_user.second_social_link,
                    current_user.third_social_link]
+
+    respond_to do |format|
+      format.js 
+      format.html
+    end
   end
 
   def your_posts

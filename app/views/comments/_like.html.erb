@@ -1,12 +1,28 @@
-<%= link_to like_post_comment_path(@post, @comment), :remote => true, class: "like", id: "like", method: :put do %>
-<i class="fa fa-heart main-question-icon" id="heart">
-</i>
+<% if current_user.voted_up_on? comment %>
+  <%= link_to dislike_post_comment_path(@post, comment), :remote => true, class: "like", id: "dislike", method: :put do %>
+  <i class="fa fa-heart main-question-icon" id="heart">
+  </i>
+  <% end %>
+
+  <%= link_to like_post_comment_path(@post, comment), :remote => true, class: "like hidden", id: "like", method: :put do %>
+  <i class="fa fa-heart main-question-icon" id="heart">
+  </i>
+  <% end %>
+
+<% else %>
+
+  <%= link_to dislike_post_comment_path(@post, comment), :remote => true, class: "like hidden", id: "dislike", method: :put do %>
+  <i class="fa fa-heart main-question-icon" id="heart">
+  </i>
+  <% end %>
+
+  <%= link_to like_post_comment_path(@post, comment), :remote => true, class: "like", id: "like", method: :put do %>
+  <i class="fa fa-heart main-question-icon" id="heart">
+  </i>
+  <% end %>
+
 <% end %>
 
-<%= link_to dislike_post_comment_path(@post, @comment), :remote => true, class: "like hidden", id: "dislike", method: :put do %>
-<i class="fa fa-heart main-question-icon" id="heart">
-</i>
-<% end %>
 
 
 <span class="number-of-votes">

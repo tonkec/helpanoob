@@ -1,6 +1,7 @@
-$('#comment_dislike').on("click", function() {
- $("#comment_dislike").addClass("hidden");
- $("#comment_like").removeClass("hidden");  
- /*console.log($("#like"))*/
- $('#comment_number_of_votes').html('<%= escape_javascript @comment.cached_weighted_score.to_s %>');
+alert("dislike")
+
+$('#comment_dislike-<%= @comment.id %>').bind('ajax:success', function() {
+ $("#comment_dislike-<%= @comment.id %>").addClass("hidden");
+ $("#comment_like-<%= @comment.id %>").removeClass("hidden");
+ $('#comment_number_of_votes-<%= @comment.id %>').html('<%=escape_javascript @comment.cached_weighted_score.to_s %>');
 });

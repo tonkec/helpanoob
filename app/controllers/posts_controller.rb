@@ -117,7 +117,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    redirect_to posts_path
     flash.now[:success] = "Post was successfully destroyed"
   end
 

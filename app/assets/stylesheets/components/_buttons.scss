@@ -32,7 +32,8 @@
   color: $light-blue;
   padding: 7px 12px !important;
   @include transition(.7s);
-  &:hover {
+  &:hover,
+  &:focus {
     color: #fff !important;
     background-color: $light-blue;  
   }

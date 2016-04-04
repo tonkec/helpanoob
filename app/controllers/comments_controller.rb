@@ -65,7 +65,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @post }
       format.json { head :no_content }
-      format.js { render :layout => false }
+      format.js { render :template => "comments/upvote.js.erb" }
     end
   end
 
@@ -76,7 +76,7 @@ class CommentsController < ApplicationController
      respond_to do |format|
       format.html { redirect_to @post }
       format.json { head :no_content }
-      format.js { render :layout => false }
+      format.js { render :template => "comments/downvote.js.erb"}
     end
   end
 

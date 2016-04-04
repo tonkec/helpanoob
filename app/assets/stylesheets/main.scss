@@ -297,7 +297,6 @@ TEXT COLORS
 }
 
 .blue-input {
-	width: 100%;
 	color: $light-blue;
 	padding: 20px; 
 	border: none; 
@@ -309,6 +308,15 @@ TEXT COLORS
 	}  
 }
 
+.input-full {
+	width: 100%;
+	display: block;  
+}
+
 .blue-bg-input {
 	color: $dark-blue-2; 
+}
+
+.large-textarea {
+	height: 300px; 
 }

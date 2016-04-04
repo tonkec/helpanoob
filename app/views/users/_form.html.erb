@@ -1,21 +1,26 @@
 <div class="row">
-    <%= form_for(current_user,  :method => :create, remote: true) do |f| %> 
-    <%= render "shared/error_messages", object: current_user %>
-    <%= f.text_field :first_name, class: "blue-input blue-bg-input", placeholder: "Your First Name" %>
-    <%= f.text_field :last_name, class: "blue-input", placeholder: "Your Last Name" %>
-    <%= f.text_field :username, class: "blue-input", placeholder: "Your Username" %> 
-    <%= f.text_area :introduction, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.number_field :experience, class: "blue-input", placeholder: "Your Last Name"  %> 
-    <%= f.file_field :avatar %> 
-    <%= f.text_field :website, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.text_field :first_social_link, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.text_field :second_social_link, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.text_field :third_social_link, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.text_field :first_learning_platform, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.text_field :second_learning_platform, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.text_field :third_learning_platform, class: "blue-input", placeholder: "Your Last Name" %> 
-    <%= f.submit %>
-    <% end %>
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <h4>Edit your account</h4>
+    <%= form_for(current_user) do |f| %> 
+      <%= render "shared/error_messages", object: current_user %>
+      <%= f.text_field :first_name, class: "input-full blue-input blue-bg-input", placeholder: "Your First Name" %>
 
-    <h2>DELETE ACCOUNT</h2>
-</div>
+      <%= f.text_field :last_name, class: "input-full blue-input blue-bg-input", placeholder: "Your Last Name" %>
+      <%= f.text_field :username, class: "input-full blue-input blue-bg-input", placeholder: "Your Username" %> 
+      <%= f.number_field :experience, class: "input-full blue-input blue-bg-input", placeholder: "How many years have you been coding..."  %> 
+      <%= f.text_field :website, class: "input-full blue-input blue-bg-input", placeholder: "Your Website" %> 
+      <%= f.text_field :first_social_link, class: "input-full blue-input blue-bg-input", placeholder: "Your First Social Link, eg. twitter, github" %> 
+      <%= f.text_field :second_social_link, class: "input-full blue-input blue-bg-input", placeholder: "Your Another Social Link, eg. twitter, github" %> 
+      <%= f.text_field :third_social_link, class: "input-full blue-input blue-bg-input", placeholder: "Your Another Social Link, eg. twitter, github" %> 
+      <%= f.text_field :first_learning_platform, class: "input-full blue-input blue-bg-input", placeholder: "Your First Learning Platform, eg. codecademy, codeschool" %> 
+      <%= f.text_field :second_learning_platform, class: "input-full blue-input blue-bg-input", placeholder: "Your Another Learning Platform, eg. codecademy, codeschool" %> 
+      <%= f.text_field :third_learning_platform, class: "input-full blue-input blue-bg-input", placeholder: "Your Another Learning Platform, eg. codecademy, codeschool" %> 
+       <%= f.text_area :introduction, class: "input-full blue-input blue-bg-input large-textarea", placeholder: "Tell us something about yourself" %> 
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %> 
+
+
+      <%= f.submit "Update Account", class: "btn-light-blue btn-full btn-submit" %>
+    <% end %>
+  </div><!-- col -->
+</div><!-- row -->

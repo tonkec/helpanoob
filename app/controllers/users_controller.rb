@@ -60,13 +60,12 @@ class UsersController < ApplicationController
   end
 
   def update 
-    if current_user.update_attributes(user_params)
-      flash.now[:success] = "Your profile has been successfully updated!"
-      redirect_to profile_path
-    else
-      flash.now[:danger] = "Upps"
-      render "profile"
-    end
+      if current_user.update_attributes(user_params)
+        redirect_to profile_path
+      else
+        flash.now[:danger] = "Account not updated because of errors"
+        render "profile"
+      end
   end
 
   private

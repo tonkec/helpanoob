@@ -125,7 +125,7 @@
 
 <div role="tabpanel" class="tab-pane fade" id="settings">
   
-  <div class="float white-background tab-float">
+  <div class="float white-background tab-float" id="update_user">
     <%= render "form" %>
   </div>
 
@@ -159,6 +159,12 @@
 </div>
 
 <script>
+  if($(".alert-danger").text().length > 0) {
+    $($(".nav-tabs li")[0]).removeClass("active");
+    $($(".nav-tabs li")[3]).addClass("active");
+    $($(".tab-pane")[0]).removeClass("in").removeClass("active");
+    $($(".tab-pane")[3]).addClass("in").addClass("active");
+  }
 
   $('#myTabs a').click(function (e) {
     e.preventDefault()

@@ -2,10 +2,7 @@
 <html>
 <head>
   <title>MyApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "autocomplete-rails.js" %>
-  <%= csrf_meta_tags %>
+  <%= render partial: "layouts/head_tags" %>
 </head>
 <body>
 <% if user_signed_in? %>
@@ -15,9 +12,6 @@
 <div class="row main-row">
   <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     <%= yield %>
-      
-   
-
     <div id="flash">
      <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>

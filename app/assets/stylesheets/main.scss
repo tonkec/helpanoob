@@ -6,7 +6,7 @@
 
 
 body {
-	background-color: $white-1 !important; 
+	background-color: $white-1; 
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -285,6 +285,10 @@ COLORS of elements
 	@include bgc($white);
 }
 
+.transparent-background {
+	@include bgc(transparent);
+}
+
 /* ========================
 TEXT COLORS
 ==========================*/
@@ -294,6 +298,10 @@ TEXT COLORS
 
 .black-text {
 	color: $black-1;
+}
+
+.white-text {
+	color: #FFF; 
 }
 
 .blue-input {

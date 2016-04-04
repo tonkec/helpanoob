@@ -1,3 +1,98 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "components/colors";
+/*======================
+LANDING
+=======================*/
+%stretch {
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;    
+}
+
+.landing-wrapper {
+	height: 100%; 
+}
+
+.landing-header {
+	height: 100vh; 
+	position: relative; 
+}
+
+.landing-heading {
+	top: 50%;
+	-webkit-transform: translateY(-50%); 
+	-moz-transform: translateY(-50%); 
+	-ms-transform: translateY(-50%); 
+	-o-transform: translateY(-50%); 
+	transform: translateY(-50%); 
+	position: relative;
+	margin: 0 auto;
+	text-align: center; 
+	font-size: 80px;     
+}
+
+.landing-layer {
+	position: absolute; 
+	background-color: #000;
+	opacity: .5;  
+	@extend %stretch; 
+}
+
+.landing-sign-up {
+	color: $light-blue;
+}
+
+section {
+	position: relative;
+	padding: 50px 0; 
+	height: 60vh;
+	
+	&.transparent-background {
+		height: 40vh;
+	}  
+}
+
+video { 
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	transform: translateX(-50%) translateY(-50%);
+	background: url('') no-repeat;
+	background-size: cover;
+	transition: 1s opacity;
+}
+
+.arrow-container {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	margin: 0 auto;
+	-webkit-animation: up-and-down .5s linear infinite alternate; 
+	 -moz-animation: up-and-down .5s linear infinite alternate; 
+	 -o-animation: up-and-down .5s linear infinite alternate; 
+	 animation: up-and-down .5s linear infinite alternate;  
+	
+	.fa {
+		font-size: 50px; 
+	}    
+}
+
+@keyframes up-and-down {
+	from {
+		bottom: 50px;
+	}
+
+	to {
+		bottom: 40px; 
+	}
+}

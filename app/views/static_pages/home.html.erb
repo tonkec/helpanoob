@@ -1,3 +1,55 @@
-<h1>Landing page</h1>
-<%= link_to "login", new_user_session_path %>
-<%= link_to "sign up",new_user_registration_path %>
+<%= render partial: "layouts/head_tags" %>
+<div class="landing-wrapper">
+  <header class="landing-header">
+    <div class="landing-layer"></div>
+    <%= video_tag("video.mp4", class: "video", autoplay: true, loop: true)%>
+
+    <h1 class="landing-heading white-text">
+      Ask anything you want!
+    </h1>
+
+
+    <div class="arrow-container">
+      <a href="#next-section">
+        <i class="fa fa-angle-double-down white-text"></i>
+      </a>
+    </div><!-- arrow-con -->
+  </header>
+
+  <section class="white-background" id="next-section">
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Whether you are just starting...</h3>
+        <h3>or have more experience</h3>
+
+        <h3>Whether you are seeking help</h3>
+        <h3>or you want to help</h3>
+
+        <h3>We all have been noobs</h3>
+        <h3>Don't be afraid to ask</h3>
+
+        <h3>There are no stupid questions</h3>
+        <h3>No RTFM answers</h3>
+        <h3>No too noobish questions</h3>
+        <h3>No one will put you down</h3>
+        <h3>Stuck? Need help? Share you problem with us and let the community help you</h3>
+
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+  </section>
+
+  <section class="white-background">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, voluptate suscipit. Quaerat esse possimus laboriosam ullam, hic nisi aspernatur expedita tempora repellat nihil commodi perferendis delectus repellendus qui dolores, quis, libero optio natus reiciendis? Nisi corporis provident, minus rem temporibus, quia at libero, vitae error reprehenderit, esse ipsa est iusto.</p>
+  </section>
+
+  <section class="transparent-background">
+    <div class="landing-layer"></div>
+  </section>
+
+</div><!-- landing wrapper -->
+
+
+<script>
+  $("body").css("background-color", "transparent")
+</script>

@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments, dependent: :destroy
-  validates :title, presence: true, presence: true, length: {minimum: 20, max: 200}
+  validates :title, presence: true, length: {minimum: 20, max: 200}
   validates :description, presence: true, length: {minimum: 100}
   validates :user_id, presence: true
   default_scope -> { order(cached_votes_up: :desc) }

@@ -44,10 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def your_posts
-    @your_posts = current_user.posts.page(params[:page]).per(5)
-  end
-
   def show
     @user = User.find(params[:id])
     @user_posts = @user.posts

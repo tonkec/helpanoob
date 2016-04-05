@@ -39,9 +39,9 @@ Rails.application.routes.draw do
     get '/new_password' => "passwordusers#edit", :as => :new_password
   end
 
-  resources :users, only: [:show, :update, :user_posts] do
+  resources :users, only: [:show, :update, :user_posts, :destroy] do
+    match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
     resources :skills, only: [:create, :new, :update, :destroy, :edit]
   end
   
-  get 'your_posts', to: 'users#your_posts', as: :your_posts
 end

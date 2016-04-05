@@ -5,22 +5,17 @@
   <%= render partial: "layouts/head_tags" %>
 </head>
 <body>
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
   <%= render partial: "layouts/sidebar" %>
   <%= render partial: "layouts/navigation" %>
-<% end %>
-<div class="row main-row">
-  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-    <%= yield %>
-    <div id="flash">
-     <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-       <% end %>
-      </div>
+  <% end %>
+  <div class="row main-row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <%= yield %>
+      <%= render partial: "layouts/flash" %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
- <%= debug(params) if Rails.env.development? %>
   </div>
-</div>
 
 
 

@@ -28,6 +28,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :disable_like, only: [:profile, :update]
+  skip_before_filter :verify_authenticity_token, :only => :destroy
 
   def profile
     @comments = current_user.comments.page(params[:page]).per(2)

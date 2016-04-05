@@ -99,11 +99,13 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+ config.infer_spec_type_from_file_location!
  config.include Rails.application.routes.url_helpers
  config.fixture_path = "#{::Rails.root}/spec/fixtures"
- config.include Devise::TestHelpers, type: :controller
 
  config.include ApplicationHelper
  config.include UsersHelper
+ config.include Devise::TestHelpers, type: :controller
+config.include Capybara::DSL
  config.include FactoryGirl::Syntax::Methods
 end

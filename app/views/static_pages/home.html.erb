@@ -2,6 +2,8 @@
 <div class="landing-wrapper">
   <header class="landing-header">
     <div class="landing-layer"></div>
+    <%= render partial: "layouts/flash" %>
+
     <%= video_tag("video.mp4", class: "video", autoplay: true, loop: true)%>
 
     <h1 class="landing-heading white-text">

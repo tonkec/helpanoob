@@ -10,7 +10,7 @@ FactoryGirl.define do
   factory :post do
     description Faker::Lorem.characters(101)
     title Faker::Lorem.words(3)
-    tag_list Faker::Lorem.words(3)
+    tag_list "ruby"
     user
   end
 

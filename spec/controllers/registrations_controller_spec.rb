@@ -10,7 +10,7 @@ describe "User Registration" do
     it "redirects to login page" do
       visit(root_path)
       visit(posts_path)
-
+      save_and_open_page
       expect(page).to have_content("Log in")
     end
 
@@ -41,7 +41,7 @@ describe "User Registration" do
 
       it "shows message about confirmation email" do
         click_button submit
-        expect(page).to have_content("Landing page")
+        expect(page).to have_content("Help a noob!")
         expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
         #puts subject.confirmation_token
         #expect(subject.introduction).to_not be_nil

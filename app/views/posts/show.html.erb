@@ -2,7 +2,7 @@
  Answers:<%= @post.comments.count %>
 </h2> 
 
-<%= render  @post %>
+<%= render @post %>
 <div id="comment-wrapper" class="clearfix">
   <%= render @comments %>
 </div>
@@ -10,8 +10,10 @@
 <h2>Share your wisdom</h2>
 <%= render "comments/form" %>
 
-<% unless @comments.current_page == @comments.total_pages %>
-   <p id="view-more" class="clearfix">
-    <%= link_to('View More', url_for(page: @comments.current_page + 1), class: "btn-green btn-full btn-load") %>
-  </p>
+<% if @comments.any? %>
+  <% unless @comments.current_page == @comments.total_pages %>
+     <p id="view-more" class="clearfix">
+      <%= link_to('View More', url_for(page: @comments.current_page + 1), class: "btn-green btn-full btn-load") %>
+    </p>
+  <% end %>
 <% end %>

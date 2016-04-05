@@ -66,9 +66,8 @@ class UsersController < ApplicationController
   def destroy
 
     if current_user.destroy
-        #sign_out current_user
-        flash.now[:success] = "I am sorry to see you go :/"
-        redirect_to landing_page_path
+      flash.now[:success] = "I am sorry to see you go :/"
+      redirect_to landing_page_path
     end
   end
 

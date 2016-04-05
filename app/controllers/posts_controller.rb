@@ -76,25 +76,14 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
-    @existing_tag_list_array = ["ruby", "rails", "ruby on rails", "jquery", "javascript", "php", "sql"]
-    @post.tag_list = @existing_tag_list_array & @post.tag_list
 
-    if @post.tag_list.empty?
-      flash.now[:danger] = "Please select tag from list"
+    if @post.save(post_params)
+      redirect_to posts_path
+      flash.now[:success] = "Post successfully created"
+    else
       render "new"
-    else 
-      respond_to do |format|
-        if @post.save(post_params)
-          format.html { redirect_to @post, notice: 'Post was successfully created.' }
-          format.json { render :show, status: :ok, location: @post }
-          format.js
-        else
-          format.html { render :new }
-          format.json { render json: @post.errors, status: :unprocessable_entity }
-          format.js
-        end
-      end
     end
+   
   end
 
   # PATCH/PUT /posts/1
@@ -117,6 +106,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    redirect_to posts_path
     flash.now[:success] = "Post was successfully destroyed"
   end
 

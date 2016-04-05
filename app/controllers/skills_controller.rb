@@ -32,7 +32,7 @@ class SkillsController < ApplicationController
     @skill = current_user.skills.find(params[:id])
     respond_to do |format|
       if @skill.update_attributes(skill_params)
-        format.html { redirect_to profile_path, notice: 'Comment was successfully created.' }
+        format.html { redirect_to profile_path, notice: 'Skill was successfully created.' }
         format.json { render :show, status: :ok, location: @skill }
         format.js
       else

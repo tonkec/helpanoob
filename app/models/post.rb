@@ -37,7 +37,7 @@ class Post < ActiveRecord::Base
     where(:comments_count => 0)
   }
 
-  validates :tag_list, presence: true
+  validate :tag_list_inclusion                 
 
   def next
     user.posts.where("id > ?", id).first
@@ -45,5 +45,11 @@ class Post < ActiveRecord::Base
 
   def prev
     user.posts.where("id < ?", id).last
+  end
+
+  def tag_list_inclusion
+    tag_list.each do |tag|
+      errors.add(tag,"is not valid") unless %w(ruby rails php css html javascript sql react.js angular.js).include?(tag)
+    end
   end
 end

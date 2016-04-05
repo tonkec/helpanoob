@@ -4,7 +4,7 @@
     <li role="presentation" class="active"><a href="#about" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
     <li role="presentation"><a href="#questions" aria-controls="questions" role="tab" data-toggle="tab">Questions</a></li>
     <li role="presentation"><a href="#answers" aria-controls="messages" role="tab" data-toggle="tab">Answers</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" id="capybara">Settings</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -139,6 +139,7 @@
   
   <div class="float white-background tab-float" id="update_user">
     <%= render "form" %>
+    <%= link_to "Delete your account", current_user, method: :delete, data: { confirm: "You sure?" } %>
   </div>
 
 </div><!-- settings -->

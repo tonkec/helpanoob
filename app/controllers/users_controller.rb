@@ -63,6 +63,15 @@ class UsersController < ApplicationController
       end
   end
 
+  def destroy
+
+    if current_user.destroy
+        #sign_out current_user
+        flash.now[:success] = "I am sorry to see you go :/"
+        redirect_to landing_page_path
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :last_name, :first_name, :avatar, :introduction,

@@ -12,6 +12,18 @@ LANDING
 	bottom: 0;    
 }
 
+%vertical {
+	top: 50%;
+	-webkit-transform: translateY(-50%); 
+	-moz-transform: translateY(-50%); 
+	-ms-transform: translateY(-50%); 
+	-o-transform: translateY(-50%); 
+	transform: translateY(-50%); 
+	position: relative;
+	margin: 0 auto;
+	text-align: center; 
+}
+
 .landing-wrapper {
 	height: 100%; 
 }
@@ -22,15 +34,7 @@ LANDING
 }
 
 .landing-heading {
-	top: 50%;
-	-webkit-transform: translateY(-50%); 
-	-moz-transform: translateY(-50%); 
-	-ms-transform: translateY(-50%); 
-	-o-transform: translateY(-50%); 
-	transform: translateY(-50%); 
-	position: relative;
-	margin: 0 auto;
-	text-align: center; 
+	@extend %vertical;
 	font-size: 80px;     
 }
 
@@ -43,6 +47,14 @@ LANDING
 
 .landing-sign-up {
 	color: $light-blue;
+}
+
+.btn.btn-landing {
+	@extend %vertical;
+	margin-top: 50px;
+	z-index: 3;
+	position: relative;
+	display: block;     
 }
 
 section {

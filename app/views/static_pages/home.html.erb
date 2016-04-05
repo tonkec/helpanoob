@@ -5,9 +5,10 @@
     <%= video_tag("video.mp4", class: "video", autoplay: true, loop: true)%>
 
     <h1 class="landing-heading white-text">
-      Ask anything you want!
+      Help a noob! 
     </h1>
-
+    
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
 
     <div class="arrow-container">
       <a href="#next-section">
@@ -19,6 +20,7 @@
   <section class="white-background" id="next-section">
     <div class="row">
       <div class="col-lg-6">
+        <h3>From one noob to another!</h3>
         <h3>Whether you are just starting...</h3>
         <h3>or have more experience</h3>
 

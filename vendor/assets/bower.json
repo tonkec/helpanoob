@@ -2,6 +2,7 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "bootstrap-sass": "latest",
-    "text-hover-effects": "latest"
+    "text-hover-effects": "latest",
+    "waypoints": "latest"
   }
 }

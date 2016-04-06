@@ -33,7 +33,7 @@ RSpec.describe Post, type: :model do
 
   let(:user) {FactoryGirl.create(:user)}
   let(:other_user) {FactoryGirl.create(:user)}
-  let(:post) {user.posts.create(description: "Lorem Content", title: "Title")}
+  let(:post) {user.posts.create!(description: "Lorem Content", title: "Title")}
   let(:comment) {FactoryGirl.create(:comment)}
 
   subject {post}

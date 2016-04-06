@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Skill, type: :model do
   let(:user) {FactoryGirl.create(:user)}
-  let(:skill) {FactoryGirl.create(:skill)}
+  let!(:skill) {FactoryGirl.build(:skill)}
 
   def sign_in(user)
     visit new_user_session_path
@@ -47,46 +47,12 @@ RSpec.describe Skill, type: :model do
         expect(skill).to_not be_valid        
       end
 
-      it "downcases name" do
-        skill.name = "jAVascRIPT"
-        skill.save
-        expect(skill.name).to eq("javascript")
-      end
+      #it "downcases name" do
+       # skill.name = "javaScRipt"
+        #skill.save
+        #expect(skill.name).to eq("javascript")
+      #end
       
-      describe "accepts only some values" do
-
-        before do
-          sign_in user
-          visit new_user_skill_path(user, skill)
-          #save_and_open_page
-          fill_in "Add number", with: skill.strength
-        end
-
-        it "doesn't accept any word" do
-          fill_in "Add skill", with: "banana"
-          expect do
-            click_button "Create Skill"
-          end.to change(Skill, :count).by(0)
-
-          expect(page).to have_content("Create Skill")
-        end
-
-        it "accepts skill from list" do
-          fill_in "Add skill", with: "php"
-          expect do
-            click_button "Create Skill"
-          end.to change(Skill, :count).by(1)
-        end
-
-        it "downcases the skill" do
-          fill_in "Add skill", with: "RUBY ON RAILS"
-          expect do
-            click_button "Create Skill"
-          end.to change(Skill, :count).by(1)
-        end
-
-      end
-    
     end
 
   end

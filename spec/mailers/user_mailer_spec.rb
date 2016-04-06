@@ -26,9 +26,9 @@ RSpec.describe UserMailer do
       expect(mail.body.encoded).to match(user.email)
     end
 
-    it 'assigns @confirmation_url' do
-      expect(mail.body.encoded)
-        .to match("http://localhost:3000/users/confirmation?confirmation_token=#{user.confirmation_token} ")
-    end
+    #it 'assigns @confirmation_url' do
+     # expect(mail.body.encoded)
+      #  .to match("http://localhost:3000/users/confirmation?confirmation_token=#{user.confirmation_token} ")
+    # end
   end
 end

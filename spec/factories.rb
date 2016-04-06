@@ -15,7 +15,7 @@ FactoryGirl.define do
   end
 
   factory :skill do
-    name Faker::Lorem.words(1)
+    name "ruby"
     strength Faker::Number.between(0, 100)
     user
   end

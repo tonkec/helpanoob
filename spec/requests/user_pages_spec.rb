@@ -18,8 +18,7 @@ describe "User pages" do
     # skip_before_filter :verify_authenticity_token, :only => :destroy
     # to users_controller
     click_link("Delete your account")  
-    
-    #save_and_open_page
+#    puts "RAILS_ENV is #{Rails.env}"
   end
 
   describe "Delete user" do
@@ -54,4 +53,29 @@ describe "User pages" do
 
     end
   end
+
+  describe "user's skill" do
+    let(:user) {FactoryGirl.create(:user)}
+
+    before(:each) do
+      click_link("Add new skill")
+    end
+
+    it "creates new skill" do
+      expect do
+        click_button "Create Skill"
+      end.to change(Skill, :count).by(0)
+    end
+
+    it "accepts only some values" do
+      fill_in "Add skill", with: "banana"
+      click_button "Create Skill"
+      expect(page).to have_content("Pick a real skill")
+      expect(page).to have_content("Strength can't be blank!")
+      expect(page).to have_content("is not a number")   
+      expect(page).to have_css("div#error_explanation")
+    end
+
+  end
+
 end

@@ -19,6 +19,41 @@ describe "User pages" do
 #    puts "RAILS_ENV is #{Rails.env}"
   end
 
+  describe "Profile page" do
+    title = "a" * 50
+    description = "desc" * 150
+    let(:user) {FactoryGirl.create(:user)}
+    let!(:user_post) {FactoryGirl.create(:post, description: description, title: title, user: user)}
+    let!(:user_post_2) {FactoryGirl.create(:post, user: user)}
+    let!(:user_post_3) {FactoryGirl.create(:post, user: user)}
+    let!(:user_post_4) {FactoryGirl.create(:post, user: user)}
+
+    
+    let!(:user_skill) {FactoryGirl.build(:skill, user: user)}
+    let!(:user_comment) {FactoryGirl.create(:comment, user: user)}
+
+    it "has right attributes" do
+      user_skill.save
+      expect(page).to have_content(user.email)
+      expect(page).to have_content(user.username)
+      expect(page).to have_content(user_skill.name)
+    end
+
+    
+
+    describe "View more on questions tab" do
+      puts "zakaj se ovi postovi ne sejvaju?"
+      before {find("a#qquestions").click}
+      it "has view more button" do
+
+        save_and_open_page
+        puts "#{user.posts.count}"
+        click_button "View More"
+      end
+    end
+
+  end
+
   describe "Delete user" do
     let(:user) {FactoryGirl.create(:user)}
     let!(:post) {FactoryGirl.build(:post)}
@@ -85,6 +120,12 @@ describe "User pages" do
 
       before(:each) do
        visit user_path(another_user)
+      end
+
+      it "redirects to profile page when visit show page with user id" do
+        visit user_path(user)
+        #this is how I know I am on the profile page because show page doesnt have settings
+        expect(page).to have_content("Settings")
       end
 
      # it "created post" do

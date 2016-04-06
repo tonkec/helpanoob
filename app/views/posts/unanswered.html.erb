@@ -16,8 +16,10 @@ Select by tags:  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, cs
   <%= render "index_post" %>
 </div>
 
+<% if @posts.any? %>
 <% unless @posts.current_page == @posts.total_pages %>
    <p id="view-more" class="clearfix">
     <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
   </p>
+<% end %>
 <% end %>

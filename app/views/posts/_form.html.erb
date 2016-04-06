@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-   <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
-   <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
+   <%= f.text_field :title, class: "input-full blue-input blue-bg-input", placeholder: "Title" %>
+   <%= f.text_area :description, class: "input-full blue-input blue-bg-input", placeholder: "Ask a question" %>
   </div>
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
@@ -25,6 +25,6 @@
     <%= f.hidden_field :images_cache, class: "cache" %>
   </div>
   <div class="actions">
-    <%= f.submit "Ask", class: "btn-full btn-green" %>
+    <%= f.submit "Ask", class: "btn-light-blue btn-full btn-submit" %>
   </div>
 <% end %>

@@ -1,5 +1,3 @@
-alert("dislike")
-
 $('#comment_dislike-<%= @comment.id %>').bind('ajax:success', function() {
  $("#comment_dislike-<%= @comment.id %>").addClass("hidden");
  $("#comment_like-<%= @comment.id %>").removeClass("hidden");

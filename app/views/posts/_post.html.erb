@@ -13,7 +13,7 @@
       <p class="post-description">
         <%= post.description %>
       </p>
-      <%= render "like" unless @disable_like %>
+      <%= render partial: "posts/like" unless @disable_like %>
 
     </div><!-- col -->
 

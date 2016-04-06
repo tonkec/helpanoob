@@ -26,22 +26,17 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
-  #get '/user/:id', to: 'users#show', as: "user_path"
-  get '/profile/edit', to: 'users#edit', as: "edit_profile"
 
   devise_for :users, controllers: { registrations: "registrations" }
 
   devise_scope :user do
-  #  get "sign_in", to: "devise/sessions#new"
-  #  get "sign_up", to: "devise/registrations#new"
-   # delete "sign_out", to: "devise/sessions#destroy"
     get '/reset_password' => "passwordusers#new", :as => :reset_password
     get '/new_password' => "passwordusers#edit", :as => :new_password
   end
 
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
-    resources :skills, only: [:create, :new, :update, :destroy, :edit]
+    resources :skills, only: [:create, :new, :destroy]
   end
   
 end

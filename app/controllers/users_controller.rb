@@ -27,8 +27,9 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :disable_like, only: [:profile, :update]
+  before_action :disable_like, only: [:profile, :update, :show]
   skip_before_filter :verify_authenticity_token, :only => :destroy
+  before_action :comment_link, only: [:profile, :show]
 
   def profile
     @comments = current_user.comments.page(params[:page]).per(2)
@@ -38,7 +39,6 @@ class UsersController < ApplicationController
     @user_social_links = [current_user.first_social_link,
                    current_user.second_social_link,
                    current_user.third_social_link]
-    @user = current_user
     respond_to do |format|
       format.js 
       format.html
@@ -47,8 +47,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_posts = @user.posts
-    @user_comments = @user.comments
+    @comments = @user.comments
+    @posts = @user.posts.page(params[:page]).per(2)
+
+    if current_user.id == @user.id
+      redirect_to profile_path
+    end
   end
 
   def edit
@@ -72,6 +76,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def comment_link
+    @comment_link = true
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :last_name, :first_name, :avatar, :introduction,
@@ -80,4 +88,5 @@ class UsersController < ApplicationController
                                     :experience, :website
                                   )
     end  
+
 end

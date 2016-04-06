@@ -1,4 +1,4 @@
-<% if current_user.voted_up_on? @post %>
+<% if @user.voted_up_on? @post %>
   <%= link_to dislike_post_path(@post), :remote => true, class: "like", id: "post_dislike", method: :put do %>
   <i class="fa fa-heart main-question-icon" id="heart">
   </i>

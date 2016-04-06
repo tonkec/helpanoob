@@ -2,10 +2,12 @@
     <span class="skill skill-<%= skill.name%>">
       <%= skill.name %>
       <span class="skill-strength-overlay" data-value="<%= skill.strength %>" id="<%= skill.id%>"></span>
+      <% if skill.user.id == current_user.id %>
       <span class="skill-delete-overlay">
         <%= link_to [skill.user, skill], method: :delete  do %>
         <span class="icon-elegant-font-150-8783 skill-delete"></span>
         <% end %>
-      </span>
-    </span>
+      </span><!-- skilldeleteverlay -->
+      <% end %>
+    </span><!-- skill skill -->
   </div><!-- col-lg-2 -->

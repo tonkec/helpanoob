@@ -4,10 +4,11 @@
     <li role="presentation" class="active"><a href="#about" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
     <li role="presentation"><a href="#questions" aria-controls="questions" role="tab" data-toggle="tab">Questions</a></li>
     <li role="presentation"><a href="#answers" aria-controls="messages" role="tab" data-toggle="tab">Answers</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" id="capybara">Settings</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
 
-  <!-- Tab panes -->
+
+   <!-- Tab panes -->
   <div class="tab-content">
 
     <div role="tabpanel" class="tab-pane fade in active" id="about">
@@ -36,10 +37,7 @@
             <h6 class="black-text user-website dark-dark-link">
               Go to <b><%= current_user.website_link(current_user.website) %> </b> 
             </h6>
-
-            <h6 class="black-text user-website dark-dark-link">
-              <%= link_to "See how others see your profile", user_path(current_user) %>
-            </h6>  
+              
           </div> <!-- other-info -->       
 
 
@@ -74,89 +72,77 @@
           <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
             <div class="row dark-dark-link">
               <%= render current_user.skills %>
-              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "hidden-xs skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
+            
+              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "hidden-xs skill-add-more-link", id: "add_new_skill", 'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
+             
             </div>
           </div><!-- skills-col -->
 
-          <div class="visible-xs col-xs-12 p-l-0 p-r-0 text-left dark-dark-link">
-          <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "visible-xs skill-add-more-link",  'data-target' => "#new_skill", 'data-toggle' => "modal" %>     
-          </div>
-
-        
         </div><!-- prof-right-col -->
 
      </div><!-- float -->
 
 
-   </div><!-- about -->
+    </div><!-- tab-panel#about -->
 
-   <div role="tabpanel" class="tab-pane fade" id="questions">
 
-    <div class="float white-background tab-float">
+    <div role="tabpanel" class="tab-pane fade" id="questions">
+      <% if @posts.any? %>
+      <div class="float white-background tab-float">
 
-      <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0"> 
-        <div class="dark-dark-link clearfix" id="posts-wrapper">
-          <% if @posts.any? %>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0"> 
+          <div class="dark-dark-link clearfix" id="posts-wrapper">
+
             <%= render @posts %>
 
             <% unless @posts.current_page == @posts.total_pages %>
-            <p id="view-more" class="clearfix">
-              <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn btn-bordered-light btn-full btn-load") %>
-            </p>
+              <p id="view-more" class="clearfix">
+                <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn btn-bordered-light btn-full btn-load") %>
+              </p>
 
             <% end %>
-          <% else %>
-            <%= link_to "Ask a qustion", new_post_path %>
-          <% end %>
-        </div>
+            
+          </div>
 
-    </div><!-- col -->
+        </div><!-- col -->
 
-  </div><!-- float -->
+      </div><!-- float -->
+      <% end %>
+
+    </div><!-- tab-panel#questions -->
+
+    <div role="tabpanel" class="tab-pane fade" id="answers">
+      
+      <div class="float white-background">
+
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0">
+          <div id="comment-wrapper" class="clearfix">
+            <% if @comments.any? %>
+              <%= render @comments  %>
+            <% end %>
+          </div>
+
+        </div><!-- col -->
+      </div><!-- float  -->
+
+    </div><!-- tab-panel#answers -->
 
 
-</div> <!-- questions -->
-
-<div role="tabpanel" class="tab-pane fade" id="answers">
-  
-  <div class="float">
-    
-    <div class="col-xs-12 col-sm-12">
-      <div id="comment-wrapper" class="clearfix">
-        <% if @comments.any? %>
-          <%= render @comments  %>
-        <% end %>
+    <div role="tabpanel" class="tab-pane fade" id="settings">
+      <div class="float white-background tab-float" id="update_user">
+        <h6>Your email: <%= current_user.email %></h6>
+        <%= render "form" %>
+        <a href="#" class="btn" data-toggle="modal" data-target="#delete_user">
+          Delete your account
+        </a>
       </div>
-
-    </div><!-- col -->
-  </div><!-- float  -->
+    </div><!-- tab-panel#settings -->
 
 
-</div><!-- answers -->
-
-<div role="tabpanel" class="tab-pane fade" id="settings">
-  
-  <div class="float white-background tab-float" id="update_user">
-    <%= render "form" %>
-    <a href="#" class="btn" data-toggle="modal" data-target="#delete_user">
-      Delete your account
-    </a>
-    
-  </div>
-
-</div><!-- settings -->
-</div><!-- tab panes -->
-
-</div>
+  </div><!-- tab-content -->
 
 
-</div><!-- float  -->
-
-
-
-
-
-</div><!-- profile-wrapper -->
+</div><!-- profile wrapper -->
 
 <!-- Modal -->
 <div class="modal fade" id="new_skill" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -194,31 +180,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  if($(".alert-danger").text().length > 0) {
-    $($(".nav-tabs li")[0]).removeClass("active");
-    $($(".nav-tabs li")[3]).addClass("active");
-    $($(".tab-pane")[0]).removeClass("in").removeClass("active");
-    $($(".tab-pane")[3]).addClass("in").addClass("active");
-  }
-
-  if($(".tab-pane").hasClass("active")) {
-    /* onda a s tim hrefom isto active */
-  }
-
-  $('#myTabs a').click(function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-  });
-  var skill = $(".skill-strength-overlay");
-
-  for (i = 0; i < skill.length; i++) {
-    var one_skill = skill[i]
-    var width = $(one_skill).data();
-    var width_percentage = width.value + "%"
-    $(one_skill).css("width", width_percentage);
-
-  };
- 
-</script>

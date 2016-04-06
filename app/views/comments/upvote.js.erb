@@ -1,5 +1,4 @@
 $('#comment_like-<%= @comment.id %>').bind('ajax:success', function() {
-	alert("like!")
  $("#comment_like-<%= @comment.id %>").addClass("hidden");
  $("#comment_dislike-<%= @comment.id %>").removeClass("hidden");
  $('#comment_number_of_votes-<%= @comment.id %>').html('<%=escape_javascript @comment.cached_weighted_score.to_s %>');

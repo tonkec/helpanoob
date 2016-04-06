@@ -45,7 +45,6 @@ class User < ActiveRecord::Base
 
 
   def social_link(link)
-    edit_profile_path = Rails.application.routes.url_helpers.edit_profile_path
 
     unless link.blank?
       if link.match("codepen")

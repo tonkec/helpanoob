@@ -3,16 +3,14 @@
     <p class="comment-content">
       <% if comment.user_id == current_user.id %>
         <%= link_to "Edit", edit_post_comment_path(comment.post, comment), remote: true, 'data-target' => "#editcomment-#{comment.id}", 'data-toggle' => "modal" %>
-        <%= comment.content %>
         <i class="fa fa-pencil"></i>
-      <% else %>
-        <%= comment.content %> 
-      <% end %>
+        <% end %>
+
+        <h4><%= comment.content %></h4>
+        <%= link_to "See post", post_path(comment.post) if @comment_link %>
     </p>
   </div>   
   
-  <h3><%= comment.id %></h3>
-  <h3>Post <%= comment.post.id %></h3>
   <div class="col-xs-12 col-sm-2">
     
     <% if current_user.voted_up_on? comment %>

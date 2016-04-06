@@ -1,17 +1,131 @@
-<h1>Users#show</h1>
-<h4><%= @user.username %></h4>
-<h4><%= @user.email %></h4>
-<h4><%=image_tag(@user.avatar)%></h4>
-<p>Posts:<%= @user.posts.count %></p>
-<p>Comments:<%= @user.comments.count %></p>
+<div class="profile-wrapper clearfix">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs user-show-tabs" role="tablist" id="myTabs">
+    <li role="presentation" class="active"><a href="#about" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
+    <li role="presentation"><a href="#questions" aria-controls="questions" role="tab" data-toggle="tab">Questions</a></li>
+    <li role="presentation"><a href="#answers" aria-controls="messages" role="tab" data-toggle="tab">Answers</a></li>
+  </ul>
 
-<h1>Posts</h1>
-<% if @user_posts.any? %>
-<%= @user_posts.count %>
-<%= render(partial: 'user_post', collection: @user_posts, object: @post) %>
-<% else %>
-<p>This user has no posts</p>
-<% end %>
 
-<h1>Comments</h1>
-<%= @user_comments %>
+   <!-- Tab panes -->
+  <div class="tab-content">
+
+    <div role="tabpanel" class="tab-pane fade in active" id="about">
+
+      <div class="float white-background tab-float">
+
+        <div class="col-lg-4 profile-img-col text-center">
+          <%= image_tag(@user.avatar, class: "profile-image" ) %>
+  
+          <div class="user-names">
+            <h5 class="user-name">
+              <%= @user.first_name %>
+              <%= @user.last_name %>
+            </h5>         
+
+            <h5 class="user-username lightblue-text">
+              <%= @user.username %>
+            </h5>
+          </div><!-- user-names -->
+
+          <div class="other-info">
+            <h6 class="black-text">
+              Experience: <b><%= pluralize(@user.experience, "year") %> </b> 
+            </h6>
+            
+            <h6 class="black-text user-website dark-dark-link">
+              Website: <b><%= @user.website_link(@user.website) %> </b> 
+            </h6>
+            
+          </div> <!-- other-info -->       
+
+
+        </div><!-- col -->
+
+        <div class="col-lg-8 profile-right-col">
+          <div class="col-xs-12 p-l-0 p-r-0 dark-dark-link">
+           <%= @user.social_link(@user.first_social_link) %>
+           <%= @user.social_link(@user.second_social_link) %>
+           <%= @user.social_link(@user.third_social_link) %>
+          </div><!-- colxs12 -->
+
+          <div class="col-xs-12 p-l-0 p-r-0 dark-dark-link">
+             <%= @user.social_link(@user.first_learning_platform) %>
+             <%= @user.social_link(@user.second_learning_platform) %>
+             <%= @user.social_link(@user.third_learning_platform) %>
+           </div><!-- col -->
+          <div class="col-xs-12 p-l-0 p-r-0">
+            <div class="profile-introduction break-text dark-dark-link">
+              <h5>Introduction</h5>
+              <% if @user.introduction.blank? %>
+              <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" id="about-settings">Settings</a>
+              <% else %>
+              <p class="profile-introduction-text black-text">
+                <%= @user.introduction %>
+              </p>
+              <% end %>
+            </div><!-- profile-intro -->
+          </div><!-- col xs12 -->
+          <h5 class="profile-heading-margin clearfix">Skills</h5>
+
+          <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
+            <div class="row dark-dark-link">
+              <%= render @user.skills %>
+            
+            </div>
+          </div><!-- skills-col -->
+
+        </div><!-- prof-right-col -->
+
+     </div><!-- float -->
+
+
+    </div><!-- tab-panel#about -->
+
+
+    <div role="tabpanel" class="tab-pane fade" id="questions">
+      <% if @posts.any? %>
+      <div class="float white-background tab-float">
+
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0"> 
+          <div class="dark-dark-link clearfix" id="posts-wrapper">
+
+            <%= render @posts %>
+
+            <% unless @posts.current_page == @posts.total_pages %>
+              <p id="view-more" class="clearfix">
+                <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn btn-bordered-light btn-full btn-load") %>
+              </p>
+
+            <% end %>
+            
+          </div>
+
+        </div><!-- col -->
+
+      </div><!-- float -->
+      <% end %>
+
+    </div><!-- tab-panel#questions -->
+
+    <div role="tabpanel" class="tab-pane fade" id="answers">
+      
+      <div class="float white-background">
+
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0">
+          <div id="comment-wrapper" class="clearfix">
+            <% if @comments.any? %>
+              <%= render @comments  %>
+            <% end %>
+          </div>
+
+        </div><!-- col -->
+      </div><!-- float  -->
+
+    </div><!-- tab-panel#answers -->
+
+
+  </div><!-- tab-content -->
+
+
+</div><!-- profile wrapper -->

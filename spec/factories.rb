@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "test#{n}@example.com" }    
     password "password"
     password_confirmation "password"
+    experience 20
     avatar  { File.open("#{Rails.root}/spec/fixtures/files/sweal.jpg") } 
   end
 

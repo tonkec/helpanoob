@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action :correct_user, only: [:create, :destroy, :update]
+  before_action :correct_user, only: [:destroy]
 
   def new
     @skill = Skill.new
@@ -25,23 +25,6 @@ class SkillsController < ApplicationController
 
   end
 
-  def edit
-  end
-
-  def update 
-    @skill = current_user.skills.find(params[:id])
-    respond_to do |format|
-      if @skill.update_attributes(skill_params)
-        format.html { redirect_to profile_path, notice: 'Skill was successfully created.' }
-        format.json { render :show, status: :ok, location: @skill }
-        format.js
-      else
-        format.html { render :new }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
-        format.js
-      end
-    end
-  end
 
   def destroy
     @skill = Skill.find(params[:id])

@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  
+  before_action :correct_user, only: [:create, :destroy, :update]
 
   def new
     @skill = Skill.new
@@ -53,5 +53,10 @@ class SkillsController < ApplicationController
 
   def skill_params
     params.require(:skill).permit(:name, :strength)
+  end
+
+  def correct_user
+    @skill = current_user.skills.find_by_id(params[:id])
+    redirect_to root_url if @skill.nil?
   end
 end

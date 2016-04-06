@@ -2,8 +2,8 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs user-show-tabs" role="tablist" id="myTabs">
     <li role="presentation" class="active"><a href="#about" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
-    <li role="presentation"><a href="#questions" aria-controls="questions" role="tab" data-toggle="tab">Questions</a></li>
-    <li role="presentation"><a href="#answers" aria-controls="messages" role="tab" data-toggle="tab">Answers</a></li>
+    <li role="presentation"><a href="#questions" aria-controls="questions" role="tab" data-toggle="tab" id="user-questions">Questions</a></li>
+    <li role="presentation"><a href="#answers" aria-controls="messages" role="tab" data-toggle="tab" id="user-answers">Answers</a></li>
   </ul>
 
 
@@ -24,7 +24,7 @@
             </h5>         
 
             <h5 class="user-username lightblue-text">
-              <%= @user.username %>
+              <%= @user.username%>
             </h5>
           </div><!-- user-names -->
 
@@ -57,13 +57,10 @@
           <div class="col-xs-12 p-l-0 p-r-0">
             <div class="profile-introduction break-text dark-dark-link">
               <h5>Introduction</h5>
-              <% if @user.introduction.blank? %>
-              <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" id="about-settings">Settings</a>
-              <% else %>
+              
               <p class="profile-introduction-text black-text">
                 <%= @user.introduction %>
               </p>
-              <% end %>
             </div><!-- profile-intro -->
           </div><!-- col xs12 -->
           <h5 class="profile-heading-margin clearfix">Skills</h5>
@@ -84,7 +81,9 @@
 
 
     <div role="tabpanel" class="tab-pane fade" id="questions">
+      <h2>Questions</h2>
       <% if @posts.any? %>
+
       <div class="float white-background tab-float">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0"> 

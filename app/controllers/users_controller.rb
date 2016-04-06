@@ -28,7 +28,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :disable_like, only: [:profile, :update, :show]
-  skip_before_filter :verify_authenticity_token, :only => :destroy
+  skip_before_filter :verify_authenticity_token, :only => :destroy if Rails.env.test? 
   before_action :comment_link, only: [:profile, :show]
 
   def profile

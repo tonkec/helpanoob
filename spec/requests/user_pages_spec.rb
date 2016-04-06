@@ -78,7 +78,8 @@ describe "User pages" do
     describe "Other user show page" do
       let(:user) {FactoryGirl.create(:user)}
       let(:another_user) {FactoryGirl.create(:user)}
-      let!(:another_user_post) {FactoryGirl.create(:post)}
+      let!(:another_user_post) {FactoryGirl.create(:post, user: another_user)}
+      let!(:another_user_comment) {FactoryGirl.create(:comment, user: another_user)}
       let!(:another_user_skill) {FactoryGirl.build(:skill)}
 
 
@@ -92,7 +93,7 @@ describe "User pages" do
        # puts "#{URI.parse(current_url)}"
       #end
 
-      describe "other user page" do
+      describe "tabs" do
         it "has other user attributes" do
           another_user_skill.save
           expect(page).to have_content(another_user.username)
@@ -112,21 +113,41 @@ describe "User pages" do
         describe "Questions tab" do
 
           before(:each) do
+            another_user.save
             find('#user-questions').click
-            another_user_post.user.id = another_user.id
-            another_user_post.save
           end 
 
           it "shows another_user's questions" do
-            save_and_open_page
             #puts "user id: #{another_user.id}"
             #puts "User id: #{another_user_post.user.id}"
             #puts "#{another_user_post.title}"
             #puts "#{another_user.posts.first.title}"
-            #expect(page).to have_css("h3.post-title")
+            expect(page).to have_css("h3.post-title")
             expect(page).to have_content("Questions")
             expect(page).to have_content(another_user.email)
+            expect(page).to have_content(another_user_post.title)
+            expect(page).to_not have_content("Edit")
+            expect(page).to_not have_content("Destroy")
           end
+        end
+
+
+        describe "Answers" do
+          before(:each) do
+            another_user.save
+            find('#user-answers').click
+          end 
+          
+          it "shows another_user answers" do
+           # save_and_open_page
+            expect(page).to have_content(another_user_comment.content)
+            expect(page).to have_content(another_user_comment.user.email)
+            expect(another_user_comment.user.id).to eq(another_user.id) 
+            expect(page).to_not have_link("Edit")
+            expect(page).to_not have_link("Destroy")
+            expect(page).to have_link("See post", href: post_path(another_user_comment.post))
+          end
+
         end
 
       end     

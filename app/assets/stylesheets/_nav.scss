@@ -89,14 +89,12 @@
     border: 2px solid rgba(225,225,225,.7); 
     -webkit-border-radius: 10px; 
     border-radius: 10px; 
+    color: $orange;
     @include transition(1s);
     &:focus {
-      width: 200px;
-      @include transition(1s); 
-      border-color: $orange;
-      background-color: #000; 
       color: $orange;
-    } 
+      border: 2px solid $orange; 
+    }
   }
 }
 
@@ -107,4 +105,12 @@
     top: 14px;
     font-size: 1em; 
     z-index: -1; 
+}
+
+.active-search {
+  width: 200px !important;
+ @include transition(1s); 
+ border-color: $orange;
+ background-color: #000; 
+ color: $orange;
 }

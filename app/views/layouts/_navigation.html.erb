@@ -19,12 +19,14 @@
 </nav>
 
 <script>
-  $(function () {
-    $('input').blur();
-});
+  $(".nav-search").val("");
+  $(".nav-search").click(function(event){
+    event.stopPropagation();
+    $(this).addClass("active-search");
+  }) 
 
-  $('input').focus(
-    function(){
-        $(this).val('');
-    });
+  $("html").click(function(){
+    $(".nav-search").val("");
+    $(".nav-search").removeClass("active-search");
+  })
 </script>

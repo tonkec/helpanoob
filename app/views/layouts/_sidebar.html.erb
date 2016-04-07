@@ -1,5 +1,3 @@
-
-
 <button class="btn-nav">
   <div class="bar arrow-top-r"></div>
   <div class="bar arrow-middle-r"></div>
@@ -8,31 +6,39 @@
 
 <div class="nav-container hidden hideNav">
 
- <div class="sidebar-photo">
-    <%= image_tag(current_user.avatar) %>
+  <div class="sidebar-photo">
+    <%= link_to image_tag(current_user.avatar), profile_path %>
   </div>  
 
 
   <ul class="nav-list">
     <li>
-      <%= link_to "Profile", profile_path %>
+       <%= link_to profile_path, class: "sidebar-anchor" do %>
+       <span class="icon-elegant-font-242-10003 icon-sidebar"></span>
+       <% end %>
+    </li>
+    
+    <li>
+       <%= link_to posts_path, class: "sidebar-anchor" do %>
+      <span class="icon-elegant-font-249-10019"></span>
+      <% end %>
     </li>
     <li>
-      <a href="#">Messages</a>
-    </li>
-    <li>
-       <%= link_to "Questions", posts_path %>
-    </li>
-    <li>
-      <%= link_to "Tags", tags_path %>
+      <%= link_to tags_path, class: "sidebar-anchor" do %>
+        <span class="icon-elegant-font-151-8784"></span>
+      <% end %>
     </li>
 
     <li>
-      <%= link_to "About", about_path %>
+      <%= link_to about_path, class: "sidebar-anchor" do %>
+        <i class="fa fa-info"></i>
+      <% end %>
     </li>
 
     <li>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to destroy_user_session_path, method: :delete, class: "sidebar-anchor" do%>
+       <span class="icon-exit"></span>  
+      <% end %>
     </li>
   </ul>
 </div>

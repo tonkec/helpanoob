@@ -1,36 +1,30 @@
 <nav class="main-nav">
   <div class="search-content">
-    <div class="right-inner-addon ">
-      <i class="icon-elegant-font-180-8914 nav-search"></i> 
+      
       <%= search_form_for @q do |f| %>
       <%= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search"%>
+      <i class="icon-elegant-font-180-8914 nav-search-icon"></i> 
       <% end %>
-    </div><!-- addon -->
   </div><!-- content -->
   <div class="right-nav">
 
-    <div class="nav-right-list">
-
-      <%= link_to root_path, class: "nav-anchor" do %>
-      <span class="icon-elegant-font-111-8721 icon-nav"></span>
-      <% end %>
-
-      <%= link_to posts_path, class: "nav-anchor" do %>
-      <span class="icon-elegant-font-249-10019 icon-nav"></span>
-      <% end %>
-
-      
-      <%= link_to profile_path, class: "nav-anchor" do %>
-      <span class="icon-elegant-font-242-10003 icon-nav"></span>
-      <% end %>
-    
-    </div><!-- nav-list -->
 
     <%= link_to new_post_path, class: "plus-anchor", id: "new-post" do %>
-    <span class="icon-elegant-font-172-8820 icon-plus"></span>
+      <span class="icon-elegant-font-172-8820 icon-plus"></span>
     <% end %>
   </div>
 
     
 
 </nav>
+
+<script>
+  $(function () {
+    $('input').blur();
+});
+
+  $('input').focus(
+    function(){
+        $(this).val('');
+    });
+</script>

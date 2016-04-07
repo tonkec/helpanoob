@@ -24,6 +24,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-exit:before {
+    content: "\ea27";
+}
 .icon-sad-face-in-rounded-square:before {
     content: "\ea26";
 }

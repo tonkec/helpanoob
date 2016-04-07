@@ -238,6 +238,10 @@ HOME PAGE
 /* ========================
 TAGS COLORS
 ==========================*/
+#tag_cloud {
+	margin-top: 20px;
+	margin-bottom: 10px;  
+}
 .tags-list {
 	margin-bottom: 20px; 
 }
@@ -247,9 +251,19 @@ TAGS COLORS
 	color: #fff;
 	-webkit-border-radius: 10px; 
 	 border-radius: 10px;  
-	margin-right: 10px; 
+	margin-right: 7px; 
 	font-size: 12px;
-	line-height: 12px;  
+	line-height: 12px; 
+	background-color: $light-orange;  
+	@include transition(.5s); 
+	text-transform: uppercase; 
+	
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+		@include transition(.5s); 
+		background-color: $light-blue; 
+	}
 }
 
 .javascript {

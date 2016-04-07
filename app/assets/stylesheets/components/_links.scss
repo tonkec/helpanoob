@@ -48,6 +48,14 @@ text colors
 	@include link($white, $light-blue);
 }
 
+.orange-link {
+	@include link($orange, $light-blue);
+}
+
+.dark-orange-link {
+	@include link($dark-blue-2, $orange);	
+}
+
 .text-blue {
 	color: $light-blue; 
 }

@@ -38,7 +38,11 @@
 .post-title {
 	border-bottom: 1px solid lighten(#000, 70%);
 	padding-top: 30px; 
-	padding-bottom: 30px;  
+	padding-bottom: 30px; 
+	-ms-word-wrap: break-word; 
+	 word-wrap: break-word;
+	-ms-word-break: break-all; 
+	  word-break: break-all;   
 }
 
 .post-btn {
@@ -61,7 +65,11 @@
 	margin-top: 20px;
 	background-color: #FFF;
 	float: left;
-	width: 100%;    
+	width: 100%;   
+	
+	&.col-xl-8 {
+		padding-right: 60px; 
+	} 
 }
 
 .main-question-icon {
@@ -193,9 +201,14 @@
 	a {
 		color: $light-orange;
 		font-size: 18px;
-		margin-right: 10px; 
+		margin-right: 10px;
+		vertical-align: super; 
+		@include transition(.5s); 
 		&:hover {
+			@include transition(.5s); 
+
 			text-decoration: none;
+			color: $light-blue;
 		}
 	}
 }
@@ -227,4 +240,17 @@
 
 .visible {
 	display: block; 
+}
+
+.post-icon {
+	margin-right: 5px; 
+	vertical-align: middle; 
+}
+
+.post-info {
+	margin-top: 5px;
+	
+	&.first {
+		margin-top: 15px;
+	} 
 }

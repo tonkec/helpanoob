@@ -1,41 +1,33 @@
 <% if @posts.any? %>
-<h1 class="post-title">
-    All questions
-</h1>
-<div id="tag_cloud">
-Select by tags:
-  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-
-<%= params.inspect %>
+<h1 class="text-left">All questions</h1>
 <div class="posts-orders">
-    <span class="icon-elegant-font-177-8826 sort-icon"></span>
     <%= link_to "Unanswered", unanswered_path %>
     <%= sort_link(@q, :comments_count, "Number of answers", hide_indicator: true)%>
     <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>
 </div><!-- post-orders -->
 
+<div id="tag_cloud">
+  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: "tag tag-#{tag.name}" %>
+  <% end %>
+</div>
 
-<% if @posts.any? %>
+
 <div id="content" class="clearfix posts-wrapper">
   <%= render partial: "index_post" %>
 </div>
 
-
-<% end %>
-
+<div class="col-xs-12 col-sm-12 .col-xl-offset-2 col-xl-8" >
 <% unless @posts.current_page == @posts.total_pages %>
    <p id="view-more" class="clearfix">
-    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-green btn-full btn-load") %>
+    <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load") %>
   </p>
 <% end %>
-
-<% else %>
-    <div class="no-results-container">
-        <h2 class="no-results-heading">Woopsie... No results!</h2>
-        <span class="icon-sad-face-in-rounded-square icon-no-results"></span>
-    </div>
+</div>
+<% else %> 
+  <div class="no-results-container">
+    <h2 class="no-results-heading">Woopsie... No results!</h2>
+    <span class="icon-sad-face-in-rounded-square icon-no-results"></span>
+  </div>
 <% end %>

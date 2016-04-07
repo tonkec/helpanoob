@@ -85,3 +85,24 @@
   -webkit-border-radius: 20px; 
   border-radius: 20px; 
 }
+
+.btn-orange-bordered {
+  background-color: #fff;
+  color: $orange;
+  border: 2px solid $orange;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 10px; 
+     border-radius: 10px; 
+  text-decoration: none; 
+  margin-top: 0;
+  margin-bottom: 50px;  
+  @include transition(1s);
+  &:hover,
+  &:focus {
+    background-color: $orange;
+    color: #fff;
+    text-decoration: none;
+    @include transition(1s); 
+  }
+}

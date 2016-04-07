@@ -1,5 +1,5 @@
-<h1>Unanswered</h1>
-<%= params.inspect %>
+<h1>Unanswered questions</h1>
+
 <div id="tag_cloud">
 Select by tags:  <% tag_cloud Post.uncommented.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, unanswered_tag_path(tag.name), class: css_class %>

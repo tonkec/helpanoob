@@ -1,11 +1,11 @@
 <div class="main-col comments-col" id="<%= comment.id %>">
   <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
-    <p class="comment-content">
+    <p class="comment-content orange-link">
       <%= comment.content %>
           
-      <% unless @_link %>
+      <% unless @disable_link %>
         <%= link_to post_path(comment.post) do%>
-        <i class="fa fa-external-link post-external"></i>
+        <i class="fa fa-external-link link-external"></i>
         <% end %>
       <% end %>
     </p>

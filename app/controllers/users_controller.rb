@@ -77,7 +77,7 @@ class UsersController < ApplicationController
   end
 
   def disable_link
-    @disable_link = true
+    @disable_link = false
   end
 
   private

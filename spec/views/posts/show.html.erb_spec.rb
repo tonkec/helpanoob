@@ -84,7 +84,7 @@ describe 'posts/show.html.erb' do
   end
 
   describe "does not allow any user to delete comment" do
-
+    
   end
 
 end

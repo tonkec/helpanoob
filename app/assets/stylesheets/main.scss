@@ -238,6 +238,9 @@ HOME PAGE
 /* ========================
 TAGS COLORS
 ==========================*/
+.tags {
+	margin-top: 30px; 
+}
 #tag_cloud {
 	margin-top: 20px;
 	margin-bottom: 10px;  
@@ -250,7 +253,7 @@ TAGS COLORS
 	padding: 5px 15px;
 	color: #fff;
 	-webkit-border-radius: 10px; 
-	 border-radius: 10px;  
+	border-radius: 10px;  
 	margin-right: 7px; 
 	font-size: 12px;
 	line-height: 12px; 
@@ -367,7 +370,9 @@ MORE GRID
 	}
 }
 
-
+/* ==============
+GLOBAL 
+=================*/
 
 .modal-close{
 	position: absolute;
@@ -385,4 +390,76 @@ MORE GRID
 .delete-icon {
 	margin-right: 5px;
 	font-size: 14px;  
+}
+
+.row {
+	.padding-col {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+.share {
+	a {
+		padding: 10px 15px;
+		font-size: 12px;
+		-webkit-border-radius: 10px; 
+		border-radius: 10px;  
+		color: #fff; 
+		margin-right: 7px; 
+		cursor: pointer; 
+		@include transition(.5s);
+		&:hover {
+		@include transition(.5s);
+
+			color: #FFF;
+			text-decoration: none; 
+		}
+	}
+
+	a[href*="twitter"] {
+		background-color: $twitter;
+		
+		&:hover {
+			background-color: darken($twitter, 10%); 
+		}
+	}
+
+	a[href*="facebook"] {
+		background-color: $fb;
+		
+		&:hover {
+			background-color: darken($fb, 10%); 
+		}
+	}
+
+	a[href*="pinterest"] {
+		background-color: $pinterest;
+		&:hover {
+			background-color: darken($pinterest, 10%); 
+		}
+	}
+
+	a[href*="reddit"] {
+		background-color: $reddit;
+		&:hover {
+			background-color: darken($reddit, 10%); 
+		}
+	}
+
+	a[href*="google"] {
+		background-color: $google;
+		
+		&:hover {
+			background-color: darken($google, 10%); 
+		}
+	}
+
+	a[href*="linkedin"] {
+		background-color: $linkedin;
+		
+		&:hover {
+			background-color: darken($linkedin, 10%); 
+		}
+	}
 }

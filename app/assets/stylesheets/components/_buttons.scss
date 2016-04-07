@@ -147,3 +147,26 @@
 .btn-submit {
   margin-top: 50px; 
 }
+
+.btn-share {
+  display: block;
+  padding: 5px 20px;
+  font-size: 12px;
+  border: 1px solid $orange;   
+  color: $orange;
+  -webkit-border-radius: 5px; 
+  border-radius: 5px; 
+  @include transition(1s);
+  background-color: #FFF; 
+  
+  &:hover,
+  &:focus {
+    @include transition(1s);
+    background-color: $orange;
+    color: #fff;
+  }
+}
+
+.btn-share-post {
+  margin-top: 20px;
+}

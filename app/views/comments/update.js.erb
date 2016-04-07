@@ -1,6 +1,6 @@
 <% if @comment.errors.any? %>
 	$("#editcomment-<%= @comment.id %>").modal("show");
-	$("#editcomment-<%= @comment.id %> .modal-content").append("<h1>Errors: </h1> <%= @comment.errors.full_messages %>");
+	$("#editcomment-<%= @comment.id %> .modal-content").append("<%= j render 'shared/error_messages', object: @comment %>");
 <% else %>
 	$("#editcomment-<%=@comment.id%>").modal("hide");
 	$(".comments-col#<%= @comment.id %>").fadeOut(500, function(){

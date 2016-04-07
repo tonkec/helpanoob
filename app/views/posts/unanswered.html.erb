@@ -1,6 +1,5 @@
 <h1>Unanswered questions</h1>
 <div class="posts-orders">
-    <span class="icon-elegant-font-177-8826 sort-icon"></span>
     <%= link_to "All", posts_path %>
     <%= sort_link(@q, :created_at, "Created", hide_indicator: true) %>
     <%= sort_link(@q, :cached_votes_score, "Hearts", hide_indicator: true) %>

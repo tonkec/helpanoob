@@ -4,21 +4,20 @@
   </div>
   <div class="main-post-col white-background" id="post-col-<%= post.id %>">
     <div class="col-xs-12 col-sm-10 padding-col">
-      <h3 class="post-title">
+      <h3 class="post-title orange-link">
         <%= post.title %>
+
+        <% unless @disable_link %>
+          <%= link_to post_path(post) do%>
+          <i class="fa fa-external-link post-external"></i>
+          <% end %>
+        <% end %>
       </h3>
 
-      <h6>
-        <%= link_to post.title, post_path(post) unless @disable_link %>
-      </h6>
 
       <p class="post-description">
         <%= post.description %>
       </p>
-
-      <h1>SHARE </h1>
-      
-  
 
     </div><!-- col -->
 

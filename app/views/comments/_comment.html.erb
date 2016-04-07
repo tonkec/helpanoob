@@ -2,8 +2,12 @@
   <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
     <p class="comment-content">
       <%= comment.content %>
-        
-      <%= link_to "See post", post_path(comment.post) if @comment_link %>
+          
+      <% unless @_link %>
+        <%= link_to post_path(comment.post) do%>
+        <i class="fa fa-external-link post-external"></i>
+        <% end %>
+      <% end %>
     </p>
   </div>   
   
@@ -79,7 +83,7 @@
       </div><!-- header -->
       <div class="modal-body">
         <%= form_for([comment.post, comment], :method => :put, remote: true) do |f| %>
-          <%= f.text_area :content, class: "orange-input input-full" %>
+          <%= f.text_area :content, class: "orange-input input-full large-textarea" %>
           <%= f.submit "Update", class: "btn-orange btn-submit-modal" %>
           <button type="button" class="btn-orange-link btn-modal-close" data-dismiss="modal">Close</button>
            <% end %>

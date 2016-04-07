@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :disable_like, only: [:profile, :update, :show]
   skip_before_filter :verify_authenticity_token, :only => :destroy if Rails.env.test? 
-  before_action :comment_link, only: [:profile, :show]
+  before_action :disable_link, only: [:profile, :show]
 
   def profile
     @comments = current_user.comments.page(params[:page]).per(2)
@@ -76,8 +76,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def comment_link
-    @comment_link = true
+  def disable_link
+    @disable_link = true
   end
 
   private

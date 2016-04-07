@@ -261,7 +261,9 @@ TAGS COLORS
 	@include transition(.5s); 
 	text-transform: uppercase; 
 	
-	&:hover {
+	&:hover,
+	&:focus {
+		outline: none;
 		color: #fff;
 		text-decoration: none;
 		@include transition(.5s); 
@@ -333,6 +335,10 @@ TEXT COLORS
 		border-bottom: 1px solid darken($orange, 10%); 
 		outline: none; 
 	}  
+	
+	&.no-margin {
+		margin-bottom: 0; 
+	}
 }
 
 .input-full {
@@ -350,6 +356,7 @@ TEXT COLORS
 
 .large-textarea {
 	height: 300px; 
+	line-height: 1.6em; 
 }
 
 .input-padding {
@@ -399,6 +406,12 @@ GLOBAL
 	}
 }
 
+.bordered-col {
+	border-bottom: 1px solid $orange; 
+}
+/* ================
+SHARE
+===============**/
 .share {
 	a {
 		padding: 10px 15px;

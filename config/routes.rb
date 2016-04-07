@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
   get "unanswered" => "posts#unanswered"
   get "profile", to: "users#profile"
-  get 'tags', to: 'posts#tags'
 
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag

@@ -81,19 +81,19 @@
 
 
     <div role="tabpanel" class="tab-pane fade" id="questions">
-      <h2>Questions</h2>
+      
       <% if @posts.any? %>
 
       <div class="float white-background tab-float">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 p-l-0 p-r-0"> 
-          <div class="dark-dark-link clearfix" id="posts-wrapper">
+          <div class="clearfix" id="posts-wrapper">
 
             <%= render @posts %>
 
             <% unless @posts.current_page == @posts.total_pages %>
               <p id="view-more" class="clearfix">
-                <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn btn-bordered-light btn-full btn-load") %>
+                <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load") %>
               </p>
 
             <% end %>

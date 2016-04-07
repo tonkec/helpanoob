@@ -170,3 +170,32 @@
 .btn-share-post {
   margin-top: 20px;
 }
+
+.btn-delete {
+  background-color: #000;
+  color: $orange; 
+  padding: 10px 30px;
+  font-size: 14px;
+  margin-top: 20px;
+  -webkit-border-radius: 10px; 
+      border-radius: 10px;
+
+  &:hover {
+    background-color: lighten(#000, 5%);
+    color: $orange;
+    text-decoration: none; 
+  @include transition(.5s);  
+
+  }  
+}
+
+.btn-full {
+  .btn-delete {
+    padding: 0;
+  }
+}
+
+
+.btn-ask {
+  width: 100px; 
+}

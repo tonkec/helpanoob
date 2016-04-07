@@ -151,6 +151,10 @@ i.user-link {
 .other-info {
 	margin-top: 10px; 
 }
+
+.user-email-info {
+	margin-top: 10px; 
+}
 /*=========================
 TABS
 ===========================*/
@@ -196,5 +200,16 @@ TABS
 .user-show-tabs {
 	li {
 		width: 33.333%; 
+	}
+}
+
+.post-content {
+	border-bottom: 1px solid $orange;
+	
+}
+
+.user-edit {
+	input:not([type="submit"]) {
+		padding: 20px 15px; 
 	}
 }

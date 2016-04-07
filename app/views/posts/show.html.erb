@@ -1,10 +1,11 @@
 <%= render @post %>
+<h3 class="comment-heading">Share your wisdom</h3>
+<%= render "comments/form" %>
 <div id="comment-wrapper" class="clearfix">
   <%= render @comments %>
 </div>
 
-<h3 class="comment-heading">Share your wisdom</h3>
-<%= render "comments/form" %>
+
 
 <% if @comments.any? %>
   <% unless @comments.current_page == @comments.total_pages %>

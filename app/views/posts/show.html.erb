@@ -1,13 +1,9 @@
-<h2>
- Answers:<%= @post.comments.count %>
-</h2> 
-
 <%= render @post %>
 <div id="comment-wrapper" class="clearfix">
   <%= render @comments %>
 </div>
 
-<h2>Share your wisdom</h2>
+<h3 class="comment-heading">Share your wisdom</h3>
 <%= render "comments/form" %>
 
 <% if @comments.any? %>

@@ -86,6 +86,26 @@
   border-radius: 20px; 
 }
 
+.btn-orange {
+  width: auto;
+  border: none;
+  -webkit-border-radius: 10px; 
+    border-radius: 10px;   
+  background-color: $orange;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 15px;
+  text-decoration: none;
+  @include transition(.5s);
+  
+  &:hover,
+  &:focus {
+    @include transition(.5s);
+    color: #fff;
+    background-color: $light-orange; 
+  }   
+}
+
 .btn-orange-bordered {
   background-color: #fff;
   color: $orange;

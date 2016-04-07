@@ -1,4 +1,4 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
-  <%= f.text_area :content, class: "green-textarea green-input", placeholder: "Share your wisdom here..." %>
-  <%= f.submit class: "btn-green btn-submit" %>
+  <%= f.text_area :content, class: "orange-input input-bordered input-full", placeholder: "Say something smart..." %>
+  <%= f.submit "Comment", class: "btn-orange" %>
 <% end %>

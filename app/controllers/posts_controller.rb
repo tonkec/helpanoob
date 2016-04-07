@@ -25,9 +25,15 @@ class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:update]
   before_action :correct_user, only: [:edit, :update, :destroy]
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+  before_action :disable_link, :only => :show
 
   # GET /posts
   # GET /posts.json
+
+  def disable_link
+    @disable_link = true
+  end
+  
   def index
     if params[:tag]
       @tagged_posts = Post.tagged_with(params[:tag])

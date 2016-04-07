@@ -318,14 +318,15 @@ TEXT COLORS
 	color: #FFF; 
 }
 
-.blue-input {
-	color: $light-blue;
+.orange-input {
+	color: $orange;
 	padding: 20px; 
 	border: none; 
-	border-bottom: 1px solid $light-blue;
+	border-bottom: 1px solid $orange;
 	margin-bottom: 15px; 
 	&:focus {
-		border-bottom: 1px solid darken($light-blue, 20%); 
+		color: $orange;
+		border-bottom: 1px solid darken($orange, 10%); 
 		outline: none; 
 	}  
 }
@@ -333,6 +334,10 @@ TEXT COLORS
 .input-full {
 	width: 100%;
 	display: block;  
+}
+
+.input-bordered {
+	border: 1px solid $orange;
 }
 
 .blue-bg-input {
@@ -355,4 +360,13 @@ MORE GRID
 	@media(min-width: 1400px) {
 		margin-left: 16.66666667%;		
 	}
+}
+
+
+
+.modal-close{
+	position: absolute;
+	top: 40px;
+	right: 30px;
+	font-size: 14px;    
 }

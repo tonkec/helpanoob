@@ -3,14 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/mixins";
 @import "components/colors";
+
+.post-content {
+	position: relative;
+}
 .posts-wrapper {
 	padding-bottom: 100px; 
-}
-
-.post-group-info {
-	position: absolute;
-	right: 40px; 
-	top: 50px; 
 }
 
 .main-posts-row {
@@ -72,14 +70,23 @@
 	} 
 }
 
-.main-question-icon {
+.like-post {
+	position: absolute;
+	right: 100px;
+	text-align: center; 
+	top: 125px; 
+
+}
+
+.fa.main-question-icon {
 	font-size: 40px;
 	color: $light-orange;
 	cursor: pointer;
 	display: inline-block; 
-	
+	@include transition(.5s);
 	&:hover {
-		color: #FF6F59; 
+		@include transition(.5s);
+		color: $light-blue; 
 		text-decoration: none; 		
 	}
 }
@@ -92,15 +99,7 @@
 }
 
 .post-subinfo {
-	font-size: 12px; 
-	
-	a {
-		color: $light-orange;
-		
-		&:hover {
-			text-decoration: none; 
-		} 
-	}
+	font-size: 12px;
 }
 
 .post-subinfo {
@@ -190,10 +189,7 @@
 }
 
 .posts-editable-links {
-	margin-top: 5px;
-	a {
-		color: $light-orange;
-	}
+	margin-top: 15px;
 }
 
 .posts-orders {
@@ -254,3 +250,8 @@
 		margin-top: 15px;
 	} 
 }
+
+.post-tag {
+	margin-top: 10px; 
+}
+

@@ -1,37 +1,50 @@
-<div id="content" id="content-<%= post.id %>">
-
+<div class="clearfix post-content" id="content-<%= post.id %>">
+ <div class="like-post">
+    <%= render partial: "posts/like" unless @disable_like %>
+  </div>
   <div class="main-post-col" id="post-col-<%= post.id %>">
     <div class="col-xs-12 col-sm-10 p-l-o p-r-0">
       <h3 class="post-title">
-        <%= link_to post.title, post_path(post) %>
+        <%= post.title %>
       </h3>
 
-      <h1>
-        <%= post.id %>
-      </h1>
+      <h6>
+        <%= link_to post.title, post_path(post) unless @disable_link %>
+      </h6>
 
       <p class="post-description">
         <%= post.description %>
       </p>
-      <%= render partial: "posts/like" unless @disable_like %>
+      
+  
 
     </div><!-- col -->
 
     <%#= render_shareable %>
 
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo">
-      <%=link_to post.user.email, user_path(post.user), class: "light-orange-text" %>
-      <p class="post-date">
-        <%= time_ago_in_words(post.created_at) %> ago
-      </p>
-      <p>
-        Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <h5 class="orange-link">
+        <%=link_to post.user.username, user_path(post.user), class: "light-orange-text" %>
+      </h5>
+      
+      <h6 class="post-info first">
+         <span class="icon-elegant-font-270-10173 post-icon light-orange-text"></span> 
+         <%= time_ago_in_words(post.created_at) %> ago
+      </h6>
 
+       <h6 class="post-info">
+         <span class="icon-elegant-font-208-9915 post-icon light-orange-text"></span> <%= post.comments.count %>
+       </h6>
+
+      
+      <p class="post-tag">
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t), class: "tag" }.join(', ') %>
       </p>
 
-      <div class="posts-editable-links col-lg-2 col-lg-offset-10 p-l-0 p-r-0 text-center">
+      <div class="posts-editable-links orange-link">
         <% if post.user.id == current_user.id %>
         <%= link_to 'Edit', edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" %>
+        <span class="light-orange-text">|</span>
         <a href="" class: "delete_post" data-target="#deletepost-<%= post.id %>" data-toggle="modal">Destroy</a>
         
         <% end %>
@@ -43,35 +56,36 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4>Edit your post</h4>
+            <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div><!-- modal header -->
           
           <div class="modal-body">
             <%= form_for(post, :method => :put, remote: true) do |f| %>
               <div class="field">
-                <%= f.text_field :title, class: "green-input form-control", placeholder: "Title" %>
-                <%= f.text_area :description, class: "green-textarea form-control", placeholder: "Ask a question" %>
+                <%= f.text_field :title, class: "orange-input input-full", placeholder: "Title" %>
+                <%= f.text_area :description, class: "orange-input input-full large-textarea", placeholder: "Ask a question" %>
               </div>
 
               <div class="field">
                 <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-                <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true  %>    
+                <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "orange-input input-full"  %>    
               </div>
               <div class="field avatar">
-                <label>My Avatar</label>
+                <%= f.label :images %>
                 <%= f.file_field :images, multiple: true, class: "multiple-input", id: "fileupload" %>
                 <%= f.hidden_field :images_cache, class: "cache" %>
               </div>
               
               <div class="actions">
-                <%= f.submit "Update", class: "btn-full btn-green" %>
+                <%= f.submit "Update", class: "btn-orange" %>
+                <button type="button" class="btn-orange-bordered" data-dismiss="modal">Close</button>
               </div>
             <% end %>
         </div><!-- modal body -->
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+         
         </div><!-- modal footer -->
       </div>  <!-- modal content -->
     </div> <!-- modal dialog -->

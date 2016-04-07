@@ -67,9 +67,8 @@ HOME PAGE
 	}
 }
 .main-col {
-	margin-top: 5px; 
 	background-color: $white; 
-	border-bottom: 1px solid $white-1;
+	position: relative; 
 }
 
 .main-home-p {
@@ -321,10 +320,11 @@ TEXT COLORS
 
 .orange-input {
 	color: $orange;
-	padding: 20px; 
 	border: none; 
 	border-bottom: 1px solid $orange;
-	margin-bottom: 15px; 
+	margin-bottom: 15px;
+	padding: 0 10px;  
+	line-height: 1;
 	&:focus {
 		color: $orange;
 		border-bottom: 1px solid darken($orange, 10%); 
@@ -348,6 +348,10 @@ TEXT COLORS
 .large-textarea {
 	height: 300px; 
 }
+
+.input-padding {
+	padding: 20px; 
+}
 /* ========================
 MORE GRID
 ==========================*/
@@ -370,4 +374,15 @@ MORE GRID
 	top: 40px;
 	right: 30px;
 	font-size: 14px;    
+}
+
+.modal-delete-btns {
+	margin-top: 25px;
+	margin-bottom: 10px;  
+}
+
+.edit-icon,
+.delete-icon {
+	margin-right: 5px;
+	font-size: 14px;  
 }

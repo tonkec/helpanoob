@@ -162,7 +162,7 @@ TABS
 		text-align: center;
 		margin: 0; 
 		overflow: hidden; 
-		border: 1px solid $light-blue; 
+		border: 1px solid $orange; 
 		
 		a {
 			border: 0 !important;
@@ -171,18 +171,18 @@ TABS
 			padding: 10px 0;
 			-webkit-border-radius: 0 !important; 
 			border-radius: 0 !important;
-			color: $dark-blue; 
+			color: $orange; 
 			@include transition(.7s);
 			
 			&:hover {
-				background-color: $light-blue !important;
+				background-color: $orange !important;
 				color: #fff;
 			}
 		}
 		
 		&.active {
 			a {
-				background-color: $light-blue !important;
+				background-color: $orange !important;
 				color: #fff !important; 
 			}
 		}

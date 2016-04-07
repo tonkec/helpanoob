@@ -1,5 +1,5 @@
 <div class="clearfix post-content" id="content-<%= post.id %>">
- <div class="like-post">
+ <div class="like-icons">
     <%= render partial: "posts/like" unless @disable_like %>
   </div>
   <div class="main-post-col" id="post-col-<%= post.id %>">
@@ -15,6 +15,8 @@
       <p class="post-description">
         <%= post.description %>
       </p>
+
+      <h1>SHARE </h1>
       
   
 
@@ -43,9 +45,12 @@
 
       <div class="posts-editable-links orange-link">
         <% if post.user.id == current_user.id %>
-        <%= link_to 'Edit', edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" %>
-        <span class="light-orange-text">|</span>
-        <a href="" class: "delete_post" data-target="#deletepost-<%= post.id %>" data-toggle="modal">Destroy</a>
+          <%= link_to edit_post_path(post), remote: true, class: "edit-post", 'data-target' => "#editpost-#{post.id}", 'data-toggle' => "modal" do %>
+          <span class="icon-elegant-font-250-10020 edit-icon"></span>
+          <% end %>
+        <a href="" class: "delete_post" data-target="#deletepost-<%= post.id %>" data-toggle="modal">
+          <span class="icon-elegant-font-3-7491 delete-icon"></span>
+        </a>
         
         <% end %>
       </div>

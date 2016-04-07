@@ -56,11 +56,6 @@
   } 
 }
 
-.btn-load,
-.btn-submit {
-  width: 100%; 
-  margin-top: 50px; 
-}
 
 .btn-full {
   width: 100%; 
@@ -117,6 +112,7 @@
   text-decoration: none; 
   margin-top: 0;
   margin-bottom: 50px;  
+  width: auto; 
   @include transition(1s);
   &:hover,
   &:focus {
@@ -125,4 +121,29 @@
     text-decoration: none;
     @include transition(1s); 
   }
+}
+
+.btn-submit-modal {
+  margin-top: 10px; 
+}
+
+.btn-close-modal {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.btn-orange-link {
+  color: $orange;
+  font-size: 14px; 
+  @include transition(.5s);
+  &:hover {
+    @include transition(.5s);
+    color: $light-blue;
+  }
+}
+
+
+.btn-load,
+.btn-submit {
+  margin-top: 50px; 
 }

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/colors";
+@import "components/mixins";
 .new-q-wrapper {
 	margin-top: 100px; 
 }
@@ -15,13 +16,6 @@
 	bottom: 0px;    
 }
 
-.green-input {
-	color: $green;
-	&:focus {
-		border: 1px solid $green; 
-		outline: none; 
-	}  
-}
 
 .new-q-heading {
 	margin-bottom: 30px;
@@ -29,4 +23,71 @@
 
 .comment-heading {
 	margin: 30px 0 20px; 
+}
+
+
+.comments-col {
+	padding: 20px 35px; 
+	float: left;
+	width: 100%; 
+	margin-top: 20px; 
+}
+
+.comment-content {
+	font-size: 20px;
+	margin-bottom: 20px;  
+}
+
+.comment-email {
+	margin-bottom: 10px; 
+}
+
+.fa.comment-heart {
+	font-size: 18px; 
+}
+
+.c-number-of-votes {
+	font-size: 12px; 
+	padding-left: 5px; 
+}
+
+.add-comment-col {
+	margin-top: 10px; 
+	margin-bottom: 10px;
+}
+
+.posts-add-comment {
+	margin-bottom: 10px; 
+	color: $green;
+	font-size: 14px; 
+	@include transition(1s); 
+	&:focus {
+		border: 1px solid $green;
+	} 
+}
+
+.btn-comment {
+	width: 150px;
+	padding: 0;
+	height: 50px;   
+}
+
+.like-icons-comment {
+	text-align: center; 
+	position: absolute;
+	right: 40px;
+	top: 20px;   
+	span {
+		font-size: 25px;
+		color: $orange;  		
+	}
+}
+
+.number-of-votes.comment {
+	font-size: 18px; 
+	margin: 0; 
+}
+
+.comment-editable-links {
+	margin-top: 10px; 
 }

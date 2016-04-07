@@ -19,10 +19,10 @@
 	padding: 2px 0;  
 	-webkit-border-radius: 10px; 
 	border-radius: 10px;
-	color: $dark-blue;
+	color: $light-orange;
 	position: relative; 
 	text-transform: uppercase;
-	border: 1px solid $dark-blue;
+	border: 1px solid $orange;
 
 	@media (min-width: 1200px) {
 		width: 100%;
@@ -45,7 +45,7 @@
 .skill-delete-overlay {
     opacity: 0;
     position: absolute;
-    background-color: $dark-blue-2;
+    background-color: $orange;
     top: 0;
     bottom: 0;
     left: 0;

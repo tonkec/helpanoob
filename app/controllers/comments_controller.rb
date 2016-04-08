@@ -17,10 +17,15 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comments_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to post_path(@post)
-    else
-      render 'new'
+
+    respond_to do |format|
+      if @comment.save
+        format.html {redirect_to post_path(@post)}
+        format.js
+      else
+       format.html { render action: "new"}
+       format.js
+      end
     end
   end
 

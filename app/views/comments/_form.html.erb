@@ -1,4 +1,9 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
+<div class="comment-form-wrapper">
+  <h3 class="comment-heading">Share your wisdom </h3>
+
+  <%= form_for([@post, @post.comments.build], remote: true, method: :create) do |f| %>
   <%= f.text_area :content, class: "orange-input input-bordered input-full input-padding", placeholder: "Say something smart..." %>
   <%= f.submit "Comment", class: "btn-orange" %>
-<% end %>
+  <% end %>
+
+</div>

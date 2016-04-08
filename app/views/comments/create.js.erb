@@ -1,5 +1,8 @@
 <% if @comment.errors.any? %>
+	$("#error_explanation").remove();
+	$(".fa-external-link").remove();
 	$(".comment-form-wrapper").prepend("<%= j render 'shared/error_messages', object: @comment %>");
 <% else %>
+	$("#error_explanation").remove();
 	$("#comment-wrapper").prepend("<%= j render @comment %>")
 <% end %>

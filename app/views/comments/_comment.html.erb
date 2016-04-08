@@ -4,7 +4,7 @@
       <%= comment.content %>
           
       <% unless @disable_link %>
-        <%= link_to post_path(comment.post) do%>
+        <%= link_to post_path(comment.post), class: "link-#{comment.id}" do%>
         <i class="fa fa-external-link link-external"></i>
         <% end %>
       <% end %>
@@ -56,9 +56,9 @@
     <div class="comment-editable-links">
       <% if comment.user_id == current_user.id %>
       <span class="orange-link">
-        <%= link_to edit_post_comment_path(comment.post, comment), remote: true, 'data-target' => "#editcomment-#{comment.id}", 'data-toggle' => "modal" do %>
-        <span class="icon-elegant-font-250-10020 edit-icon"></span>
-      <% end %>
+         <a href="" class: "delete_comment" data-target="#editcomment-<%=comment.id%>" data-toggle="modal">
+           <span class="icon-elegant-font-250-10020 edit-icon"></span>          
+        </a>
       </span>
       
       <span class="orange-link">

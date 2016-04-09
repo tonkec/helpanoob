@@ -260,38 +260,18 @@ TAGS COLORS
 	background-color: $light-orange;  
 	@include transition(.5s); 
 	text-transform: uppercase; 
+	display: inline-block;
+	margin-top: 10px;  
 	
 	&:hover,
 	&:focus {
 		outline: none;
 		color: #fff;
 		text-decoration: none;
-		@include transition(.5s); 
 		background-color: $light-blue; 
 	}
 }
 
-.javascript {
-	background-color: $javascript; 
-}
-
-.ruby,
-.rails,
-.ruby-on-rails {
-	background-color: $ruby; 
-}
-
-.jquery {
-	background-color: $jquery; 
-}
-
-.php {
-	background-color: $php; 
-}
-
-.sql {
-	background-color: $sql; 
-}
 
 /* ========================
 COLORS of elements
@@ -512,4 +492,18 @@ SHARE
 			background-color: darken($linkedin, 10%); 
 		}
 	}
+}
+
+
+/*=======================
+FLASH
+===========================*/
+.alert {
+	padding: 20px 30px;
+	width: auto;
+	z-index: 9999;
+	background-color: rgba(255, 255, 255, 0.7);;
+	font-size: 16px;
+	position: absolute; 
+	right: 0;       
 }

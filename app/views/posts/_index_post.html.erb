@@ -1,5 +1,5 @@
 <% @posts.each do |p| %>
-  <div class="col-xs-12 col-sm-12 col-lg-8 main-post-col white-background padding-col">
+  <div class="col-xs-12 col-sm-12 col-lg-10 col-xl-8 main-post-col white-background padding-col">
     <h4 class="dark-orange-link post-title">
       <%= link_to truncate(p.title, length: 100), post_path(p) %>
     </h4>

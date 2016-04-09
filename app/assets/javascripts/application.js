@@ -21,9 +21,9 @@ $(document).ready(function() {
 
   function toggleNav () {
     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
-    $(".btn-nav").toggleClass("animated");
+    $("#btn-nav").toggleClass("animated");
   }
-  $(".btn-nav").on("click tap", function() {
+  $("#btn-nav").on("click tap", function() {
     toggleNav();
   });
 

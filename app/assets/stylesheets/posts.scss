@@ -36,9 +36,9 @@
 	padding-top: 50px; 
 	padding-bottom: 20px; 
 	-ms-word-wrap: break-word; 
-	 word-wrap: break-word;
+	word-wrap: break-word;
 	-ms-word-break: break-all; 
-	  word-break: break-all;   
+	word-break: break-all;   
 }
 
 .post-btn {
@@ -56,9 +56,14 @@
 
 .like-icons {
 	position: absolute;
-	right: 100px;
+	right: 70px;
 	text-align: center; 
-	top: 125px; 
+	bottom: 130px; 
+	
+	@media (min-width: 768px) {
+		right: 100px;
+		top: 125px; 
+	}
 
 }
 
@@ -160,7 +165,7 @@ span.main-question-icon {
 	&:hover {
 		text-decoration: none;
 		-webkit-box-shadow: none; 
-		 box-shadow: none;  
+		box-shadow: none;  
 	}
 }
 
@@ -196,7 +201,7 @@ span.main-question-icon {
 	}
 
 	.post-tags {
-			margin-right: 5px; 
+		margin-right: 5px; 
 	}
 
 	.form-control[readonly] {
@@ -222,7 +227,7 @@ span.main-question-icon {
 		.post-img-layer {
 			opacity: .8;
 			@include transition(.5s);
- 
+
 		}
 	} 
 }
@@ -238,7 +243,7 @@ span.main-question-icon {
 	background-color: lighten(#000, 10%); 
 	text-align: center; 
 	@include transition(.5s);
- 
+
 	
 	span {
 

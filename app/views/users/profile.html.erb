@@ -71,7 +71,7 @@
 
           <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
             <div class="row dark-dark-link">
-              <%= render current_user.skills %>
+              <%= render @skills %>
             
               <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "hidden-xs skill-add-more-link", id: "add_new_skill", 'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
              
@@ -91,7 +91,10 @@
       <div class="float white-background tab-float">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2"> 
-          <div class="clearfix profile-posts" id="posts-wrapper">
+          <div class="clearfix profile-posts" id="posts-wrapper"> 
+            <h3 class="light-orange-text">
+              <%= current_user.posts.count %>
+            </h3>
             <%= render @posts %>
           </div>
 
@@ -103,9 +106,9 @@
        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2"> 
 
          <% unless @posts.current_page == @posts.total_pages %>
-         <p id="view-more" class="clearfix">
-          <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load") %>
-        </p>
+          <p id="view-more" class="clearfix">
+            <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load", id:"view-more-post") %>
+          </p>
 
         <% end %>
 
@@ -117,10 +120,14 @@
       <div class="float white-background">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
-          <div id="comment-wrapper" class="clearfix">
+          <div id="comments-wrapper" class="clearfix">
             <% if @comments.any? %>
-
+              <h3 class="light-orange-text">
+                <%= current_user.comments.count %>
+              </h3>  
               <%= render @comments  %>
+
+             
             
             <% end %>
           </div>

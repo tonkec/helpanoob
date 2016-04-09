@@ -18,7 +18,7 @@
   <%= render partial: "index_post" %>
 </div>
 
-<div class="col-xs-12 col-sm-12 col-lg-8">
+<div class="col-xs-12 col-sm-12 col-lg-10 col-xl-8">
 <% unless @posts.current_page == @posts.total_pages %>
    <p id="view-more" class="clearfix">
     <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load") %>

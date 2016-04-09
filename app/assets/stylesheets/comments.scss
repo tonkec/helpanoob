@@ -37,9 +37,9 @@
 	font-size: 20px;
 	margin-bottom: 20px; 
 	-ms-word-break: break-all; 
-	 word-break: break-all;
+	word-break: break-all;
 	-ms-word-wrap: break-word; 
-	  word-wrap: break-word;   
+	word-wrap: break-word;   
 }
 
 .comment-email {
@@ -80,10 +80,14 @@
 	text-align: center; 
 	position: absolute;
 	right: 40px;
-	top: 50px;   
+	bottom: 40px;  
 	span {
 		font-size: 25px;
 		color: $orange;  		
+	}
+
+	@media (min-width: 768px) {
+		top: 50px;
 	}
 }
 

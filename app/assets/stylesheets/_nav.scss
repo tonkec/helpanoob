@@ -99,6 +99,7 @@
     
     @media (min-width: 480px) {
       background-color: transparent; 
+      width: 45px; 
     }
     @include transition(1s);
     &:focus {

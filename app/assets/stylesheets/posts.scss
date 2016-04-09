@@ -189,7 +189,74 @@ span.main-question-icon {
 	margin-top: 10px; 
 }
 
-.lightbulb {
-	color: $orange;
-	font-size: 20px; 
+.new_post {
+	.input-group,
+	.post-tags {
+		margin-top: 25px; 
+	}
+
+	.post-tags {
+			margin-right: 5px; 
+	}
+
+	.form-control[readonly] {
+		background-color: #fff;
+		color: $orange;
+	}
+}
+
+.post-images-col {
+	margin-top: 30px;
+	margin-bottom: 30px;  
+}
+
+.post-img {
+	position: relative; 
+	display: inline-block;
+	margin-right: 5px; 
+	margin-bottom: 10px;
+	cursor: pointer;
+
+	&:hover {
+
+		.post-img-layer {
+			opacity: .8;
+			@include transition(.5s);
+ 
+		}
+	} 
+}
+
+.post-img-layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	opacity: 0;
+	padding: 20px; 
+	background-color: lighten(#000, 10%); 
+	text-align: center; 
+	@include transition(.5s);
+ 
+	
+	span {
+
+		font-weight: 500;
+		font-size: 13px;  
+		margin-top: 45%;
+		position: relative;
+		color: #fff;
+		display: inline-block;   
+	}    
+}
+
+.post-images-heading {
+	margin-bottom: 20px; 
+}
+
+.post-full-img {
+	img {
+		width: 100%; 
+	}
 }

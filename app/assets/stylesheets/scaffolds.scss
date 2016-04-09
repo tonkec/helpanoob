@@ -1,3 +1,5 @@
+@import "components/colors";
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -16,15 +18,20 @@ div {
 
 .field_with_errors {
   width: 100%;
-  border: 1px solid red !important;
+  border-left: 2px solid $error !important;
+  border-right: 2px solid $error !important;
+  border-top: 2px solid $error !important;
+}
+
+.error_messages_list {
+  list-style: none; 
 }
 
 #error_explanation {
-  width: 90%;
-  border: 2px solid red;
+  width: 100%;
+  border: 2px solid $error;
   padding: 7px;
   padding-bottom: 0;
-  margin-bottom: 20px;
   background-color: #f0f0f0;
   margin: 20px auto;
 
@@ -41,6 +48,5 @@ div {
 
   ul li {
     font-size: 12px;
-    list-style: square;
   }
 }

@@ -21,8 +21,6 @@
 
     </div><!-- col -->
 
-    <%#= render_shareable %>
-
     <div class="col-xs-12 col-sm-12 p-r-0 post-subinfo padding-col">
       <h5 class="orange-link">
         <%=link_to post.user.username, user_path(post.user), class: "light-orange-text" %>
@@ -48,7 +46,7 @@
         </a>
         <% end %>
 
-      </div>
+      </div><!-- posteditable -->
 
       <p class="post-tag">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t), class: "tag" }.join(', ') %>
@@ -59,6 +57,59 @@
         </button>
 
     </div><!--post-subinfo  -->
+
+    
+
+
+
+  </div>  <!-- main-post-col -->
+</div><!-- content -->
+
+  <div class="col-xs-12 col-sm-12 post-images-col">
+    
+    <% if post.images.any? %>
+      <h5 class="post-images-heading">
+         Images: <%= post.images.count %>
+      </h5>    
+      <% n = 0 %>
+      <% post.images.each do |img| %>
+      <% n+= 1 %>
+
+      <div class="post-img">
+        <div class="post-img-layer" data-target="#img-<%=n%>" data-toggle="modal">
+          <span>
+            Click to see image
+          </button>
+        </div>
+        <%= image_tag(img) %>
+      </div>
+     
+      <div class="modal fade edit-post-modal" id="img-<%= n %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+       <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Post image</h4>
+          </div>
+          <div class="modal-body">
+            <div class="post-full-img">
+              <%= image_tag(img.full)%>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <% end %>
+
+
+    <% end %>
+
+  </div>
+
+
 
     <!--Edit post Modal -->
     <div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -120,9 +171,6 @@
     </div> <!-- modal dialog -->
     </div> <!-- modal-fade -->
 
-
-  </div>  <!-- main-post-col -->
-</div><!-- content -->
 
 
 

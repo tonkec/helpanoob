@@ -3,6 +3,7 @@
 	$(".fa-external-link").remove();
 	$(".comment-form-wrapper").prepend("<%= j render 'shared/error_messages', object: @comment %>");
 <% else %>
+	$(".middle-textarea").val("");
 	$("#error_explanation").remove();
 	$("#comment-wrapper").prepend("<%= j render @comment %>")
 <% end %>

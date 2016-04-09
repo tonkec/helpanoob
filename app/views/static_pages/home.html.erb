@@ -2,58 +2,106 @@
 <div class="landing-wrapper">
   <header class="landing-header">
     <div class="landing-layer"></div>
-    <%= render partial: "layouts/flash" %>
 
     <%= video_tag("video.mp4", class: "video", autoplay: true, loop: true)%>
 
-    <h1 class="landing-heading white-text">
-      Help a noob! 
-    </h1>
-    
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
+  
+      
+      <div class="row landing-top-row">
+        <div class="container">
+          
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h1 class="landing-heading white-text">
+              Help a noob! 
+            </h1>
+
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
+          </div>
+
+        </div>
+      </div>
 
     <div class="arrow-container">
       <a href="#next-section">
         <i class="fa fa-angle-double-down white-text"></i>
       </a>
     </div><!-- arrow-con -->
+
   </header>
 
   <section class="white-background" id="next-section">
-    <div class="row">
-      <div class="col-lg-6">
-        <h3>From one noob to another!</h3>
-        <h3>Whether you are just starting...</h3>
-        <h3>or have more experience</h3>
-
-        <h3>Whether you are seeking help</h3>
-        <h3>or you want to help</h3>
-
-        <h3>We all have been noobs</h3>
-        <h3>Don't be afraid to ask</h3>
-
-        <h3>There are no stupid questions</h3>
-        <h3>No RTFM answers</h3>
-        <h3>No too noobish questions</h3>
-        <h3>No one will put you down</h3>
-        <h3>Stuck? Need help? Share you problem with us and let the community help you</h3>
-
+   <div class="row section-row">
+      
+      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+        <h2 class="landing-text">Ask anything you want!</h2>
       </div>
-      <div class="col-lg-6"></div>
+
+   </div>
+  </section>
+
+  <section class="brown-background">
+    <div class="row section-row">
+      
+      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+        <h2 class="landing-text white-text">From one noob to another!</h2>
+      </div>
+
+   </div>
+  </section>
+
+  <section class="white-background" id="next-section">
+   <div class="row section-row">
+      
+      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+        <h2 class="landing-text">No RTFM answers!</h2>
+      </div>
+
+   </div>
+  </section>
+
+
+  <section class="brown-background" id="next-section">
+     <div class="row section-row">
+
+      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+        <h2 class="landing-text white-text">There are no such thing as stupid questions!</h2>
+      </div>
+
     </div>
   </section>
 
-  <section class="white-background">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, voluptate suscipit. Quaerat esse possimus laboriosam ullam, hic nisi aspernatur expedita tempora repellat nihil commodi perferendis delectus repellendus qui dolores, quis, libero optio natus reiciendis? Nisi corporis provident, minus rem temporibus, quia at libero, vitae error reprehenderit, esse ipsa est iusto.</p>
+
+  <section class="white-background" id="next-section">
+   <div class="row section-row">
+      
+      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+        <h2 class="landing-text">No shame!</h2>
+      </div>
+
+   </div>
   </section>
 
-  <section class="transparent-background">
-    <div class="landing-layer"></div>
-  </section>
+
 
 </div><!-- landing wrapper -->
 
 
 <script>
-  $("body").css("background-color", "transparent")
+  $("body").css("background-color", "transparent");
+
+
+  $(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 </script>

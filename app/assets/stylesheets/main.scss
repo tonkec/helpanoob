@@ -308,6 +308,10 @@ COLORS of elements
 	@include bgc(transparent);
 }
 
+.brown-background {
+	@include bgc($brown);
+}
+
 /* ========================
 TEXT COLORS
 ==========================*/

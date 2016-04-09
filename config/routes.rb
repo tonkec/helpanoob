@@ -26,12 +26,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
 
-  devise_for :users, controllers: { registrations: "registrations" }
-
-  devise_scope :user do
-    get '/reset_password' => "passwordusers#new", :as => :reset_password
-    get '/new_password' => "passwordusers#edit", :as => :new_password
-  end
+  devise_for :users
 
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user

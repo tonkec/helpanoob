@@ -137,7 +137,7 @@
   font-size: 14px; 
   @include transition(.5s);
   &:hover {
-    @include transition(.5s);
+    text-decoration: none; 
     color: $light-blue;
   }
 }

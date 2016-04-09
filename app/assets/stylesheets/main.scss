@@ -367,6 +367,16 @@ TEXT COLORS
 .input-padding {
 	padding: 20px; 
 }
+
+.orange-input-new {
+	width: 100%;
+	background-color: rgba(255,255,255,.7);
+	color: $orange;
+	padding: 20px;
+	margin-bottom: 0;
+	border: none; 
+	border-bottom: 1px solid lighten(#000, 10%);     
+}
 /* ========================
 MORE GRID
 ==========================*/
@@ -379,6 +389,18 @@ MORE GRID
 .col-xl-offset-2 {
 	@media(min-width: 1400px) {
 		margin-left: 16.66666667%;		
+	}
+}
+
+.col-xl-6 {
+	@media (min-width: 1400px) {
+		width: 50%; 
+	}
+}
+
+.col-xl-offset-3 {
+	@media(min-width: 1400px) {
+		margin-left: 25%;		
 	}
 }
 

@@ -1,16 +1,56 @@
-<h2>Resend confirmation instructions</h2>
+<div class="bg-wrap">
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="cb-slideshow">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
+    <div class="bg-img active">
+    </div>
+    <div class="bg-img"></div>
+    <div class="bg-img"></div>
+    <div class="bg-img"></div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="row row-slideshow" >
+
+
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-xl-6 col-xl-offset-3">
+      <h2 class="white-text signup-heading">Resend!</h2>
+
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "orange-input-new" %> 
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Resend confirmation instructions", class: "btn-signup" %>
+        </div>
+        <%= render "devise/shared/links" %>
+        <% end %>
+
+
+    </div>
+
+  </div><!-- row-slideshow -->
+
+</div><!-- bq-wrap -->
+
+
+<script>
+
+
+  var imgs = $(".bg-img");
+  i = -1;
+  (function f(){
+    i = (i + 1) % imgs.length;
+
+    $(imgs).not(imgs[i]).removeClass("active")
+    $(imgs[ i ]).addClass("active")
+    setTimeout(f, 7000);
+  })();
+
+</script>
+
+
+

@@ -63,6 +63,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = current_user
     @comments = @post.comments.page(params[:page]).per(5)
+    @images = @post.images
     respond_to do |format|
       format.html
       format.js
@@ -85,8 +86,8 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save(post_params)
-      redirect_to posts_path
       flash.now[:success] = "Post successfully created"
+      redirect_to post_path(@post)
     else
       render "new"
     end

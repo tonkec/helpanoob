@@ -45,8 +45,8 @@
   (function f(){
     i = (i + 1) % imgs.length;
 
-    $(imgs).not(imgs[i]).removeClass("active")
-    $(imgs[ i ]).addClass("active")
+    $(imgs).not(imgs[i]).removeClass("slide-active")
+    $(imgs[ i ]).addClass("slide-active")
     setTimeout(f, 7000);
   })();
 

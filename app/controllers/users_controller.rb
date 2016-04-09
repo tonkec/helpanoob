@@ -60,12 +60,21 @@ class UsersController < ApplicationController
   end
 
   def update 
+    respond_to do |format|
       if current_user.update_attributes(user_params)
-        redirect_to profile_path
+       format.html {
+         redirect_to profile_path
+         flash.now[:success] = "Account updated!"
+       }
+
+       format.js {
+         flash.now[:success] = "Account updated!"
+         redirect_to profile_path
+       }
       else
-        flash.now[:danger] = "Account not updated because of errors"
-        render "profile"
+        format.html {render "profile"}
       end
+    end
   end
 
   def destroy

@@ -3,7 +3,7 @@ class Skill < ActiveRecord::Base
   
   before_save { |skill| skill.name = skill.name.downcase! }
 
-  validates :name, inclusion: { in: %w(ruby php css html javascript sql react.js angular.js),
+  validates :name, inclusion: { in: %w(ruby php css html jquery javascript sql react angular),
                    message: "Pick a real skill" },
 
                   presence: {message: "Skill can't be blank"},

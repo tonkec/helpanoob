@@ -7,9 +7,7 @@ class SkillsController < ApplicationController
   end
 
   def create
-    @skill = current_user.skills.build(skill_params)
-    @permitted_skills = ["ruby", "rails", "ruby on rails", "jquery", "javascript", "php", "sql", "css", "html"]
-    
+    @skill = current_user.skills.build(skill_params)    
     @skill.name.downcase!
 
     respond_to do |format|
@@ -19,7 +17,7 @@ class SkillsController < ApplicationController
         format.js
       else
         format.html { render action: "new" }
-        format.js {  }
+        format.js
       end
     
     end

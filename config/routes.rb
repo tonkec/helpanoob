@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :post_attachments
   root "posts#index"
   get "landing_page", to: "static_pages#home"
   get "about", to: "static_pages#about"

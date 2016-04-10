@@ -1,4 +1,10 @@
-FactoryGirl.define do 
+FactoryGirl.define do  factory :post_attachment do
+    post nil
+title "MyString"
+description "MyString"
+attachemnts "MyText"
+  end
+ 
   factory :user do
     username "user"
     sequence(:email) { |n| "test#{n}@example.com" }    

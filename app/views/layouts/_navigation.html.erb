@@ -23,10 +23,15 @@
   $(".nav-search").click(function(event){
     event.stopPropagation();
     $(this).addClass("active-search");
-  }) 
+  }); 
+
+  $(".nav-search-icon").click(function(event){
+     event.stopPropagation();
+    $(".nav-search").addClass("active-search");
+  });
 
   $("html").click(function(){
     $(".nav-search").val("");
     $(".nav-search").removeClass("active-search");
-  })
+  });
 </script>

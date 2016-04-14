@@ -12,6 +12,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem "bower-rails", "~> 0.10.0"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "mini_magick"
+gem 'fog', '1.36.0'
 #gem 'will_paginate'
 gem 'kaminari'
 # Use jquery as the JavaScript library
@@ -23,7 +25,6 @@ gem 'jbuilder', '~> 2.0'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'sendgrid'
-gem "mini_magick"
 gem 'ransack'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'shareable'
@@ -36,6 +37,7 @@ gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 gem "jquery-fileupload-rails"
 gem 'simplecov', :require => false, :group => :test
+
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

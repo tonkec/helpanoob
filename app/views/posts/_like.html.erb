@@ -1,20 +1,20 @@
 <% if @user.voted_up_on? @post %>
   <%= link_to dislike_post_path(@post), :remote => true, class: "like", id: "post_dislike", method: :put do %>
-  <span class="icon-elegant-font-266-10162 main-question-icon "></span>
+  <span class="icon-elegant-font-heart main-question-icon "></span>
   <% end %>
 
   <%= link_to like_post_path(@post), :remote => true, class: "like hidden", id: "post_like", method: :put do %>
-    <span class="icon-elegant-font-266-10162 main-question-icon "></span>
+    <span class="icon-elegant-font-heart main-question-icon "></span>
 
   <% end %>
 <% else %>
   <%= link_to dislike_post_path(@post), :remote => true, class: "like hidden", id: "post_dislike", method: :put do %>
-    <span class="icon-elegant-font-266-10162 main-question-icon "></span>
+    <span class="icon-elegant-font-heart main-question-icon "></span>
 
   <% end %>
   
   <%= link_to like_post_path(@post), :remote => true, class: "like", id: "post_like", method: :put do %>
-    <span class="icon-elegant-font-266-10162 main-question-icon "></span>
+    <span class="icon-elegant-font-heart main-question-icon "></span>
 
   <% end %>
 

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :post_attachments
-  root "posts#index"
-  get "landing_page", to: "static_pages#home"
+  authenticated do
+    root :to => 'posts#index', as: :root_path
+  end
+
+  unauthenticated do
+    root to: "static_pages#home"
+  end
+
   get "about", to: "static_pages#about"
 
   resources :posts do

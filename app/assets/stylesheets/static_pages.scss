@@ -40,6 +40,7 @@ LANDING
 
 .landing-heading {
 	font-size: 80px; 
+	line-height: 1em; 
 }
 
 .landing-layer {
@@ -64,7 +65,7 @@ LANDING
 section {
 	position: relative;
 	padding: 50px 0; 
-	height: 60vh;
+	height: 120vh;
 	
 	&.transparent-background {
 		height: 40vh;
@@ -115,6 +116,15 @@ video {
 	width: 100%; 
 	@extend %vertical;
 	position: fixed; 
+}
+
+.header-bg-img {
+	height: 100%;
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	opacity: 0;
 }
 
 @keyframes up-and-down {

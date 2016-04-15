@@ -121,13 +121,13 @@
 
     <div role="tabpanel" class="tab-pane fade" id="answers">
       
-      <div class="float white-background">
+      <div class="float white-background tab-float">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
           <div id="comments-wrapper" class="clearfix">
             <% if @comments.any? %>
               <h3 class="light-orange-text">
-                <%= current_user.comments.count %>
+                Your answers (<%= current_user.comments.count %>)
               </h3>  
               <%= render @comments  %>
 

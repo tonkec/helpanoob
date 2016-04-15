@@ -1,9 +1,10 @@
-<%= render @post %>
+<div id="post-wrapper">
+  <%= render @post %>
+</div>
 <%= render "comments/form" %>
 <div id="comment-wrapper" class="clearfix">
   <%= render @comments %>
 </div>
-
 
 
 <% if @comments.any? %>

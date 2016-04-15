@@ -99,7 +99,10 @@
             <h3 class="light-orange-text">
               Your questions (<%= current_user.posts.count %>)
             </h3>
-            <%= render @posts %>
+
+            <div id="post-wrapper">
+              <%= render @posts %>
+            </div>
           </div>
 
         </div><!-- col -->

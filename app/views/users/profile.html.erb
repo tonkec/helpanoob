@@ -113,7 +113,6 @@
           <p id="view-more" class="clearfix">
             <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load", id:"view-more-post") %>
           </p>
-
         <% end %>
 
       </div><!-- col -->
@@ -131,10 +130,14 @@
               </h3>  
               <%= render @comments  %>
 
-             
-            
             <% end %>
           </div>
+
+          <% unless @comments.current_page == @comments.total_pages %>
+            <p id="view-more" class="clearfix">
+              <%= link_to('View More', url_for(page: @comments.current_page + 1), remote: true, class: "btn-orange-bordered btn-full btn-load", id:"view-more-comment") %>
+            </p>
+          <% end %>
 
         </div><!-- col -->
       </div><!-- float  -->

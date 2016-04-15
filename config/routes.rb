@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
-    resources :skills, only: [:create, :new, :destroy]
+    resources :skills, only: [:create, :destroy]
   end
   
 end

@@ -1,11 +1,8 @@
 class Skill < ActiveRecord::Base
   belongs_to :user
   
-  before_save { |skill| skill.name = skill.name.downcase! }
-
-  validates :name, inclusion: { in: %w(ruby php css html jquery javascript sql react angular),
+  validates :name, inclusion: { in: %w(ruby php css html jquery javascript sql react angular python),
                    message: "Pick a real skill" },
-
                   presence: {message: "Skill can't be blank"},
                   uniqueness: { scope: :user_id, message: "You already have that skill!",
                                 case_sensitive: false}

@@ -73,7 +73,9 @@
             <div class="row dark-dark-link">
               <%= render @skills %>
             
-              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "hidden-xs skill-add-more-link", id: "add_new_skill", 'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
+              <a class="hidden-xs skill-add-more-link" id="add_new_skill" data-target="#new_skill" data-toggle= "modal"> 
+              Add new skill
+              </a>
              
             </div>
           </div><!-- skills-col -->

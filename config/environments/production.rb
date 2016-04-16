@@ -80,7 +80,7 @@ Rails.application.configure do
   host = 'https://hidden-thicket-61545.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+ config.action_mailer.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
@@ -88,4 +88,5 @@ Rails.application.configure do
     :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
+  }
 end

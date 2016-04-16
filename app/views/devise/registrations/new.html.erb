@@ -1,14 +1,10 @@
 <div class="bg-wrap">
   
-  <div class="cb-slideshow">
-
-    <div class="bg-img active">
-    </div>
+    <div class="bg-img slide-active"></div>
     <div class="bg-img"></div>
     <div class="bg-img"></div>
     <div class="bg-img"></div>
-  </div>
-
+  
 
   <div class="row row-slideshow" >
 
@@ -74,14 +70,14 @@
 
     });
   });
-  
+
   var imgs = $(".bg-img");
   i = -1;
   (function f(){
     i = (i + 1) % imgs.length;
 
-    $(imgs).not(imgs[i]).removeClass("slide-active")
-    $(imgs[ i ]).addClass("slide-active")
+    $(imgs).not(imgs[i]).removeClass("slide-active");
+    $(imgs[ i ]).addClass("slide-active");
     setTimeout(f, 7000);
   })();
 

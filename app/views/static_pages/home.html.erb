@@ -1,25 +1,27 @@
 <%= render partial: "layouts/head_tags" %>
 <div class="landing-wrapper">
   <header class="landing-header">
-    <div class="landing-layer"></div>
 
-    <%= video_tag("video.mp4", class: "video", autoplay: true, loop: true)%>
-
-  
+    <div class="bg-wrap">
+      <div class="header-bg-img bg-img slide-active"></div>
+      <div class="header-bg-img bg-img"></div>
+      <div class="header-bg-img bg-img"></div>
+      <div class="header-bg-img bg-img"></div>
+    </div>
       
-      <div class="row landing-top-row">
-        <div class="container">
-          
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <h1 class="landing-heading white-text">
-              Help a noob! 
-            </h1>
+    <div class="row landing-top-row">
+      <div class="container">
 
-            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+          <h1 class="landing-heading white-text">
+            Help a noob! 
+          </h1>
+
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
           </div>
 
-        </div>
       </div>
+    </div>
 
     <div class="arrow-container">
       <a href="#next-section">
@@ -70,38 +72,20 @@
     </div>
   </section>
 
-
-  <section class="white-background" id="next-section">
-   <div class="row section-row">
-      
-      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text">No shame!</h2>
-      </div>
-
-   </div>
-  </section>
-
-
-
 </div><!-- landing wrapper -->
 
 
 <script>
   $("body").css("background-color", "transparent");
 
+  var imgs = $(".bg-img");
+  i = -1;
+  (function f(){
+    i = (i + 1) % imgs.length;
 
-  $(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+    $(imgs).not(imgs[i]).removeClass("slide-active")
+    $(imgs[ i ]).addClass("slide-active")
+    setTimeout(f, 7000);
+  })();
+
 </script>

@@ -55,25 +55,29 @@
              <%= current_user.social_link(current_user.second_learning_platform) %>
              <%= current_user.social_link(current_user.third_learning_platform) %>
            </div><!-- col -->
+
+          <% unless current_user.introduction.empty? %> 
           <div class="col-xs-12 p-l-0 p-r-0">
+
             <div class="profile-introduction break-text dark-dark-link">
               <h5>Introduction</h5>
-              <% if current_user.introduction.blank? %>
-              <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" id="about-settings">Settings</a>
-              <% else %>
               <p class="profile-introduction-text black-text">
                 <%= current_user.introduction %>
               </p>
-              <% end %>
             </div><!-- profile-intro -->
+
           </div><!-- col xs12 -->
+
+          <% end %>
           <h5 class="profile-heading-margin clearfix">Skills</h5>
 
           <div class="col-xs-12 p-l-0 p-r-0" id="skills-col">
             <div class="row dark-dark-link">
               <%= render @skills %>
             
-              <%= link_to "Add new skill", new_user_skill_path(current_user, @new_skill), remote: true, class: "hidden-xs skill-add-more-link", id: "add_new_skill", 'data-target' => "#new_skill", 'data-toggle' => "modal" %> 
+              <a class="hidden-xs skill-add-more-link" id="add_new_skill" data-target="#new_skill" data-toggle= "modal"> 
+              Add new skill
+              </a>
              
             </div>
           </div><!-- skills-col -->
@@ -93,9 +97,12 @@
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2"> 
           <div class="clearfix profile-posts" id="posts-wrapper"> 
             <h3 class="light-orange-text">
-              <%= current_user.posts.count %>
+              Your questions (<%= current_user.posts.count %>)
             </h3>
-            <%= render @posts %>
+
+            <div id="post-wrapper">
+              <%= render @posts %>
+            </div>
           </div>
 
         </div><!-- col -->
@@ -109,7 +116,6 @@
           <p id="view-more" class="clearfix">
             <%= link_to('View More', url_for(page: @posts.current_page + 1), class: "btn-orange-bordered btn-full btn-load", id:"view-more-post") %>
           </p>
-
         <% end %>
 
       </div><!-- col -->
@@ -117,20 +123,24 @@
 
     <div role="tabpanel" class="tab-pane fade" id="answers">
       
-      <div class="float white-background">
+      <div class="float white-background tab-float">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
           <div id="comments-wrapper" class="clearfix">
             <% if @comments.any? %>
               <h3 class="light-orange-text">
-                <%= current_user.comments.count %>
+                Your answers (<%= current_user.comments.count %>)
               </h3>  
               <%= render @comments  %>
 
-             
-            
             <% end %>
           </div>
+
+          <% unless @comments.current_page == @comments.total_pages %>
+            <p id="view-more" class="clearfix">
+              <%= link_to('View More', url_for(page: @comments.current_page + 1), remote: true, class: "btn-orange-bordered btn-full btn-load", id:"view-more-comment") %>
+            </p>
+          <% end %>
 
         </div><!-- col -->
       </div><!-- float  -->

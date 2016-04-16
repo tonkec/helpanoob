@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  root "posts#index"
-  get "landing_page", to: "static_pages#home"
+  resources :post_attachments
+  authenticated do
+    root :to => 'posts#index', as: :root_path
+  end
+
+  unauthenticated do
+    root to: "static_pages#home"
+  end
+
   get "about", to: "static_pages#about"
 
   resources :posts do
@@ -30,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
-    resources :skills, only: [:create, :new, :destroy]
+    resources :skills, only: [:create, :destroy]
   end
   
 end

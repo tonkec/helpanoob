@@ -1,8 +1,10 @@
 class CreatePostAttachments < ActiveRecord::Migration
   def change
     create_table :post_attachments do |t|
-      t.integer :post_id
-      t.string :avatar
+      t.references :post, index: true, foreign_key: true
+      t.string :title
+      t.string :description
+      t.text :attachemnts
 
       t.timestamps null: false
     end

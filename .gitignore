@@ -23,3 +23,5 @@
 
 # Ignore simplecow coverage
 coverage
+
+.env

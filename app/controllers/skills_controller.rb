@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_action :correct_user, only: [:destroy]
-  skip_before_filter :verify_authenticity_token, :only => :create if Rails.env.test?
+  #skip_before_filter :verify_authenticity_token, :only => :create if Rails.env.test?
 
   def new
     @skill = Skill.new

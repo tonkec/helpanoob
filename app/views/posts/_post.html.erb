@@ -1,4 +1,4 @@
-<div class="clearfix post-content" id="content-<%= post.id %>">
+<div class="clearfix post-content" id="post-content-<%= post.id %>">
  <div class="like-icons">
     <%= render partial: "posts/like" unless @disable_like %>
   </div>
@@ -60,59 +60,11 @@
 
     
 
-
-
   </div>  <!-- main-post-col -->
-</div><!-- content -->
-
-  <div class="col-xs-12 col-sm-12 post-images-col">
-    
-    <% if post.images.any? %>
-      <h5 class="post-images-heading">
-         Images: <%= post.images.count %>
-      </h5>    
-      <% n = 0 %>
-      <% post.images.each do |img| %>
-      <% n+= 1 %>
-
-      <div class="post-img">
-        <div class="post-img-layer" data-target="#img-<%=n%>" data-toggle="modal">
-          <span>
-            Click to see image
-          </button>
-        </div>
-        <%= image_tag(img) %>
-      </div>
-     
-      <div class="modal fade edit-post-modal" id="img-<%= n %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Post image</h4>
-          </div>
-          <div class="modal-body">
-            <div class="post-full-img">
-              <%= image_tag(img.full)%>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-     <% end %>
-
-
-    <% end %>
-
-  </div>
-
 
 
     <!--Edit post Modal -->
-    <div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -151,7 +103,7 @@
 
 
      <!--Delete post Modal -->
-    <div class="modal fade edit-post-modal" id="deletepost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="deletepost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           
@@ -190,3 +142,7 @@
     </div>
   </div>
 </div>
+
+</div><!-- content -->
+
+  

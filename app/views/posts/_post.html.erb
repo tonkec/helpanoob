@@ -83,11 +83,7 @@
                 <%= f.label :tag_list, "Tags (separated by commas)" %><br />
                 <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "orange-input input-full"  %>    
               </div>
-              <div class="field avatar">
-                <%= f.label :images %>
-                <%= f.file_field :images, multiple: true, class: "multiple-input", id: "fileupload" %>
-                <%= f.hidden_field :images_cache, class: "cache" %>
-              </div>
+
               
               <div class="actions">
                 <%= f.submit "Update", class: "btn-orange" %>

@@ -20,7 +20,8 @@
 #
 
 class Post < ActiveRecord::Base
-  #mount_uploader :image, AvatarUploader
+  include Bootsy::Container  
+
   serialize :images, Array
   mount_uploaders :images, AvatarUploader
   acts_as_votable

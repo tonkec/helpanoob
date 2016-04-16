@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'bootstrap-sass', '3.2.0.1'
 gem "bower-rails", "~> 0.10.0"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #gem 'will_paginate'
@@ -37,6 +38,8 @@ gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 gem "jquery-fileupload-rails"
 gem 'simplecov', :require => false, :group => :test
+gem 'fog'
+gem 'bootsy'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

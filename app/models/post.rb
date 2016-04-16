@@ -20,19 +20,23 @@
 #
 
 class Post < ActiveRecord::Base
+  include Bootsy::Container
+
+  serialize :images, Array
+  mount_uploaders :images, AvatarUploader
   acts_as_votable
   acts_as_taggable
 
   belongs_to :user
 
   has_many :comments, dependent: :destroy
-  has_many :notifications, dependent: :destroy  
+  has_many :notifications, dependent: :destroy
 
   validates :title, presence: true, length: {minimum: 20, max: 200}, uniqueness: true
   validates :description, presence: true, length: {minimum: 50}
   validates :user_id, presence: true
   validates :tag_list, presence: true
-  validate :tag_list_inclusion                 
+  validate :tag_list_inclusion
 
 
   default_scope -> { order(created_at: :desc) }

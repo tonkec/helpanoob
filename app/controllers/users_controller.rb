@@ -81,7 +81,7 @@ class UsersController < ApplicationController
 
     if current_user.destroy
       flash.now[:success] = "I am sorry to see you go :/"
-      redirect_to landing_page_path
+      redirect_to root_path
     end
   end
 

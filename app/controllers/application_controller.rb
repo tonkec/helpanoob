@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_inactive_sign_up_path_for(resource)
-   landing_page_path # Or :prefix_to_your_route
+   root_path # Or :prefix_to_your_route
   end
 
   def after_sign_out_path_for(resource)

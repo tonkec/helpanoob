@@ -5,7 +5,10 @@
 
 <%= f.text_field :title, class: "input-full orange-input input-padding no-margin", placeholder: "Title" %>
 <%= f.bootsy_area :description, class: "input-full input-padding large-textarea no-margin", placeholder: "Ask a question" %>
-<%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "post-tags", placeholder: "Tags separated by commas" %>
+
+<%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "post-tags" %>
+<%= f.label :tag_list, "Tags (separated by commas)", class: "post-tags" %>
+
 
 <p class="tag-list">
   <b>Available tags:</b>

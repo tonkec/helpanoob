@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  #resources :post_attachments
+
+  resources :post_attachments
 
   authenticated do
     root :to => 'posts#index', as: :root_path
@@ -62,7 +63,7 @@ Rails.application.routes.draw do
   end
 
   resources :messages, only: [:create]
-  
+
   get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
   get 'notifications', to: 'notifications#index'
   get 'notifications/unread', to: 'notifications#unread'

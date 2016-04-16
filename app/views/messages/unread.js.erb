@@ -1,0 +1,3 @@
+$("#unread-messages-count").html(<%= current_user.unread_messages_count %>);
+$("#messages-list").remove();
+$(".dropdown-menu.messages-menu li:eq(0)").after("<%= j render 'layouts/messages_notification.html.erb' %>");

@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: {minimum: 20, max: 200}
   validates :description, presence: true, length: {minimum: 50}
   validates :user_id, presence: true
-  default_scope -> { order(cached_votes_up: :desc) }
+  default_scope -> { order(created_at: :desc) }
 
   scope :uncommented, -> {
     where(:comments_count => 0)

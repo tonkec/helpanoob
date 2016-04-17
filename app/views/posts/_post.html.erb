@@ -15,9 +15,8 @@
       </h3>
 
 
-      <p class="post-description">
-        <%= post.description %>
-      </p>
+      
+      <%= simple_format(post.description, class: "post-description") %>
 
     </div><!-- col -->
 
@@ -64,7 +63,7 @@
 
 
     <!--Edit post Modal -->
-    <div class="modal fade" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -73,21 +72,10 @@
           </div><!-- modal header -->
           
           <div class="modal-body">
-            <%= form_for(post, :method => :put, remote: true) do |f| %>
-              <div class="field">
-                <%= f.text_field :title, class: "orange-input input-full", placeholder: "Title" %>
-                <%= f.text_area :description, class: "orange-input input-full large-textarea", placeholder: "Ask a question" %>
-              </div>
-
-              <div class="field">
-                <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-                <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "orange-input input-full"  %>    
-              </div>
-              <div class="field avatar">
-                <%= f.label :images %>
-                <%= f.file_field :images, multiple: true, class: "multiple-input", id: "fileupload" %>
-                <%= f.hidden_field :images_cache, class: "cache" %>
-              </div>
+            <%= form_for(post, :method => :put, remote: true, :html => {:class => "post-form"}) do |f| %>
+            <%= f.text_field :title, class: "input-full orange-input input-padding no-margin", placeholder: "Title" %>
+            <%= f.bootsy_area :description, class: "input-full input-padding large-textarea no-margin", placeholder: "Ask a question" %>
+            <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "post-tags", placeholder: "Tags separated by commas" %>
               
               <div class="actions">
                 <%= f.submit "Update", class: "btn-orange" %>

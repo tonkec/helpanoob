@@ -63,7 +63,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = current_user
     @comments = @post.comments.page(params[:page]).per(5)
-    @images = @post.images
     respond_to do |format|
       format.html
       format.js
@@ -144,7 +143,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :title, :tag_list, {images: []})
+      params.require(:post).permit(:description, :title, :tag_list, :bootsy_image_gallery_id)
     end
 
     def correct_user

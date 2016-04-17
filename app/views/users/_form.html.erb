@@ -3,7 +3,7 @@
     <h4>Edit your account</h4>
     <h6 class="user-email-info light-orange-text"> <%= current_user.email %></h6>
 
-    <%= form_for(current_user, :method => :put, remote: true) do |f| %> 
+    <%= form_for(current_user) do |f| %> 
       <%= render "shared/error_messages", object: current_user %>
       <%= f.text_field :first_name, class: "input-full orange-input blue-bg-input", placeholder: "Your First Name" %>
 

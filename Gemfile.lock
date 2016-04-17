@@ -57,6 +57,12 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.1)
+      sass (~> 3.2)
+    bootsy (2.2.1)
+      carrierwave (~> 0.10)
+      mini_magick (~> 4.3)
+      remotipart (~> 1.2)
     bower-rails (0.10.0)
     brakeman (3.2.1)
       erubis (~> 2.6)
@@ -113,19 +119,22 @@ GEM
       thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.36.0)
+    fog (1.38.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
       fog-brightbox (~> 0.4)
+      fog-cloudatcost (~> 0.1.0)
       fog-core (~> 1.32)
       fog-dynect (~> 0.0.2)
       fog-ecloud (~> 0.1)
       fog-google (<= 0.1.0)
       fog-json
       fog-local
+      fog-openstack
       fog-powerdns (>= 0.1.1)
       fog-profitbricks
+      fog-rackspace
       fog-radosgw (>= 0.0.2)
       fog-riakcs
       fog-sakuracloud (>= 0.0.4)
@@ -135,10 +144,10 @@ GEM
       fog-terremark
       fog-vmfusion
       fog-voxel
+      fog-vsphere (>= 0.4.0)
       fog-xenserver
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
-      nokogiri (~> 1.5, >= 1.5.11)
     fog-aliyun (0.1.0)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -156,6 +165,11 @@ GEM
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
+    fog-cloudatcost (0.1.2)
+      fog-core (~> 1.36)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
     fog-core (1.37.0)
       builder
       excon (~> 0.45)
@@ -176,6 +190,11 @@ GEM
       multi_json (~> 1.10)
     fog-local (0.3.0)
       fog-core (~> 1.27)
+    fog-openstack (0.1.2)
+      fog-core (>= 1.35)
+      fog-json (>= 1.0)
+      fog-xml (>= 0.1)
+      ipaddress (>= 0.8)
     fog-powerdns (0.1.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -184,6 +203,11 @@ GEM
       fog-core
       fog-xml
       nokogiri
+    fog-rackspace (0.1.1)
+      fog-core (>= 1.35)
+      fog-json (>= 1.0)
+      fog-xml (>= 0.1)
+      ipaddress (>= 0.8)
     fog-radosgw (0.0.5)
       fog-core (>= 1.21.0)
       fog-json
@@ -213,6 +237,9 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
+    fog-vsphere (0.6.3)
+      fog-core
+      rbvmomi (~> 1.8)
     fog-xenserver (0.2.3)
       fog-core
       fog-xml
@@ -319,8 +346,13 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    rbvmomi (1.8.2)
+      builder
+      nokogiri (>= 1.4.1)
+      trollop
     rdoc (4.2.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.4)
@@ -395,6 +427,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
+    trollop (2.1.2)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -420,6 +453,8 @@ DEPENDENCIES
   acts_as_votable (~> 0.10.0)
   annotate
   bcrypt (~> 3.1.7)
+  bootstrap-sass (= 3.2.0.1)
+  bootsy
   bower-rails (~> 0.10.0)
   brakeman
   capybara
@@ -430,7 +465,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   figaro
-  fog (= 1.36.0)
+  fog
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-fileupload-rails

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :post_attachments
   authenticated do
     root :to => 'posts#index', as: :root_path

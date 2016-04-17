@@ -4,7 +4,6 @@
 @import "components/mixins";
 @import "components/layout";
 
-
 body {
 	background-color: $white-1; 
 }
@@ -360,6 +359,13 @@ TEXT COLORS
 	margin-bottom: 0;
 	border: none; 
 	border-bottom: 1px solid lighten(#000, 10%);     
+}
+
+
+.modal-open {
+	.con {
+		display: none; 
+	}
 }
 /* ========================
 MORE GRID

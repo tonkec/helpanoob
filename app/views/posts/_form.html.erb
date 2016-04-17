@@ -1,51 +1,11 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, :html => {:class => "post-form"} ) do |f| %>
 
 <%= render "shared/error_messages", object: @post %>
 
 <%= f.text_field :title, class: "input-full orange-input input-padding no-margin", placeholder: "Title" %>
-<%= f.text_area :description, class: "input-full orange-input input-padding large-textarea no-margin", placeholder: "Ask a question" %>
-<%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "post-tags" %>
-<%= f.label :tag_list, "Tags (separated by commas)", class: "post-tags" %>
+<%= f.bootsy_area :description, class: "input-full input-padding large-textarea no-margin", placeholder: "Ask a question" %>
+<%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "post-tags", placeholder: "Tags separated by commas" %>
 
-
-
-<div class="input-group">
-  <span class="input-group-btn">
-    <span class="btn btn-orange btn-file">
-      Browse&hellip;<%= f.file_field :images, multiple: true, class: "multiple-input input-file", id: "fileupload" %>
-      <%= f.hidden_field :images_cache, class: "cache" %>
-
-    </span>
-  </span>
-  <input type="text" class="form-control" placeholder="Choose images" readonly>
-</div>
-
-
-<%= f.submit "Ask", class: "btn-orange btn-ask btn-submit" %>
+<%= f.submit "Ask", class: "btn-orange btn-ask" %>
 <% end %>
 
-
-<script>
-  
- $(document).on('change', '.btn-file :file', function() {
-  var input = $(this),
-  numFiles = input.get(0).files ? input.get(0).files.length : 1,
-  label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-  input.trigger('fileselect', [numFiles, label]);
-});
-
- $(document).ready( function() {
-  $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-    
-    var input = $(this).parents('.input-group').find(':text'),
-    log = numFiles > 1 ? numFiles + ' files selected' : label;
-    
-    if( input.length ) {
-      input.val(log);
-    } else {
-      if( log ) alert(log);
-    }
-    
-  });
-});
-</script>

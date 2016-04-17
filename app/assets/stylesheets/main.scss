@@ -360,6 +360,13 @@ TEXT COLORS
 	border: none; 
 	border-bottom: 1px solid lighten(#000, 10%);     
 }
+
+
+.modal-open {
+	.con {
+		display: none; 
+	}
+}
 /* ========================
 MORE GRID
 ==========================*/

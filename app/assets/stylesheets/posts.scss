@@ -297,7 +297,14 @@ span.main-question-icon {
 }
 
 .edit-post-modal {
-	.modal-dialog {
-		width: 90%; 
+	.moda-dialog {
+		width: 70%; 
 	}
+
+	@media (min-width: 1400px) {
+		.modal-dialog {
+			width: 60%; 
+		}	
+	}
+	
 }

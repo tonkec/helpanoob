@@ -60,20 +60,15 @@ class UsersController < ApplicationController
   end
 
   def update 
-    respond_to do |format|
-      if current_user.update_attributes(user_params)
-       format.html {
-         redirect_to profile_path
-         flash.now[:success] = "Account updated!"
-       }
+    @comments = current_user.comments.page(params[:page]).per(2)
+    @posts = current_user.posts.page(params[:page]).per(2)
+    @skills = current_user.skills
 
-       format.js {
-         flash.now[:success] = "Account updated!"
-         redirect_to profile_path
-       }
-      else
-        format.html {render "profile"}
-      end
+    if current_user.update_attributes(user_params)
+      redirect_to profile_path
+      flash.now[:success] = "Account updated!"
+    else
+      render "profile"
     end
   end
 

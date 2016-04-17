@@ -126,19 +126,19 @@
       <div class="float white-background tab-float">
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+          <% if @comments.any? %>
+            <h3 class="light-orange-text">
+              Your answers (<%= current_user.comments.count %>)
+            </h3>
           <div id="comments-wrapper" class="clearfix">
-            <% if @comments.any? %>
-              <h3 class="light-orange-text">
-                Your answers (<%= current_user.comments.count %>)
-              </h3>  
-              <%= render @comments  %>
-
-            <% end %>
+             
+            <%= render @comments  %>
+            
           </div>
-
+          <% end %>
           <% unless @comments.current_page == @comments.total_pages %>
             <p id="view-more" class="clearfix">
-              <%= link_to('View More', url_for(page: @comments.current_page + 1), remote: true, class: "btn-orange-bordered btn-full btn-load", id:"view-more-comment") %>
+              <%= link_to('View More', url_for(page: @comments.current_page + 1), remote: true, class: "hidden btn-orange-bordered btn-full btn-load", id:"view-more-comment") %>
             </p>
           <% end %>
 

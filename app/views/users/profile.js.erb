@@ -5,3 +5,13 @@ $("#posts-wrapper").append("<%=j render @posts %>")
 <% else %>
   $('#view-more a').attr('href', '<%= url_for(page: @posts.current_page + 1) %>');
 <% end %>
+
+/*$("#view-more-comment").click(function(){
+	
+	<% if @comments.current_page == @comments.total_pages %>
+	$(this).remove();
+	<% else %>
+	$("#comments-wrapper").append("<%= j render @comments %>")
+	$(this).attr("href", '<%= url_for(page: @comments.current_page + 1) %>')
+	<% end %>
+});*/

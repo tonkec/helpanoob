@@ -23,6 +23,8 @@ class Post < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable
 
+  before_save :remove_characters
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   validates :title, presence: true, length: {minimum: 20, max: 200}
@@ -48,5 +50,9 @@ class Post < ActiveRecord::Base
     tag_list.each do |tag|
       errors.add(tag,"is not valid programming language") unless %w(jquery ruby rails php css html javascript sql react angular).include?(tag)
     end
+  end
+
+  def remove_characters
+    self.description = description.gsub(/<br>/, '')  
   end
 end

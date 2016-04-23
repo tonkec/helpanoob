@@ -13,6 +13,7 @@
           <% end %>
         <% end %>
       </h3>
+
       <div class="post-simple-format">
         <%= simple_format(post.description, class: "post-description") %>
       </div>
@@ -66,10 +67,6 @@
     <div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h4>Edit your post</h4>
-            <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div><!-- modal header -->
           
           <div class="modal-body">
             <%= form_for(post, :method => :put, remote: true, :html => {:class => "post-form"}) do |f| %>
@@ -79,7 +76,7 @@
               
               <div class="actions">
                 <%= f.submit "Update", class: "btn-orange" %>
-                <button type="button" class="btn-orange-bordered" data-dismiss="modal">Close</button>
+                <button type="button" class="btn-orange-link" data-dismiss="modal">Close</button>
               </div>
             <% end %>
         </div><!-- modal body -->
@@ -96,16 +93,13 @@
         <div class="modal-content">
           
           <div class="modal-body">  
-              <h1>Are you sure you want to delete this post?</h1>
-              <p>
-                <%= post.title %>
-              </p>
-
+            <h3>Are you sure you want to delete this post?</h3>
           </div><!-- modal body -->
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-            <%= link_to 'Yes', post, method: :delete, class: "delete_post btn btn-primary" %>
+          <%= link_to 'Yes', post, method: :delete, class: "delete_post btn-orange" %>
+          <button type="button" class="btn btn-orange-link" data-dismiss="modal">No</button>
+          
         </div><!-- modal footer -->
       </div>  <!-- modal content -->
     </div> <!-- modal dialog -->

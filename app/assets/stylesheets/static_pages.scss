@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/colors";
+@import "components/mixins";
 /*======================
 LANDING
 =======================*/
@@ -59,7 +60,23 @@ LANDING
 	margin-top: 75px;
 	z-index: 3;
 	position: relative;
-	display: block;     
+	display: block;  
+	height: 50px;
+	width: 70%;
+	line-height: 32px;
+	font-size: 20px; 
+	border-width: 2px; 
+	@include transition(.7s);
+	
+	&:nth-child(3) {
+		margin-top: 20px; 
+	}
+
+	&:hover {
+		border-color: $orange;
+		color: $orange;
+		
+	}    
 }
 
 section {

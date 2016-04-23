@@ -3,8 +3,6 @@
     <h4 class="dark-orange-link post-title">
       <%= link_to truncate(p.title, length: 100), post_path(p) %>
     </h4>
-   
-    <%= simple_format(truncate(p.description, length: 100), class: "post-description") %>
 
     <h5 class="dark-orange-link">
       <%= link_to p.user.username, user_path(p.user) %>

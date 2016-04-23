@@ -232,7 +232,7 @@ span.main-question-icon {
 		display: block; 
 		border: none;
 		border-bottom: 1px solid $orange; 
-		margin-bottom: 30px; 
+		margin-bottom: 15px; 
 	}
 
 	.form-control[readonly] {
@@ -313,5 +313,14 @@ span.main-question-icon {
 .post-simple-format {
 	img {
 		width: 100%; 
+	}
+}
+
+.tag-list {
+	margin-bottom: 20px; 
+	span {
+		&:hover {
+			background-color: $light-orange; 
+		}
 	}
 }

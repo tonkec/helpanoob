@@ -18,6 +18,7 @@
           </h1>
 
           <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-bordered-white btn-landing" %>
           </div>
 
       </div>
@@ -32,13 +33,13 @@
   </header>
 
   <section class="white-background" id="next-section">
-   <div class="row section-row">
-      
+    <div class="row section-row">
       <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text">Ask anything you want!</h2>
+        <h2 class="landing-text">
+          Q&amp;A for newbies
+        </h2>
       </div>
-
-   </div>
+    </div>
   </section>
 
   <section class="brown-background">
@@ -51,22 +52,33 @@
    </div>
   </section>
 
-  <section class="white-background" id="next-section">
+  <section class="white-background">
    <div class="row section-row">
       
       <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text">No RTFM answers!</h2>
+        <h2 class="landing-text">Ask anything you want!</h2>
       </div>
 
    </div>
   </section>
 
 
-  <section class="brown-background" id="next-section">
+  <section class="brown-background">
+   <div class="row section-row">
+      
+      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+        <h2 class="landing-text white-text">No RTFM answers!</h2>
+      </div>
+
+   </div>
+  </section>
+
+
+  <section class="white-background">
      <div class="row section-row">
 
       <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text white-text">There is no such thing as stupid question!</h2>
+        <h2 class="landing-text">There is no such thing as stupid question!</h2>
       </div>
 
     </div>
@@ -87,5 +99,6 @@
     $(imgs[ i ]).addClass("slide-active")
     setTimeout(f, 7000);
   })();
+
 
 </script>

@@ -1,7 +1,7 @@
 <%= form_for([current_user, current_user.skills.build], :method => :create, remote: true) do |f| %>
   
   <%= f.text_field :name, class: "orange-input input-full input-padding", placeholder: "Add skill" %>
-  <%= f.number_field :strength, class: "orange-input input-full input-padding", placeholder: "Add number" %>
+  <%= f.number_field :strength, class: "orange-input input-full input-padding", placeholder: "Add strength" %>
   <%= f.submit class: "btn-orange btn-submit-modal" %>
   <button type="button" class="btn-orange-link btn-modal-close" data-dismiss="modal">Close</button>
 <% end %>

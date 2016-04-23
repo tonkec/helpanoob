@@ -4,10 +4,6 @@
       <%= link_to truncate(p.title, length: 100), post_path(p) %>
     </h4>
 
-    <h5 class="dark-orange-link">
-      <%= link_to p.user.username, user_path(p.user) %>
-    </h5>
-
     <h6 class="post-info first">
        <span class="icon-elegant-font-270-10173 post-icon light-orange-text"></span> <%= time_ago_in_words(p.created_at) %> ago
     </h6>
@@ -19,6 +15,10 @@
     <h6 class="post-info">
        <span class="icon-elegant-font-heart post-icon light-orange-text"></span> <%= p.cached_weighted_score %>
     </h6>
+
+    <h5 class="dark-orange-link post-info">
+      <%= link_to p.user.username, user_path(p.user) %>
+    </h5>
 
     <h6 class="tags">
       <%= raw p.tag_list.map { |t| link_to t, tag_path(t), class: "tag" }.join(', ') %>

@@ -48,7 +48,7 @@ class Post < ActiveRecord::Base
 
   def tag_list_inclusion
     tag_list.each do |tag|
-      errors.add(tag,"is not valid programming language") unless %w(jquery ruby rails php css html javascript sql react angular).include?(tag)
+      errors.add(tag,"is not valid programming language") unless %w(jquery ruby rails php css html javascript sql react angular python node other).include?(tag)
     end
   end
 

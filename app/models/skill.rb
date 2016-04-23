@@ -1,7 +1,7 @@
 class Skill < ActiveRecord::Base
   belongs_to :user
   
-  validates :name, inclusion: { in: %w(ruby php css html jquery javascript sql react angular python),
+  validates :name, inclusion: { in: %w(jquery ruby rails php css html javascript sql react angular python node other),
                    message: "Pick a real skill" },
                   presence: {message: "Skill can't be blank"},
                   uniqueness: { scope: :user_id, message: "You already have that skill!",

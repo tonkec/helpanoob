@@ -23,13 +23,12 @@ class Post < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable
 
-  before_save :remove_characters
-
   belongs_to :user
   has_many :comments, dependent: :destroy
   validates :title, presence: true, length: {minimum: 20, max: 200}
   validates :description, presence: true, length: {minimum: 50}
   validates :user_id, presence: true
+  validates :tag_list, presence: true
   default_scope -> { order(created_at: :desc) }
 
   scope :uncommented, -> {

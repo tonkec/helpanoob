@@ -39,6 +39,7 @@ gem "jquery-fileupload-rails"
 gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'bootsy'
+gem 'file_validators'
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

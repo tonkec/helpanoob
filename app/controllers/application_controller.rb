@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:warning] = 'Resource not found.'
+    redirect_back_or root_path
+  end
+
+  def redirect_back_or(path)
+    redirect_to request.referer || path
+  end
+
   def search
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order('created_at desc').page(params[:page]).per(5)

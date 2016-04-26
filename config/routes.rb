@@ -41,5 +41,7 @@ Rails.application.routes.draw do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
     resources :skills, only: [:create, :destroy]
   end
+
+  resources :conversations, only: [:index, :show, :destroy]
   
 end

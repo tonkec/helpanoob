@@ -54,6 +54,10 @@ Rails.application.routes.draw do
     collection do
       delete :empty_trash
     end
+
+    member do
+      post :mark_as_read
+    end
   end
 
   resources :messages, only: [:new, :create]

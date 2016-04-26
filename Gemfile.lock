@@ -252,6 +252,8 @@ GEM
       nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-rails (4.6.1.0)
       railties (>= 3.2, < 5.1)
+    foreigner (1.7.4)
+      activerecord (>= 3.0.0)
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -286,6 +288,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mailboxer (0.13.0)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     mailcatcher (0.6.4)
       activesupport (~> 4.0)
       eventmachine (= 1.0.9.1)
@@ -485,7 +491,11 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   launchy
+<<<<<<< HEAD
   letter_opener
+=======
+  mailboxer
+>>>>>>> add mailboxer
   mailcatcher
   mini_magick
   pg (= 0.17.1)

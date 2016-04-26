@@ -42,7 +42,20 @@ Rails.application.routes.draw do
     resources :skills, only: [:create, :destroy]
   end
 
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+    end
+
+    member do
+      post :restore
+    end
+
+    collection do
+      delete :empty_trash
+    end
+  end
+
   resources :messages, only: [:new, :create]
   
 end

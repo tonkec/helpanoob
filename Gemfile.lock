@@ -491,11 +491,8 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   launchy
-<<<<<<< HEAD
   letter_opener
-=======
   mailboxer
->>>>>>> add mailboxer
   mailcatcher
   mini_magick
   pg (= 0.17.1)

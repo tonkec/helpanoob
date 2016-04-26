@@ -6,9 +6,9 @@
       <% @conversation.receipts_for(current_user).each do |receipt| %>
         <% message = receipt.message %>
 
-        <%= message.sender.name %>
-          says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-        <%= message.body %>
+        FROM:<%= message.sender.username %><br />
+          says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %><br />
+        <%= message.body %><br />
       <% end %>
     </div>
   </div>

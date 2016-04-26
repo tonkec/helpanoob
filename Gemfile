@@ -40,6 +40,7 @@ gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'bootsy'
 gem 'file_validators'
+gem "mailboxer"
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

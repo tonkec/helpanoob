@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   acts_as_voter
+  acts_as_messageable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :skills, dependent: :destroy

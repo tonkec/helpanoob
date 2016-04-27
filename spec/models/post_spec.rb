@@ -28,12 +28,13 @@ RSpec.describe Post, type: :model do
     fill_in "Email",    with: user.email
     fill_in "Password", with: user.password
     user.confirm!
-    click_button "Log in"
+    click_button "Sign in"
   end
 
   let(:user) {FactoryGirl.create(:user)}
   let(:other_user) {FactoryGirl.create(:user)}
-  let(:post) {user.posts.create!(description: "Lorem Content", title: "Title")}
+  let(:post) {FactoryGirl.create(:post, user: user)}
+ #let(:post) {user.posts.create!(description: description, title: title)}
   let(:comment) {FactoryGirl.create(:comment)}
 
   subject {post}
@@ -97,32 +98,26 @@ RSpec.describe Post, type: :model do
     it "allows correct user to edit post" do
       sign_in user
       visit post_path(subject)
-      expect(page).to have_link("Edit")
-      click_link "Edit"
-      expect(page).to have_css("btn-full")
+      expect(page).to have_css("a.edit-post")
+      find("a.edit-post").click
 
       fill_in "Title", with: subject.title
       fill_in "post_description", with: subject.description
-      click_button
+      find("input.btn-orange").click
     end
 
      it "allows correct user to delete post" do
       sign_in user
       visit post_path(subject)
       #save_and_open_page
-      expect(page).to have_content(subject.user.email)
+      expect(page).to have_content(subject.user.username)
       expect(page).to have_content(subject.description)
       expect(page).to have_content(subject.title)
-      expect(page).to have_content("Destroy")
+      expect(page).to have_css("a.delete_post")
      
-      #click_link "Destroy"
-      #page.accept_confirm { click_button "OK" }
-      users_post_id = post.id
-      post.delete
-      expect(users_post_id).to be_nil
+      expect {click_link "Yes"}.to change(Post, :count).by(1)
 
-      current_path.should == root_path
-      expect(page).to have_content("Post was successfully destroyed")
+      expect(page).to have_content("All questions")
     end
   end  
 

@@ -10,6 +10,7 @@
         <% unless @disable_link %>
           <%= link_to post_path(post) do%>
           <i class="fa fa-external-link link-external"></i>
+          I am link
           <% end %>
         <% end %>
       </h3>
@@ -62,7 +63,7 @@
 
   </div>  <!-- main-post-col -->
 
-
+  <% if post.user.id == current_user.id %>
     <!--Edit post Modal -->
     <div class="modal fade edit-post-modal" id="editpost-<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -104,6 +105,8 @@
       </div>  <!-- modal content -->
     </div> <!-- modal dialog -->
     </div> <!-- modal-fade -->
+
+    <% end %>
 
 
 

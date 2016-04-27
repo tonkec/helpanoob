@@ -1,12 +1,11 @@
-FactoryGirl.define do  
- 
+FactoryGirl.define do
   factory :user do
     sequence(:username) { |n| "Caspian Star #{n}" }
-    sequence(:email) { |n| "test#{n}@example.com" }    
+    sequence(:email) { |n| "test#{n}@example.com" }
     password "password"
     password_confirmation "password"
     experience 20
-    avatar  { File.open("#{Rails.root}/spec/fixtures/files/sweal.jpg") } 
+    avatar  { File.open("#{Rails.root}/spec/fixtures/files/sweal.jpg") }
   end
 
   factory :post do

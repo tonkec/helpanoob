@@ -12,10 +12,15 @@
 
 
   <ul class="nav-list">
-    <li><%= link_to 'Your Conversations', conversations_path %></li>
     <li>
        <%= link_to posts_path, class: "sidebar-anchor" do %>
       <span class="icon-elegant-font-249-10019"></span>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to conversations_path, class: "sidebar-anchor" do %>
+        <span class="icon-elegant-font-69-7647"></span>
       <% end %>
     </li>
 

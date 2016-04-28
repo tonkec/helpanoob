@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 RSpec.describe MessagesController, type: :controller do
@@ -5,6 +6,7 @@ RSpec.describe MessagesController, type: :controller do
   describe "GET #new" do
     it "returns http success" do
       get :new
+      save_and_open_page
       expect(response).to have_http_status(:success)
     end
   end
@@ -17,3 +19,4 @@ RSpec.describe MessagesController, type: :controller do
   end
 
 end
+=end

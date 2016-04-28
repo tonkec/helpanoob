@@ -20,6 +20,9 @@ rake secret
 development: <br />
  secret_key_base: COPY_PASTED_OUTPUT_NOT_IN_QOUTES
 
+* see an example of that file [here](https://bitbucket.org/antonija_simic/my_rails_app/src/e5bd90d7b65ee245bbb9b4ed5dfafb7a738f45ff/config/secrets.yml?at=master&fileviewer=file-view-default)
+* yml is very sensitive to spaces and tabs!
+
 ### STEP 6
 bin/rake db:migrate RAILS_ENV=development
 

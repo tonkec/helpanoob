@@ -18,7 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
-/config/secrets.yml
+/config/secrets_mine.yml
 /config/initializers/devise.rb
 
 # Ignore simplecow coverage

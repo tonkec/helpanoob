@@ -21,10 +21,10 @@
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-orange btn-delete-message', method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
+      <span class="btn btn-orange btn-reply" id="reply">Reply</span>
 
-      
+      <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-orange btn-delete-message', method: :delete,
+                  data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
 
@@ -41,4 +41,52 @@
   <p class="conversation-body">
     "<%= conversation.last_message.body %>"
   </p>
+
+
+ 
 </li>
+
+
+  <div class="reply-hidden" id="reply-<%=conversation.id %>">
+    <h5 class="reply-heading black-text">
+      Message from:
+    
+    </h5>
+    
+    <div class="reply-item">
+      <p class="black-text">Subject:</p>
+      <div class="reply-subject reply-data">
+        <%= conversation.subject %>
+      </div>
+  
+      <p class="black-text">Message:</p>
+      <div class="reply-message reply-data">
+        
+        <% conversation.receipts_for(current_user).each do |receipt| %>
+        <% message = receipt.message %>
+
+        <%= message.body %>
+        <% end %>
+      </div>
+
+
+      <p class="black-text">Reply:</p>
+      <div class="reply-form">
+
+        <%= form_tag reply_conversation_path(conversation), method: :post do %>
+         <div class="form-group">
+          <%= text_area_tag 'body', nil, class: 'form-control large-textarea', required: true %>
+        </div>
+        <%= submit_tag "Send reply", class: 'btn btn-orange pull-right' %>
+        <% end %>
+    </div>
+
+    </div>
+  </div>
+
+  <script>
+  $("#reply").click(function(){
+    $(".message-item").fadeOut(500);
+    $("#reply-<%= conversation.id %>").delay(550).fadeIn(500);
+  });
+  </script>

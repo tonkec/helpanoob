@@ -157,13 +157,13 @@
 .message-form {
 	label {
 		font-size: 13px; 
-		margin: 10px 0; 
+		margin: 20px 0; 
 		color: $black-2;
 	}
 
 	.btn-orange {
 		background-color: $light-orange; 
-		padding: 10px 40px; 
+		padding: 10px 50px; 
 		margin-top: 10px; 
 		
 		&:hover,
@@ -171,4 +171,47 @@
 			color: $white;
 		}
 	}
+}
+
+.btn-reply {
+	background-color: $light-blue-2;
+	margin-bottom: 10px;  
+}
+
+.reply-hidden {
+	display: none; 
+	margin-top: 30px; 
+	
+	p {
+		font-weight: 700;
+		margin-bottom: 5px;  
+	}
+}
+
+.reply-item {
+	margin-top: 20px; 
+}
+
+.reply-subject {
+	border: 1px solid $light-blue-2;
+}
+
+.reply-data {
+	padding: 10px 15px;
+	margin-bottom: 20px; 
+}
+
+.reply-message {
+	background-color: #ddd; 
+}
+
+.reply-form {
+	.btn-orange {
+		padding: 10px 50px; 
+	}
+}
+
+.reply-heading {
+	font-weight: 700;
+	font-style: italic;  
 }

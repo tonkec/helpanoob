@@ -24,7 +24,7 @@ class ConversationsController < ApplicationController
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
     flash[:success] = 'Reply sent'
-    redirect_to conversation_path(@conversation)
+    redirect_to conversations_path
   end
 
   def destroy

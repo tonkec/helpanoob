@@ -60,6 +60,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :messages, only: [:new, :create]
+  resources :messages, only: [:create]
   
 end

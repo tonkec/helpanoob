@@ -23,8 +23,7 @@
     <% else %>
       <span class="btn btn-orange btn-reply" id="reply">Reply</span>
 
-      <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-orange btn-delete-message', method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
+      <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-orange btn-delete-message', method: :delete,data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
 

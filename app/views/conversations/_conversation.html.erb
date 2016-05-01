@@ -1,7 +1,20 @@
-<li class="list-group-item clearfix message-item">
-  <%= link_to conversation_path(conversation) do %>
-    <div class="conversation-link"></div>
+<li class="list-group-item clearfix message-item <%= 'message-unread' if conversation.is_unread?(current_user) %>" id="conversation-item-<%= conversation.id%>">
+
+  <% if conversation.is_unread?(current_user) %>
+    
+    <%= link_to mark_as_read_conversation_path(conversation), method: :post  do %>
+      <div class="conversation-link">
+      </div>
+    <% end %>
+
+  <% else %>
+
+    <%= link_to conversation_path(conversation) do %>
+      <div class="conversation-link"></div>
+    <% end %>
+    
   <% end %>
+
 
   <%= image_tag(conversation.last_message.sender.avatar.thumb, class: "message-avatar") %>
   <div class="btn-group-vertical pull-right">
@@ -11,18 +24,15 @@
       <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-orange btn-delete-message', method: :delete,
                   data: {confirm: 'Are you sure?'} %>
 
-      <% if conversation.is_unread?(current_user) %>
-        <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation),
-                    class: 'btn btn-xs btn-info', method: :post %>
-      <% end %>
+      
     <% end %>
   </div>
 
-    <p>
+    <p class="mesage-info">
       <b class="message-username"><%= conversation.last_message.sender.username %></b> 
 
       <small>
-        <span class="text-muted">
+        <span class="message-time">
           <%= conversation.last_message.created_at.strftime("%-d %B %Y") %>
         </span>
       </small>

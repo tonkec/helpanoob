@@ -61,6 +61,7 @@
 
 .list-group-item {
 	&.message-item {
+		border: 1px solid #c9c9c9; 
 		padding-left: 50px; 
 		position: relative; 
 		margin: 25px auto;
@@ -71,9 +72,12 @@
 	}
 }
 
+.message-info {
+	color: $black-2; 
+}
+
 .message-username {
 	font-style: italic;
-	color: $black-2;
 	margin-right: 15px;   
 }
 
@@ -91,11 +95,23 @@
 	left: 0;right: 0;
 	top: 0;
 	bottom: 0;
-	opacity: .2; 
+	border: 1px solid transparent;
 	@include transition(.5s);
+	
 	&:hover {
-		background-color: $black-1; 
-	}   
+		border: 1px solid $light-blue-2; 
+	} 
+	
+}
+
+.message-unread {
+	background-color: $light-orange !important; 
+	color: $white;
+	border: 1px solid $light-orange; 
+	
+	.message-info {
+		color: $white; 
+	}
 }
 
 .btn {

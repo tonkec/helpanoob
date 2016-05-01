@@ -30,7 +30,8 @@
 			margin: 15px auto;
 			@include transition(.5s);
 			
-			&:hover {
+			&:hover,
+			&:focus {
 				background-color: $light-orange;
 				color: $white; 
 			}
@@ -39,10 +40,19 @@
 	}
 }
 
+.nav.orange-pills li.active a {
+
+	&:hover,
+	&:focus {
+		background-color: $light-orange;
+		color: $white;  
+		
+	}
+}
+
 .messages-col {
 	border-right: 1px solid $border-light;
 	padding-bottom: 150px; 
-
 }
 
 .row-conversations {
@@ -68,6 +78,17 @@
 
 		&:first-child {
 			margin-top: 50px; 
+		}
+
+		&.active {
+			background-color: $white;
+			border: none; 
+			
+			&:hover {
+				border: none; 
+
+				background-color: $white; 
+			} 
 		}  
 	}
 }
@@ -123,6 +144,31 @@
 		&:hover {
 			background-color: $light-blue-2;
 			color: $white;  
+		}
+	}
+}
+
+.trash-holder {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;   
+}
+
+.message-form {
+	label {
+		font-size: 13px; 
+		margin: 10px 0; 
+		color: $black-2;
+	}
+
+	.btn-orange {
+		background-color: $light-orange; 
+		padding: 10px 40px; 
+		margin-top: 10px; 
+		
+		&:hover,
+		&:focus {
+			color: $white;
 		}
 	}
 }

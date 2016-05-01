@@ -1,8 +1,8 @@
 <div class="row row-conversations">
   <div class="col-xs-6 col-xs-offset-3 col-sm-offset-0 col-sm-4 col-lg-3 messages-col p-l-0 p-r-0">
     <ul class="nav nav-pills nav-stacked orange-pills">
-      <li>
-        <a href="#new_message" data-toggle="tab">
+      <li >
+        <a href="#new_message" data-toggle="tab" class="new-message">
           Compose Message
         </a>
       </li>
@@ -16,10 +16,12 @@
 
   </div>
 
-  <div class="col-sm-9">
+  <div class="col-sm-9 messages-col">
     <% if @box == 'trash' %>
-    <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
-     data: {confirm: 'Are you sure?'} %></p>
+      <p class="trash-holder">
+        <%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-orange btn-delete-message', method: :delete,
+       data: {confirm: 'Are you sure?'} %>
+      </p>
      <% end %>
       <div class="tab-content">
 
@@ -35,3 +37,9 @@
 
   </div>
 </div>
+
+<script>
+  $(".new-message").click(function(){
+    $(".list-group").hide();
+  })
+</script>

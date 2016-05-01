@@ -1,7 +1,7 @@
 # SETUP
 
 ### STEP 1
-rails s
+````rails s````
 
 * copy paste config.secret_key = 'SOME LONG STRING' into config/initializers/devise.rb
 
@@ -24,7 +24,28 @@ development: <br />
 * yml is very sensitive to spaces and tabs!
 
 ### STEP 6
-bin/rake db:migrate RAILS_ENV=development
+````bin/rake db:migrate RAILS_ENV=development````
 
 ### STEP 7
 rails s
+
+# Git workflow
+
+
+### STEP 1
+* create your branch from master <br />
+ ````git checkout master```` <br />
+ ````git checkout -b name-of-your-branch````
+
+### STEP 1
+* work on your branch
+
+### STEP 2
+* commit your work
+
+### STEP 3
+* push your branch to github repo <br />
+ ````git push -u name-of-origin name-of-your-branch````
+
+### STEP 4
+* create pull request to staging branch on github pages

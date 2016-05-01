@@ -276,9 +276,12 @@ TEXT COLORS
 	color: $dark-blue-2; 
 }
 
+.form-control.large-textarea,
 .large-textarea {
 	height: 300px; 
 	line-height: 1.6em; 
+	z-index: 1;
+	position: relative;  
 }
 
 .middle-textarea {

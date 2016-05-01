@@ -397,6 +397,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (4.0.1.1)
+      thor (~> 0.14)
     sendgrid (1.2.4)
       json
     sexp_processor (4.7.0)
@@ -496,6 +498,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  select2-rails
   sendgrid
   shareable
   simplecov

@@ -14,6 +14,7 @@ class ConversationsController < ApplicationController
     end
 
     @conversations = @conversations.page(params[:page]).per(10)
+
   end
 
 
@@ -48,8 +49,7 @@ class ConversationsController < ApplicationController
 
   def mark_as_read
     @conversation.mark_as_read(current_user)
-    flash[:success] = 'The conversation was marked as read.'
-    redirect_to conversations_path
+    redirect_to conversation_path(@conversation)
   end
 
   private

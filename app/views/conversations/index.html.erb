@@ -23,7 +23,7 @@
      <% end %>
       <div class="tab-content">
 
-        <div class="tab-pane list-group-item message-item" id="new_message">
+        <div class="tab-pane message-item" id="new_message">
           <%= render template: "messages/new" %>  
         </div><!-- tab-pane -->
 
@@ -36,8 +36,16 @@
   </div>
 </div>
 
+
+
 <script>
   $(".new-message").click(function(){
     $(".list-group").hide();
   });
+
+   $(document).ready(function(){
+    $('select').select2({
+      placeholder: "Send message to..."
+    });
+  })
 </script>

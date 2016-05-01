@@ -29,13 +29,6 @@ $(document).ready(function() {
     toggleNav();
   });
 
- /*$(document).keyup(function(e) {
-    if (e.keyCode == 27) {
-     toggleNav();
-   } 
- });*/
-
-
 });
 
 

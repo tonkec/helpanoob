@@ -44,6 +44,7 @@ gem 'sidekiq'
 gem 'sinatra', :require => nil
 gem 'redis'
 gem "mailboxer"
+gem "select2-rails"
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

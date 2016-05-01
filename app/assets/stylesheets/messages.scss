@@ -76,3 +76,37 @@
 	color: $black-2;
 	margin-right: 15px;   
 }
+
+.conversation-body {
+	font-style: italic;
+	
+	&:hover {
+		color: red;
+	}  
+}
+
+.conversation-link {
+	display: block;
+	position: absolute;
+	left: 0;right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: .2; 
+	@include transition(.5s);
+	&:hover {
+		background-color: $black-1; 
+	}   
+}
+
+.btn {
+	&.btn-delete-message {
+		padding: 5px 15px;
+		color: $white;
+		@include transition(.5s);
+		
+		&:hover {
+			background-color: $light-blue-2;
+			color: $white;  
+		}
+	}
+}

@@ -1,11 +1,14 @@
 <li class="list-group-item clearfix message-item">
-  <%#= link_to conversation.subject, conversation_path(conversation) %>
+  <%= link_to conversation_path(conversation) do %>
+    <div class="conversation-link"></div>
+  <% end %>
+
   <%= image_tag(conversation.last_message.sender.avatar.thumb, class: "message-avatar") %>
   <div class="btn-group-vertical pull-right">
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
+      <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-orange btn-delete-message', method: :delete,
                   data: {confirm: 'Are you sure?'} %>
 
       <% if conversation.is_unread?(current_user) %>
@@ -19,12 +22,13 @@
       <b class="message-username"><%= conversation.last_message.sender.username %></b> 
 
       <small>
-        <span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y") %></span>
-        </small>
+        <span class="text-muted">
+          <%= conversation.last_message.created_at.strftime("%-d %B %Y") %>
+        </span>
+      </small>
     </p>
 
-  <p><%= conversation.last_message.body %>
-    
+  <p class="conversation-body">
+    "<%= conversation.last_message.body %>"
   </p>
 </li>
-

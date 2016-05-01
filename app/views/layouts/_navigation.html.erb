@@ -13,6 +13,21 @@
       <span class="icon-elegant-font-172-8820 icon-plus"></span>
     <% end %>
   </div>
+  
+  <div class="notifications">
+    <li class="dropdown">
+      <%= link_to tag(:span, class: "glyphicon glyphicon-globe", "aria-hidden" => true), root_path,  :class => "dropdown-toggle", 'data-toggle' => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false", :id => "dropdownment1" %> <%= current_user.notifications.count %>
+          
+      <ul class="dropdown-menu" aria-labelledby="dropdownmenu1">
+        <li class="dropdown-header text-center">Notifications</li>
+        <li><%= link_to 'Notification 1', root_path %></li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to 'Notification 2', root_path %></li>
+      </ul>
+    </li>
+  </div>
+  
+  
 
     
 

@@ -1,3 +1,78 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'components/colors';
+@import 'components/mixins';
+.nav.orange-pills {
+	background-color: #FFF; 
+	
+	li {
+		text-align: center; 
+		border-top: 1px solid $border-light; 
+		
+		&.active {
+			a {
+				background-color: $light-orange;
+				@include transition(.5s);
+
+				&:hover {
+					border: 1px solid $light-blue-2; 
+					background-color: $light-blue-2; 
+				}
+			}
+		}
+		a {
+			border: 1px solid $light-orange;
+			color: $black-2;  
+			display: inline-block;
+			padding: 10px 0;
+			width: 80%;   
+			margin: 15px auto;
+			@include transition(.5s);
+			
+			&:hover {
+				background-color: $light-orange;
+				color: $white; 
+			}
+			
+		}
+	}
+}
+
+.messages-col {
+	border-right: 1px solid $border-light;
+	padding-bottom: 150px; 
+
+}
+
+.row-conversations {
+	background-color:  $white; 
+	border-top: 3px solid $light-orange; 
+}
+
+.message-avatar {
+	-webkit-border-radius: 50%; 
+	border-radius: 50%; 
+	position: absolute;
+	left: -10px;
+	top: -15px;  
+
+}
+
+.list-group-item {
+	&.message-item {
+		padding-left: 50px; 
+		position: relative; 
+		margin: 25px auto;
+
+		&:first-child {
+			margin-top: 50px; 
+		}  
+	}
+}
+
+.message-username {
+	font-style: italic;
+	color: $black-2;
+	margin-right: 15px;   
+}

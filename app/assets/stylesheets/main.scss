@@ -15,6 +15,14 @@ h1,h2,h3,h4,h5,h6,p {
 	margin-bottom: 0; 
 }
 
+.p-l-0 {
+	padding-left: 0 !important;
+}
+
+.p-r-0 {
+	padding-right: 0 !important; 
+}
+
 a:hover,
 a:focus {
 	-webkit-box-shadow: none; 
@@ -81,58 +89,7 @@ HOME PAGE
 			border: 1px solid $white; 
 		}
 	} 
-	.home-question-link {
-		color: #000;
-		display: block;
-		font-size: 18px;
-		font-weight: 300;
-		width: 100%; 
-		padding: 30px 100px; 
 
-		&:hover {
-			background: $green;
-			color: $white;
-			text-decoration: none; 
-		} 
-	}
-	
-}
-
-.fa-question-star {
-	position: absolute;
-	top: 30px;
-	right: 20px;   
-	color: lighten(#000, 10%);
-	cursor: pointer;
-	text-align: center; 
-	
-	&:hover {
-		color: $green; 
-	}
-
-	.number-of-votes {
-		font-style: normal;
-		display: block;
-		margin-top: 10px;  
-	}
-
-}
-
-.question-user-photo {
-	border: 1px solid $green;
-	-webkit-border-radius: 50%; 
-	border-radius: 50%;  
-	width: 30px !important;
-	height: 30px;
-	display: inline-block;
-	text-align: left;
-	position: absolute;
-	left: 30px;
-	top: 20px;
-	
-	img {
-		width: 100%; 
-	}
 }
 
 .main-home-heading {
@@ -159,27 +116,9 @@ HOME PAGE
 	bottom: 10px;     
 }
 
-.main-search {
-	padding: 35px 20px;
-	width: 80%;
-	position: absolute;
-	bottom: 0px;
-	left: 20%;  
-	color: $green;
-	font-size: 20px; 
-	&:focus {
-		border: 1px solid $green; 
-	}
-}
 
-
-
-.green-text {
-	color: $green;
-}
 
 .pagination-col {
-	
 	
 	&:last-child {
 		margin-bottom: 100px; 

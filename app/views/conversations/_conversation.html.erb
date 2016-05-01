@@ -1,6 +1,6 @@
-<li class="list-group-item clearfix">
-  <%= link_to conversation.subject, conversation_path(conversation) %>
-
+<li class="list-group-item clearfix message-item">
+  <%#= link_to conversation.subject, conversation_path(conversation) %>
+  <%= image_tag(conversation.last_message.sender.avatar.thumb, class: "message-avatar") %>
   <div class="btn-group-vertical pull-right">
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
@@ -15,8 +15,16 @@
     <% end %>
   </div>
 
+    <p>
+      <b class="message-username"><%= conversation.last_message.sender.username %></b> 
+
+      <small>
+        <span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y") %></span>
+        </small>
+    </p>
 
   <p><%= conversation.last_message.body %>
-    <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+    
+  </p>
 </li>
 

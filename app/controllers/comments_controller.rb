@@ -20,6 +20,14 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+
+        Notification.create(
+          user_id: @post.user.id,
+          notified_by_id: current_user.id,
+          post_id: @post.id,
+          notice_type: "comment"
+        )
+
         format.html {redirect_to post_path(@post)}
         format.js
       else
@@ -95,4 +103,6 @@ class CommentsController < ApplicationController
       @user_id = @right_comment.user_id
       redirect_to root_path unless current_user.id == @right_comment.user_id
     end
+
+    
 end

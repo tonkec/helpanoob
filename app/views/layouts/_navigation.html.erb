@@ -14,7 +14,23 @@
     <% end %>
   </div>
 
-    
+  <div class="notifications">
+   <h5 style="width: 50%; left: 50%; position:absolute; color: red;">
+     <% @notifications = Notification.all.where(user_id: current_user.id) %>
+
+     <% @notifications.each do |n| %>
+     
+      
+      <% user_id = n.notified_by_id %>
+      <% user =  User.find_by_id(user_id) %>
+       <%= n.notice_type %> by <%= user.username %> <%= time_ago_in_words(n.created_at) %> ago
+       on 
+       <% post_id = n.post_id %>
+       <% post = Post.find_by_id(post_id) %>
+       <%= link_to truncate(post.title, length: 50), post_path(post) %>
+     <% end %>
+    </h5> 
+  </div>
 
 </nav>
 

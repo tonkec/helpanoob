@@ -6,5 +6,6 @@
 	$(".comments-col#<%= @comment.id %>").fadeOut(500, function(){
 		$(this).remove();
 		$("#comment-wrapper").prepend("<%= j render @comment %>");
+		$(".fa-external-link").remove();
 	});
 <% end %>

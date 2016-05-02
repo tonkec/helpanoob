@@ -201,11 +201,11 @@
 	margin-bottom: 20px; 
 }
 
-.reply-message {
-	background-color: #ddd; 
-}
 
 .reply-form {
+	textarea {
+		margin-top: 20px; 
+	}
 	.btn-orange {
 		padding: 10px 50px; 
 	}
@@ -218,4 +218,40 @@
 
 .select2 {
 	width: 100% !important; 
+}
+
+.message-body {
+	width: 100%;
+	margin: 20px 0;  
+	
+	&:nth-child(odd) {
+		.message-bubble {
+			background-color: $light-blue-2; 
+			float: left;
+		}
+	}
+
+	&:nth-child(even) {
+		.message-bubble {
+			text-align: right;
+			background-color: $light-orange; 
+			float: right;
+		}
+	}
+}
+
+.message-bubble {
+	width: 70%; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px; 
+	padding: 10px 20px;
+	color: $white;  
+}
+
+.msg-info {
+	font-size: 12px;
+	
+	a {
+		color: $white; 
+	}  
 }

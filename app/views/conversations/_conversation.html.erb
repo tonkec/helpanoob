@@ -21,7 +21,7 @@
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <span class="btn btn-orange btn-reply" id="reply">Reply</span>
+      <span class="btn btn-orange btn-reply" id="<%= conversation.id %>">Reply</span>
 
       <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-orange btn-delete-message', method: :delete,data: {confirm: 'Are you sure?'} %>
     <% end %>
@@ -47,34 +47,35 @@
 
 
   <div class="reply-hidden" id="reply-<%=conversation.id %>">
-    <h5 class="reply-heading black-text">
-      Message from:
-    
-    </h5>
-    
     <div class="reply-item">
-      <p class="black-text">Subject:</p>
-      <div class="reply-subject reply-data">
-        <%= conversation.subject %>
-      </div>
   
-      <p class="black-text">Message:</p>
-      <div class="reply-message reply-data">
-        
+        <div class="reply-message reply-data">
         <% conversation.receipts_for(current_user).each do |receipt| %>
         <% message = receipt.message %>
+        <%#= message.sender.username %>
 
-        <%= message.body %>
+
+        <div class="message-body clearfix">
+          <div class="message-bubble">
+            <p>
+              <%= message.body %>
+            </p>
+
+            <small class="msg-info">
+              <%= link_to message.sender.username, user_path(message.sender) %>
+              (<%= message.created_at.strftime("%-d %B %Y, %H:%M:") %>)
+            </small>
+          </div>
+        </div>
         <% end %>
       </div>
 
 
-      <p class="black-text">Reply:</p>
       <div class="reply-form">
 
         <%= form_tag reply_conversation_path(conversation), method: :post do %>
          <div class="form-group">
-          <%= text_area_tag 'body', nil, class: 'form-control large-textarea', required: true %>
+          <%= text_area_tag 'body', nil, class: 'form-control', placeholder: "Type message", required: true %>
         </div>
         <%= submit_tag "Send reply", class: 'btn btn-orange pull-right' %>
         <% end %>
@@ -84,7 +85,7 @@
   </div>
 
   <script>
-  $("#reply").click(function(){
+  $("#<%= conversation.id %>").click(function(){
     $(".message-item").fadeOut(500);
     $("#reply-<%= conversation.id %>").delay(550).fadeIn(500);
   });

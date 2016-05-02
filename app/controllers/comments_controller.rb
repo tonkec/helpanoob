@@ -67,11 +67,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.liked_by current_user
+
     respond_to do |format|
       format.html { redirect_to @post }
       format.json { head :no_content }
       format.js { render :template => "comments/upvote.js.erb" }
     end
+    
   end
 
   def downvote

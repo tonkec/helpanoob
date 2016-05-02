@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
   end
 
-  def update 
+  def update
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     respond_to do |format|

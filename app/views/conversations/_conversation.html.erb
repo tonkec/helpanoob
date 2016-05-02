@@ -7,11 +7,6 @@
       </div>
     <% end %>
 
-  <% else %>
-
-    <%= link_to conversation_path(conversation) do %>
-      <div class="conversation-link"></div>
-    <% end %>
     
   <% end %>
 
@@ -40,8 +35,6 @@
   <p class="conversation-body">
     "<%= conversation.last_message.body %>"
   </p>
-
-
  
 </li>
 

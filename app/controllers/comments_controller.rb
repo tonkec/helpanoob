@@ -95,4 +95,8 @@ class CommentsController < ApplicationController
       @user_id = @right_comment.user_id
       redirect_to root_path unless current_user.id == @right_comment.user_id
     end
+
+    
+
+    
 end

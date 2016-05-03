@@ -28,13 +28,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   acts_as_voter
+  acts_as_messageable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :skills, dependent: :destroy
+  has_many :notifications, dependent: :destroy #Takuma
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -73,6 +75,10 @@ class User < ActiveRecord::Base
     unless link.blank?
        "<a href='#{link}' target='_blank' class='user-link'>website</a>".html_safe 
     end
+  end
+
+  def mailboxer_email(object)
+    email
   end
 
 end

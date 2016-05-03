@@ -20,7 +20,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        create_notification(@post, @comment)
         format.html {redirect_to post_path(@post)}
         format.js
       else
@@ -97,12 +96,7 @@ class CommentsController < ApplicationController
       redirect_to root_path unless current_user.id == @right_comment.user_id
     end
 
-    def create_notification(post, comment) #Takuma
-      return if post.user.id == current_user.id
-      Notification.create(user_id: post.user.id,
+    
 
-                          notified_by_id: current_user.id,
-                          post_id: post.id,
-                          notice_type: 'comment')
-    end
+    
 end

@@ -9,4 +9,5 @@ Devise.setup do |config|
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
   config.secret_key = 'edc2c0c5a45cc5a2f9cc436649521f1744a1f295171c3577533b3ccb40cccce5e7b9e1104c2100d34d4aae768bdd2119cdb60bee3cb22816fe120309130d3e15'
+  config.omniauth :github, CLIENT_ID = ENV['GH_BASIC_CLIENT_ID'], CLIENT_SECRET = ENV['GH_BASIC_SECRET_ID'], scope: 'user,public_repo'
 end

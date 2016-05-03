@@ -41,7 +41,7 @@ gem 'fog'
 gem 'bootsy'
 gem 'file_validators'
 gem "mailboxer"
-
+gem 'omniauth-github', :github => 'intridea/omniauth-github'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

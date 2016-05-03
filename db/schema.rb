@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160502111313) do
 
+
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
     t.string   "bootsy_resource_type"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160502111313) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
     t.string  "unsubscriber_type"

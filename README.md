@@ -31,6 +31,9 @@ rails s
 
 # Git workflow
 
+#### Don't fork this repo just clone it to your machine
+
+````https://github.com/tonkec/helpanoob.git```` 
 
 ### STEP 1
 * create your branch from master <br />

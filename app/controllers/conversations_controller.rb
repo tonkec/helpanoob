@@ -49,7 +49,7 @@ class ConversationsController < ApplicationController
 
   def mark_as_read
     @conversation.mark_as_read(current_user)
-    redirect_to conversation_path(@conversation)
+    redirect_to conversations_path
   end
 
   private

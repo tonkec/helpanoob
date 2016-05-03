@@ -104,10 +104,6 @@
 
 .conversation-body {
 	font-style: italic;
-	
-	&:hover {
-		color: red;
-	}  
 }
 
 .conversation-link {
@@ -224,14 +220,14 @@
 	width: 100%;
 	margin: 20px 0;  
 	
-	&:nth-child(odd) {
+	&.your-message {
 		.message-bubble {
 			background-color: $light-blue-2; 
 			float: left;
 		}
 	}
 
-	&:nth-child(even) {
+	&.other-message {
 		.message-bubble {
 			text-align: right;
 			background-color: $light-orange; 

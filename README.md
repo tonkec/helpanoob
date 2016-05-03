@@ -30,6 +30,7 @@ development: <br />
 rails s
 
 # Git workflow
+## NEVER WORK ON MASTER BRANCH AND NEVER MERGE YOUR CODE TO MASTER
 
 #### Don't fork this repo just clone it to your machine
 

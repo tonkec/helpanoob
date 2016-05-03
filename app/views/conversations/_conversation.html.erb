@@ -48,7 +48,7 @@
         <%#= message.sender.username %>
 
 
-        <div class="message-body clearfix">
+        <div class="message-body clearfix <%= current_user.id == message.sender.id ? 'your-message' : 'other-message' %> ">
           <div class="message-bubble">
             <p>
               <%= message.body %>

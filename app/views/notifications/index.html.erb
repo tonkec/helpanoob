@@ -1,0 +1,21 @@
+<% @notifications.each do |notification| %>
+  <% if notification.notice_type == "comment" %>
+    <%= link_to link_through_path(notification, :anchor => notification.identifier) do %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= notification.notified_by.username %>  <div class="pull-right"><%= time_ago_in_words(notification.created_at) + " ago" %></div>
+          <p>Comment on your question <strong>"<%= truncate(notification.post.title, length: 22) %>"</strong></p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+   <%= link_to link_through_path(notification) do %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= notification.notified_by.username %>  <div class="pull-right"><%= time_ago_in_words(notification.created_at) + " ago" %></div>
+          <p>Likes your question <strong>"<%= truncate(notification.post.title, length: 22) %>"</strong></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

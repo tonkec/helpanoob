@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def disable_link
     @disable_link = true
   end
-  
+
   def index
     if params[:tag]
       @tagged_posts = Post.tagged_with(params[:tag])
@@ -97,7 +97,7 @@ class PostsController < ApplicationController
     else
       render "new"
     end
-   
+
   end
 
   # PATCH/PUT /posts/1
@@ -128,6 +128,7 @@ class PostsController < ApplicationController
 
   def upvote
     @post.liked_by current_user
+    create_notification(@post, current_user, @post, "post-like")
     respond_to do |format|
       format.html { redirect_to @post }
       format.json { head :no_content }
@@ -137,6 +138,7 @@ class PostsController < ApplicationController
 
   def downvote
     @post.unliked_by current_user
+    delete_notification(@post, current_user, @post, "post-like")
      respond_to do |format|
       format.html { redirect_to @post }
       format.json { head :no_content }

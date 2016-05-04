@@ -34,18 +34,39 @@ class ApplicationController < ActionController::Base
   end
 
   def disable_like
-    @disable_like = true 
-  end 
+    @disable_like = true
+  end
+
+  def create_notification(post, user, identifier, type)
+    unless post.user.id == user.id
+      Notification.create(
+          user_id: post.user.id,
+          notified_by_id: user.id,
+          post_id: post.id,
+          identifier: identifier.id,
+          notice_type: type )
+    end
+  end
+
+  def delete_notification(post, user, identifier, type)
+    notification = Notification.find_by(
+      user_id: post.user.id,
+      notified_by_id: user.id,
+      post_id: post.id,
+      identifier: identifier.id,
+      notice_type: type)
+    notification.delete if notification
+  end
 
 
-  protected 
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:avatar, :username, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
                                                     :username, :last_name, :first_name, :email, :avatar,
-                                                    :first_social_link, :second_social_link, :third_social_link, 
+                                                    :first_social_link, :second_social_link, :third_social_link,
                                                     :first_learning_platform, :second_learning_platform, :third_learning_platform,
                                                     :experience, :website) }
   end

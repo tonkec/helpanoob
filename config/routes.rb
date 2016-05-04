@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   #resources :post_attachments
-  
+
   authenticated do
     root :to => 'posts#index', as: :root_path
   end
@@ -14,15 +14,15 @@ Rails.application.routes.draw do
 
   resources :posts do
     get :autocomplete_tag_name, :on => :collection
-     
+
     resources :comments, only: [:edit, :create, :update, :destroy] do
-      member do 
+      member do
         put "like" => "comments#upvote"
         put "dislike" => "comments#downvote"
       end
     end
 
-    member do 
+    member do
       put "like" => "posts#upvote"
       put "dislike" => "posts#downvote"
     end
@@ -61,5 +61,8 @@ Rails.application.routes.draw do
   end
 
   resources :messages, only: [:create]
-  
+
+  get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
+  get 'notifications', to: 'notifications#index'
+
 end

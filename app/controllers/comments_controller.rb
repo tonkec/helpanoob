@@ -20,15 +20,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        
-      unless @post.user.id == current_user.id 
-        Notification.create(
-          user_id: @post.user.id,
-          notified_by_id: current_user.id,
-          post_id: @post.id,
-          notice_type: "comment"
-        )
-      end
+        create_notification(@post, current_user, @comment, "comment")
 
         format.html {redirect_to post_path(@post)}
         format.js
@@ -42,7 +34,9 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    @comment.destroy
+    if @comment.destroy
+      delete_notification(@post, current_user, @comment, "comment")
+    end
 
     respond_to do |format|
       format.html { redirect_to post_path(@post) }
@@ -57,7 +51,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
   end
 
-  def update 
+  def update
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     respond_to do |format|
@@ -108,5 +102,4 @@ class CommentsController < ApplicationController
       redirect_to root_path unless current_user.id == @right_comment.user_id
     end
 
-    
 end

@@ -83,10 +83,16 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @users = User.all
 
     if @post.save(post_params)
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
+
+      @users.each do |user|
+        PostMailer.new_post_email(user, @post, post_url(@post)).deliver_now
+      end
+
     else
       render "new"
     end

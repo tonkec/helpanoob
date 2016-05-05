@@ -89,9 +89,8 @@ class PostsController < ApplicationController
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
 
-      @users.each do |user|
-        PostMailer.new_post_email(user, @post, post_url(@post)).deliver_now
-      end
+      
+      PostMailer.delay.new_post_email(User.first, @post, post_url(@post))
 
     else
       render "new"
@@ -155,8 +154,8 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-     @right_post = Post.find(params[:id])
-     @user_id = @right_post.user_id
-     redirect_to root_path unless current_user.id == @right_post.user_id
+      @right_post = Post.find(params[:id])
+      @user_id = @right_post.user_id
+      redirect_to root_path unless current_user.id == @right_post.user_id
     end
 end

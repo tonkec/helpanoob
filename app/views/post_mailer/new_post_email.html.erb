@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h5>Someone posted new question! Can you answer it?</h5>
+    <h1><%= truncate(@post.title, length: 200) %></h1>
+    <p>
+      Follow this link to help this noob find answer! <br />
+       <b><%= @url %></b>
+    </p>
+    
+    <h5>Don't forget to tell your fellow newbies about this app!</h5>
+  </body>
+</html>

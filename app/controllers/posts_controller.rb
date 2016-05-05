@@ -88,9 +88,8 @@ class PostsController < ApplicationController
     if @post.save(post_params)
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
-
       
-      PostMailer.delay.new_post_email(User.first, @post, post_url(@post))
+      PostMailer.delay(run_at: 30.seconds.from_now).new_post_email(User.first, @post, post_url(@post))
 
     else
       render "new"

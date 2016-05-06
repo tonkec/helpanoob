@@ -15,9 +15,21 @@
   </div>
 
   <div class="notifications">
-   <h5 style="width: 50%; left: 50%; position:absolute; color: red;">
-    <%= render partial: "notifications/dropdown" %>
+    <h5 style="width: 50%; left: 50%; position:absolute; color: red;">
+      <%= render partial: "notifications/dropdown" %>
     </h5>
+  </div>
+
+  <div class="notifications" style="color: red; font-size: 4em;">
+    <% notifications = current_user.mailbox.notifications %>
+
+    <% notifications.each do |notification| %>
+      <% conversation_id = notification.notified_object_id %>
+      <% message = Mailboxer::Message.find_by_conversation_id(conversation_id) %>
+      <%= message.body %>
+      <%= message.subject %>
+
+    <% end %>
   </div>
 
 </nav>

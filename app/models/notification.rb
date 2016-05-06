@@ -7,6 +7,8 @@ class Notification < ActiveRecord::Base
 
   validates :user_id, :notified_by_id, :post_id, :notice_type, presence: true
 
+  scope :unread, -> {where(read: false)}
+
   def is_read?
     self.read
   end

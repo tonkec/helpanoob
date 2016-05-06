@@ -1,4 +1,4 @@
-<li>
+<li id=<%= notification.id %> >
   <% if notification.notice_type == "comment" %>
     <%= link_to link_through_path(notification, :anchor => notification.identifier) do %>
       <div class="panel panel-default">

@@ -1,0 +1,6 @@
+<% if !@unread_notifications.blank? %>
+  $("#unread-count").html(<%= @unread_notifications_count %>);
+  <% @unread_notifications.each do |notification| %>
+    $('.dropdown-menu li:eq(0)').after("<%= j render notification %>");
+  <% end %>
+<% end %>

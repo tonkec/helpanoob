@@ -1,6 +1,6 @@
-<div class="dropdown">
+<div class="dropdown" id="notifications-dropdow">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <i class="fa fa-bell fa-2x" aria-hidden="true"></i> <span class="badge"><%= current_user.unread_notificaions_count %></span>
+    <i class="fa fa-bell fa-2x" aria-hidden="true"></i> <span class="badge" id="unread-count"><%= current_user.unread_notificaions_count %></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <li class="dropdown-header">

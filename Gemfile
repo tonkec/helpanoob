@@ -40,6 +40,9 @@ gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'bootsy'
 gem 'file_validators'
+gem 'sidekiq'
+gem 'sinatra', :require => nil
+gem "letter_opener"
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

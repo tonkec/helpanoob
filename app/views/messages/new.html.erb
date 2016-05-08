@@ -1,6 +1,6 @@
 <%= form_tag messages_path, method: :post, class: "message-form" do %>
     <%= label_tag 'recipients', 'Send message to:' %>
-    <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control' %>
+    <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control', id: "recipients_select" %>
 
     <%= label_tag 'message[subject]', 'Subject:' %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>

@@ -4,6 +4,7 @@
 
 $main-color-orange: #ff7300;
 $main-color-gray: #f3f5f7;
+$main-color-blue: #2d90ab;
 
 .main-nav {
   height: 60px;
@@ -140,7 +141,7 @@ $main-color-gray: #f3f5f7;
 
 .open > .dropdown-menu {
   border: 1px solid $main-color-gray;
-  bottom: 0;
+  padding-bottom: 0;
 }
 
 .dropdown-menu > li {
@@ -161,7 +162,13 @@ $main-color-gray: #f3f5f7;
   margin-right: 5%;
 }
 
+.pull-right > a {
+  color: $main-color-blue;
+}
+
+
 .divider {
+  font-size: 20px;
   border: 1px solid white;
 }
 

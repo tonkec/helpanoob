@@ -1,9 +1,9 @@
 <nav class="main-nav">
   <div class="search-content">
-      
+
       <%= search_form_for @q do |f| %>
       <%= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search"%>
-      <i class="icon-elegant-font-180-8914 nav-search-icon"></i> 
+      <i class="icon-elegant-font-180-8914 nav-search-icon"></i>
       <% end %>
   </div><!-- content -->
   <div class="right-nav">
@@ -14,7 +14,13 @@
     <% end %>
   </div>
 
-    
+  <div class="notifications">    
+    <%= render partial: "notifications/dropdown" %>
+  </div>
+
+  <div class="notifications" style="color: red; font-size: 4em;">
+    <%=  render partial: "layouts/messages_dropdown" %>
+  </div>
 
 </nav>
 
@@ -23,7 +29,7 @@
   $(".nav-search").click(function(event){
     event.stopPropagation();
     $(this).addClass("active-search");
-  }); 
+  });
 
   $(".nav-search-icon").click(function(event){
      event.stopPropagation();

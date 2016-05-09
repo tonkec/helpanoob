@@ -1,0 +1,22 @@
+<li>
+    <% conversations = current_user.mailbox.inbox %>
+    <% conversations.each do |conversation| %>
+      <% receipts = conversation.receipts_for current_user %>
+
+      <% receipts.each do |receipt| %>
+        <% if receipt.is_unread? %>
+          <%= link_to mark_as_read_conversation_path(conversation), method: :post  do %>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <% user_id = receipt.message.sender_id %>
+                <% sender = User.find_by_id(user_id) %>
+                <p> <strong><%= sender.username %></strong> sent you a message!</p>
+                <p><strong>"<%= truncate(receipt.message.subject, length: 12) %>"</strong></p>              
+              </div>
+            </div>  
+          <% end %>
+        
+        <% end %>
+      <% end %>
+    <% end %>
+</li>

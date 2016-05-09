@@ -2,24 +2,28 @@
 @import "components/mixins";
 @import "text-hover-effects/sass/effects";
 
+$main-color-orange: #ff7300;
+$main-color-gray: #f3f5f7;
+$main-color-blue: #2d90ab;
+
 .main-nav {
   height: 60px;
   background-color: #000;
   position: fixed;
-  top: 0;  
+  top: 0;
   z-index: 999;
-  right: 0; 
-  width: 100%;   
+  right: 0;
+  width: 100%;
 }
 
 
 .right-inner-addon {
     position: relative;
     text-align: center;
-    
+
 }
 .right-inner-addon input {
-    padding-right: 50px;    
+    padding-right: 50px;
 }
 .right-inner-addon i {
     position: absolute;
@@ -30,21 +34,21 @@
 .right-nav {
   position: absolute;
   right: 0px;
-  top: 0;  
+  top: 0;
 }
 
 .icon-plus {
   font-size: 1.7em;
   color: $white;
-  padding: 20px 20px; 
+  padding: 20px 20px;
   background-color: $orange;
   position: absolute;
   right: 0;
-  top: 0;   
-  
+  top: 0;
+
   &:hover {
-    text-decoration: none; 
-  }  
+    text-decoration: none;
+  }
 }
 
 .plus-anchor {
@@ -54,57 +58,57 @@
 }
 
 .icon-nav {
-  font-size: 2.2em; 
+  font-size: 2.2em;
   position: relative;
-  display: inline-block; 
-  color: $dark-blue;  
-  margin-right: 20px; 
+  display: inline-block;
+  color: $dark-blue;
+  margin-right: 20px;
 }
 
 .nav-anchor {
   &:hover {
     text-decoration: none;
-    -webkit-box-shadow: none; 
-     box-shadow: none;  
+    -webkit-box-shadow: none;
+     box-shadow: none;
   }
 }
 
 .nav-right-list {
   display: inline-block;
-  margin-right: 60px; 
-  margin-top: 20px; 
+  margin-right: 60px;
+  margin-top: 20px;
 }
 
 .search-content {
   width: 90%;
   position: absolute;
   right: 20px;
-  bottom: -50px; 
-  background-color: transparent; 
-  
+  bottom: -50px;
+  background-color: transparent;
+
   @media (min-width: 480px) {
     right: 80px;
   top: 8px;
-  width: auto; 
+  width: auto;
   }
-  
+
   input {
-    width: 100%; 
-    height: 45px; 
+    width: 100%;
+    height: 45px;
     background-color: #000;
-    border: 2px solid rgba(225,225,225,.7); 
-    -webkit-border-radius: 10px; 
-    border-radius: 10px; 
+    border: 2px solid rgba(225,225,225,.7);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
     color: $orange;
-    
+
     @media (min-width: 480px) {
-      background-color: transparent; 
-      width: 45px; 
+      background-color: transparent;
+      width: 45px;
     }
     @include transition(1s);
     &:focus {
       color: $orange;
-      border: 2px solid $orange; 
+      border: 2px solid $orange;
     }
   }
 }
@@ -114,22 +118,74 @@
     right: 14px;
     color: #fff;
     top: 14px;
-    font-size: 1em; 
+    font-size: 1em;
     z-index: 1;
-    
+
     @media (min-width: 480px) {
       z-index: 1;
-    } 
+    }
 }
 
 .active-search {
- 
- @include transition(1s); 
- border-color: $orange;
- background-color: #000; 
- color: $orange;
- 
+  @include transition(1s);
+  border-color: $orange;
+  background-color: #000;
+  color: $orange;
+}
+
+/*<<<<<<< HEAD
  @media (min-width: 480px) {
     width: 200px !important;
  }
+=======
+//  @media (min-width: 480px) {
+//     width: 200px !important;
+//  }
+// }*/
+
+
+.open > .dropdown-menu {
+  border: 1px solid $main-color-gray;
+  padding-bottom: 0;
+}
+
+.dropdown-menu > li {
+  padding: 0;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  border-bottom: 1px solid $main-color-gray;
+}
+
+.pull-left {
+  margin-left: 5%;
+  font-weight: 600;
+}
+
+.pull-right {
+  margin-right: 5%;
+}
+
+.pull-right > a {
+  color: $main-color-blue;
+}
+
+
+.divider {
+  font-size: 20px;
+  border: 1px solid white;
+}
+
+.dropdown-menu > .text-center > a {
+  border: 1px solid $main-color-gray;
+  background: $main-color-orange;
+  color: white;
+  width: 300px;
+}
+
+.dropdown-menu > .text-center > a:hover {
+  border: 1px solid $main-color-gray;
+  background: #d86100;
+  color: white;
 }

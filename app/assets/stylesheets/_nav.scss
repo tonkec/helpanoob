@@ -168,6 +168,10 @@ $main-color-blue: #2d90ab;
   font-size: 14px;
 }
 
+.pull-right > a:hover, a:active {
+  text-decoration: none;
+}
+
 .divider {
   font-size: 20px;
   border: 1px solid white;

@@ -156,6 +156,7 @@ $main-color-blue: #2d90ab;
 .pull-left {
   margin-left: 5%;
   font-weight: 600;
+  font-size: 14px;
 }
 
 .pull-right {
@@ -164,8 +165,8 @@ $main-color-blue: #2d90ab;
 
 .pull-right > a {
   color: $main-color-blue;
+  font-size: 14px;
 }
-
 
 .divider {
   font-size: 20px;
@@ -177,10 +178,12 @@ $main-color-blue: #2d90ab;
   background: $main-color-orange;
   color: white;
   width: 300px;
+  font-size: 14px;
 }
 
 .dropdown-menu > .text-center > a:hover {
   border: 1px solid $main-color-gray;
   background: #d86100;
   color: white;
+  font-size: 14px;
 }

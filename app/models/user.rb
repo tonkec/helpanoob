@@ -83,6 +83,14 @@ class User < ActiveRecord::Base
     email
   end
 
+  def unread_messages
+    self.mailbox.inbox({:read => false})
+  end
+
+  def unread_messages_count
+    self.unread_messages.count
+  end
+
   def unread_notifications
     self.notifications.where(read: false)
   end

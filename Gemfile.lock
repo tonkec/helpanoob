@@ -93,6 +93,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    connection_pool (2.2.0)
     daemons (1.2.3)
     debug_inspector (0.0.2)
     delayed_job (4.1.1)
@@ -284,6 +285,8 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -360,6 +363,7 @@ GEM
       trollop
     rdoc (4.2.2)
       json (~> 1.4)
+    redis (3.3.0)
     remotipart (1.2.1)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
@@ -402,6 +406,10 @@ GEM
     shareable (1.1.4)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    sidekiq (4.1.2)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
     simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -483,6 +491,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   launchy
+  letter_opener
   mailcatcher
   mini_magick
   pg (= 0.17.1)
@@ -497,7 +506,9 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sendgrid
   shareable
+  sidekiq
   simplecov
+  sinatra
   spring
   sqlite3
   turbolinks

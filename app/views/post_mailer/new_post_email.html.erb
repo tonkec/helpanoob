@@ -4,13 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h5>Someone posted new question! Can you answer it?</h5>
-    <h1><%= truncate(@post.title, length: 200) %></h1>
-    <p>
-      Follow this link to help this noob find answer! <br />
-       <b><%= @url %></b>
-    </p>
-    
-    <h5>Don't forget to tell your fellow newbies about this app!</h5>
+    <h3>New question has been asked!</h3>
+    <h2><%= truncate(@post.title, length: 50) %> asked by <%= @post.user.username %></h2>
+    <%= link_to "Follow this link to answer the question", post_url(@post) %>
+
   </body>
 </html>

@@ -1,9 +1,8 @@
 class PostMailer < ApplicationMailer
 
-  def new_post_email(user, post, url)
-    @user = user
+  def new_post_email(user_id, post)
+    @user = User.find_by_id(user_id)
     @post = post
-    @url = url
     mail(to: @user.email, subject: 'New question has been asked!')
   end
 end

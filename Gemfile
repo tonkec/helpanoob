@@ -40,8 +40,8 @@ gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'bootsy'
 gem 'file_validators'
-gem 'delayed_job_active_record'
-
+gem 'sidekiq'
+gem 'sinatra', :require => nil
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -73,6 +73,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "letter_opener"
 end
 
 group :production do

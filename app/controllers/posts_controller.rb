@@ -89,12 +89,10 @@ class PostsController < ApplicationController
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
 
-      #PostsWorker.perform_async(User.first.id)
-     # PostMailer.new_post_email(User.first.id).deliver_now
-     PostsWorker.perform_in(30.seconds, User.first.id)
-     #@users.each do |user|
-      #  PostMailer.new_post_email(user, @post, post_url(@post)).deliver_now
-      #end
+      @users.each do |user|
+        PostsWorker.perform_in(30.seconds, user.id)
+      end
+     
 
     else
       render "new"

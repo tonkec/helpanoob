@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   #resources :post_attachments
+  require 'sidekiq/web'
+mount Sidekiq::Web => '/sidekiq'
   
   authenticated do
     root :to => 'posts#index', as: :root_path

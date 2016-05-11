@@ -22,6 +22,7 @@ module MyApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
     root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
       config.sass.load_paths << bower_path
       config.assets.paths << bower_path

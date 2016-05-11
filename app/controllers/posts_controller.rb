@@ -89,11 +89,11 @@ class PostsController < ApplicationController
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
 
+
       PostsWorker.perform_in(30.seconds, User.first.id)
       #@users.each do |user|
        # PostsWorker.perform_in(30.seconds, user.id)
       #end
-     
     else
       render "new"
     end

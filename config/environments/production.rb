@@ -75,6 +75,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
+  config.active_job.queue_adapter = :delayed_job
   config.active_record.dump_schema_after_migration = false
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
   host = 'https://helpanoob.herokuapp.com'

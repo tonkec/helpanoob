@@ -11,13 +11,13 @@ class MessagesController < ApplicationController
     redirect_to conversations_path
     subject = "subject"
     body = "body"
-    
+
     Mailboxer::Notification.notify_all(recipients,
-    subject, 
+    subject,
     body,
     obj = conversation,
     sanitize_text = true,
-    notification_code = nil, 
+    notification_code = nil,
       send_mail = true)
     #User.first.notify("Hi", "What is up")
 
@@ -25,5 +25,10 @@ class MessagesController < ApplicationController
      # recipient.notify("You got new message",
       # "Let s pretend here is message body")
     #end
+  end
+
+  def unread
+    p 'unread messages'
+    # render(partial: 'layouts/messages_notification.html.erb')
   end
 end

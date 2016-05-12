@@ -1,18 +1,15 @@
  <div class="dropdown" id="messages-dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <i class="fa fa-bell fa-2x" aria-hidden="true"></i> <span class="badge" id="unread-count">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-bell fa-2x" aria-hidden="true"></i> <span class="badge" id="unread-messages-count">
          <%= current_user.unread_messages_count %>
         </span>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <ul class="dropdown-menu messages-menu" aria-labelledby="dropdownMenu2" id="dropdown-messages-menu">
         <li class="dropdown-header">
           <div class="pull-left">Recent Messages</div>
           <div class="pull-right"><a href="#">Settings</a></div>
         </li>
-
         <%= render partial: "layouts/messages_notification.html.erb" %>
-        
-        <li role="separator" class="divider"></li>
         <li class="text-center">
           <%= link_to 'View all messages', conversations_path %>
         </li>
@@ -22,4 +19,3 @@
 
 
 
-   

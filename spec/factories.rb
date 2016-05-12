@@ -1,5 +1,13 @@
-FactoryGirl.define do  
- 
+FactoryGirl.define do
+  factory :notification do
+    user_id  "1"
+    subscribed_user nil
+    post_id "1"
+    identifier 1
+    type ""
+    read false
+  end
+  
   factory :user do
     sequence(:username) { |n| "Caspian Star #{n}" }
     sequence(:email) { |n| "test#{n}@example.com" }    

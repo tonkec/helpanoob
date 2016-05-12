@@ -69,6 +69,8 @@
     </div>
   </div> <!-- col -->
 
+
+ <% if comment.user.id == current_user.id %>
 <!-- Modal -->
 <div class="modal fade" id="editcomment-<%=comment.id%>" tabindex="-1" role="dialog" aria-labelledby="editComment">
   <div class="modal-dialog" role="document">
@@ -111,3 +113,4 @@
     </div> <!-- modal-fade -->
 
 </div><!-- main-col -->
+<% end %>

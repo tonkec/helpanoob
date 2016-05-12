@@ -8,5 +8,7 @@ Devise.setup do |config|
   config.password_length = 8..128
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  config.secret_key = ENV['DEVISE_SECRET_TOKEN']
+  config.secret_key = 'edc2c0c5a45cc5a2f9cc436649521f1744a1f295171c3577533b3ccb40cccce5e7b9e1104c2100d34d4aae768bdd2119cdb60bee3cb22816fe120309130d3e15'
+  config.omniauth :github,  '', '', scope: 'user,public_repo',
+                  callback_url: "http://localhost:3000"
 end

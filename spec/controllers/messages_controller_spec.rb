@@ -21,9 +21,10 @@ RSpec.describe MessagesController, type: :controller do
       subject = "Message subject"
       body = "Message body"
       click_link "Compose Message"
-      find('#recipients_select').find(:xpath, 'option[4]').select_option 
+      find('#recipients_select').find(:xpath, 'option[3]').select_option
       fill_in "message_subject", with: subject
       fill_in "message_body", with: body
+      save_and_open_page
       click_button "Send message"
       expect(page).to have_content("Message has been sent!")
       expect(user1.mailbox.sentbox.first.subject).to eq(subject)

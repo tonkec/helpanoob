@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501221208) do
+ActiveRecord::Schema.define(version: 20160509113746) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -237,6 +237,8 @@ ActiveRecord::Schema.define(version: 20160501221208) do
     t.string   "third_learning_platform"
     t.integer  "experience"
     t.string   "website"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

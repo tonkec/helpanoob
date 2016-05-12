@@ -68,4 +68,6 @@ Rails.application.routes.draw do
   get 'notifications', to: 'notifications#index'
   get 'notifications/unread', to: 'notifications#unread'
 
+  get 'messages/unread', to: 'messages#unread'
+
 end

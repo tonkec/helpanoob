@@ -1,4 +1,4 @@
-<li>
+<li id="messages-list">
     <% conversations = current_user.mailbox.inbox %>
     <% conversations.each do |conversation| %>
       <% receipts = conversation.receipts_for current_user %>
@@ -11,11 +11,12 @@
                 <% user_id = receipt.message.sender_id %>
                 <% sender = User.find_by_id(user_id) %>
                 <p> <strong><%= sender.username %></strong> sent you a message!</p>
-                <p><strong>"<%= truncate(receipt.message.subject, length: 12) %>"</strong></p>              
+                <p><strong>"<%= truncate(receipt.message.body, length: 12) %>"</strong> in </p>
+                <p><strong>"<%= truncate(receipt.message.subject, length: 8) %>"</strong></p>
               </div>
-            </div>  
+            </div>
           <% end %>
-        
+
         <% end %>
       <% end %>
     <% end %>

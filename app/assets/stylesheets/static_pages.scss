@@ -15,6 +15,10 @@ LANDING
 	background-color: $black-1; 
 }
 
+.orange-background {
+	background-color: $orange; 
+}
+
 %stretch {
 	top: 0;
 	right: 0;
@@ -182,26 +186,97 @@ video {
   margin-bottom: 20px;   
 }
 
-.left-bg-img {
+.landing-bg-img {
 	height: 700px;
 	background-image: url(../images/3.jpg);
 	background-position: center center;
 	background-repeat: no-repeat; 
 	-webkit-background-size: cover; 
 	 -o-background-size: cover; 
-	 background-size: cover;  
+	 background-size: cover;
+	
+	&.other {
+		background-image: url(../images/ruby.png);
+		height: 300px; 
+	}  
 }
 
 .testemonial-heading {
 	text-transform: uppercase;
-	margin-top: 70px;  
+	margin-top: 100px;  
 	font-weight: 700;
-	font-size: 32px;  
+	font-size: 26px; 
+}
+
+.swiper-wrapper {
+	height: auto !important; 
 }
 
 .swiper-slide {
-	border: 1px solid red;
-	padding-top: 50px;
-	padding-bottom: 50px;  
-	margin-top: 40px;  
+	margin-top: 80px; 
+	height: auto !important;
+	padding: 35px 45px; 
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff; 
+	-webkit-border-radius: 10px; 
+	 border-radius: 10px;  
+}
+
+.swiper-content {
+	color: #FFF; 
+	padding-top: 80px;
+	padding-bottom: 80px; 
+	-webkit-border-radius: 10px; 
+	   border-radius: 10px;    
+}
+
+.swiper-heading {
+	color: #FFF;
+	font-size: 16px;  
+}
+
+.signup-section {
+	padding-bottom: 100px; 
+	h2 {
+		text-transform: uppercase; 
+		font-weight: 300;
+		margin-top: 80px;  
+		color: #FFF;
+		font-size: 32px;
+		margin-bottom: 30px;
+		line-height: 1.2;
+	}
+}
+
+.landing-form {
+	height: 300px; 
+}
+
+.work-with-us {
+	.text-col {
+		margin-top: 100px; 
+	}
+
+	h2 {
+		margin-left: 30px; 
+		line-height: 1.2; 
+	}
+
+	h3 {
+		color: #fff;
+		margin-left: 30px; 
+		
+		a {
+			color: $orange;
+			@extend %reset_hover; 
+		} 
+	}
+}
+
+.text-uppercase {
+	text-transform: uppercase; 
+}
+
+.landing-footer {
+	height: 50px; 
 }

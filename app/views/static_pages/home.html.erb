@@ -70,27 +70,57 @@
     
     <div class="row">
       
-      <div class="col-sm-6 left-bg-img">
-        
-      </div> <!-- col -->
+      <div class="col-sm-6 landing-bg-img"></div> <!-- col -->
 
       <div class="col-sm-6 text-center">
         
-        <h3 class="testemonial-heading white-text">
-          No matter what you are stuck on, we are here to help.
-        </h3>
+        <div class="col-sm-8 col-sm-offset-2">
+          <h3 class="testemonial-heading white-text">
+            No matter what you are stuck on, we are here to help.
+          </h3>
+        </div>
 
-        <div class="swiper-container">
+       
+        <div class="col-sm-10 col-sm-offset-1 swiper-col">
+          
+        
+         <div class="swiper-container">
           <div class="swiper-wrapper">
 
-            <div class="swiper-slide light-blue-background">
-              Slide 1
+            <div class="swiper-slide">
+
+              <div class="swiper-content light-blue-background">
+                
+                  <h5 class="swiper-heading">
+                    "How do I vertically align content in my div?"
+                  </h5>
+
+              </div>
+
             </div>
-            <div class="swiper-slide light-blue-background">
-              
+
+            <div class="swiper-slide">
+
+              <div class="swiper-content light-blue-background">
+                
+                <h5 class="swiper-heading">
+                  "How do I vertically align content in my div?"
+                </h5>
+
+              </div>
+
             </div>
-            <div class="swiper-slide light-blue-background">
+            
+            <div class="swiper-slide">
+
+              <div class="swiper-content light-blue-background">
               
+                <h5 class="swiper-heading">
+                  "How do I vertically align content in my div?"
+                </h5>
+
+              </div>
+
             </div>
 
           </div><!-- wrapper -->
@@ -100,13 +130,51 @@
         </div><!-- s-container -->
 
 
+        </div>
 
 
       </div>  <!-- col -->
 
+    </div>  <!-- row -->
+
+  </section>
+
+  <section class="orange-background signup-section">
+    
+    <div class="row">
+      
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+        <h2 class="">Join the <b>network of coders</b> taking their learning to the next level!</h2>
+      </div>
+
+      <div class="col-sm-6 col-sm-offset-3 white-background landing-form">
+      </div>
+
     </div>
 
   </section>
+
+  <section class="work-with-us black-background">
+    
+    <div class="row">
+        
+      <div class="col-sm-6 landing-bg-img other">
+        
+      </div>
+
+      <div class="col-sm-6 text-col">
+        <h2 class="text-uppercase white-text">Are you a ruby on rails developer?</h2>
+        <h2 class="text-uppercase white-text">Come join our team!</h2>
+        <h3 class="white-text">Send us <a href="mailto:antonija1023@gmail.com">message</a> and let's get coding</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="white-background landing-footer">
+    
+  </footer>
 </div><!-- landing wrapper -->
 
 
@@ -128,6 +196,7 @@ var swiper = new Swiper('.swiper-container', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         spaceBetween: 30,
-        keyboardControl: true
+        keyboardControl: true,
+        loop: true
     });
 </script>

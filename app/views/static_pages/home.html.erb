@@ -12,76 +12,101 @@
     <div class="row landing-top-row">
       <div class="container">
 
-        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="col-xs-12 col-lg-10 col-lg-offset-1">
           <h1 class="landing-heading white-text">
-            Help a noob! 
+            Get your questions answered without the judgement
           </h1>
 
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-bordered-white btn-landing" %>
-          <%= link_to "Log in", new_user_session_path, class: "btn btn-bordered-white btn-landing" %>
+          <p class="landing-subtext white-text">
+            Newbies collaborate to answer your programming questions.
+          </p>
+
+          <%= link_to "Sign up", new_user_registration_path, class: "btn-landing orange" %>
+          <%= link_to "Log in", new_user_session_path, class: "btn-landing white" %>
           </div>
 
       </div>
     </div>
 
-    <div class="arrow-container">
-      <i class="fa fa-angle-double-down white-text"></i>
-    </div><!-- arrow-con -->
-
   </header>
 
-  <section class="white-background">
-    <div class="row section-row">
-      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text">
-          Q&amp;A for newbies
-        </h2>
-      </div>
-    </div>
-  </section>
+  <section class="light-blue-background text-center features">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <i class="fa fa-search fa-landing white-text"></i>
+          <h3 class="feature-title">Fast and accurate<br>
+        search results</h3>
+          <p>Search through questions and </p>
+          <p> answers to easily find </p>
+          <p> what you are looking for</p>
+         </div>
 
-  <section class="brown-background">
-    <div class="row section-row">
-      
-      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text white-text">From one noob to another!</h2>
-      </div>
-
-   </div>
-  </section>
-
-  <section class="white-background">
-   <div class="row section-row">
-      
-      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text">Ask anything you want!</h2>
+      <div class="col-sm-4 col-md-4">
+        <i class="fa fa-bell fa-landing white-text"></i>
+        <h3 class="feature-title">Never miss out<br>
+        on the conversation</h3>
+        <p>Receive notifications via email </p>
+        <p> when your question is answered </p>
+        <p>  or you are mentioned</p>
       </div>
 
-   </div>
-  </section>
-
-
-  <section class="brown-background">
-   <div class="row section-row">
-      
-      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text white-text">No RTFM answers!</h2>
-      </div>
-
-   </div>
-  </section>
-
-
-  <section class="white-background">
-     <div class="row section-row">
-
-      <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-        <h2 class="landing-text">There is no such thing as stupid question!</h2>
+      <div class="col-sm-4 col-md-4">
+        <i class="fa fa-comments-o fa-landing white-text"></i>
+        <h3 class="feature-title">Direct Help From<br>
+          Other coders</h3>
+        <p> Need one-on-one assistance? </p>
+        <p> Chat directly and privately </p>
+        <p> with other members</p>
       </div>
 
     </div>
+  </div>
+
   </section>
 
+  
+  <section class="testemonial-section black-background">
+    
+    <div class="row">
+      
+      <div class="col-sm-6 left-bg-img">
+        
+      </div> <!-- col -->
+
+      <div class="col-sm-6 text-center">
+        
+        <h3 class="testemonial-heading white-text">
+          No matter what you are stuck on, we are here to help.
+        </h3>
+
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide light-blue-background">
+              Slide 1
+            </div>
+            <div class="swiper-slide light-blue-background">
+              
+            </div>
+            <div class="swiper-slide light-blue-background">
+              
+            </div>
+
+          </div><!-- wrapper -->
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div><!-- s-container -->
+
+
+
+
+      </div>  <!-- col -->
+
+    </div>
+
+  </section>
 </div><!-- landing wrapper -->
 
 
@@ -98,5 +123,11 @@
     setTimeout(f, 7000);
   })();
 
-
+var swiper = new Swiper('.swiper-container', {
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        keyboardControl: true
+    });
 </script>

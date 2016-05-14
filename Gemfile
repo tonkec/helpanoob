@@ -43,6 +43,7 @@ gem 'file_validators'
 gem 'sidekiq'
 gem 'sinatra', :require => nil
 gem 'redis'
+gem 'swiper-rails'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

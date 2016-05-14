@@ -17,6 +17,7 @@
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require autocomplete-rails
 //= require jquery-fileupload/basic
+//= require swiper
 //= require_tree .
 $(document).ready(function() {
 

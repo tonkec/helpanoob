@@ -3,9 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/colors";
 @import "components/mixins";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic,800);
 /*======================
 LANDING
 =======================*/
+.light-blue-background {
+	background-color: $light-blue-2; 
+}
+
+.black-background {
+	background-color: $black-1; 
+}
+
 %stretch {
 	top: 0;
 	right: 0;
@@ -32,6 +41,11 @@ LANDING
 
 .landing-wrapper {
 	height: 100%; 
+	font-family: "OpenSans", sans-serif;
+}
+
+.landing-wrapper > * {
+	font-family: "OpenSans", sans-serif;	
 }
 
 .landing-header {
@@ -40,8 +54,16 @@ LANDING
 }
 
 .landing-heading {
-	font-size: 80px; 
-	line-height: 1em; 
+	color: white;
+	font-size: 45px;
+	font-weight: 700;
+	line-height: 1.22;
+	text-transform: uppercase;
+}
+
+.landing-subtext {
+	font-size: 18px;
+	margin-top: 20px; 
 }
 
 .landing-layer {
@@ -55,38 +77,47 @@ LANDING
 	color: $light-blue;
 }
 
-.btn.btn-landing {
-	@extend %vertical;
-	margin-top: 75px;
-	z-index: 3;
-	position: relative;
-	display: block;  
-	height: 50px;
-	width: 70%;
-	line-height: 32px;
-	font-size: 20px; 
-	border-width: 2px; 
-	@include transition(.7s);
-	
-	&:nth-child(3) {
-		margin-top: 20px; 
-	}
+%reset_hover {
+	text-decoration: none;
+	outline: none;
+	-webkit-box-shadow: none; 
+	  box-shadow: none;   
+}
 
+.btn-landing {
+	padding: 15px 75px;
+	color: #FFF;
+	display: inline-block; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px;
+	font-family: "OpenSans", sans-serif;
+	font-size: 18px;
+	text-transform: uppercase; 
+	font-weight: 300;
+	margin-top: 45px;
+	font-size: 14px;  
+	@include transition(.5s);
+			
 	&:hover {
-		border-color: $orange;
-		color: $orange;
-		
-	}    
+		@extend %reset_hover;
+	}
+	
+	&.orange {
+		background-color: $orange; 
+		margin-right: 25px; 
+		&:hover {
+			color: #FFF; 
+		}
+	} 	
+	
+	&.white {
+		background-color: #fff; 
+		color: #3F4547; 
+	}
 }
 
 section {
 	position: relative;
-	padding: 50px 0; 
-	height: 120vh;
-	
-	&.transparent-background {
-		height: 40vh;
-	}  
 }
 
 .section-row {
@@ -112,22 +143,6 @@ video {
 	transition: 1s opacity;
 }
 
-.arrow-container {
-	position: fixed;
-	bottom: 50px;
-	left: 0;
-	right: 0;
-	text-align: center;
-	margin: 0 auto;
-	-webkit-animation: up-and-down .5s linear infinite alternate; 
-	 -moz-animation: up-and-down .5s linear infinite alternate; 
-	 -o-animation: up-and-down .5s linear infinite alternate; 
-	 animation: up-and-down .5s linear infinite alternate;  
-	
-	.fa {
-		font-size: 50px; 
-	}    
-}
 
 .landing-top-row {
 	width: 100%; 
@@ -144,12 +159,49 @@ video {
 	opacity: 0;
 }
 
-@keyframes up-and-down {
-	from {
-		bottom: 50px;
-	}
+.fa.fa-landing {
+  font-size: 65px;
+}
 
-	to {
-		bottom: 40px; 
-	}
+.features {
+  padding-top: 180px;
+  padding-bottom: 180px;
+  
+  p {
+  	color: #FFF; 
+  }
+}
+
+.feature-title {
+  font-size: 18px;
+  line-height: 1.2;  
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #FFF;
+  margin-top: 50px;
+  margin-bottom: 20px;   
+}
+
+.left-bg-img {
+	height: 700px;
+	background-image: url(../images/3.jpg);
+	background-position: center center;
+	background-repeat: no-repeat; 
+	-webkit-background-size: cover; 
+	 -o-background-size: cover; 
+	 background-size: cover;  
+}
+
+.testemonial-heading {
+	text-transform: uppercase;
+	margin-top: 70px;  
+	font-weight: 700;
+	font-size: 32px;  
+}
+
+.swiper-slide {
+	border: 1px solid red;
+	padding-top: 50px;
+	padding-bottom: 50px;  
+	margin-top: 40px;  
 }

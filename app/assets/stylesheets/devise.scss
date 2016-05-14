@@ -81,7 +81,7 @@ SIGNUP PAGE
 	transform: scale(1); 
 	
 	&:first-child {
-		background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url(../images/1.jpg);
+		background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url(../images/3.jpg);
 	}  
 	
 	&:nth-child(2) {
@@ -89,7 +89,7 @@ SIGNUP PAGE
 	}  
 	
 	&:nth-child(3) {
-		background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url(../images/3.jpg);
+		background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url(../images/1.jpg);
 	} 
 
 	&:nth-child(4) {

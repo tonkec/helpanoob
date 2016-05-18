@@ -42,7 +42,7 @@ gem 'bootsy'
 gem 'file_validators'
 gem 'sidekiq'
 gem 'sinatra', :require => nil
-gem 'redis'
+# gem 'redis'
 gem "mailboxer"
 gem "select2-rails"
 

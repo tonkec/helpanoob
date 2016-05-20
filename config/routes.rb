@@ -1,4 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   resources :post_attachments

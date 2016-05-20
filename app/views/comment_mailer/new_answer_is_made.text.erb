@@ -1,0 +1,5 @@
+Hi <%= @post_user.username %>,
+
+<%= @answer_user.email %> has answerd on your queston: '<%= @answer.post.title %>'.
+
+Follow this link to see the answer: <%= post_url(@answer.post, :anchor => @answer.id) %>

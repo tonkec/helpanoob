@@ -43,25 +43,5 @@ Rails.application.routes.draw do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
     resources :skills, only: [:create, :destroy]
   end
-
-  resources :conversations, only: [:index, :show, :destroy] do
-    member do
-      post :reply
-    end
-
-    member do
-      post :restore
-    end
-
-    collection do
-      delete :empty_trash
-    end
-
-    member do
-      post :mark_as_read
-    end
-  end
-
-  resources :messages, only: [:new, :create]
   
 end

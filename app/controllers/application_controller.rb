@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
     @disable_like = true 
   end 
 
+
   protected 
 
   def configure_permitted_parameters

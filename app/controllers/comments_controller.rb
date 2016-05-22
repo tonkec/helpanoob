@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        
         format.html {redirect_to post_path(@post)}
         format.js
       else
@@ -95,8 +96,4 @@ class CommentsController < ApplicationController
       @user_id = @right_comment.user_id
       redirect_to root_path unless current_user.id == @right_comment.user_id
     end
-
-    
-
-    
 end

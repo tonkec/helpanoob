@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160509113746) do
+
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -129,15 +129,15 @@ ActiveRecord::Schema.define(version: 20160509113746) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "notified_by_id"
     t.integer  "post_id"
     t.integer  "identifier"
-    t.string   "type"
-    t.boolean  "read"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "notified_by_id"
     t.string   "notice_type"
+    t.boolean  "read",           default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
+
 
   add_index "notifications", ["notified_by_id"], name: "index_notifications_on_notified_by_id"
   add_index "notifications", ["post_id"], name: "index_notifications_on_post_id"

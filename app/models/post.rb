@@ -24,7 +24,10 @@ class Post < ActiveRecord::Base
   acts_as_taggable
 
   belongs_to :user
+
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy  
+
   validates :title, presence: true, length: {minimum: 20, max: 200}, uniqueness: true
 
   has_many :notifications, dependent: :destroy
@@ -32,13 +35,14 @@ class Post < ActiveRecord::Base
   validates :description, presence: true, length: {minimum: 50}
   validates :user_id, presence: true
   validates :tag_list, presence: true
-  default_scope -> { order(created_at: :desc) }
+  validate :tag_list_inclusion                 
 
+
+  default_scope -> { order(created_at: :desc) }
   scope :uncommented, -> {
     where(:comments_count => 0)
   }
 
-  validate :tag_list_inclusion                 
 
   def next
     user.posts.where("id > ?", id).first

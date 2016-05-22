@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160509113746) do
 
-
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
     t.string   "bootsy_resource_type"

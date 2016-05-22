@@ -138,7 +138,6 @@ ActiveRecord::Schema.define(version: 20160509113746) do
     t.datetime "updated_at",                     null: false
   end
 
-
   add_index "notifications", ["notified_by_id"], name: "index_notifications_on_notified_by_id"
   add_index "notifications", ["post_id"], name: "index_notifications_on_post_id"
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"

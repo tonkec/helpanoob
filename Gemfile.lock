@@ -517,10 +517,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   launchy
-<<<<<<< HEAD
-=======
   letter_opener
->>>>>>> omniauth
   mailboxer
   mailcatcher
   mini_magick

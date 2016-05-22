@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   #resources :post_attachments
   
@@ -35,8 +36,9 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
 
-  devise_for :users
-
+  devise_for :users,
+    controllers: {omniauth_callbacks: "omniauth_callbacks"}
+    
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
     resources :skills, only: [:create, :destroy]

@@ -40,6 +40,9 @@ gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'bootsy'
 gem 'file_validators'
+gem 'sidekiq'
+gem 'sinatra', :require => nil
+gem 'redis'
 gem "mailboxer"
 gem 'omniauth-github', :github => 'intridea/omniauth-github'
 
@@ -73,6 +76,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "letter_opener"
 end
 
 group :production do

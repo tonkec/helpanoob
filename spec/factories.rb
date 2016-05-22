@@ -7,6 +7,7 @@ FactoryGirl.define do
     type ""
     read false
   end
+
   factory :user do
     sequence(:username) { |n| "Caspian Star #{n}" }
     sequence(:email) { |n| "test#{n}@example.com" }    

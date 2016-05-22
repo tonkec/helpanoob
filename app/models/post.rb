@@ -28,6 +28,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: {minimum: 20, max: 200}, uniqueness: true
 
   has_many :notifications, dependent: :destroy
+
   validates :description, presence: true, length: {minimum: 50}
   validates :user_id, presence: true
   validates :tag_list, presence: true

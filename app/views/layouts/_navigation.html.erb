@@ -14,22 +14,7 @@
     <% end %>
   </div>
   
-  <div class="notifications">
-    <li class="dropdown notifications-dropdown">
-      <%= link_to tag(:span, class: "glyphicon glyphicon-globe", "aria-hidden" => true), root_path,  :class => "dropdown-toggle", 'data-toggle' => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false", :id => "dropdownment1" %><%= current_user.notifications.count %>
-          
-      <ul class="dropdown-menu" aria-labelledby="dropdownmenu1">
-        <li class="dropdown-header text-center">Notifications</li>
-        <%= render current_user.notifications.order('created_at DESC').last(5) %>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to 'Notification 2' %></li>
-      </ul>
-    </li>
-  </div>
-  
-  
 
-    
 
 </nav>
 

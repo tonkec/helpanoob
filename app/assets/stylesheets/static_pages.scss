@@ -368,6 +368,11 @@ section {
 	background-color: $light-blue-2;
 	width: 80%;
 	margin-top: 20px;  
+	
+	&:hover,
+	&:focus {
+		color: #FFF; 
+	}
 }
 
 .landing-footer {

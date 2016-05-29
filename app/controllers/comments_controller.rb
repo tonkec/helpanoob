@@ -22,6 +22,9 @@ class CommentsController < ApplicationController
       if @comment.save
         create_notification(@post, current_user, @comment, "comment")
 
+        # Send mail notification to the post owner
+        send_mail_notification(@post.user, @comment)
+
         format.html {redirect_to post_path(@post)}
         format.js
       else
@@ -77,7 +80,7 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
       format.js { render :template => "comments/upvote.js.erb" }
     end
-    
+
   end
 
   def downvote
@@ -100,6 +103,11 @@ class CommentsController < ApplicationController
       @right_comment = Comment.find(params[:id])
       @user_id = @right_comment.user_id
       redirect_to root_path unless current_user.id == @right_comment.user_id
+    end
+
+
+    def send_mail_notification(user, answer)
+      NewAnswerWorker.perform_async(user.id, answer.id)
     end
 
 end

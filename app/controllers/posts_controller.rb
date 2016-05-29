@@ -83,10 +83,17 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @users = User.all
 
     if @post.save(post_params)
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
+
+
+      #PostsWorker.perform_in(30.seconds, User.first.id)
+      @users.each do |user|
+        PostsWorker.perform_in(30.seconds, user.id)
+      end
     else
       render "new"
     end
@@ -151,8 +158,8 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-     @right_post = Post.find(params[:id])
-     @user_id = @right_post.user_id
-     redirect_to root_path unless current_user.id == @right_post.user_id
+      @right_post = Post.find(params[:id])
+      @user_id = @right_post.user_id
+      redirect_to root_path unless current_user.id == @right_post.user_id
     end
 end

@@ -1,0 +1,4 @@
+Someone asked new question!
+===========================
+<%= truncate(@post.title, length: 50) %> asked by <%= @post.user.username %>
+<%= link_to "Follow this link to answer the question", post_url(@post) %>

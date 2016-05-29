@@ -28,24 +28,19 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :omniauthable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   acts_as_voter
-  acts_as_messageable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :skills, dependent: :destroy
-  has_many :notifications, dependent: :destroy #Takuma
-
-  has_many :notifications, dependent: :destroy  
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
   validates :username, presence: true, uniqueness: true
-  validates :avatar, file_size: { less_than_or_equal_to: 2.megabytes },
-                      presence: true
+  validates :avatar, file_size: { less_than_or_equal_to: 2.megabytes }
   mount_uploader :avatar, AvatarUploader
 
   def social_link(link)
@@ -77,41 +72,6 @@ class User < ActiveRecord::Base
   def website_link(link)
     unless link.blank?
        "<a href='#{link}' target='_blank' class='user-link'>website</a>".html_safe 
-    end
-  end
-
-  def mailboxer_email(object)
-    email
-  end
-
-  def self.from_omniauth(auth)
-    where(auth.slice(provider: auth.provider, uid: auth.uid)).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.username = auth.info.nickname
-    end
-  end
-
-  def self.new_with_session(params, session)
-    if session["devise.user_attributes"]
-      new(session["devise.user_attributes"], without_protection: true) do |user|
-        user.attributes = params
-        user.valid?
-      end
-    else
-      super
-    end
-  end
-
-  def password_required?
-    super && provider.blank?
-  end
-
-  def update_with_password(params, *options)
-    if encrypted_password.blank?
-      update_attributes(params, *options)
-    else
-      super
     end
   end
 

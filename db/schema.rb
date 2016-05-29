@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160509113746) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
     t.string  "unsubscriber_type"

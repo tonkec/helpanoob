@@ -6,8 +6,13 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:warning] = 'Resource not found.'
-    redirect_back_or root_path
+    if current_user.nil?
+      redirect_back_or root_path
+      flash[:danger] = "You need to sign in or sign up before continuing."
+    else
+      flash[:notice] = "Record not found"
+      redirect_back_or root_path
+    end 
   end
 
   def redirect_back_or(path)

@@ -32,7 +32,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   acts_as_voter
-  acts_as_messageable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :skills, dependent: :destroy
@@ -43,8 +42,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
   validates :username, presence: true, uniqueness: true
-  validates :avatar, file_size: { less_than_or_equal_to: 2.megabytes },
-                      presence: true
+  validates :avatar, file_size: { less_than_or_equal_to: 2.megabytes }
   mount_uploader :avatar, AvatarUploader
 
   def social_link(link)

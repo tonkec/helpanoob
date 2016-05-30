@@ -24,5 +24,6 @@
 # Ignore simplecow coverage
 coverage
 
+/public/uploads
 .env
 config/initializers/app_environment_variables.rb

@@ -14,11 +14,9 @@
  *= require_self
  *= require font-awesome
  *= require bootsy
+ *= require swiper
  *= require select2
-
->>>>>>> add bootsy; add bootstrap-sass
  */
-
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 @import "main";

@@ -3,9 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components/colors";
 @import "components/mixins";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic,800);
 /*======================
 LANDING
 =======================*/
+%reset {
+	padding: 0;
+	margin: 0;  
+}
+
+.light-blue-background {
+	background-color: $light-blue-2; 
+}
+
+.black-background {
+	background-color: $black-1; 
+}
+
+.orange-background {
+	background-color: $orange; 
+}
+
 %stretch {
 	top: 0;
 	right: 0;
@@ -26,22 +44,40 @@ LANDING
 }
 
 .landing-inner {
-	position: fixed; 
 	@extend %stretch;
 }
 
 .landing-wrapper {
+	position: relative; 
 	height: 100%; 
+	font-family: "OpenSans", sans-serif;
+}
+
+.landing-wrapper > * {
+	font-family: "OpenSans", sans-serif;	
 }
 
 .landing-header {
 	height: 100vh; 
 	position: relative; 
+	overflow: hidden; 
 }
 
 .landing-heading {
-	font-size: 80px; 
-	line-height: 1em; 
+	color: white;
+	font-size: 35px;
+	font-weight: 700;
+	line-height: 1.22;
+	text-transform: uppercase;
+	
+	@media (min-width: 768px) {
+		font-size: 45px; 
+	}
+}
+
+.landing-subtext {
+	font-size: 18px;
+	margin-top: 20px; 
 }
 
 .landing-layer {
@@ -55,38 +91,49 @@ LANDING
 	color: $light-blue;
 }
 
-.btn.btn-landing {
-	@extend %vertical;
-	margin-top: 75px;
-	z-index: 3;
-	position: relative;
-	display: block;  
-	height: 50px;
-	width: 70%;
-	line-height: 32px;
-	font-size: 20px; 
-	border-width: 2px; 
-	@include transition(.7s);
-	
-	&:nth-child(3) {
-		margin-top: 20px; 
-	}
+%reset_hover {
+	text-decoration: none;
+	outline: none;
+	-webkit-box-shadow: none; 
+	box-shadow: none;   
+}
+
+.btn-landing {
+	padding: 15px 75px;
+	color: #FFF;
+	display: inline-block; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px;
+	font-family: "OpenSans", sans-serif;
+	font-size: 18px;
+	text-transform: uppercase; 
+	font-weight: 300;
+	margin-top: 45px;
+	font-size: 14px;  
+	@include transition(.5s);
 
 	&:hover {
-		border-color: $orange;
-		color: $orange;
-		
-	}    
+		@extend %reset_hover;
+	}
+	
+	&.orange {
+		background-color: $orange; 
+		@media (min-width: 768px) {
+			margin-right: 25px; 
+		}
+		&:hover {
+			color: #FFF; 
+		}
+	} 	
+	
+	&.white {
+		background-color: #fff; 
+		color: #3F4547; 
+	}
 }
 
 section {
 	position: relative;
-	padding: 50px 0; 
-	height: 120vh;
-	
-	&.transparent-background {
-		height: 40vh;
-	}  
 }
 
 .section-row {
@@ -97,59 +144,307 @@ section {
 	font-size: 55px; 
 }
 
-video { 
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -100;
-	transform: translateX(-50%) translateY(-50%);
-	background: url('') no-repeat;
-	background-size: cover;
-	transition: 1s opacity;
-}
-
-.arrow-container {
-	position: fixed;
-	bottom: 50px;
-	left: 0;
-	right: 0;
-	text-align: center;
-	margin: 0 auto;
-	-webkit-animation: up-and-down .5s linear infinite alternate; 
-	 -moz-animation: up-and-down .5s linear infinite alternate; 
-	 -o-animation: up-and-down .5s linear infinite alternate; 
-	 animation: up-and-down .5s linear infinite alternate;  
-	
-	.fa {
-		font-size: 50px; 
-	}    
-}
-
 .landing-top-row {
 	width: 100%; 
 	@extend %vertical;
-	position: fixed; 
+	top: 55%; 
 }
 
 .header-bg-img {
 	height: 100%;
 	z-index: -1;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	opacity: 0;
 }
 
-@keyframes up-and-down {
-	from {
-		bottom: 50px;
+.fa.fa-landing {
+	font-size: 65px;
+}
+
+.features {
+	padding-top: 180px;
+	padding-bottom: 180px;
+
+	p {
+		color: #FFF; 
 	}
 
-	to {
-		bottom: 40px; 
+}
+
+.features-col {
+	&:not(:first-child) {
+		margin-top: 100px;
+		
+		@media (min-width: 992px) {
+			margin-top: 0; 
+		} 
 	}
 }
+
+.feature-title {
+	font-size: 18px;
+	line-height: 1.2;  
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #FFF;
+	margin-top: 50px;
+	margin-bottom: 20px;   
+}
+
+.landing-bg-img {
+	height: 700px;
+	background-image: url(../images/7.jpg);
+	background-position: right bottom;
+	background-repeat: no-repeat; 
+	-webkit-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover;
+	
+	&.other {
+		background-image: url(../images/8.jpg);
+		height: 500px; 
+		
+		@media (min-width: 1200px) {
+			height: 400px; 
+		}
+	}  
+}
+
+.testemonial-heading {
+	text-transform: uppercase;
+	margin-top: 100px;  
+	font-weight: 700;
+	font-size: 20px; 
+	margin-bottom: 50px;
+	
+	@media (min-width: 768px) {
+		margin-bottom: 0; 
+		font-size: 26px; 
+	}
+}
+
+.swiper-wrapper {
+	height: auto !important; 
+}
+
+.swiper-slide {
+
+	height: auto !important;
+	-webkit-border-radius: 10px; 
+	border-radius: 10px; 
+	margin-bottom: 40px; 
+	
+	&:after {
+		content: ' ';
+		position: absolute;
+		width: 0;
+		height: 0;
+		left: 38px;
+		top: 100px;
+		border: 15px solid;
+		border-color: #fff transparent transparent #fff;
+	}
+
+	@media (min-width: 1200px) {
+		margin-top: 80px;
+		margin-bottom: 0; 
+	}
+
+	@media (min-width: 480px) {
+		padding: 35px 45px; 
+	}
+}
+
+.swiper-content {
+	color: #FFF; 
+	padding-top: 80px;
+	padding-bottom: 80px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;    
+}
+
+.swiper-heading {
+	color: #FFF;
+	font-size: 16px;  
+}
+
+.signup-section {
+	padding-bottom: 100px; 
+}
+
+.landing-form {
+	height: 300px; 
+}
+
+.work-with-us {
+	padding-bottom: 40px; 
+	@media (min-width: 1200px) {
+		padding-bottom: 0; 
+	}
+
+	.text-col {
+		margin-top: 50px;
+		text-align: center; 
+		@media (min-width: 1200px) {
+			margin-top: 150px; 
+			text-align: left;
+		}
+	}
+
+	h3 {
+		margin-left: 30px; 
+		line-height: 1.2; 
+	}
+
+	h4 {
+		color: #fff;
+		margin-left: 30px; 
+		margin-top: 15px; 
+		
+		a {
+			color: $orange;
+			@extend %reset_hover; 
+		} 
+	}
+}
+
+.text-uppercase {
+	text-transform: uppercase; 
+}
+
+.top-links {
+	z-index: 9999; 
+	position: absolute;
+	width: 100%;
+	padding: 20px 0;  
+	height: 90px; 
+}
+
+.header-logo {
+	width: 300px;
+	height: 50px;
+	margin-left: 30px; 
+	background-image: url(../images/logo.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover;  
+	background-position: center center;
+	display: block;  
+	
+	@media (min-width: 768px) {
+		display: inline-block;
+	}
+}
+
+.btn-landing-top {
+	margin-right: 30px;
+	border: 1px solid $orange;
+	color: #FFF;
+	@include transition(.4s);
+	padding: 10px 40px; 
+	-webkit-border-radius: 3px; 
+	border-radius: 3px; 
+	margin-top: 15px; 
+	margin-left: 30px;
+	display: inline-block; 
+	
+	&:hover,
+	&:focus {
+		background-color: $orange;
+		color: #FFF; 
+		@extend %reset_hover; 
+	}  
+	
+	@media (min-width: 768px) {
+		margin-top: 8px; 
+		float: right;   
+	}
+}
+
+.btn-landing-cta {
+	background-color: $light-blue-2;
+	width: 80%;
+	margin-top: 20px;  
+	
+	&:hover,
+	&:focus {
+		color: #FFF; 
+	}
+}
+
+.landing-footer {
+	height: auto; 
+	padding: 25px 0; 
+	position: relative;
+}
+
+.footer-links {
+	list-style: none;
+	@extend %reset;
+	text-align: center; 
+	
+	@media (min-width: 768px) {
+		text-align: left; 
+	}
+	li {
+		display: inline-block; 
+		margin: 0px 3%; 
+		
+		a {
+			font-size: 14px; 
+			color: #000;
+			text-transform: uppercase;
+			@include transition(.5s);
+			&:hover,
+			&:focus {
+				@extend %reset_hover;
+				color: $orange; 
+			}
+		}
+	}
+}
+
+.footer-copyright {
+	text-align: center;
+	
+	p {
+		color: #000; 
+		font-size: 12px; 
+		margin-top: 10px; 
+		
+		@media (min-width: 768px) {
+			margin-top: 0; 
+		}
+	} 
+}
+
+.join-us-heading {
+	text-transform: uppercase; 
+	font-weight: 300;
+	margin-top: 80px;  
+	color: #FFF;
+	font-size: 22px;
+	margin-bottom: 30px;
+	line-height: 1.2; 
+	
+	@media (min-width: 768px) {
+		font-size: 32px; 
+	}
+}
+
+/*.swiper-button-next,
+.swiper-button-prev {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-color: orange;    
+	top: calc(50% - 50px); 
+}
+
+
+.swiper-button-next {
+	right: 0; 
+}*/

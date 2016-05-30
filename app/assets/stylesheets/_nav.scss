@@ -197,6 +197,7 @@ $main-color-blue: #2d90ab;
     width: 200px !important;
  }
 
+
 //  @media (min-width: 480px) {
 //     width: 200px !important;
 //  }
@@ -254,4 +255,12 @@ $main-color-blue: #2d90ab;
   background: #d86100;
   color: white;
   font-size: 14px;
+}
+
+.notifications {
+   margin-left: 194px;
+   margin-top: 10px;
+  .glyphicon-globe {
+    border: none;
+  }
 }

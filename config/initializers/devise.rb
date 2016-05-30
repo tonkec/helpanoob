@@ -8,6 +8,7 @@ Devise.setup do |config|
   config.password_length = 8..128
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  config.secret_key = '865768315e884b88c97bfb84c1ab09f0d634b682fe76c526792fb08c8ec871af0ffa04f4434b0a772cdb09cd749ceeb18de854c57bfc24fece157ff06423b5a4'
-
+  config.secret_key = 'edc2c0c5a45cc5a2f9cc436649521f1744a1f295171c3577533b3ccb40cccce5e7b9e1104c2100d34d4aae768bdd2119cdb60bee3cb22816fe120309130d3e15'
+  config.omniauth :github,  ENV['github_key'], ENV['github_secret'], scope: 'user,public_repo',
+                  callback_url: "https://helpanoob.herokuapp.com/"
 end

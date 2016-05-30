@@ -1,11 +1,6 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-
-  authenticate :user do
-    mount Sidekiq::Web => '/sidekiq'
-  end
-
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   resources :post_attachments
@@ -44,37 +39,14 @@ Rails.application.routes.draw do
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
 
   devise_for :users
-
+    
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
     resources :skills, only: [:create, :destroy]
   end
 
-
-  resources :conversations, only: [:index, :destroy] do
-    member do
-      post :reply
-    end
-
-    member do
-      post :restore
-    end
-
-    collection do
-      delete :empty_trash
-    end
-
-    member do
-      post :mark_as_read
-    end
-  end
-
-  resources :messages, only: [:create]
-
   get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
   get 'notifications', to: 'notifications#index'
   get 'notifications/unread', to: 'notifications#unread'
-
-  get 'messages/unread', to: 'messages#unread'
 
 end

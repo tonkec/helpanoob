@@ -3,39 +3,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>New question has been asked!</title>
+    <title>Welcome to Help A Noob, Ro. Thanks for joining us!</title>
     <style>
-     @import url(http://fonts.googleapis.com/css?family=OpenSans:400); 
-    /* Some resets and issue fixes */
+		 @import url(http://fonts.googleapis.com/css?family=OpenSans:400); 
+		/* Some resets and issue fixes */
         #outlook a { padding:0; }
-    body{ width:100% !important; -webkit-text; size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }     
+		body{ width:100% !important; -webkit-text; size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }     
         .ReadMsgBody { width: 100%; }
         .ExternalClass {width:100%;} 
         .backgroundTable {margin:0 auto; padding:0; width:100%;!important;} 
         table td {border-collapse: collapse;}
-        .ExternalClass * {line-height: 115%;} 
+        .ExternalClass * {line-height: 115%;}	
         /* End reset */
 
-    /* These are our tablet/medium screen media queries */
+		/* These are our tablet/medium screen media queries */
         @media screen and (max-width: 630px){
-      /* Display block allows us to stack elements */                    
+			/* Display block allows us to stack elements */                    
             *[class="mobile-column"] {display: block;}
-      /* Some more stacking elements */
+			/* Some more stacking elements */
             *[class="mob-column"] {float: none !important;width: 100% !important;}
-      /* Hide stuff */
+			/* Hide stuff */
             *[class="hide"] {display:none !important;}
-      /* This sets elements to 100% width and fixes the height issues too, a god send */
-      *[class="100p"] {width:100% !important; height:auto !important;}            
-      /* For the 2x2 stack */
-      *[class="condensed"] {padding-bottom:40px !important; display: block;}
-      /* Centers content on mobile */
-      *[class="center"] {text-align:center !important; width:100% !important; height:auto !important;}
-      /* 100percent width section with 20px padding */
-      *[class="100pad"] {width:100% !important; padding:20px;}
-      /* 100percent width section with 20px padding left & right */
-      *[class="100padleftright"] {width:100% !important; padding:0 20px 0 20px;}
-      /* 100percent width section with 20px padding top & bottom */
-      *[class="100padtopbottom"] {width:100% !important; padding:20px 0px 20px 0px;}
+			/* This sets elements to 100% width and fixes the height issues too, a god send */
+			*[class="100p"] {width:100% !important; height:auto !important;}		        
+			/* For the 2x2 stack */
+			*[class="condensed"] {padding-bottom:40px !important; display: block;}
+			/* Centers content on mobile */
+			*[class="center"] {text-align:center !important; width:100% !important; height:auto !important;}
+			/* 100percent width section with 20px padding */
+			*[class="100pad"] {width:100% !important; padding:20px;}
+			/* 100percent width section with 20px padding left & right */
+			*[class="100padleftright"] {width:100% !important; padding:0 20px 0 20px;}
+			/* 100percent width section with 20px padding top & bottom */
+			*[class="100padtopbottom"] {width:100% !important; padding:20px 0px 20px 0px;}
         }
     </style>
 </head>
@@ -53,7 +53,7 @@
             <a href="https://helpanoob.herokuapp.com/">
                 <table border="0" cellspacing="0" cellpadding="0" width="640" class="100p">
                     <tr>
-                        <td align="center" class="100p"><%= image_tag("logo_han", :style => "display:block; width: 200px") %></td>
+                        <td align="center" class="100p"><img src="app/assets/images/" alt="Logo" border="0" style="display:block;width:200px;" /></td>
                     </tr>
                 </table>
             </a>
@@ -62,29 +62,24 @@
                     <td align="center" valign="top" style="border-top: 5px solid #ff7e00">
                         <table border="0" cellpadding="20" cellspacing="0" class="100padtopbottom" width="600">
                             <tr>
-                                <td align="center" style="font-size:28px; color:#848484;">
-                                    <font face="'Open Sans', Arial, sans-serif"><h1 style="line-height: 1em;">
-                                      <%= truncate(@post.title, length: 50) %> asked by <span style="color: rgb(45, 144, 171);">
-                                         <%= @post.user.username %>
-                                      </span> 
-                                    </h1>
+                                <td align="center" style="font-size:15px; color:#848484;">
+                                    <font face="'Open Sans', Arial, sans-serif"><span style="line-height: 30px;">Copy text goes here in this color. This will be the default copy style for all non-welcome emails.</span>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
             </table>
-            <%= link_to post_url(@post), {:style => 'text-decoration:none'} do %>
-              <table width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#2d90ab" class="100p" style="border-collapse:collapse;border-left:80px solid white;border-right:80px solid white;border-bottom:50px solid white;">
+            <a href="#" style="text-decoration:none;">
+                <table width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#2d90ab" class="100p" style="border-collapse:collapse;border-left:80px solid white;border-right:80px solid white;border-bottom:50px solid white;">
                     <tr>
-                        <td align="center" width="80%" style="color:#ffffff"><font face="'Open Sans', Arial, sans-serif"><span style="font-size:18px;">Follow this link to answer the question!</span></td>
+                        <td align="center" width="80%" style="color:#ffffff"><font face="'Open Sans', Arial, sans-serif"><span style="font-size:18px;">Accents such as buttons and boxes will appear in blue color</span></td>
                     </tr>
                 </table>
-            <% end %>
-           
+            </a>
             <table bgcolor="#202729" width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#2a8e9d" class="100p">
                 <tr>
-                    <td align="left" width="60%"style="font-size:13px; color:#ffffff;"><font face="'Open Sans', Arial, sans-serif"><span>Spread the word! Tell your friends about Help A Noob.</span></font>
+                    <td align="left" width="60%"style="font-size:13px; color:#ffffff;"><font face="'Open Sans', Arial, sans-serif"><span>Spread the word! <a href="mailto:?subject=No%20more%20RTFM%20answers!%20Check%20out%20Help%20A%20Noob&body=Check%20out%20this%20site%20I%20found%20-%20Help%20A%20Noob.%20You%20can%20get%20answers%20to%20questions%20on%20HTML%2C%20CSS%2C%20Ruby%2C%20Javascript%2C%20etc.%20whenever%20you%20are%20stuck.%0A%0ASign%20up%20with%20me%21%20helpanoob.herokuapp.com" style="color:#ffffff">Click here</a> to tell your friends about Help A Noob.</span></font>
                     </td>
                     <td align="right" width="40%" style="font-size:13px; color:#ffffff;">
                         <font face="'Open Sans', Arial, sans-serif"><span>
@@ -96,7 +91,7 @@
             <table width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#ffffff" class="100p">
                 <tr>
                     <td align="left" width="50%" style="font-size:14px; color:#848484;"><font face="'Open Sans', Arial, sans-serif">&copy; Help A Noob 2016</font></td>
-                    
+                    <td align="right" width="50%" style="font-size:14px; color:#848484;"><font face="'Open Sans', Arial, sans-serif">Unsubscribe</font></td>
                 </tr>
             </table>
             <table width="640" class="100p" border="0" cellspacing="0" cellpadding="0">

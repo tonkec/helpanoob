@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+  mount Sidekiq::Web => '/sidekiq'
 
   resources :post_attachments
 

@@ -36,8 +36,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'tags/unanswered/:tag', to: 'posts#unanswered', as: :unanswered_tag
 
-  devise_for :users,
-    controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users
     
   resources :users, only: [:show, :update, :user_posts, :destroy] do
     match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user

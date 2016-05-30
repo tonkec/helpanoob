@@ -1,17 +1,17 @@
 <div class="main-col comments-col" id="<%= comment.id %>">
   <div class="col-xs-12 col-sm-10 p-l-0 p-r-0">
     <p class="comment-content orange-link">
-      <%= comment.content %>  
+      <%= comment.content %>
       <% unless @disable_link %>
         <%= link_to post_path(comment.post), class: "link-#{comment.id}" do%>
         <i class="fa fa-external-link link-external"></i>
         <% end %>
       <% end %>
     </p>
-  </div>   
-  
+  </div>
+
   <div class="like-icons-comment">
-    
+
     <% if current_user.voted_up_on? comment %>
       <%= link_to dislike_post_comment_path(comment.post, comment), :remote => true, class: "like", id: "comment_dislike-#{comment.id}", method: :put do %>
       <span class="icon-elegant-font-heart"></span>
@@ -45,10 +45,10 @@
     <h5 class="comment-email orange-link">
       <%= link_to comment.user.username, user_path(comment.user)%>
     </h5>
-  
-   
+
+
     <h6 class="comment-date">
-      <span class="icon-elegant-font-270-10173 post-icon light-orange-text"></span> 
+      <span class="icon-elegant-font-270-10173 post-icon light-orange-text"></span>
       <%= time_ago_in_words(comment.created_at)%> ago
     </h6>
 
@@ -56,10 +56,10 @@
       <% if comment.user_id == current_user.id %>
       <span class="orange-link">
          <a href="" class: "delete_comment" data-target="#editcomment-<%=comment.id%>" data-toggle="modal">
-           <span class="icon-elegant-font-250-10020 edit-icon"></span>          
+           <span class="icon-elegant-font-250-10020 edit-icon"></span>
         </a>
       </span>
-      
+
       <span class="orange-link">
         <a href="" class: "delete_comment" data-target="#deletecomment-<%= comment.id %>" data-toggle="modal">
           <span class="icon-elegant-font-3-7491 delete-icon"></span>
@@ -88,9 +88,9 @@
           <%= f.submit "Update", class: "btn-orange btn-submit-modal" %>
           <button type="button" class="btn-orange-link btn-modal-close" data-dismiss="modal">Close</button>
            <% end %>
-          
+
       </div><!-- body -->
-     
+
     </div><!-- content -->
   </div><!-- dialog -->
 </div><!-- modal -->
@@ -100,8 +100,8 @@
     <div class="modal fade edit-post-modal" id="deletecomment-<%=comment.id%>" tabindex="-1" role="dialog" aria-labelledby="deleteComment">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          
-          <div class="modal-body">  
+
+          <div class="modal-body">
             <h3>Are you sure you want to delete this comment?</h3>
             <div class="modal-delete-btns">
               <%= link_to 'Delete Comment', [comment.post, comment], method: :delete, remote: true, class: "btn-orange btn-submit-modal", 'data-dismiss' => 'modal' %>
@@ -111,6 +111,5 @@
       </div>  <!-- modal content -->
     </div> <!-- modal dialog -->
     </div> <!-- modal-fade -->
-
-</div><!-- main-col -->
 <% end %>
+</div><!-- main-col -->

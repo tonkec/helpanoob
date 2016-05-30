@@ -18,6 +18,7 @@
 //= require autocomplete-rails
 //= require jquery-fileupload/basic
 //= require swiper
+//= require select2
 //= require_tree .
 $(document).ready(function() {
 
@@ -28,13 +29,6 @@ $(document).ready(function() {
   $("#btn-nav").on("click tap", function() {
     toggleNav();
   });
-
- /*$(document).keyup(function(e) {
-    if (e.keyCode == 27) {
-     toggleNav();
-   } 
- });*/
-
 
 });
 

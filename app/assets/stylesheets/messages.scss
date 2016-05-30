@@ -1,3 +1,257 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'components/colors';
+@import 'components/mixins';
+.nav.orange-pills {
+	background-color: #FFF; 
+	
+	li {
+		text-align: center; 
+		border-top: 1px solid $border-light; 
+		
+		&.active {
+			a {
+				background-color: $light-orange;
+				@include transition(.5s);
+
+				&:hover {
+					border: 1px solid $light-blue-2; 
+					background-color: $light-blue-2; 
+				}
+			}
+		}
+		a {
+			border: 1px solid $light-orange;
+			color: $black-2;  
+			display: inline-block;
+			padding: 10px 0;
+			width: 80%;   
+			margin: 15px auto;
+			@include transition(.5s);
+			
+			&:hover,
+			&:focus {
+				background-color: $light-orange;
+				color: $white; 
+			}
+			
+		}
+	}
+}
+
+.nav.orange-pills li.active a {
+
+	&:hover,
+	&:focus {
+		background-color: $light-orange;
+		color: $white;  
+		
+	}
+}
+
+.messages-col {
+	border-right: 1px solid $border-light;
+	padding-bottom: 150px; 
+}
+
+.row-conversations {
+	background-color:  $white; 
+	border-top: 3px solid $light-orange; 
+}
+
+.message-avatar {
+	-webkit-border-radius: 50%; 
+	border-radius: 50%; 
+	position: absolute;
+	left: -10px;
+	top: -15px;  
+
+}
+
+.list-group-item {
+	&.message-item {
+		border: 1px solid #c9c9c9; 
+		padding-left: 50px; 
+		position: relative; 
+		margin: 25px auto;
+
+		&:first-child {
+			margin-top: 50px; 
+		}
+
+		&.active {
+			background-color: $white;
+			border: none; 
+			
+			&:hover {
+				border: none; 
+
+				background-color: $white; 
+			} 
+		}  
+	}
+}
+
+.message-info {
+	color: $black-2; 
+}
+
+.message-username {
+	font-style: italic;
+	margin-right: 15px;   
+}
+
+.conversation-body {
+	font-style: italic;
+	
+	&:hover {
+		color: red;
+	}  
+}
+
+.conversation-link {
+	display: block;
+	position: absolute;
+	left: 0;right: 0;
+	top: 0;
+	bottom: 0;
+	border: 1px solid transparent;
+	@include transition(.5s);
+	
+	&:hover {
+		border: 1px solid $light-blue-2; 
+	} 
+	
+}
+
+.message-unread {
+	background-color: $light-orange !important; 
+	color: $white;
+	border: 1px solid $light-orange; 
+	
+	.message-info {
+		color: $white; 
+	}
+}
+
+.btn {
+	&.btn-delete-message {
+		padding: 5px 15px;
+		color: $white;
+		@include transition(.5s);
+		
+		&:hover {
+			background-color: $light-blue-2;
+			color: $white;  
+		}
+	}
+}
+
+.trash-holder {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;   
+}
+
+.message-form {
+	label {
+		font-size: 13px; 
+		margin: 20px 0; 
+		color: $black-2;
+	}
+
+	.btn-orange {
+		background-color: $light-orange; 
+		padding: 10px 50px; 
+		margin-top: 10px; 
+		
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+}
+
+.btn-reply {
+	background-color: $light-blue-2;
+	margin-bottom: 10px;  
+}
+
+.reply-hidden {
+	display: none; 
+	margin-top: 30px; 
+	
+	p {
+		font-weight: 700;
+		margin-bottom: 5px;  
+	}
+}
+
+.reply-item {
+	margin-top: 20px; 
+}
+
+.reply-subject {
+	border: 1px solid $light-blue-2;
+}
+
+.reply-data {
+	padding: 10px 15px;
+	margin-bottom: 20px; 
+}
+
+
+.reply-form {
+	textarea {
+		margin-top: 20px; 
+	}
+	.btn-orange {
+		padding: 10px 50px; 
+	}
+}
+
+.reply-heading {
+	font-weight: 700;
+	font-style: italic;  
+}
+
+.select2 {
+	width: 100% !important; 
+}
+
+.message-body {
+	width: 100%;
+	margin: 20px 0;  
+	
+	&:nth-child(odd) {
+		.message-bubble {
+			background-color: $light-blue-2; 
+			float: left;
+		}
+	}
+
+	&:nth-child(even) {
+		.message-bubble {
+			text-align: right;
+			background-color: $light-orange; 
+			float: right;
+		}
+	}
+}
+
+.message-bubble {
+	width: 70%; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px; 
+	padding: 10px 20px;
+	color: $white;  
+}
+
+.msg-info {
+	font-size: 12px;
+	
+	a {
+		color: $white; 
+	}  
+}

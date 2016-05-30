@@ -1,22 +1,85 @@
-<li class="list-group-item clearfix">
-  <%= link_to conversation.subject, conversation_path(conversation) %>
+<li class="list-group-item clearfix message-item <%= 'message-unread' if conversation.is_unread?(current_user) %>" id="conversation-item-<%= conversation.id%>">
 
+  <% if conversation.is_unread?(current_user) %>
+    
+    <%= link_to mark_as_read_conversation_path(conversation), method: :post  do %>
+      <div class="conversation-link">
+      </div>
+    <% end %>
+
+    
+  <% end %>
+
+
+  <%= image_tag(conversation.last_message.sender.avatar.thumb, class: "message-avatar") %>
   <div class="btn-group-vertical pull-right">
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
+      <span class="btn btn-orange btn-reply" id="<%= conversation.id %>">Reply</span>
 
-      <% if conversation.is_unread?(current_user) %>
-        <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation),
-                    class: 'btn btn-xs btn-info', method: :post %>
-      <% end %>
+      <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-orange btn-delete-message', method: :delete,data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
 
+    <p class="mesage-info">
+      <b class="message-username"><%= conversation.last_message.sender.username %></b> 
 
-  <p><%= conversation.last_message.body %>
-    <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+      <small>
+        <span class="message-time">
+          <%= conversation.last_message.created_at.strftime("%-d %B %Y") %>
+        </span>
+      </small>
+    </p>
+
+  <p class="conversation-body">
+    "<%= conversation.last_message.body %>"
+  </p
+ >
 </li>
 
+
+  <div class="reply-hidden" id="reply-<%=conversation.id %>">
+    <div class="reply-item">
+  
+        <div class="reply-message reply-data">
+        <% conversation.receipts_for(current_user).each do |receipt| %>
+        <% message = receipt.message %>
+        <%#= message.sender.username %>
+
+
+        <div class="message-body clearfix">
+          <div class="message-bubble">
+            <p>
+              <%= message.body %>
+            </p>
+
+            <small class="msg-info">
+              <%= link_to message.sender.username, user_path(message.sender) %>
+              (<%= message.created_at.strftime("%-d %B %Y, %H:%M:") %>)
+            </small>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+
+      <div class="reply-form">
+
+        <%= form_tag reply_conversation_path(conversation), method: :post do %>
+         <div class="form-group">
+          <%= text_area_tag 'body', nil, class: 'form-control', placeholder: "Type message", required: true %>
+        </div>
+        <%= submit_tag "Send reply", class: 'btn btn-orange pull-right' %>
+        <% end %>
+    </div>
+
+    </div>
+  </div>
+
+  <script>
+  $("#<%= conversation.id %>").click(function(){
+    $(".message-item").fadeOut(500);
+    $("#reply-<%= conversation.id %>").delay(550).fadeIn(500);
+  });
+  </script>

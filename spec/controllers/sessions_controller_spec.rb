@@ -16,14 +16,14 @@ describe "User Authentication" do
 
   describe "signin page" do
     before { visit new_user_session_path }
-    let(:submit) { "Log In" }
+    let(:submit) { "Sign in" }
 
-    describe "log in" do
+    describe "Sign in" do
       before { visit new_user_session_path }
 
       describe "with invalid information" do 
-        before { click_button "Log in" }
-        it { should have_selector(:link_or_button, 'Log in') }
+        before { click_button "Sign in" }
+        it { should have_selector(:link_or_button, 'Sign in') }
       end #invalif
 
       describe "with valid information" do
@@ -32,29 +32,29 @@ describe "User Authentication" do
           fill_in "Email",    with: user.email
           fill_in "Password", with: user.password
           user.confirm!
-          click_button "Log in"
+          click_button "Sign in"
         end
 
         it "redirects to root path after sign in" do
           
           expect(page).to have_current_path(root_path, only_path: true)
 
-          expect(page).to have_link('Log out', href: destroy_user_session_path)
+          expect(page).to have_link(href: destroy_user_session_path)
           expect(page).to have_link('Questions', href: posts_path)
           expect(page).to have_link('Profile', href: profile_path)
-          expect(page).to_not have_link('Log in', href: new_user_session_path)
+          expect(page).to_not have_link('Sign in', href: new_user_session_path)
 
         end #it
 
         it "redirects logout to root" do
           click_link "Log out"
-          expect(page).to have_content('Log in')
+          expect(page).to have_content('Sign in')
         end
 
 
       end #with valid
 
-    end #log in
+    end #Sign in
   end #signin
 
   

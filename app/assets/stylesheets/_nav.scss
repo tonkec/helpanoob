@@ -2,46 +2,24 @@
 @import "components/mixins";
 @import "text-hover-effects/sass/effects";
 
-$main-color-orange: #ff7300;
-$main-color-gray: #f3f5f7;
-$main-color-blue: #2d90ab;
-
 .main-nav {
   height: 60px;
   background-color: #000;
   position: fixed;
-  top: 0;
+  top: 0;  
   z-index: 999;
-  right: 0;
-  width: 100%;
+  right: 0; 
+  width: 100%;   
 }
 
-// .right-inner-addon {
-//     position: relative;
-//     text-align: center;
-    
-// }
-// .right-inner-addon input {
-//     padding-right: 50px;    
-// }
-// .right-inner-addon i {
-//     position: absolute;
-//     left: 20px;
-//     pointer-events: none;
-// }
 
-// .right-nav {
-//   position: absolute;
-//   right: 0px;
-//   top: 0;  
-// }
 .right-inner-addon {
     position: relative;
     text-align: center;
-
+    
 }
 .right-inner-addon input {
-    padding-right: 50px;
+    padding-right: 50px;    
 }
 .right-inner-addon i {
     position: absolute;
@@ -52,102 +30,81 @@ $main-color-blue: #2d90ab;
 .right-nav {
   position: absolute;
   right: 0px;
-  top: 0;
+  top: 0;  
 }
 
 .icon-plus {
   font-size: 1.7em;
   color: $white;
+  padding: 20px 20px; 
   background-color: $light-orange;
-  padding: 20px 20px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0;   
+  
+  &:hover {
+    text-decoration: none; 
+  }  
+}
 
+.plus-anchor {
   &:hover {
     text-decoration: none;
   }
 }
 
-// .plus-anchor {
-//   &:hover {
-//     text-decoration: none;
-//   }
-// }
-
-// .icon-nav {
-//   font-size: 2.2em; 
-//   position: relative;
-//   display: inline-block; 
-//   color: $dark-blue;  
-//   margin-right: 20px; 
-// }
-
-// .nav-anchor {
-//   &:hover {
-//     text-decoration: none;
-//     -webkit-box-shadow: none; 
-//      box-shadow: none;  
-//   }
-// }
-
-// .nav-right-list {
-//   display: inline-block;
-//   margin-right: 60px; 
-//   margin-top: 20px; 
-// }
 .icon-nav {
-  font-size: 2.2em;
+  font-size: 2.2em; 
   position: relative;
-  display: inline-block;
-  color: $dark-blue;
-  margin-right: 20px;
+  display: inline-block; 
+  color: $dark-blue;  
+  margin-right: 20px; 
 }
 
 .nav-anchor {
   &:hover {
     text-decoration: none;
-    -webkit-box-shadow: none;
-     box-shadow: none;
+    -webkit-box-shadow: none; 
+     box-shadow: none;  
   }
 }
 
 .nav-right-list {
   display: inline-block;
-  margin-right: 60px;
-  margin-top: 20px;
+  margin-right: 60px; 
+  margin-top: 20px; 
 }
 
 .search-content {
   width: 90%;
   position: absolute;
   right: 20px;
-  bottom: -50px;
-  background-color: transparent;
-
+  bottom: -50px; 
+  background-color: transparent; 
+  
   @media (min-width: 480px) {
     right: 80px;
   top: 8px;
-  width: auto;
+  width: auto; 
   }
-
+  
   input {
-    width: 100%;
-    height: 45px;
+    width: 100%; 
+    height: 45px; 
     background-color: #000;
-    border: 2px solid rgba(225,225,225,.7);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    color: $orange;
-
+    border: 2px solid rgba(225,225,225,.7); 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px; 
+    color: $light-orange;
+    
     @media (min-width: 480px) {
-      background-color: transparent;
-      width: 45px;
+      background-color: transparent; 
+      width: 45px; 
     }
     @include transition(1s);
     &:focus {
-      color: $orange;
-      border: 2px solid $orange;
+      color: $light-orange;
+      border: 2px solid $light-orange; 
     }
   }
 }
@@ -157,30 +114,30 @@ $main-color-blue: #2d90ab;
     right: 14px;
     color: #fff;
     top: 14px;
-    font-size: 1em;
+    font-size: 1em; 
     z-index: 1;
-
+    
     @media (min-width: 480px) {
       z-index: 1;
-    }
+    } 
 }
 
-// .active-search {
- 
-//  @include transition(1s); 
-//  border-color: $orange;
-//  background-color: #000; 
-//  color: $orange;
- 
-//  @media (min-width: 480px) {
-//     width: 200px !important;
-//  }
-// }
 .active-search {
-  @include transition(1s);
-  border-color: $orange;
-  background-color: #000;
-  color: $orange;
+ 
+ @include transition(1s); 
+ border-color: $light-orange;
+ background-color: #000; 
+ color: $light-orange;
+ 
+ @media (min-width: 480px) {
+    width: 200px !important;
+ }
 }
 
-
+.notifications {
+   margin-left: 194px;
+   margin-top: 10px;
+  .glyphicon-globe {
+    border: none;
+  }
+}

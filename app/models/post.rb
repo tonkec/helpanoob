@@ -22,8 +22,8 @@
 class Post < ActiveRecord::Base
   include Bootsy::Container
 
-  serialize :images, Array
-  mount_uploaders :images, AvatarUploader
+  # serialize :images, Array
+  # mount_uploaders :images, AvatarUploader
   acts_as_votable
   acts_as_taggable
 

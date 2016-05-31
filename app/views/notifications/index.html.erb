@@ -1,21 +1,50 @@
-<% @notifications.each do |notification| %>
-  <% if notification.notice_type == "comment" %>
-    <%= link_to link_through_path(notification, :anchor => notification.identifier) do %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= notification.notified_by.username %>  <div class="pull-right"><%= time_ago_in_words(notification.created_at) + " ago" %></div>
-          <p>Comment on your question <strong>"<%= truncate(notification.post.title, length: 22) %>"</strong></p>
+<div class="row">
+  <div class="container">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-md-6 col-md-offset-3">
+
+
+      <% @notifications.each do |notification| %>
+      <div id=<%= notification.id %> class="index-notifications-wrapper notif <%= 'notif-unread' unless notification.read %>" >
+        <% if notification.notice_type == "comment" %>
+        <%= link_to link_through_path(notification, :anchor => notification.identifier) do %>
+        <div class="panel">
+          <div class="panel-body">
+            <%#= notification.notified_by.username %>
+            <div class="notif-avatar">
+              <%= image_tag(notification.notified_by.avatar.thumb) %>
+            </div> <!-- avatar --> 
+
+            <div class="notif-content">
+              <p>
+                <span class="notif-username">
+                  <%= notification.notified_by.username %>
+                </span>
+
+                <span class="notif-time">
+                  <%= time_ago_in_words(notification.created_at) + " ago" %>
+                </span>
+              </p>
+
+              <p class="notif-message">Comment on your question <i>"<%= truncate(notification.post.title, length: 50) %>"</i></p>
+
+            </div>  <!-- notif-content -->
+          </div><!-- body -->
+        </div><!-- panel -->
+        <% end %>
+        <% else %>
+        <%= link_to link_through_path(notification) do %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= notification.notified_by.username %>  <div class="pull-right"><%= time_ago_in_words(notification.created_at) + " ago" %></div>
+            <p>Likes your question <strong>"<%= truncate(notification.post.title, length: 50) %>"</strong></p>
+          </div>
         </div>
+        <% end %>
+        <% end %>
       </div>
-    <% end %>
-  <% else %>
-   <%= link_to link_through_path(notification) do %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= notification.notified_by.username %>  <div class="pull-right"><%= time_ago_in_words(notification.created_at) + " ago" %></div>
-          <p>Likes your question <strong>"<%= truncate(notification.post.title, length: 22) %>"</strong></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
+      <% end %>
+
+
+    </div><!-- col -->
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<li id=<%= notification.id %> class="<%= 'notif-unread' unless notification.read %>" >
+<li id=<%= notification.id %> class="notif <%= 'notif-unread' unless notification.read %>" >
   <% if notification.notice_type == "comment" %>
     <%= link_to link_through_path(notification, :anchor => notification.identifier) do %>
       <div class="panel">

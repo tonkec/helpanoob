@@ -11,13 +11,11 @@ class NotificationsController < ApplicationController
 
   def unread
     last_id_in_dropdown = params[:lastID]
-    puts last_id_in_dropdown
 
     if last_id_in_dropdown.nil?
-      puts "nil"
-      @unread_notifications = current_user.notifications.unread
+      @unread_notifications = current_user.notifications.unread.last(3)
     else
-      @unread_notifications = current_user.notifications.unread.where("id > ?", last_id_in_dropdown)
+      @unread_notifications = current_user.notifications.unread.where("id > ?", last_id_in_dropdown).limit(3)
     end
 
     @unread_notifications_count = current_user.notifications.unread.count

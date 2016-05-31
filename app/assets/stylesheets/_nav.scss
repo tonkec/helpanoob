@@ -58,17 +58,8 @@ $main-color-blue: #2d90ab;
 .icon-plus {
   font-size: 1.7em;
   color: $white;
-  padding: 10px 10px; 
-  background-color: $orange;
-  position: absolute;
-  right: 0;
-  top: 0;   
-  
-  // &:hover {
-  //   text-decoration: none; 
-  // }  
+  background-color: $light-orange;
   padding: 20px 20px;
-  background-color: $orange;
   position: absolute;
   right: 0;
   top: 0;
@@ -192,75 +183,4 @@ $main-color-blue: #2d90ab;
   color: $orange;
 }
 
-/*
- @media (min-width: 480px) {
-    width: 200px !important;
- }
 
-
-//  @media (min-width: 480px) {
-//     width: 200px !important;
-//  }
-// }*/
-
-
-.open > .dropdown-menu {
-  border: 1px solid $main-color-gray;
-  padding-bottom: 0;
-}
-
-.dropdown-menu > li {
-  padding: 0;
-  overflow: hidden;
-}
-
-.dropdown-header {
-  border-bottom: 1px solid $main-color-gray;
-}
-
-.pull-left {
-  margin-left: 5%;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.pull-right {
-  margin-right: 5%;
-}
-
-.pull-right > a {
-  color: $main-color-blue;
-  font-size: 14px;
-}
-
-.pull-right > a:hover, a:active {
-  text-decoration: none;
-}
-
-.divider {
-  font-size: 20px;
-  border: 1px solid white;
-}
-
-.dropdown-menu > .text-center > a {
-  border: 1px solid $main-color-gray;
-  background: $main-color-orange;
-  color: white;
-  width: 300px;
-  font-size: 14px;
-}
-
-.dropdown-menu > .text-center > a:hover {
-  border: 1px solid $main-color-gray;
-  background: #d86100;
-  color: white;
-  font-size: 14px;
-}
-
-.notifications {
-   margin-left: 194px;
-   margin-top: 10px;
-  .glyphicon-globe {
-    border: none;
-  }
-}

@@ -1,12 +1,29 @@
-<li id=<%= notification.id %> >
+<li id=<%= notification.id %> class="<%= 'notif-unread' unless notification.read %>" >
   <% if notification.notice_type == "comment" %>
     <%= link_to link_through_path(notification, :anchor => notification.identifier) do %>
-      <div class="panel panel-default">
+      <div class="panel">
         <div class="panel-body">
-          <%= notification.notified_by.username %>  <div class="pull-right"><%= time_ago_in_words(notification.created_at) + " ago" %></div>
-          <p>Comment on your question <strong>"<%= truncate(notification.post.title, length: 12) %>"</strong></p>
-        </div>
-      </div>
+          <%#= notification.notified_by.username %>
+          <div class="notif-avatar">
+            <%= image_tag(notification.notified_by.avatar.thumb) %>
+          </div> <!-- avatar --> 
+
+          <div class="notif-content">
+            <p>
+              <span class="notif-username">
+                <%= notification.notified_by.username %>
+              </span>
+
+              <span class="notif-time">
+                <%= time_ago_in_words(notification.created_at) + " ago" %>
+              </span>
+            </p>
+
+            <p class="notif-message">Comment on your question <i>"<%= truncate(notification.post.title, length: 12) %>"</i></p>
+
+          </div>  <!-- notif-content -->
+        </div><!-- body -->
+      </div><!-- panel -->
     <% end %>
   <% else %>
    <%= link_to link_through_path(notification) do %>

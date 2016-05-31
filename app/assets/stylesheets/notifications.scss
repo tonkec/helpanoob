@@ -1,3 +1,116 @@
 // Place all the styles related to the Notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "components/colors";
+@import "components/mixins";
+.notifications {
+	position: absolute;
+	left: 45%;
+}
+
+.btn-notifs {
+	position: relative; 
+	display: inline;
+	margin-top: 10px; 
+}
+
+.fa.fa-inbox-notifs {
+	color: #FFF; 
+}
+
+.badge.notifs-badge {
+	position: absolute !important;
+	right: 3px;  
+	background-color: $light-orange;  
+}
+
+.notif-avatar {
+	margin-left: 0;
+	padding: 0;
+	margin-top: -17px; 
+	display: inline-block; 
+	float: left; 
+	
+	img {
+		-webkit-border-radius: 100%; 
+		border-radius: 100%; 
+	} 
+}
+
+.notif-content {
+	display: inline-block;
+	float: left;
+}
+
+.notif-username {
+	margin-left: 10px;
+}
+
+.notif-time {
+	position: absolute;
+	right: 30px;  
+	font-size: 11px;   
+}
+
+.notif-message {
+	display: block;
+	color: #FFF;   
+	font-size:  12px;
+}
+
+.notifs-dropdown-menu {
+	padding-bottom: 0 !important; 
+	li {
+		&:nth-child(2) {
+			margin-top: 30px; 
+		}
+	}
+	.panel-body {
+		padding: 0; 
+	}
+
+	.panel {
+		width: 280px; 
+		margin-bottom: 15px; 
+		margin-top: 5px;
+	}
+}
+
+.notif-unread {
+	.panel {
+		background-color: $light-orange;
+		@include transition(.4s);
+		&:focus,
+		&:hover {
+			text-decoration: none;
+			outline: none;
+			background-color: darken($light-orange, 5%); 
+		}
+		span {
+			color: #FFF; 
+		}	
+	}
+}
+
+.dropdown-menu > .text-center > a {
+	&.btn-notifs-all {
+		width: 100%;
+		background-color: $light-orange;
+		color: #fff;
+		@include transition(.4s);
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			outline: none;
+			background-color: darken($light-orange, 5%); 
+		}
+	}	
+}
+
+.dropdown-menu.notifs-dropdown-menu > li > a {
+	white-space: initial; 
+	&:hover,
+	&:focus {
+		background-color: transparent; 
+	}
+}

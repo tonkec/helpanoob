@@ -1,18 +1,17 @@
-<div class="dropdown" id="notifications-dropdow">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <i class="fa fa-bell fa-2x" aria-hidden="true"></i> <span class="badge" id="unread-count"><%= current_user.unread_notificaions_count %></span>
+<div class="dropdow" id="notifications-dropdow">
+  <button class="btn btn-transparent dropdown-toggle btn-notifs" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <i class="fa fa-inbox fa-2x fa-inbox-notifs" aria-hidden="true"></i>
+    <span class="badge notifs-badge" id="unread-count"><%= current_user.unread_notificaions_count %></span>
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  <ul class="dropdown-menu notifs-dropdown-menu" aria-labelledby="dropdownMenu1">
     <li class="dropdown-header">
       <div class="pull-left">Recent notifications</div>
-      <div class="pull-right"><a href="#">Settings</a></div>
     </li>
     <% if current_user.has_unread_notifications? %>
       <%= render current_user.unread_notifications.order('created_at DESC').last(5) %>
     <% end %>
-    <li role="separator" class="divider"></li>
     <li class="text-center">
-      <%= link_to 'View all notifications', notifications_path %>
+      <%= link_to 'View all notifications', notifications_path, class: "btn-notifs-all" %>
     </li>
   </ul>
 </div>

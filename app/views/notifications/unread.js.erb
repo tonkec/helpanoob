@@ -2,5 +2,6 @@
   $("#unread-count").html(<%= @unread_notifications_count %>);
   <% @unread_notifications.each do |notification| %>
     $('.dropdown-menu li:eq(0)').after("<%= j render notification %>");
+    $('.dropdown-menu li:eq(4)').remove();
   <% end %>
 <% end %>

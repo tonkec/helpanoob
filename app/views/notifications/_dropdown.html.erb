@@ -8,7 +8,7 @@
       <div class="pull-left">Recent notifications</div>
     </li>
     <% if current_user.has_unread_notifications? %>
-      <%= render current_user.unread_notifications.order('created_at DESC').last(5) %>
+      <%= render current_user.unread_notifications.order('created_at DESC').limit(3) %>
     <% end %>
     <li class="text-center">
       <%= link_to 'View all notifications', notifications_path, class: "btn-notifs-all" %>

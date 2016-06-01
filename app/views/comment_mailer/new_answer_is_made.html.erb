@@ -63,12 +63,16 @@
                         <table border="0" cellpadding="20" cellspacing="0" class="100padtopbottom" width="600">
                             <tr>
                                 <td align="center" style="font-size:20px; color:#848484;">
-                                    <font face="'Open Sans', Arial, sans-serif"><h1 style="line-height: 1em;">
+                                    <font face="'Open Sans', Arial, sans-serif">
+                                    <span style="line-height: 1em;">
+                                      
                                       <span> 
                                         <span style="color: rgb(45, 144, 171);"><%= @answer_user.username %></span>
-                                        has answered your question: <span style="color: rgb(45, 144, 171);">'<%= @answer.post.title %>'</span>
+                                        has answered your question: 
+                                        <span style="color: rgb(45, 144, 171);"><%= truncate(@answer.post.title, length: 50)%></span>
                                       </span> 
-                                    </h1>
+                                      
+                                    </span>
                                 </td>
                             </tr>
                         </table>

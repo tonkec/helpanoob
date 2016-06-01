@@ -63,11 +63,13 @@
                         <table border="0" cellpadding="20" cellspacing="0" class="100padtopbottom" width="600">
                             <tr>
                                 <td align="center" style="font-size:20px; color:#848484;">
-                                    <font face="'Open Sans', Arial, sans-serif"><h1 style="line-height: 1em;">
-                                      <%= truncate(@post.title, length: 50) %> asked by <span style="color: rgb(45, 144, 171);">
-                                         <%= @post.user.username %>
-                                      </span> 
-                                    </h1>
+                                    <font face="'Open Sans', Arial, sans-serif">
+                                      <span "line-height: 1em;">
+                                        <%= truncate(@post.title, length: 50) %> asked by 
+                                        <span style="color: rgb(45, 144, 171);">
+                                           <%= @post.user.username %>
+                                        </span> 
+                                    </span>
                                 </td>
                             </tr>
                         </table>

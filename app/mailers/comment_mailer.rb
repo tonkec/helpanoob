@@ -5,7 +5,7 @@ class CommentMailer < ApplicationMailer
     @answer_user = @answer.user
     @post_user = User.find post_user_id
 
-    mail(to: @post_user.email, subject: 'New answer has been created!')
+    mail(to: @post_user.email, subject: 'Someone answered your question!')
   end
 
 end

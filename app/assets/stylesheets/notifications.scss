@@ -5,13 +5,13 @@
 @import "components/mixins";
 .notifications {
 	position: absolute;
-	left: 45%;
+	left: 50%;
 }
 
 .btn-notifs {
 	position: relative; 
 	display: inline;
-	margin-top: 3px; 
+	margin-top: 10px; 
 	
 	&:hover,
 	&:focus,
@@ -161,4 +161,8 @@
 			font-size: 18px;
 		} 
 	}
+}
+
+.notif-heading {
+	margin-bottom: 20px; 
 }

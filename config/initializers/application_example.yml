@@ -1,0 +1,10 @@
+AWS_ACCESS_KEY_ID: 'somelongstring'
+AWS_SECRET_ACCESS_KEY: 'somelongstring'
+AWS_S3_REGION: 'someregion'
+S3_BUCKET_NAME: 'somebucket'
+
+github_key: 'somelongstring'
+github_secret: 'somelongstring'
+
+development:
+   REDISTOGO_URL: 'redis://locahost:3000'

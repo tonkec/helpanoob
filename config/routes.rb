@@ -15,9 +15,11 @@ Rails.application.routes.draw do
 
   unauthenticated do
     root to: "static_pages#home"
+    get "about", to: "static_pages#about"
   end
 
-  get "about", to: "static_pages#about"
+  get "support", to: "static_pages#support"
+
 
   resources :posts do
     get :autocomplete_tag_name, :on => :collection

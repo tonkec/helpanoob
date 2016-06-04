@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  layout false, only: [:home]
+  layout false, only: [:home, :about]
   
   def home
   end

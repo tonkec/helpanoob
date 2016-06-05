@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>New question has been asked!</title>
     <style>
-     @import url(http://fonts.googleapis.com/css?family=OpenSans:400); 
+     @import url(http://fonts.googleapis.com/css?family=OpenSans:400);
     /* Some resets and issue fixes */
         #outlook a { padding:0; }
-    body{ width:100% !important; -webkit-text; size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }     
+    body{ width:100% !important; -webkit-text; size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }
         .ReadMsgBody { width: 100%; }
-        .ExternalClass {width:100%;} 
-        .backgroundTable {margin:0 auto; padding:0; width:100%;!important;} 
+        .ExternalClass {width:100%;}
+        .backgroundTable {margin:0 auto; padding:0; width:100%;!important;}
         table td {border-collapse: collapse;}
-        .ExternalClass * {line-height: 115%;} 
+        .ExternalClass * {line-height: 115%;}
         /* End reset */
 
     /* These are our tablet/medium screen media queries */
         @media screen and (max-width: 630px){
-      /* Display block allows us to stack elements */                    
+      /* Display block allows us to stack elements */
             *[class="mobile-column"] {display: block;}
       /* Some more stacking elements */
             *[class="mob-column"] {float: none !important;width: 100% !important;}
       /* Hide stuff */
             *[class="hide"] {display:none !important;}
       /* This sets elements to 100% width and fixes the height issues too, a god send */
-      *[class="100p"] {width:100% !important; height:auto !important;}            
+      *[class="100p"] {width:100% !important; height:auto !important;}
       /* For the 2x2 stack */
       *[class="condensed"] {padding-bottom:40px !important; display: block;}
       /* Centers content on mobile */
@@ -67,10 +67,10 @@
                                 <td align="center" style="font-size:20px; color:#848484;">
                                     <font face="'Open Sans', Arial, sans-serif">
                                       <span "line-height: 1em;">
-                                        <%= truncate(@post.title, length: 50) %> asked by 
+                                        <%= truncate(@post.title, length: 50) %> asked by
                                         <span style="color: rgb(45, 144, 171);">
                                            <%= @post.user.username %>
-                                        </span> 
+                                        </span>
                                     </span>
                                 </td>
                             </tr>
@@ -85,7 +85,7 @@
                     </tr>
                 </table>
             <% end %>
-           
+
             <table bgcolor="#202729" width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#2a8e9d" class="100p">
                 <tr>
                     <td align="left" width="60%"style="font-size:13px; color:#ffffff;"><font face="'Open Sans', Arial, sans-serif"><span>Spread the word! Tell your friends about Help A Noob.</span></font>
@@ -101,7 +101,7 @@
             <table width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#ffffff" class="100p">
                 <tr>
                     <td align="left" width="50%" style="font-size:14px; color:#848484;"><font face="'Open Sans', Arial, sans-serif">&copy; Help A Noob 2016</font></td>
-                    
+
                 </tr>
             </table>
             <table width="640" class="100p" border="0" cellspacing="0" cellpadding="0">
@@ -112,6 +112,6 @@
         </td>
     </tr>
 </table>
-    
+
 </body>
 </html>

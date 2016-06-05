@@ -19,6 +19,8 @@
 //= require jquery-fileupload/basic
 //= require swiper
 //= require select2
+//= require underscore
+//= require jquery-fileupload/jquery.fileupload
 //= require_tree .
 $(document).ready(function() {
 

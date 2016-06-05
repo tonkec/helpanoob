@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509113746) do
+ActiveRecord::Schema.define(version: 20160601142305) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20160509113746) do
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
     t.integer  "comments_count",          default: 0
+    t.text     "files"
   end
 
   add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"

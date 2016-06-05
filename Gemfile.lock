@@ -481,6 +481,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    underscore-rails (1.8.3)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -548,6 +549,7 @@ DEPENDENCIES
   swiper-rails
   turbolinks
   uglifier (>= 1.3.0)
+  underscore-rails
   web-console (~> 2.0)
 
 BUNDLED WITH

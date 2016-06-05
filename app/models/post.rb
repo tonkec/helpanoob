@@ -20,14 +20,20 @@
 #
 
 class Post < ActiveRecord::Base
+
+  attr_accessor :files_cache
+
+  mount_uploaders :files, FileUploader
+
   acts_as_votable
   acts_as_taggable
 
   belongs_to :user
 
   has_many :comments, dependent: :destroy
-  has_many :notifications, dependent: :destroy  
+  has_many :notifications, dependent: :destroy
 
+  validates :files, file_size: { less_than_or_equal_to: 4.megabytes }
   validates :title, presence: true, length: {minimum: 20, max: 200}, uniqueness: true
 
   has_many :notifications, dependent: :destroy
@@ -35,7 +41,7 @@ class Post < ActiveRecord::Base
   validates :description, presence: true, length: {minimum: 50}
   validates :user_id, presence: true
   validates :tag_list, presence: true
-  validate :tag_list_inclusion                 
+  validate :tag_list_inclusion
 
 
   default_scope -> { order(created_at: :desc) }

@@ -46,3 +46,39 @@ $ ->
   viewMore.find('a').click (e) ->
     nextPage()
     e.preventDefault()
+
+  readURL = (file, file_id) ->
+    if file
+      reader = new FileReader
+
+      reader.onload = (e) ->
+        $("##{file_id}").attr 'src', e.target.result
+        return
+
+      reader.readAsDataURL file
+    return
+
+
+  $('#show-files').hide()
+
+  $('#fileupload').change ->
+    $('#show-files').show()
+    customIdPrefix = "image_"
+    @files = $(this)[0].files
+
+    i = 0
+    while i < @files.length
+      customId = customIdPrefix + @files[i].lastModified
+      $('#show-files').append("<li class=\"list-group-item\" id=\"upload_prev\">
+          <img id=\"" + customId + "\" src=\"#\" alt=\"Post Attach\" height=\"42\" width=\"42\" > " + @files[i].name +
+          "</li>")
+      # $('#show-files').append("<li class=\"list-group-item\" id=\"upload_prev\">
+      #     <img id=\"" + customId + "\" src=\"#\" alt=\"Post Attach\" height=\"42\" width=\"42\" > " + @files[i].name +
+      #     " <div class=\"pull-right\"><button type=\"button\" class=\"btn btn-link\" id=\"remove-file\" data-filekey=\"" + @files[i].lastModified + "\">remove</button></div>
+      #   </li>")
+      readURL(@files[i], customId)
+      i++
+
+  $('#show-files').on 'click', 'button#remove-all', ->
+    $('input[type=file]').val('')
+    $('#show-files').hide()

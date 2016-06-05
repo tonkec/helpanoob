@@ -7,6 +7,16 @@
 <%= f.bootsy_area :description, class: "input-full input-padding large-textarea no-margin", placeholder: "Ask a question" %>
 <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, :"data-delimiter" => ', ',  'data-auto-focus' => true, class: "post-tags", placeholder: "Tags separated by commas" %>
 
+<div class="btn-group btn-group-justified" role="group" aria-label="File button">
+  <label class="btn btn-default btn-file">
+    Upload Screenshots <%= f.file_field :files, multiple: true, id: "fileupload" %>
+  </label>
+</div>
+
+<div class="list-group" id="show-files">
+  <button type="button" class="list-group-item list-group-item-danger" id="remove-all">Delete All</button>
+</div>
+
 <p class="tag-list">
   <b>Available tags:</b>
   <span class="tag">jquery</span>

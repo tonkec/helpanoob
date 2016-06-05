@@ -1,3 +1,5 @@
+require 'carrierwave/orm/activerecord'
+
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider: 'AWS',
@@ -7,9 +9,9 @@ CarrierWave.configure do |config|
     path_style: true
   }
 
-  config.fog_directory = ENV['S3_BUCKET_NAME'] 
+  config.fog_directory = ENV['S3_BUCKET_NAME']
   config.fog_public     = false  # optional, defaults to true
-  config.fog_attributes = {'Cache-Control'=>'max-age=315576000'} 
+  config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
 
   # For testing, upload files to local `tmp` folder.
   if Rails.env.test?
@@ -21,5 +23,5 @@ CarrierWave.configure do |config|
   end
 
 
- 
+
 end

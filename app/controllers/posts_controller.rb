@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def disable_link
     @disable_link = true
   end
-  
+
   def index
     if params[:tag]
       @tagged_posts = Post.tagged_with(params[:tag])
@@ -82,10 +82,12 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    puts "params files"
+    puts post_params
     @post = current_user.posts.build(post_params)
     @users = User.all
 
-    if @post.save(post_params)
+    if @post.save
       flash.now[:success] = "Post successfully created"
       redirect_to post_path(@post)
 
@@ -97,7 +99,7 @@ class PostsController < ApplicationController
     else
       render "new"
     end
-   
+
   end
 
   # PATCH/PUT /posts/1
@@ -152,7 +154,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :title, :tag_list, :bootsy_image_gallery_id)
+      params.require(:post).permit(:description, :title, :tag_list, :bootsy_image_gallery_id, {files: []})
     end
 
     def correct_user

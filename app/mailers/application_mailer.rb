@@ -3,6 +3,7 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
   include MailerHelper
 
+
   before_filter :add_inline_attachments!
 
 end

@@ -1,6 +1,9 @@
+require 'devise/orm/active_record'
+
 Devise.setup do |config|
+
   config.mailer_sender = 'noreply@helpanoob.com'
-  require 'devise/orm/active_record'
+  config.mailer = 'UserMailer'
   config.case_insensitive_keys = [ :email ]
   config.strip_whitespace_keys = [ :email ]
   config.skip_session_storage = [:http_auth]

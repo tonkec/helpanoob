@@ -1,16 +1,9 @@
 <%= render partial: "layouts/head_tags" %>
 <div class="landing-wrapper">
-  <div class="top-links" id="top-waypoint">
-    <div class="header-logo">
-
-    </div><!-- logo -->
-
-    <%= link_to "Login", new_user_session_path, class: "btn-bordered btn-landing-top text-uppercase" %>
-
-
-  </div><!-- top-links -->
+  
   <header class="landing-header">
     <%= render partial: "layouts/flash" %>
+    <%= render partial: "layouts/landing_navigation" %>
 
 
     <div class="bg-wrap">
@@ -20,7 +13,7 @@
       <div class="header-bg-img bg-img"></div>
     </div>
       
-    <div class="row landing-top-row">
+    <div class="row landing-header-row">
       <div class="container">
 
         <div class="col-xs-12 col-lg-10 col-lg-offset-1">
@@ -41,7 +34,7 @@
 
   </header>
 
-  <section class="light-blue-background text-center features">
+  <section class="light-blue-background text-center features" id="nav-waypoint">
     <div class="container">
       <div class="row">
 
@@ -77,144 +70,132 @@
 
   </section>
 
+
+  <section class="white-background clearfix image-section">
   
-  <section class="testemonial-section black-background">
-    
-    <div class="row">
       
-      <div class="col-xs-12 col-sm-12 col-lg-6 landing-bg-img"></div> <!-- col -->
+    <div class="row">
 
-      <div class="col-xs-12 col-sm-12 col-lg-6 text-center">
-        
-        <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
-          <h3 class="testemonial-heading white-text">
-            No matter what you are stuck on, we are here to help.
-          </h3>
+      <div class="container">
+         <div class="col-lg-4 image-text-col">
+
+          <p class="section-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure minima, minus quas rerum hic sint optio? At magni, natus sed.
+          </p>
+
         </div>
 
-       
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 swiper-col">
+        <div class="col-lg-7 col-lg-offset-1 text-center">
+          <div class="section-bg-img"></div>
+
+        </div><!-- s-bg-img -->
+      </div><!-- container -->
+
+    </div><!-- row -->
+
+
+  </section>  
+
+
+  <section class="white-background clearfix image-section">
+  
+      
+    <div class="row">
+
+      <div class="container">
+
+          <div class="col-lg-7 text-center">
+            <div class="section-bg-img"></div>
+
+          </div><!-- s-bg-img -->
+
+
+         <div class="col-lg-4 col-lg-offset-1 image-text-col">
+
+          <p class="section-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure minima, minus quas rerum hic sint optio? At magni, natus sed.
+          </p>
+
+        </div>
+
         
-         <div class="swiper-container">
-          <div class="swiper-wrapper">
+      </div><!-- container -->
 
-            <div class="swiper-slide">
+    </div><!-- row -->
 
-              <div class="swiper-content light-blue-background bubble">
-                
-                  <h5 class="swiper-heading">
-                    "How do I vertically align content in my div?"
-                  </h5>
+  </section>  
 
-              </div>
+  <section class="white-background clearfix image-section">
+  
+      
+    <div class="row">
 
-            </div>
+      <div class="container">
+         <div class="col-lg-4 image-text-col">
 
-            <div class="swiper-slide">
+          <p class="section-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure minima, minus quas rerum hic sint optio? At magni, natus sed.
+          </p>
 
-              <div class="swiper-content light-blue-background">
-                
-                <h5 class="swiper-heading">
-                  "What is the difference between frontend and backend?"
-                </h5>
+        </div>
 
-              </div>
+        <div class="col-lg-7 col-lg-offset-1 text-center">
+          <div class="section-bg-img"></div>
 
-            </div>
-            
-            <div class="swiper-slide">
+        </div><!-- s-bg-img -->
+      </div><!-- container -->
 
-              <div class="swiper-content light-blue-background">
+    </div><!-- row -->
+
+
+  </section>   
+
+
+  <section class="testemonial-section white-background">
+    <div class="row testemonial-row">
+      
+      <div class="container">
+        
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <p class="testemonial-paragraph">
               
-                <h5 class="swiper-heading">
-                  "How to loop through an array?"
-                </h5>
+            "Some fancy testemonial from super excited user"
 
-              </div>
+          </p>
 
-            </div>
+          <div class="testemonial-line"></div>
 
-          </div><!-- wrapper -->
-
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div><!-- s-container -->
-
-
-        </div>
-
-
-      </div>  <!-- col -->
-
-    </div>  <!-- row -->
-
-  </section>
-
-  <section class="orange-background signup-section">
-    
-    <div class="row">
-      
-      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 text-center">
-        <h2 class="join-us-heading">Join the <b>network of coders</b> taking their learning to the next level!</h2>
-      </div>
-
-      <div class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-4 col-lg-offset-4 text-center">
-        <%= link_to "Sign up", new_user_registration_path, class: "btn-landing btn-landing-cta" %>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="work-with-us black-background">
-    
-    <div class="row">
-        
-      <div class="col-sm-12 col-lg-6 landing-bg-img other">
-      </div>
-
-      <div class="col-sm-12 col-lg-6 text-col">
-        <h3 class="text-uppercase white-text">Are you a ruby on rails developer?</h3>
-        <h3 class="text-uppercase white-text">Come join our team!</h3>
-        <h4 class="white-text">Send us <a href="mailto:antonija1023@gmail.com">message</a> and let's get coding</h4>
-      </div>
-
-    </div>
-
-  </section>
-
-  <footer class="white-background landing-footer">
-    <div class="row">
-       
-      <div class="col-xs-12 col-sm-6">
-        <ul class="footer-links">
-          <li>
-            <%= link_to "Home", root_path %>
-          </li>
-          <li>
-            <%= link_to "Sign up", new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "Sign in", new_user_session_path %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3">
-        <div class="footer-copyright">
-          <p class="copyright">
-            Copyright 2016. <b>Help a noob.</b> All rights reserved
+          <p class="testemonial-user">
+            Antonija
           </p>
         </div>
-      </div> 
+
+      </div>
 
     </div>
+  </section>
 
+  <section class="white-background form-section">
     
-  </footer>
+    <div class="row text-center">
+      
+      <div class="container">
+        
+        <div class="col-lg-10 col-lg-offset-1">
+          <h2>HERE WILL BE THE FORM WHEN I FIGURE IT OUT </h2>
+        </div><!-- col -->
+
+      </div><!-- container -->
+
+    </div><!-- row -->
+
+  </section>
+
+  <%= render partial: "layouts/footer" %>
+
 </div><!-- landing wrapper -->
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
 <script>
   $("body").css("background-color", "transparent");
 
@@ -228,17 +209,14 @@
     setTimeout(f, 7000);
   })();
 
-  var swiper = new Swiper('.swiper-container', {
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    speed: 500,
-    keyboardControl: true,
-    loop: true,
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: 5000
-  });
-
+  var waypoint = $('#nav-waypoint').waypoint({
+    handler: function(direction) {
+      if (direction == "down") {
+        alert(7);
+      } else {
+        alert("up")
+      }
+    }
+  })
 
 </script>

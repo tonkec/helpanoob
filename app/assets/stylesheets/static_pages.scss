@@ -166,8 +166,27 @@ section {
 	-webkit-background-size: cover; 
 	 -o-background-size: cover; 
 	 background-size: cover;  
-	background-image: url(../images/10.png);
 	margin: 0 auto; 
+	
+	&.first {
+		background-image: url(../images/10.png);
+	}
+
+	&.second {
+		background-image: url(../images/9.png);
+		background-position: center center; 
+	}
+
+	&.third {
+		background-image: url(../images/11.png);
+		background-position: center center; 
+	}
+}
+
+.img-desc {
+	list-style: none;
+	margin-top: 10px;
+	padding: 0; 
 }
 
 .landing-text {

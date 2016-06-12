@@ -68,7 +68,7 @@ LANDING
 .landing-header {
 	height: 100vh; 
 	position: relative; 
-	overflow: hidden; 
+	 
 }
 
 .landing-heading {
@@ -330,6 +330,8 @@ section {
 	width: 100%;
 	padding: 20px 0;  
 	height: 90px; 
+	
+	@include transition(.5s);
 }
 
 .header-logo {
@@ -358,7 +360,7 @@ section {
 	-webkit-border-radius: 3px; 
 	border-radius: 3px; 
 	margin-top: 15px; 
-	margin-left: 30px;
+	margin-left: 10px;
 	display: inline-block; 
 	
 	&:hover,
@@ -371,6 +373,12 @@ section {
 	@media (min-width: 768px) {
 		margin-top: 8px; 
 		float: right;   
+	}
+
+	&.orange {
+		background-color: $light-orange;
+		margin-right: 10px;  
+		text-transform: uppercase; 
 	}
 }
 
@@ -448,7 +456,7 @@ section {
 .testemonial-section {
 	height: 100vh; 
 	position: relative;
-	overflow: hidden;  
+	  
 }
 
 .testemonial-row {
@@ -481,4 +489,16 @@ section {
 .form-section {
 	padding: 150px 0;
 	border-top: 1px solid #f5f5f5;  
+}
+
+.white-nav {
+	background-color: #FFF;
+	-webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,.1);
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,.1);
+	    
+	.btn-bordered {
+		background-color: $light-blue-2;
+		color: #FFF;  
+		border: none; 
+	}
 }

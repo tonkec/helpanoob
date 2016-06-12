@@ -26,9 +26,11 @@ $(document).ready(function() {
     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
     $("#btn-nav").toggleClass("animated");
   }
+
   $("#btn-nav").on("click tap", function() {
     toggleNav();
   });
+
 
 });
 

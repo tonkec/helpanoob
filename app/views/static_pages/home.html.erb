@@ -34,7 +34,7 @@
 
   </header>
 
-  <section class="light-blue-background text-center features" id="nav-waypoint">
+  <section class="light-blue-background text-center features" id="nav-offset">
     <div class="container">
       <div class="row">
 
@@ -195,13 +195,15 @@
 
 </div><!-- landing wrapper -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
 <script>
-  $("body").css("background-color", "transparent");
+ $(document).ready(function(){
 
-  var imgs = $(".bg-img");
-  i = -1;
-  (function f(){
+
+   $("body").css("background-color", "transparent");
+
+   var imgs = $(".bg-img");
+   i = -1;
+   (function f(){
     i = (i + 1) % imgs.length;
 
     $(imgs).not(imgs[i]).removeClass("slide-active")
@@ -209,14 +211,22 @@
     setTimeout(f, 7000);
   })();
 
-  var waypoint = $('#nav-waypoint').waypoint({
-    handler: function(direction) {
-      if (direction == "down") {
-        alert(7);
-      } else {
-        alert("up")
-      }
+
+  $("body, html").scroll(function(){
+    var offset = $("#nav-offset").offset().top;
+    if (offset < 100) {
+      $("#nav").addClass("white-nav");
+    } else {
+      $("#nav").removeClass("white-nav");
     }
-  })
+
+  });
+
+
+
+
+ });
+
+  
 
 </script>

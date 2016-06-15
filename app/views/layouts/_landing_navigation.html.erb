@@ -1,7 +1,7 @@
 <div class="landing-navigation" id="nav">
-    <div class="header-logo">
-
-    </div><!-- logo -->
+    <%= link_to root_path do %>
+      <div class="header-logo"></div><!-- logo -->
+    <% end %>
 
     <%= link_to "Login", new_user_session_path, class: "btn-bordered btn-landing-top text-uppercase" %>
     <%= link_to "Sign up", new_user_registration_path, class: "btn-landing-top orange" %>

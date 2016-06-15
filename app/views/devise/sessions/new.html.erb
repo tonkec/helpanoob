@@ -1,16 +1,18 @@
 <div class="bg-wrap">
-
+  
     <div class="bg-img slide-active"></div>
     <div class="bg-img"></div>
     <div class="bg-img"></div>
     <div class="bg-img"></div>
+</div>
+<%= render partial: "layouts/landing_navigation" %>
+  
 
+<section class="devise-section">
+  <div class="row devise-row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
 
-  <div class="row row-slideshow" >
-
-
-    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-xl-6 col-xl-offset-3">
-      <h1 class="white-text signup-heading">Sign In!</h1>
+     <h1 class="white-text signup-heading">Sign In!</h1>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -32,24 +34,45 @@
 
       <% end %>
 
+      </div>  <!-- col -->
 
-    </div>
+  </div><!-- row -->
 
-  </div><!-- row-slideshow -->
-
-</div><!-- bq-wrap -->
+</section>  
 
 
 <script>
 
+  
+  $(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  $(document).ready( function() {
+    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+      var input = $(this).parents('.input-group').find(':text'),
+      log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+      if( input.length ) {
+        input.val(log);
+      } else {
+        if( log ) alert(log);
+      }
+
+    });
+  });
 
   var imgs = $(".bg-img");
   i = -1;
   (function f(){
     i = (i + 1) % imgs.length;
 
-    $(imgs).not(imgs[i]).removeClass("slide-active")
-    $(imgs[ i ]).addClass("slide-active")
+    $(imgs).not(imgs[i]).removeClass("slide-active");
+    $(imgs[ i ]).addClass("slide-active");
     setTimeout(f, 7000);
   })();
 

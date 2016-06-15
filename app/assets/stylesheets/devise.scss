@@ -1,19 +1,28 @@
-	@import "main";
+@import "main";
 @import "text-hover-effects/sass/effects";
 
 /*========================
 SIGNUP PAGE
 =========================*/
-.row-slideshow {
-	position: absolute;
-	z-index: 999;
-	width: 100%;
-	top: 120px;
+.devise-row {
+	position: relative;
+	z-index: 99; 
+	margin: 0;
+    top: 50%;
+    -webkit-transform:  translateY(-50%); 
+    -moz-transform:  translateY(-50%); 
+    -ms-transform:  translateY(-50%); 
+    -o-transform:  translateY(-50%); 
+    transform:  translateY(-50%); 
 }
+
+.devise-section {
+	height: 100%; 
+}
+
 .bg-wrapper {
 	@include center-horizontally;
-	font-family: 'Lato', sans-serif;
-	
+	font-family: 'Lato', sans-serif;	
 }
 
 .signup-heading {

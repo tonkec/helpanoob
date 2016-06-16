@@ -12,6 +12,7 @@ LANDING
 	margin: 0;  
 }
 
+
 .light-blue-background {
 	background-color: $light-blue-2; 
 }
@@ -203,6 +204,15 @@ section {
 	position: fixed;
 	width: 100%;
 	z-index: -1;
+}
+
+.header-buttons-wrapper {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 65%;
+	margin: 0 auto;
+	text-align: center;     
 }
 
 .header-bg-img {

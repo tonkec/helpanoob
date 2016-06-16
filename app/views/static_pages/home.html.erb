@@ -13,6 +13,13 @@
       <div class="header-bg-img bg-img"></div>
     </div>
 
+    <div class="header-buttons-wrapper">
+      
+      <%= link_to "Sign up", new_user_registration_path, class: "btn-landing orange" %>
+      <%= link_to "Log in", new_user_session_path, class: "btn-landing white" %>
+
+    </div>
+
     <div class="row landing-header-row">
       <div class="container">
 
@@ -25,8 +32,7 @@
             Get answers to your programming questions for free.
           </p>
 
-          <%= link_to "Sign up", new_user_registration_path, class: "btn-landing orange" %>
-          <%= link_to "Log in", new_user_session_path, class: "btn-landing white" %>
+         
         </div>
 
       </div>

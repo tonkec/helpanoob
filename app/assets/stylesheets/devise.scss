@@ -49,8 +49,8 @@ SIGNUP PAGE
 }
 
 .btn-signup {
-	background-color: #fff;
-	color: #000;
+	background-color: $light-orange;
+	color: #fff;
 	width: 100%;
 	height: 50px;
 	display: block;
@@ -58,10 +58,9 @@ SIGNUP PAGE
 	border: none;
 	border-radius: 5px;
 	@include transition(.5s);
- 
-	
+
 	&:hover {
-		background-color: $orange;
+		background-color: darken($light-orange, 10%);
 		color: #fff;
 	}
 }

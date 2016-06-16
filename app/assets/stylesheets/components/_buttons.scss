@@ -133,12 +133,13 @@
 }
 
 .btn-orange-link {
-  color: $orange;
-  font-size: 14px; 
+  color: $light-orange;
+  font-size: 20px; 
   @include transition(.5s);
+  text-transform: uppercase; 
   &:hover {
     text-decoration: none; 
-    color: $light-blue;
+    color: $light-blue-2;
   }
 }
 

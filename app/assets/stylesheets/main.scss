@@ -300,11 +300,11 @@ TEXT COLORS
 .orange-input-new {
 	width: 100%;
 	background-color: rgba(255,255,255,.7);
-	color: $orange;
-	padding: 20px;
+	color: $light-orange;
+	padding: 25px 20px;
 	margin-bottom: 0;
 	border: none; 
-	border-bottom: 1px solid lighten(#000, 10%);     
+	font-size: 20px; 	    
 }
 
 
@@ -328,18 +328,24 @@ MORE GRID
 	}
 }
 
-.col-xl-6 {
-	@media (min-width: 1400px) {
+
+@media (min-width: 1400px) {
+	.col-xl-4 {
+		width: 33.3333333%; 
+	}
+
+	.col-xl-offset-4 {
+		margin-left: 33.333333333% 
+	}
+
+	.col-xl-offset-3 { 	
+		margin-left: 25%;
+	}
+
+	.col-xl-6 {
 		width: 50%; 
 	}
-}
-
-.col-xl-offset-3 {
-	@media(min-width: 1400px) {
-		margin-left: 25%;		
-	}
-}
-
+} 
 /* ==============
 GLOBAL 
 =================*/

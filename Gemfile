@@ -47,7 +47,8 @@ gem "mailboxer"
 gem 'omniauth-github', :github => 'intridea/omniauth-github'
 gem 'swiper-rails'
 gem "select2-rails"
-
+gem 'client_side_validations'
+gem "animate-rails"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

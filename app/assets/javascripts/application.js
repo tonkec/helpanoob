@@ -19,6 +19,7 @@
 //= require jquery-fileupload/basic
 //= require swiper
 //= require select2
+//= require rails.validations
 //= require_tree .
 $(document).ready(function() {
 

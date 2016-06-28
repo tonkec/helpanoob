@@ -1,4 +1,5 @@
 @import "components/colors";
+@import "components/mixins";
 
 .about-header {
   background-image: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)), url(../images/about.jpg);
@@ -70,6 +71,120 @@
 }
 
 .team-member-col {
-  height: 50vh;
-  border: 1px solid red;  
+  height: 600px;
+  -webkit-background-size: 100% auto; 
+  -o-background-size: 100% auto; 
+  background-size: 100% auto; 
+  background-repeat: no-repeat;
+  background-position: center center; 
+  
+  &.antonija {
+    background-image:  linear-gradient(rgba(0,0,0,.2),rgba(0,0,0, .4)), url(../images/antonija_2.jpg);
+  }
+
+  &.branko {
+    background-image:  linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)), url(../images/branko.jpg);
+    background-position: top; 
+  }
+
+  &.margaret {
+    background-image:  linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)), url(../images/margaret.jpg); 
+  }
+
+  &.ro {
+    background-image:  linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)), url(../images/ro.jpg); 
+  }
+
+  &.gwen {
+    background-image:  linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)), url(../images/gwen.jpg); 
+  }
+
+  &.join-us {
+    background-color: $light-orange; 
+  }
+}
+
+.join-us-cta {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  @include transition(.5s);
+  
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      background-color: darken($light-orange, 10%); 
+      text-decoration: none;  
+    }
+  
+  
+  p {
+    color: #FFF;
+    font-size: 30px;
+    text-transform: uppercase;  
+    font-weight: 600; 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  } 
+  
+}
+
+.member-info {
+  position: absolute;
+  top: 50%; 
+  -webkit-transform: translateY(-50%); 
+    -moz-transform: translateY(-50%); 
+    -ms-transform: translateY(-50%); 
+    -o-transform: translateY(-50%); 
+    transform: translateY(-50%); 
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  
+  p {
+    color: #FFF;
+    font-size: 30px;
+    text-transform: uppercase;  
+    font-weight: 600;  
+  } 
+}
+
+.member-links {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;   
+  
+  a {
+    color: #FFF;
+    margin-right: 10px;
+    display: inline-block; 
+    -webkit-transition: color .5s ease; 
+        -moz-transition: color .5s ease; 
+        -ms-transition: color .5s ease; 
+        -o-transition: color .5s ease; 
+        transition: color .5s ease;     
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      text-decoration: none;  
+      color: $light-orange;
+    }
+
+    i {
+      font-size: 50px;
+       
+    }
+  }  
 }

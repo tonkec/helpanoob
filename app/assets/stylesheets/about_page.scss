@@ -1,0 +1,75 @@
+@import "components/colors";
+
+.about-header {
+  background-image: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)), url(../images/about.jpg);
+  -webkit-background-size: cover; 
+  -o-background-size: cover; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; 
+  height: 100vh;
+  position: relative;  
+  background-attachment: fixed; 
+}
+
+.about-header-heading {
+  font-size: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%); 
+  -moz-transform: translateY(-50%); 
+  -ms-transform: translateY(-50%); 
+  -o-transform: translateY(-50%); 
+  transform: translateY(-50%);    
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  color: #fff;     
+}
+
+.about-us-section {
+  height: 100vh;
+  
+  .row {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%); 
+    -moz-transform: translateY(-50%); 
+    -ms-transform: translateY(-50%); 
+    -o-transform: translateY(-50%); 
+    transform: translateY(-50%); 
+  } 
+}
+
+.about-section-heading {
+  font-size: 60px;
+  margin-bottom: 40px;
+  text-align: center;  
+}
+
+.about-section-paragraph {
+  font-size: 30px; 
+  line-height: 1.6;
+  font-family: "Open Sans", sans-serif;  
+  color: #000;
+  text-align: center; 
+  
+  b {
+    color: $light-orange; 
+  }
+  
+  &.about-section-bottom-paragraph {
+    margin-top: 50px; 
+  }
+}
+
+.about-team-section {
+  height: 100vh; 
+}
+
+.team-member-col {
+  height: 50vh;
+  border: 1px solid red;  
+}

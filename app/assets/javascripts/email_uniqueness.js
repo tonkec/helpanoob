@@ -12,6 +12,8 @@ $(function() {
 
     if (emailRegex.test(email)) {
       $.get(endpoint, { email: email}, handleSuccess);
+    } else {
+      removeStatus();
     }
   }
 

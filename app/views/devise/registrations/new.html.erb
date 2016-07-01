@@ -1,10 +1,10 @@
 <div class="bg-wrap">
-  
+
     <div class="bg-img slide-active"></div>
     <div class="bg-img"></div>
     <div class="bg-img"></div>
     <div class="bg-img"></div>
-  
+
 
   <div class="row row-slideshow" >
 
@@ -17,7 +17,13 @@
 
       <%= f.text_field :username, autofocus: true, placeholder: "Username", class: "orange-input-new" %>
 
-      <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "orange-input-new"%>
+      <%= f.email_field :email,
+        autofocus: true,
+        placeholder: "Email",
+        class: "orange-input-new",
+        data: {
+          endpoint: emails_check_uniqueness_url
+        } %>
 
       <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "orange-input-new" %>
 
@@ -48,7 +54,7 @@
 
 <script>
 
-  
+
   $(document).on('change', '.btn-file :file', function() {
     var input = $(this),
     numFiles = input.get(0).files ? input.get(0).files.length : 1,

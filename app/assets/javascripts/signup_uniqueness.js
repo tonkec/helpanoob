@@ -44,15 +44,15 @@ $(function() {
 
   function setAvailable($field) {
     removeStatus($field);
-    $field.addClass("email-success");
+    $field.addClass("field-success");
   }
 
   function setError($field) {
     removeStatus($field);
-    $field.addClass("email-error");
+    $field.addClass("field-error");
   }
 
   function removeStatus($field) {
-    $field.removeClass("email-error email-success");
+    $field.removeClass("field-error field-success");
   }
 });

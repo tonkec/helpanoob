@@ -174,12 +174,16 @@
 
             <%= devise_error_messages! %>
 
-            <%= f.text_field :username, placeholder: "Username"%>
+            <%= f.text_field :username,
+              placeholder: "Username",
+              data: {
+                endpoint: signup_check_username_uniqueness_url
+              } %>
 
             <%= f.email_field :email,
               placeholder: "Email",
               data: {
-                endpoint: emails_check_uniqueness_url
+                endpoint: signup_check_email_uniqueness_url
               } %>
 
             <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>

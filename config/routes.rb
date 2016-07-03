@@ -53,5 +53,6 @@ Rails.application.routes.draw do
   get 'notifications', to: 'notifications#index'
   get 'notifications/unread', to: 'notifications#unread'
 
-  get "emails/check_uniqueness", to: "emails#check_uniqueness"
+  get "signup/check_email_uniqueness", to: "signup#check_email_uniqueness"
+  get "signup/check_username_uniqueness", to: "signup#check_username_uniqueness"
 end

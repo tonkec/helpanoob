@@ -1,0 +1,27 @@
+.devise-section {
+  #new_user {
+    .field-error {
+      border-top: 2px solid red;
+      border-bottom: 2px solid red;
+    }
+
+    .field-success {
+      border-top: 2px solid green;
+      border-bottom: 2px solid green;
+    }
+  }
+}
+
+.landing-form-wrapper {
+  #new_user {
+    .field-error {
+      border-top: 2px solid red;
+      border-bottom: 3px solid red;
+    }
+
+    .field-success {
+      border-top: 2px solid green;
+      border-bottom: 3px solid green;
+    }
+  }
+}

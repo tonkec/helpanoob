@@ -1,6 +1,6 @@
 <%= render partial: "layouts/head_tags" %>
 <div class="landing-wrapper">
-  
+
   <%= render partial: "layouts/landing_navigation" %>
 
   <header class="landing-header">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="header-buttons-wrapper">
-      
+
       <%= link_to "Sign up", new_user_registration_path, class: "btn-landing orange" %>
       <%= link_to "Log in", new_user_session_path, class: "btn-landing white" %>
 
@@ -32,7 +32,7 @@
             Get answers to your programming questions for free.
           </p>
 
-         
+
         </div>
 
       </div>
@@ -69,8 +69,8 @@
   </section>
 
   <section class="white-background clearfix image-section" id="way">
-  
-      
+
+
     <div class="row">
 
       <div class="container">
@@ -91,12 +91,12 @@
     </div><!-- row -->
 
 
-  </section>  
+  </section>
 
 
   <section class="white-background clearfix image-section">
-  
-      
+
+
     <div class="row">
 
       <div class="container">
@@ -124,16 +124,16 @@
           <div class="col-lg-7 text-center img-col-left visible-xs visible-sm">
             <div class="section-bg-img second"></div>
           </div><!-- s-bg-img -->
-        
+
       </div><!-- container -->
 
     </div><!-- row -->
 
-  </section>  
+  </section>
 
   <section class="white-background clearfix image-section">
-  
-      
+
+
     <div class="row">
 
       <div class="container">
@@ -154,29 +154,37 @@
     </div><!-- row -->
 
 
-  </section>   
+  </section>
 
 
   <section class="light-blue-background form-section">
-    
+
     <div class="row form-row text-center">
-      
+
       <div class="container">
-        
+
         <div class="col-lg-8 col-lg-offset-2">
 
           <div class="landing-form-wrapper">
 
             <h2>Join growing community!</h2>
-            
-            
+
+
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
             <%= devise_error_messages! %>
 
-            <%= f.text_field :username, placeholder: "Username"%>
+            <%= f.text_field :username,
+              placeholder: "Username",
+              data: {
+                endpoint: signup_check_username_uniqueness_url
+              } %>
 
-            <%= f.email_field :email, placeholder: "Email"%>
+            <%= f.email_field :email,
+              placeholder: "Email",
+              data: {
+                endpoint: signup_check_email_uniqueness_url
+              } %>
 
             <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
 
@@ -206,8 +214,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
 <script>
  $(document).ready(function(){
-
-
    $("body").css("background-color", "transparent");
 
    var imgs = $(".bg-img");
@@ -220,7 +226,6 @@
     setTimeout(f, 7000);
   })();
 
-
   $("body, html").scroll(function(){
     var offset = $("#nav-offset").offset().top;
     if (offset < 100) {
@@ -230,11 +235,5 @@
     }
 
   });
-
-  
-
  });
-
-  
-
 </script>

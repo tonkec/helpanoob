@@ -589,7 +589,8 @@ section {
 		text-transform: uppercase;
 		@include transition(.5s);
 		
-		&:hover {
+		&:hover,
+		&:focus {
 			color: #FFF;
 			background-color: darken($light-orange, 5%);  
 		}   

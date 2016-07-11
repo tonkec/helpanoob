@@ -1,8 +1,10 @@
+@import "components/colors";
+
 .devise-section {
   #new_user {
     .field-error {
-      border-top: 2px solid red;
-      border-bottom: 2px solid red;
+      border-top: 2px solid $red;
+      border-bottom: 2px solid $red;
     }
 
     .field-success {
@@ -15,8 +17,8 @@
 .landing-form-wrapper {
   #new_user {
     .field-error {
-      border-top: 2px solid red;
-      border-bottom: 3px solid red;
+      border-top: 2px solid $red;
+      border-bottom: 3px solid $red;
     }
 
     .field-success {

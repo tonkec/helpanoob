@@ -601,6 +601,13 @@ section {
 	margin-top: 0px; 
 }
 
+.homepage-error-message {
+	color: #fff;
+	padding: 20px 0; 
+	font-size: 30px;
+	font-weight: 700; 
+	background-color: $red;  
+}
 
 @media (min-width: 480px){
 	.feature-title {

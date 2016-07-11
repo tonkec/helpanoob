@@ -4,51 +4,18 @@ $(document).ready(function(){
   var $email_field = $("input[name='user[email]']");
   var $username_field = $("input[name='user[username]']");
 
-  var $inputs = $("#new_user input");
-  $("#btn-signup").prop("disabled", true);  
+  var $form = $("#new_user");
 
-  $email_field.on("keyup", function(){
-    $("#btn-signup").prop('disabled', this.value == "" ? true : false);  
-  });    
+  $("#btn-signup").click(function(e){
 
-  $username_field.on("keyup", function(){
-    $("#btn-signup").prop('disabled', this.value == "" ? true : false);  
-  });    
-
-
-  $password_field.on("keyup", function(){
-
-    if ($(this).val().length >= 8 ) {
-      $(this).addClass("field-success").removeClass("field-error");
+    if ($("#new_user input").hasClass("field-error")) {
+      e.preventDefault();
+      $(".homepage-error-message").remove();
+      $("#new_user").prepend("<h5 class='homepage-error-message'>Please fix the errors!</h5>");
     } else {
-      $(this).addClass("field-error").removeClass("field-success");
+      $(".homepage-error-message").remove();
+      $(this).unbind('submit').submit();
     }
 
   });
-
-  $password_confirmation_field.on("keyup", function(){
-    if ($password_field.val().length > 0) {
-
-      if ($(this).val() == $password_field.val() ) {
-        $(this).addClass("field-success").removeClass("field-error");
-      } else {
-        $(this).addClass("field-error").removeClass("field-success");
-      }
-
-    }
-  });
-
-  $inputs.on("keyup", function(){
-    $.each( [ $inputs ], function( i, l ){
-    
-      if ($(l).hasClass("field-error")) {
-        $("#btn-signup").attr("disabled", true);      
-      } else {
-        $("#btn-signup").attr("disabled", false);      
-      }
-
-    });
-  });
-
-
 });

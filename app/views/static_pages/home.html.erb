@@ -176,19 +176,21 @@
 
             <%= f.text_field :username,
               placeholder: "Username",
+              required: true,
               data: {
                 endpoint: signup_check_username_uniqueness_url
               } %>
 
             <%= f.email_field :email,
+              required: true,
               placeholder: "Email",
               data: {
                 endpoint: signup_check_email_uniqueness_url
               } %>
 
-            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", required: true %>
 
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", required: true %>
 
 
             <%= f.submit "Start asking questions!", class: "btn", id: "btn-signup" %>

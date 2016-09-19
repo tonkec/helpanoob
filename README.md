@@ -30,11 +30,7 @@ development: <br />
 rails s
 
 # Git workflow
-## NEVER WORK ON MASTER BRANCH AND NEVER MERGE YOUR CODE TO MASTER
-
-#### Don't fork this repo just clone it to your machine
-
-```` https://github.com/tonkec/helpanoob.git ```` 
+## Don't work on master and don't commit your code to master
 
 ### STEP 1
 * create your branch from master <br />
@@ -42,7 +38,7 @@ rails s
  ````git checkout -b name-of-your-branch````
 
 ### STEP 1
-* work on your branch
+* work on your new branch
 
 ### STEP 2
 * commit your work
@@ -52,27 +48,4 @@ rails s
  ````git push -u name-of-origin name-of-your-branch````
 
 ### STEP 4
-* create pull request to staging branch on github pages
-
-
-# Sign up process
-* emails are disabled in dev mode
-
-### STEP 1
-* sign up via form here http://localhost:3000/users/new
-
-### STEP 2
-* type ````rails c```` in terminal/command line
-
-### STEP 3
-````User.first ````
-* you should see yourself
-
-### STEP 4
-```` User.first.confirm ````
-
-### STEP 5
- ```` User.first.save ````
-
-### STEP 5
-* go to localhost:3000/users/sign_in and login with your credentials
+* create pull request to staging branch

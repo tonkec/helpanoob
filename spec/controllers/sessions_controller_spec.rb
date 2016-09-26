@@ -38,17 +38,19 @@ describe "User Authentication" do
         it "redirects to root path after sign in" do
           
           expect(page).to have_current_path(root_path, only_path: true)
+          save_and_open_page
 
-          expect(page).to have_link(href: destroy_user_session_path)
-          expect(page).to have_link('Questions', href: posts_path)
-          expect(page).to have_link('Profile', href: profile_path)
+          expect(page).to have_selector(:css, 'a[href="/profile"]')          
+          expect(page).to have_selector(:css, 'a[href="/users/sign_out"]')          
+          expect(page).to have_selector(:css, 'a[href="/posts"]')          
+          expect(page).to have_selector(:css, 'a[href="/about"]')          
           expect(page).to_not have_link('Sign in', href: new_user_session_path)
 
         end #it
 
         it "redirects logout to root" do
-          click_link "Log out"
-          expect(page).to have_content('Sign in')
+          find(:xpath, "//a[@href='/users/sign_out']").click
+          expect(page).to have_content('Sign In!')
         end
 
 

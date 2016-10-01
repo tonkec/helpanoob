@@ -11,7 +11,7 @@ FactoryGirl.define do
 
   factory :post do
     description Faker::Lorem.characters(101)
-    title Faker::Lorem.words(3)
+    sequence(:title) { |n| Faker::Lorem.paragraph(4) + "-#{n}" }
     tag_list "ruby"
     user
   end
@@ -23,7 +23,7 @@ FactoryGirl.define do
   end
 
   factory :comment do
-    content Faker::Lorem.sentence(3)
+    sequence(:content) { |n| Faker::Lorem.paragraph(4) + "-#{n}" }
     post
   end
 end

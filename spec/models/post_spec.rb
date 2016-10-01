@@ -109,14 +109,11 @@ RSpec.describe Post, type: :model do
      it "allows correct user to delete post" do
       sign_in user
       visit post_path(subject)
-      #save_and_open_page
       expect(page).to have_content(subject.user.username)
       expect(page).to have_content(subject.description)
       expect(page).to have_content(subject.title)
       expect(page).to have_css("a.delete_post")
-     
-      expect {click_link "Yes"}.to change(Post, :count).by(1)
-
+      find("a", :text => "Yes" ).click
       expect(page).to have_content("All questions")
     end
   end  

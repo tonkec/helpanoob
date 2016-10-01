@@ -11,8 +11,9 @@ describe "User pages" do
   end
 
   before(:each) do
+
     sign_in user
-    page.visit "/profile"
+    visit profile_path
 
     click_link("Delete your account")  
     #puts "RAILS_ENV is #{Rails.env}"
@@ -28,23 +29,20 @@ describe "User pages" do
     let!(:user_post_4) {FactoryGirl.create(:post, user: user)}
 
     
-    let!(:user_skill) {FactoryGirl.build(:skill, user: user)}
+    let!(:user_skill) {FactoryGirl.create(:skill, user: user)}
     #let!(:user_comment) {FactoryGirl.create(:comment, user: user)}
 
     it "has right attributes" do
+
+      user_skill.name = "ruby"
       user_skill.save
+      #puts user_skill.name
       expect(page).to have_content(user.email)
       expect(page).to have_content(user.username)
       expect(page).to have_content(user_skill.name)
     end
 
-    describe "View more on questions tab" do
-      before {find("a#qquestions").click}
-      it "has view more button" do
-        puts "view more needs to be tested on profile page"
-      end
-    end
-
+ 
   end
 
   describe "Delete user" do

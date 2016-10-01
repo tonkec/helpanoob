@@ -18,7 +18,7 @@ Rails.application.configure do
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :test
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

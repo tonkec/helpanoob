@@ -21,6 +21,7 @@ require 'rails_helper'
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'sidekiq/testing'
 
 Capybara.javascript_driver = :webkit  
 

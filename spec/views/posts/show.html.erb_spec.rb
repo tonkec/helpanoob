@@ -14,7 +14,7 @@ describe 'posts/show.html.erb' do
     user.confirm!
     fill_in "Email",    with: user.email
     fill_in "Password", with: user.password 
-    click_button "Log in"
+    click_button "Sign in!"
   end
 
   before do
@@ -32,8 +32,8 @@ describe 'posts/show.html.erb' do
       expect(page).to have_content(post.description)
     end
 
-    it "has user's email" do
-      expect(page).to have_content(post.user.email)
+    it "has user's username" do
+      expect(page).to have_content(post.user.username)
     end
   end
 
@@ -47,28 +47,30 @@ describe 'posts/show.html.erb' do
       expect(page).to have_content(other_comment.content)
     end
 
-    it "has user's email" do
-      expect(page).to have_content(comment.user.email)
+    it "has user's username" do
+      expect(page).to have_content(comment.user.username)
     end
 
-    it "has other_user's email" do
-      expect(page).to have_content(other_comment.user.email)
+    it "has other_user's username" do
+      expect(page).to have_content(other_comment.user.username)
     end
   end
 
   describe "allows only right user to edit comment" do
     
     it "has link to edit" do
-      expect(page).to have_link("Edit", edit_post_comment_path(post, comment))
+      expect(page).to have_css("span.edit-icon")
+      expect(page).to have_link(nil, href: edit_post_comment_path(post, comment))
     end
   
   end
 
   describe "allows only right user to delete comment" do
-    let(:delete) { page.find(:link, "Delete", [comment.post, comment])}
+    let(:delete) { page.find(:link, nil, [comment.post, comment])}
 
     it "has link to delete" do
-      expect(page).to have_link("Delete", [comment.post, comment])
+      expect(page).to have_css("span.delete-icon")
+      expect(page).to have_link(nil, href: [comment.post, comment])
     end
 
     it "deletes the comment" do

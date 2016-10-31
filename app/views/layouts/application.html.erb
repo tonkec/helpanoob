@@ -11,6 +11,8 @@
   <%= render partial: "layouts/sidebar" %>
   <%= render partial: "layouts/navigation" %>
   <%#= render partial: "notifications/notifications" %>
+  <% else %>
+    <%= render partial: "layouts/logo" %>
   <% end %>
 
   
@@ -24,6 +26,5 @@
   </div>
 
 
-  <div id="primary-content" style="background-color: red; position: fixed; top: 0; height: 10px; left: 0; right: 0; z-index: 9999;"></div>
 </body>
 </html>

@@ -52,10 +52,10 @@ LANDING
 	height: 100vh; 
 	position: relative; 
 	overflow: hidden; 
-	margin-bottom: 300px; 
 	background-color: #FFF; 
 	z-index: 1; 
 }
+
 
 .landing-heading {
 	color: white;
@@ -203,19 +203,24 @@ section {
 	}
 }
 
-.landing-header {
-	margin-bottom: 350px;
-    position: relative;
-    z-index: 1;
-}
+
 
 .landing-footer {
-	position: fixed;
+	position: relative;
     bottom: 0;
     left: 0;
     right: 0;
     height: 350px;
-    margin-right: 15px; 
 }
 
 
+@media (min-width: 768px) {
+	.landing-footer {
+		position: fixed;
+		margin-right: 15px;  
+	}
+
+	.landing-header {
+		margin-bottom: 350px; 
+	}
+}

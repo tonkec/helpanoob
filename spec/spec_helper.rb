@@ -24,6 +24,7 @@ require 'capybara/rspec'
 require 'sidekiq/testing'
 
 Capybara.javascript_driver = :webkit  
+Capybara.default_max_wait_time = 30
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

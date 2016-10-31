@@ -1,5 +1,14 @@
 <% if @posts.any? %>
 <h1 class="text-left">All questions</h1>
+
+<div class="search-content">
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :description_or_title_or_comments_content_cont, class: "form-control nav-search", placeholder: "Search questions" %>
+  <i class="icon-elegant-font-180-8914 nav-search-icon"></i>
+  <% end %>
+</div><!-- content -->
+
+
 <div class="posts-orders">
     <%= link_to "Unanswered", unanswered_path %>
     <%= sort_link(@q, :comments_count, "Number of answers", hide_indicator: true)%>

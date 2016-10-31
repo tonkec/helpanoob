@@ -31,6 +31,26 @@
   position: absolute;
   right: 0px;
   top: 0;  
+  bottom: 0;
+  background-color: orange; 
+}
+
+.ask {
+  background-color: $light-orange;
+  display: block; 
+  color: #fff;
+  height: 100%;
+  width: 100px;  
+  line-height: 60px; 
+  text-align: center; 
+  text-transform: uppercase;  
+  font-size: 1em; 
+  
+  &:hover,
+  &:focus {
+    text-decoration: none; 
+    color: #fff;
+  }
 }
 
 .icon-plus {
@@ -45,12 +65,6 @@
   &:hover {
     text-decoration: none; 
   }  
-}
-
-.plus-anchor {
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 .icon-nav {
@@ -75,61 +89,3 @@
   margin-top: 20px; 
 }
 
-.search-content {
-  width: 90%;
-  position: absolute;
-  right: 20px;
-  bottom: -50px; 
-  background-color: transparent; 
-  
-  @media (min-width: 480px) {
-    right: 80px;
-  top: 8px;
-  width: auto; 
-  }
-  
-  input {
-    width: 100%; 
-    height: 45px; 
-    background-color: #000;
-    border: 2px solid rgba(225,225,225,.7); 
-    -webkit-border-radius: 10px; 
-    border-radius: 10px; 
-    color: $light-orange;
-    
-    @media (min-width: 480px) {
-      background-color: transparent; 
-      width: 45px; 
-    }
-    @include transition(1s);
-    &:focus {
-      color: $light-orange;
-      border: 2px solid $light-orange; 
-    }
-  }
-}
-
-.nav-search-icon {
-  position: absolute;
-    right: 14px;
-    color: #fff;
-    top: 14px;
-    font-size: 1em; 
-    z-index: 1;
-    
-    @media (min-width: 480px) {
-      z-index: 1;
-    } 
-}
-
-.active-search {
- 
- @include transition(1s); 
- border-color: $light-orange;
- background-color: #000; 
- color: $light-orange;
- 
- @media (min-width: 480px) {
-    width: 200px !important;
- }
-}

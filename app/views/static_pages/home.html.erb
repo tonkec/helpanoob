@@ -1,5 +1,5 @@
 <%= render partial: "layouts/head_tags" %>
-  <div class="header-logo"></div><!-- logo -->
+<%= render partial: "layouts/logo" %>
 
   <header class="landing-header">
     <%= render partial: "layouts/flash" %>
@@ -38,7 +38,7 @@
       </div>
 
       <div class="cta-col col-xs-12 col-sm-6 p-xs-0 light-blue-background">
-        <%= link_to "Log in", new_user_session_path %>
+        <%= link_to "Sign in", new_user_session_path %>
       </div> 
 
     </div>

@@ -1,19 +1,11 @@
-	@import "main";
+@import "main";
 @import "text-hover-effects/sass/effects";
 
 /*========================
 SIGNUP PAGE
 =========================*/
-.row-slideshow {
-	position: absolute;
-	z-index: 999;
-	width: 100%;
-	top: 120px;
-}
-.bg-wrapper {
-	@include center-horizontally;
-	font-family: 'Lato', sans-serif;
-	
+.row.row-devise {
+	margin-top: 250px; 
 }
 
 .signup-heading {
@@ -40,19 +32,16 @@ SIGNUP PAGE
 }
 
 .btn-signup {
-	background-color: #fff;
-	color: #000;
+	background-color: $light-orange;
+	color: #fff;
 	width: 100%;
 	height: 50px;
 	display: block;
-	margin-top: 30px;  
 	border: none;
-	border-radius: 5px;
 	@include transition(.5s);
- 
 	
 	&:hover {
-		background-color: $orange;
+		background-color: $light-orange;
 		color: #fff;
 	}
 }
@@ -134,13 +123,34 @@ SIGNUP PAGE
 }
 
 .devise-links {
-	margin-top: 30px; 
-	
-	.btn-orange-link {
-		margin-right: 10px; 
+
+	.btn-devise-link {
+		display: block;
+		border: 1px solid rgba(225,225,225, .5);  
+		float: left;
+		width: 50%; 
+		height: 50px; 
+		background-color: #000; 
+		color: #fff;
+		line-height: 50px;
+		font-size: 12px;
+		text-align: center; 
+		text-transform: uppercase; 
+		
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}  
 	}
 }
 
 .remember-me {
 	margin-top: 10px; 
+}
+
+.button-layout {
+	background-color: orange; 
+	.btn-devise-link:last-child {
+		width: 100%; 
+	}
 }

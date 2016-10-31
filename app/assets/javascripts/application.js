@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require bootsy
@@ -32,5 +33,11 @@ $(document).ready(function() {
 });
 
 
+document.addEventListener('page:change', function() {
+        document.getElementById('primary-content').className += 'animated fadeIn';
+});
+document.addEventListener('page:fetch', function() {
+        document.getElementById('primary-content').className += 'animated fadeOut';
+});
 
-/* require turbolinks */
+

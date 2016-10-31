@@ -6,12 +6,14 @@
   <meta name="description" content="Find all answers to your coding problems">
   <%= render partial: "layouts/head_tags" %>
 </head>
-<body>
+<body class="<%= yield (:body_class) %>">
   <% if user_signed_in? %>
   <%= render partial: "layouts/sidebar" %>
   <%= render partial: "layouts/navigation" %>
   <%#= render partial: "notifications/notifications" %>
   <% end %>
+
+  
   <div class="row main-row">
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <%= render partial: "layouts/flash" %>
@@ -21,5 +23,7 @@
     </div>
   </div>
 
+
+  <div id="primary-content" style="background-color: red; position: fixed; top: 0; height: 10px; left: 0; right: 0; z-index: 9999;"></div>
 </body>
 </html>

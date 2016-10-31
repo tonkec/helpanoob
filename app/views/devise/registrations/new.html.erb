@@ -1,13 +1,7 @@
-<div class="bg-wrap">
+<% content_for :body_class, "light-blue-background signup" %>
+<%= render partial: "layouts/logo" %>
   
-    <div class="bg-img slide-active"></div>
-    <div class="bg-img"></div>
-    <div class="bg-img"></div>
-    <div class="bg-img"></div>
-  
-
-  <div class="row row-slideshow" >
-
+  <div class="row row-devise">
 
     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-xl-6 col-xl-offset-3">
       <h1 class="white-text signup-heading">Sign Up!</h1>
@@ -23,62 +17,14 @@
 
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password",  class: "orange-input-new" %>
 
-      <div class="input-group">
-        <span class="input-group-btn">
-          <span class="btn btn-orange btn-file">
-            Browse&hellip;<%= f.file_field :avatar, class: "input-file btn-primary", type: "file", accept: 'image/jpeg,image/gif,image/png' %>
-          </span>
-        </span>
-        <input type="text" class="form-control" placeholder="Choose your avatar" readonly>
-      </div>
 
-        <%= f.submit "Let's do it!", class: "btn-signup" %>
+      <%= f.submit "Let's do it!", class: "btn-signup" %>
 
-        <%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
 
       <% end %>
 
 
     </div>
 
-  </div><!-- row-slideshow -->
-
-</div><!-- bq-wrap -->
-
-
-<script>
-
-  
-  $(document).on('change', '.btn-file :file', function() {
-    var input = $(this),
-    numFiles = input.get(0).files ? input.get(0).files.length : 1,
-    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.trigger('fileselect', [numFiles, label]);
-  });
-
-  $(document).ready( function() {
-    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-
-      var input = $(this).parents('.input-group').find(':text'),
-      log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-      if( input.length ) {
-        input.val(log);
-      } else {
-        if( log ) alert(log);
-      }
-
-    });
-  });
-
-  var imgs = $(".bg-img");
-  i = -1;
-  (function f(){
-    i = (i + 1) % imgs.length;
-
-    $(imgs).not(imgs[i]).removeClass("slide-active");
-    $(imgs[ i ]).addClass("slide-active");
-    setTimeout(f, 7000);
-  })();
-
-</script>
+  </div><!-- row -->

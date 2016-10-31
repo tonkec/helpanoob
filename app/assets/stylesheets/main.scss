@@ -33,11 +33,6 @@ a:focus {
 	margin: 0; 
 }
 
-.main-row {
-	margin-top: 100px; 
-	padding-bottom: 50px; 
-}
-
 .float {
 	float: left;
 	width: 100%; 
@@ -52,7 +47,7 @@ textarea {
 }
 
 .btn-full {
-	width: 100%; 
+	width: 100% !important; 
 }
 
 
@@ -257,7 +252,7 @@ TEXT COLORS
 	padding: 0 10px;  
 	line-height: 1;
 	&:focus {
-		color: $orange;
+		color: #000;
 		border-bottom: 1px solid darken($orange, 10%); 
 		outline: none; 
 	}  
@@ -299,8 +294,8 @@ TEXT COLORS
 
 .orange-input-new {
 	width: 100%;
-	background-color: rgba(255,255,255,.7);
-	color: $orange;
+	background-color: #fff;
+	color: #000;
 	padding: 20px;
 	margin-bottom: 0;
 	border: none; 

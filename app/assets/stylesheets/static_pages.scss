@@ -217,10 +217,15 @@ section {
 @media (min-width: 768px) {
 	.landing-footer {
 		position: fixed;
-		margin-right: 15px;  
 	}
 
 	.landing-header {
 		margin-bottom: 350px; 
+	}
+}
+
+@media (min-width: 1200px) {
+	.landing-footer {
+		margin-right: 15px;  
 	}
 }

@@ -1,5 +1,4 @@
 <% content_for :body_class, "light-blue-background button-layout" %>
-<%= render partial: "layouts/logo" %>
 
 <div class="row row-devise">
 
@@ -9,7 +8,7 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= devise_error_messages! %>
 
-      <%= f.email_field :email, autofocus: true, class: "orange-input-new" %>
+      <%= f.email_field :email, autofocus: true, class: "orange-input-new", placeholder: "Your email" %>
 
       <%= f.submit "Send me reset password instructions", class: "btn-signup" %>
 
